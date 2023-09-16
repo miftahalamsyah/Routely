@@ -7,7 +7,7 @@
             </a>
             <div class="flex md:order-2">
                 <a href="/login">
-                    <button type="button" class="text-gray-900 font-bold border-gray-350 border hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0">Login</button>
+                    <button type="button" class="text-gray-900 font-bold border-gray-350 border hover:bg-gray-100 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0">Login</button>
                 </a>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
