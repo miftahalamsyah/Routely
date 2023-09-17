@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Athletics-Bold';
+    src: local('Athletics-Bold'), url('/resources/fonts/Athletics-Bold.woff2') format('woff2');
+}

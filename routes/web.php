@@ -15,17 +15,26 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function()
 {
-   return View::make('pages.home');
+   return View::make('pages.home', 
+       ['title'=>'Home']);
 });
 
 Route::get('/login', function () {
-    return View::make('pages.login');
+    return View::make('pages.login', 
+        ['title'=>'Login']);
 });
 
 Route::get('/daftar', function () {
-    return View::make('pages.daftar');
+    return View::make('pages.daftar',
+        ['title'=>'Daftar']);
+});
+
+Route::get('/materi', function () {
+    return View::make('pages.materi',
+        ['title'=>'Materi']);
 });
 
 Route::get('/bantuan', function () {
-    return View::make('pages.bantuan');
+    return View::make('pages.bantuan',
+        ['title'=>'Bantuan']);
 });

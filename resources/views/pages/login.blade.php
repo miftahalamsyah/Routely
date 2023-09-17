@@ -1,11 +1,10 @@
-<title>Login | Routely</title>
 @extends('layouts.app')
 
 @section('content')
 <section class="mt-20 max-w-6xl justify-center mx-auto px-5">
     <!-- login dengan auth provider -->
     <div class="pt-10 pb-5">
-        <h1 class="text-2xl font-semibold">Auth Providers</h1>
+        <h1 class="text-3xl text-gray-900 font-semibold">Auth Providers</h1>
         <p class="pt-2">Login dengan auth provider. Jika anda belum memiliki akun maka akan dibuatkan untuk anda.</p>
     </div>
     <div class="flex flex-row justify-center items-center grid-cols-1 font-semibold">
@@ -28,17 +27,17 @@
     <div class="md:flex md:flex-row">
         <!-- login dengan email -->
         <div class="py-5 flex-col flex md:w-1/2">
-            <h2 class="text-2xl font-semibold mb-5">Login dengan email</h1>
+            <h1 class="text-3xl text-gray-900 font-semibold mb-5">Login dengan email</h1>
             <input type="email" placeholder="Alamat email" id="input-email" name="email" class="mt-5 p-5 h-14 border-4 border-stone-900 rounded-xl " value="">
             <input type="password" placeholder="Kata sandi" id="input-password" name="password" class="my-5 p-5 h-14 border-4 border-stone-900 rounded-xl " value="">
             <div class="form-actions">
-                <button class="mb-5 px-5 h-14 font-semibold border-2 bg-violet-400 border-violet-300 rounded-3xl hover:bg-violet-300">Login</button>
+                <button class="mb-5 px-6 h-14 font-semibold border-2 bg-violet-400 border-violet-300 rounded-3xl hover:bg-violet-300">Login</button>
             </div>
         </div>
 
         <!-- register -->
         <div class="py-5 flex flex-col md:w-1/2 md:ml-20">
-            <h2 class="mb-5 text-2xl font-semibold">Pengguna baru?</h1>
+            <h1 class="mb-5 text-3xl text-gray-900 font-semibold">Pengguna baru?</h1>
             <p class="pt-5">Selamat datang! Daftar dengan cepat dan mudah.</p>
             <a href="/daftar" class="w-5">
                 <button class="my-5 py-2 px-4 font-semibold border-2 border-gray-200 rounded-lg hover:bg-gray-100">Daftar</button>
