@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MateriController;
+use App\Http\Controllers\StudentMateriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function()
 {
-   return View::make('pages.home', 
+   return View::make('pages.home',
        ['title'=>'Home']);
 });
 
 Route::get('/login', function () {
-    return View::make('pages.login', 
+    return View::make('pages.login',
         ['title'=>'Login']);
 });
 
@@ -29,7 +31,7 @@ Route::get('/daftar', function () {
         ['title'=>'Daftar']);
 });
 
-Route::get('/materi', function () {
+Route::get('/materi', [StudentMateriController::class, 'index'], function () {
     return View::make('pages.materi',
         ['title'=>'Materi']);
 });
@@ -38,3 +40,13 @@ Route::get('/bantuan', function () {
     return View::make('pages.bantuan',
         ['title'=>'Bantuan']);
 });
+
+
+//admin dashboard
+
+Route::get('/dashboard', function(){
+    return view('dashboard.index',
+    ['title'=>'Admin Dashboard']);
+});
+
+Route::resource('/dashboard/materis', \App\Http\Controllers\MateriController::class);

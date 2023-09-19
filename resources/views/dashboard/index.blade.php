@@ -8,33 +8,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>{{ $title }} | Routely</title>
 </head>
-<body>  
+
+<body class="bg-stone-800">
     <header>
-        @include('includes.header')
+        @include('dashboard.header')
     </header>
-    
-    <main class="row z-0 w-full">
-        
-        <div class="container mx-auto items-center">
-            @yield('content')
-        </div>
-        
-    </div>
-    </main>
 
     <footer>
-        @include('includes.footer')
+        @include('dashboard.footer')
     </footer>
 </body>
-</html>
-<style>
-h1 {
-    font-family: 'Athletics-Bold', sans-serif;
-}
-body {
-    font-family: 'Inter', sans-serif;
-}
-</style>
 
-<script>
-</script>
+</html>
+
+<style>
+    h1 {
+        font-family: 'Athletics-Bold', sans-serif;
+    }
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+</style>

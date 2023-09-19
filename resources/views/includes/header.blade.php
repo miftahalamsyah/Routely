@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0">
+                <ul class="bg-transparent flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
                     <li>
                         <a class="nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0 {{ ($title == "Home") ? 'active text-gray-900' : 'text-gray-900' }}" href="/">Home @if ($title == "Home")<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-400"></div>@endif</a>
                     </li>

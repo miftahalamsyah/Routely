@@ -10,10 +10,23 @@
 
     <!-- card -->
     <div class="grid md:grid-cols-3 mx-auto flex justify-center">
-        <a href="#" class="gradient-border m-5 block max-w-sm p-6 bg-white border-4 rounded-full transform hover:scale-105 transition-transform">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Noteworthy technology acquisitions 2021</h5>
-            <p class="font-normal text-gray-700">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-        </a>
+    @forelse ($materis as $materi)
+        
+            <a href="#" class="gradient-border m-5 block max-w-sm p-6 bg-white border-4 transform hover:scale-105 transition-transform">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{$materi->title}}</h5>
+                <div class="text-container">
+                    <p class="font-normal text-gray-700">{{ $materi->description }}</p>
+                </div>
+            </a>
+    @empty
+        <tr>
+            <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
+                <div class="bg-gray-100 text-gray-600 p-2 rounded-xl">
+                    Data materi belum tersedia.
+                </div>
+            </td>
+        </tr>
+    @endforelse
     </div>
 
 
@@ -30,4 +43,9 @@
     overflow: hidden;
 }
 
+.text-container {
+    max-height: 10em;
+    overflow: hidden;
+    position: relative;
+}
 </style>
