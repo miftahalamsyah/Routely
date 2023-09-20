@@ -31,16 +31,30 @@
             <input type="email" placeholder="Alamat email" id="input-email" name="email" class="mt-5 p-5 h-14 border-4 border-stone-900 rounded-xl " value="">
             <input type="password" placeholder="Kata sandi" id="input-password" name="password" class="my-5 p-5 h-14 border-4 border-stone-900 rounded-xl " value="">
             <div class="form-actions">
-                <button class="mb-5 px-6 h-14 font-semibold border-2 bg-violet-400 border-violet-300 rounded-3xl hover:bg-violet-300">Login</button>
+                <button class="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-semibold text-stone-900 transition duration-300 ease-out border-4 border-violet-300 rounded-3xl group">
+                    <span class="absolute inset-0 flex items-center justify-center w-full h-full text-stone-900 duration-300 -translate-x-full bg-violet-300 group-hover:translate-x-0 ease">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </span>
+                    <span class="absolute flex items-center justify-center w-full h-full text-stone-900 transition-all duration-300 transform group-hover:translate-x-full ease">Login</span>
+                    <span class="relative invisible">Login</span>
+                </button>
             </div>
         </div>
 
         <!-- register -->
         <div class="py-5 flex flex-col md:w-1/2 md:ml-20">
             <h1 class="mb-5 text-3xl text-gray-900 font-semibold">Pengguna baru?</h1>
-            <p class="pt-5">Selamat datang! Daftar dengan cepat dan mudah.</p>
+            <p class="py-5">Selamat datang! Daftar dengan cepat dan mudah.</p>
             <a href="/daftar" class="w-5">
-                <button class="my-5 py-2 px-4 font-semibold border-2 border-gray-200 rounded-lg hover:bg-gray-100">Daftar</button>
+                <button class="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-semibold text-stone-900 transition duration-300 ease-out border border-gray-150 rounded-3xl group">
+                    <span class="absolute inset-0 flex items-center justify-center w-full h-full text-stone-900 duration-300 -translate-x-full bg-gray-100 group-hover:translate-x-0 ease">
+                    <svg fill="#000000" width="20px" height="20px" viewBox="0 0 16 16" id="register-16px" xmlns="http://www.w3.org/2000/svg">
+                        <path id="Path_184" data-name="Path 184" d="M57.5,41a.5.5,0,0,0-.5.5V43H47V31h2v.5a.5.5,0,0,0,.5.5h5a.5.5,0,0,0,.5-.5V31h2v.5a.5.5,0,0,0,1,0v-1a.5.5,0,0,0-.5-.5H55v-.5A1.5,1.5,0,0,0,53.5,28h-3A1.5,1.5,0,0,0,49,29.5V30H46.5a.5.5,0,0,0-.5.5v13a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-2A.5.5,0,0,0,57.5,41ZM50,29.5a.5.5,0,0,1,.5-.5h3a.5.5,0,0,1,.5.5V31H50Zm11.854,4.646-2-2a.5.5,0,0,0-.708,0l-6,6A.5.5,0,0,0,53,38.5v2a.5.5,0,0,0,.5.5h2a.5.5,0,0,0,.354-.146l6-6A.5.5,0,0,0,61.854,34.146ZM54,40V38.707l5.5-5.5L60.793,34.5l-5.5,5.5Zm-2,.5a.5.5,0,0,1-.5.5h-2a.5.5,0,0,1,0-1h2A.5.5,0,0,1,52,40.5Zm0-3a.5.5,0,0,1-.5.5h-2a.5.5,0,0,1,0-1h2A.5.5,0,0,1,52,37.5ZM54.5,35h-5a.5.5,0,0,1,0-1h5a.5.5,0,0,1,0,1Z" transform="translate(-46 -28)"/>
+                    </svg>
+                    </span>
+                    <span class="absolute flex items-center justify-center w-full h-full text-stone-900 transition-all duration-300 transform group-hover:translate-x-full ease">Daftar</span>
+                    <span class="relative invisible">Daftar</span>
+                </button>
             </a>
         </div>
     </div>

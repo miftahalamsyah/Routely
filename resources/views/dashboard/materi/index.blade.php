@@ -15,12 +15,12 @@
     </header>
 
     <main class="mt-40 row z-0 max-w-6xl align-center mx-auto">
+        <div class="mb-16 text-center">
+            <h1 class="mb-6 text-5xl font-extrabold leading-none tracking-normal text-gray-50 md:tracking-tight">Daftar Materi</h1>
+        </div>
         <div class="bg-gray-50 rounded-xl mx-3">
             <div class="row">
                 <div class="col-md-12 p-5">
-                    <div>
-                        <h1 class="font-semibold text-4xl text-center my-8">Daftar Materi</h3>
-                    </div>
                     <div class="border-0 shadow-sm">
                         <div class="">
                             <button class="bg-violet-400 my-2 p-2 rounded-xl hover:bg-violet-300"><a href="{{ route('materis.create') }}" class="text-md font-semibold p-2">Tambah Materi</a></button>
@@ -30,6 +30,9 @@
                                         <tr>
                                             <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Title
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Slug
                                             </th>
                                             <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Description
@@ -42,6 +45,9 @@
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     {{ Illuminate\Support\Str::words($materi->title, 5, '...') }}
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    {{ $materi->slug }}
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     {{ Illuminate\Support\Str::words($materi->description, 5, '...') }}
@@ -68,7 +74,7 @@
                                         @empty
                                             <tr>
                                                 <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
-                                                    <div class="bg-gray-100 text-gray-600 p-2 rounded-xl">
+                                                    <div class="mx-auto bg-gray-100 text-gray-600 p-2 rounded-xl">
                                                         Data materi belum tersedia.
                                                     </div>
                                                 </td>

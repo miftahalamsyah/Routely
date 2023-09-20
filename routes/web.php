@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\StudentMateriController;
 
@@ -31,10 +32,9 @@ Route::get('/daftar', function () {
         ['title'=>'Daftar']);
 });
 
-Route::get('/materi', [StudentMateriController::class, 'index'], function () {
-    return View::make('pages.materi',
-        ['title'=>'Materi']);
-});
+Route::get('/materi', [StudentMateriController::class, 'index'])->name('materi.index');
+
+Route::get('/materi/{materi:slug}', [StudentMateriController::class, 'show'])->name('materi.show');
 
 Route::get('/bantuan', function () {
     return View::make('pages.bantuan',
@@ -44,7 +44,7 @@ Route::get('/bantuan', function () {
 
 //admin dashboard
 
-Route::get('/dashboard', function(){
+Route::get('/dashboard', [DashboardController::class, 'index'], function(){
     return view('dashboard.index',
     ['title'=>'Admin Dashboard']);
 });

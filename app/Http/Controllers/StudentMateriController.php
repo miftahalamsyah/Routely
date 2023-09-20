@@ -33,8 +33,10 @@ class StudentMateriController extends Controller
      */
     public function show(Materi $materi)
     {  
-        $materi = Materi::findOrFail($id);
-
-        return view('dashboard.materi.show', compact('materi'));
+        return view('pages.materi_slug',
+        [
+            "title"=> $materi->title,
+            "description" => $materi->description
+        ]);
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str; 
 
 class MateriController extends Controller
 {
@@ -44,9 +45,12 @@ class MateriController extends Controller
             'description'   => 'required|min:10'
         ]);
 
+        $slug = Str::slug($request->title);
+
         Materi::create([
-            'title'     => $request->title,
-            'description'   => $request->description,
+            'title' => $request->title,
+            'slug' => $slug,
+            'description' => $request->description,
         ]);
 
         return redirect()->route('materis.index')->with(['success' => 'Data Berhasil Disimpan!']);
@@ -94,10 +98,12 @@ class MateriController extends Controller
         ]);
 
         $materi = Materi::findOrFail($id);
+        $slug = Str::slug($request->title);
         
         $materi->update([
-            'title'     => $request->title,
-            'description'   => $request->description
+            'title' => $request->title,
+            'slug' => $slug,
+            'description' => $request->description
         ]);
 
         return redirect()->route('materis.index')->with(['success' => 'Data Berhasil Diubah!']);

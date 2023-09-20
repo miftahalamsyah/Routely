@@ -3,7 +3,7 @@
 @section('content')
 <section class="mt-20 max-w-6xl justify-center mx-auto">
     <!-- Jumbotron -->
-    <div class="py-12 pt-20 px-4 mx-auto text-center z-20">
+    <div class="py-12 pt-20 px-4 mx-auto text-center z-20 animate-up">
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">Materi Ajar</h1>
         <p class="mb-8 text-xl">Koleksi Materi</p>
     </div>
@@ -11,11 +11,16 @@
     <!-- card -->
     <div class="grid md:grid-cols-3 mx-auto flex justify-center">
     @forelse ($materis as $materi)
-        
-            <a href="#" class="gradient-border m-5 block max-w-sm p-6 bg-white border-4 transform hover:scale-105 transition-transform">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{$materi->title}}</h5>
-                <div class="text-container">
-                    <p class="font-normal text-gray-700">{{ $materi->description }}</p>
+            <a href="/materi/{{ $materi->slug }}" class="m-5 max-w-sm block flex flex-col items-center justify-center sm:flex-row">
+                <div class="flex flex-col overflow-hidden transition duration-250 ease-in-out transform bg-gray-50 rounded-xl border border-gray-100 hover:scale-105 hover:border-violet-400 hover:border-2">
+                    <img class="h-56 rounded-t-lg" alt="article image"
+                        src="https://images.unsplash.com/photo-1472437774355-71ab6752b434?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=967&amp;q=80">
+                    <div class="px-6 pt-4 text-xl font-bold">
+                        <span>{{ $materi->title }}</span>
+                    </div>
+                    <div class="px-6 py-4">
+                        <div class="overflow-hidden h-24 ...">{{ $materi->description }}</div>
+                    </div>
                 </div>
             </a>
     @empty
@@ -32,20 +37,3 @@
 
 </section>
 @endsection
-
-<style>
-
-.gradient-border {
-    border: 4px solid transparent;
-    border-image: linear-gradient(45deg, #EE82EE, #34d399 );
-    border-image-slice: 1;
-    position: relative;
-    overflow: hidden;
-}
-
-.text-container {
-    max-height: 10em;
-    overflow: hidden;
-    position: relative;
-}
-</style>

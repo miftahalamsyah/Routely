@@ -28,13 +28,40 @@
 </body>
 </html>
 <style>
+:root {
+    /* bg-gray-50 */
+    background-color: #F9FAFB;; 
+}
+
 h1 {
     font-family: 'Athletics-Bold', sans-serif;
 }
+
 body {
     font-family: 'Inter', sans-serif;
 }
+
+.animate-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s, transform 2s;
+}
+
+.animate-up.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 </style>
 
 <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const elements = document.querySelectorAll('.animate-up');
+        
+        elements.forEach((element) => {
+            element.classList.add('animate');
+        });
+    });
 </script>
+

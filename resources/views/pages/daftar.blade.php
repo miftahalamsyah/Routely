@@ -27,12 +27,20 @@
     <div class="md:flex md:flex-row">
         <!-- login dengan email -->
         <div class="py-5 flex-col flex md:w-1/2">
-            <h2 class="text-3xl text-gray-900 font-semibold pb-5">Daftar dengan email</h1>
+            <h1 class="text-3xl text-gray-900 font-semibold pb-5">Daftar dengan email</h1>
             <p class="pb-5">Gunakan alamat email untuk mendaftar.</p>
             <input type="email" placeholder="Alamat email" id="input-email" name="email" class="mt-5 p-5 h-14 border-4 border-stone-900 rounded-xl " value="">
             <input type="password" placeholder="Kata sandi" id="input-password" name="password" class="my-5 p-5 h-14 border-4 border-stone-900 rounded-xl " value="">
             <div class="form-actions">
-                <button class="mb-5 px-6 h-14 font-semibold border-2 bg-violet-400 border-violet-300 rounded-3xl hover:bg-violet-300">Daftar</button>
+            <button class="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-semibold text-stone-900 transition duration-300 ease-out border-4 border-violet-300 rounded-3xl shadow-md group">
+                <span class="absolute inset-0 flex items-center justify-center w-full h-full text-stone-900 duration-300 -translate-x-full bg-violet-300 group-hover:translate-x-0 ease">
+                <svg fill="#000000" width="20px" height="20px" viewBox="0 0 16 16" id="register-16px" xmlns="http://www.w3.org/2000/svg">
+                    <path id="Path_184" data-name="Path 184" d="M57.5,41a.5.5,0,0,0-.5.5V43H47V31h2v.5a.5.5,0,0,0,.5.5h5a.5.5,0,0,0,.5-.5V31h2v.5a.5.5,0,0,0,1,0v-1a.5.5,0,0,0-.5-.5H55v-.5A1.5,1.5,0,0,0,53.5,28h-3A1.5,1.5,0,0,0,49,29.5V30H46.5a.5.5,0,0,0-.5.5v13a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-2A.5.5,0,0,0,57.5,41ZM50,29.5a.5.5,0,0,1,.5-.5h3a.5.5,0,0,1,.5.5V31H50Zm11.854,4.646-2-2a.5.5,0,0,0-.708,0l-6,6A.5.5,0,0,0,53,38.5v2a.5.5,0,0,0,.5.5h2a.5.5,0,0,0,.354-.146l6-6A.5.5,0,0,0,61.854,34.146ZM54,40V38.707l5.5-5.5L60.793,34.5l-5.5,5.5Zm-2,.5a.5.5,0,0,1-.5.5h-2a.5.5,0,0,1,0-1h2A.5.5,0,0,1,52,40.5Zm0-3a.5.5,0,0,1-.5.5h-2a.5.5,0,0,1,0-1h2A.5.5,0,0,1,52,37.5ZM54.5,35h-5a.5.5,0,0,1,0-1h5a.5.5,0,0,1,0,1Z" transform="translate(-46 -28)"/>
+                </svg>
+                </span>
+                <span class="absolute flex items-center justify-center w-full h-full text-stone-900 transition-all duration-300 transform group-hover:translate-x-full ease">Daftar</span>
+                <span class="relative invisible">Daftar</span>
+            </button>
             </div>
         </div>
     </div>
