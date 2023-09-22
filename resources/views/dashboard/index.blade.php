@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="app.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>{{ $title }} | Routely</title>
 </head>
@@ -17,17 +18,17 @@
     <main class="mt-40 max-w-6xl mx-auto items-center animate-up">
         <div class="mb-16 text-center">
             <h1 class="mb-6 text-5xl font-extrabold leading-none max-w-5xl mx-auto tracking-normal text-gray-50 sm:text-6xl md:text-6xl lg:text-7xl md:tracking-tight"><span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline">Routely</span>&nbsp;Admin Dashboard</h1>
-        </div>
+        </div>  
 
         <!-- quick dashboard monitor card for number of materis and users-->
         <div class="mx-2 block flex flex-col sm:flex-row ">
             <div class="w-full h-24 bg-stone-700 text-gray-50 p-4 max-w-sm block rounded-xl border border-stone-600 border-2 mr-2 mb-2">
                 Siswa
-                <p class="font-bold text-3xl py-2">{{ $userCount }}</p>
+                <p class="font-bold text-3xl py-2" id="userCount">Loading...</p>
             </div>
             <div class="w-full h-24 bg-stone-700 text-gray-50 p-4 max-w-sm block rounded-xl border border-stone-600 border-2 mr-2 mb-2">
                 Materi
-                <p class="font-bold text-3xl py-2">{{ $materiCount }}</p>
+                <p class="font-bold text-3xl py-2" id="materiCount">Loading...</p>
             </div>
             <div class="w-full h-24 bg-stone-700 text-gray-50 p-4 max-w-sm block rounded-xl border border-stone-600 border-2 mr-2 mb-2">
                 Ditugaskan
@@ -173,5 +174,38 @@
         elements.forEach((element) => {
             element.classList.add('animate');
         });
+
+        function updateElementContent(elementId, data) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.textContent = data;
+            }
+        }
+
+        // Function to fetch and update data
+        function fetchData() {
+            $.ajax({
+                url: '/fetch-data', // Replace with the actual route that fetches the data
+                method: 'GET',
+                dataType: 'json',
+                cache: false,
+                success: function(data) {
+                    // Update the content with the fetched data
+                    updateElementContent('userCount', data.userCount);
+                    updateElementContent('materiCount', data.materiCount);
+                    // Add similar code for other data as needed
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        }
+
+        // Call the fetchData function every 5 seconds (adjust the interval as needed)
+        setInterval(fetchData, 5000); // 5000 milliseconds = 5 seconds
+
+        // Initial data load
+        fetchData();
     });
+
 </script>

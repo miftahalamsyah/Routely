@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\StudentMateriController;
-
+use App\Http\Controllers\DataController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 
@@ -54,10 +54,10 @@ Route::get('/bantuan', function () {
 
 
 //admin dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'], function(){
-    return view('dashboard.index',
-    ['title'=>'Admin Dashboard']);
-});
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
 
 Route::resource('/dashboard/materis', \App\Http\Controllers\MateriController::class);
 Route::resource('/dashboard/siswa', \App\Http\Controllers\UserController::class);
+
+Route::get('/fetch-data', [DataController::class, 'index']);

@@ -6,6 +6,26 @@
                 <span class="self-center px-2 text-lg font-extrabold whitespace-nowrap text-gray-50">Routely - Admin<lg/span>
             </a>
             <div class="flex md:order-2">
+                <div class="relative inline-block text-left">
+                    <div class="mr-2">
+                        <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-2xl bg-stone-800 border border-stone-600 px-3 py-2 text-sm font-normal text-stone-50 hover:bg-stone-700" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                            Hi, {{ explode(' ', Auth::user()->name)[0] }}!
+                            <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="absolute right-0 z-10 w-56 origin-top-right rounded-xl bg-stone-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden border border-stone-600" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                        <div class="py-1" role="none">
+                            <a href="/welcome" class="text-stone-50 block px-4 py-2 text-sm hover:bg-stone-700" role="menuitem" tabindex="-1" id="menu-item-0">Dashboard</a>
+                            <form action="/logout" method="post">
+                                @csrf
+                                <button type="submit" class="w-full text-left text-stone-50 block px-4 py-2 text-sm hover:bg-stone-700">Keluar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 <div class="navbarmobile hidden">
                     <button id="showBreadcrumbs" class="text-gray-900 font-bold border-gray-350 border hover:bg-stone-700 font-bold rounded-2xl text-sm px-4 py-2 text-center mr-3 md:mr-0"  style="display: none;">
                         <svg height="20px" fill="#fafafa" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="20px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2 s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2 S29.104,22,28,22z"/></svg>
@@ -137,5 +157,19 @@
                 hideBreadcrumbs(); // Automatically hide on larger screens
             }
         });
+    });
+
+    const menuButton = document.getElementById('menu-button');
+    const dropdownMenu = document.querySelector('.absolute');
+
+    menuButton.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('hidden');
+    });
+
+    // Close the dropdown when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!menuButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+        dropdownMenu.classList.add('hidden');
+        }
     });
 </script>
