@@ -8,6 +8,7 @@
         <div class="w-full mx-auto text-left text-center">
             <h1 class="mb-6 text-5xl font-extrabold leading-none max-w-5xl mx-auto tracking-normal text-gray-900 sm:text-xl md:text-5xl lg:text-7xl md:tracking-tight">Gunakan<span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline"> Routely </span>untuk pengalaman belajar yang baru*</h1>
             <p class="px-0 mb-6 text-lg text-gray-600 md:text-xl lg:px-24"> Dengan Routely, Anda dapat memahami routing dalam perspektif Computational Thinking, membuka peluang baru untuk pengalaman lebih pada materi routing. </p>
+            <a href="" class="font-semibold text-lg w-full text-gray-50 border border-gray-150 rounded-3xl group px-4 py-2 bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300">Lihat Petunjuk</a>
         </div>
     </div>
     <div class="my-16 flex">

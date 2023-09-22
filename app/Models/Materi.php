@@ -17,6 +17,7 @@ class Materi extends Model
     protected $fillable = [
         'title',
         'slug',
+        'pdf_file',
         'description',
     ];
 }

@@ -42,15 +42,23 @@ class MateriController extends Controller
     {
         $this->validate($request, [
             'title'     => 'required|min:5',
-            'description'   => 'required|min:10'
+            'description'   => 'required|min:10',
+            'pdf_file' => 'nullable|mimes:pdf|max:10000'
         ]);
 
         $slug = Str::slug($request->title);
+        if ($request->hasFile('pdf_file')) {
+            $fileName = time() . '.' . $request->pdf_file->extension();
+            $request->pdf_file->storeAs('public/pdfs', $fileName);
+        } else {
+            $fileName = null; // Set it to null or any default value as needed.
+        }
 
         Materi::create([
             'title' => $request->title,
             'slug' => $slug,
             'description' => $request->description,
+            'pdf_file' => $fileName
         ]);
 
         return redirect()->route('materis.index')->with(['success' => 'Data Berhasil Disimpan!']);
@@ -94,16 +102,24 @@ class MateriController extends Controller
         //validate form
         $this->validate($request, [
             'title'     => 'required|min:5',
-            'description'   => 'required|min:10'
+            'description'   => 'required|min:10',
+            'pdf_file' => 'nullable|mimes:pdf|max:10000'
         ]);
 
         $materi = Materi::findOrFail($id);
         $slug = Str::slug($request->title);
+        if ($request->hasFile('pdf_file')) {
+            $fileName = time() . '.' . $request->pdf_file->extension();
+            $request->pdf_file->storeAs('public/pdfs', $fileName);
+        } else {
+            $fileName = null; // Set it to null or any default value as needed.
+        }
         
         $materi->update([
             'title' => $request->title,
             'slug' => $slug,
-            'description' => $request->description
+            'description' => $request->description,
+            'pdf_file' => $fileName
         ]);
 
         return redirect()->route('materis.index')->with(['success' => 'Data Berhasil Diubah!']);

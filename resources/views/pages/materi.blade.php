@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="mt-20 max-w-6xl justify-center mx-auto">
+<section class="mt-20 max-w-6xl justify-center mx-auto animate-up">
     <!-- Jumbotron -->
-    <div class="py-12 pt-20 px-4 mx-auto text-center z-20 animate-up">
+    <div class="py-12 pt-20 px-4 mx-auto text-center z-20">
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">Materi Ajar</h1>
         <p class="mb-8 text-xl">Koleksi Materi</p>
     </div>

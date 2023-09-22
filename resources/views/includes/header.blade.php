@@ -6,6 +6,29 @@
                 <span class="self-center px-2 text-xl font-extrabold whitespace-nowrap dark:text-white">Routely<lg/span>
             </a>
             <div class="flex md:order-2">
+            @auth
+                <div class="relative inline-block text-left">
+                <div>
+                    <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-normal text-gray-900 border hover:bg-gray-100" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                    Hi, {{ explode(' ', Auth::user()->name)[0] }}!
+                    <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                    </svg>
+                    </button>
+                </div>
+
+                
+                <div class="absolute right-0 z-10 w-56 origin-top-right rounded-xl bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                    <div class="py-1" role="none">
+                    <a href="/welcome" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-0">Dashboard</a>
+                    <form method="POST" action="#" role="none">
+                        <button type="submit" class="text-gray-700 block w-full px-4 py-2 text-left text-sm rounded-t rounded-3xl hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-3">Sign out</button>
+                    </form>
+                    </div>
+                </div>
+                </div>
+
+            @else
                 <a href="/login">
                     <button class="mr-2 text-sm relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border border-gray-150 rounded-3xl group">
                         <span class="absolute inset-0 flex items-center justify-center w-full h-full text-stone-900 duration-300 -translate-x-full bg-gray-100 group-hover:translate-x-0 ease">
@@ -18,6 +41,7 @@
                         <span class="relative invisible">Login</span>
                     </button>
                 </a>
+            @endauth
                 <div class="navbarmobile hidden">
                     <button id="showBreadcrumbs" class="text-gray-900 font-bold border-gray-350 border hover:bg-gray-100 font-bold rounded-2xl text-sm px-4 py-2 text-center mr-3 md:mr-0"  style="display: none;">
                         <svg height="20px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="20px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2 s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2 S29.104,22,28,22z"/></svg>
@@ -30,19 +54,19 @@
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                 <ul class="bg-transparent flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
                     <li>
-                        <a class="nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0 {{ ($title == "Home") ? 'active text-gray-900' : 'text-gray-900' }}" href="/">Home @if ($title == "Home")<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-400"></div>@endif</a>
+                        <a class="nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0 {{ ($title == "Home") ? 'active text-gray-900' : 'text-gray-900' }}" href="/">Home @if ($title == "Home")<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-700"></div>@endif</a>
                     </li>
                     <li>
-                        <a class="nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0 {{ ($title == "Materi") ? 'active text-gray-900' : 'text-gray-900' }}" href="/materi">Materi @if ($title == "Materi")<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-400"></div>@endif</a>
+                        <a class="nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0 {{ ($title == "Materi") ? 'active text-gray-900' : 'text-gray-900' }}" href="/materi">Materi @if ($title == "Materi")<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-700"></div>@endif</a>
                     </li>
                     <li>
-                        <a class="nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0 {{ ($title == "Tes") ? 'active text-gray-900' : 'text-gray-900' }}" href="/tes">Tes @if ($title == "Tes")<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-400"></div>@endif</a>
+                        <a class="nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0 {{ ($title == "Tes") ? 'active text-gray-900' : 'text-gray-900' }}" href="/tes">Tes @if ($title == "Tes")<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-700"></div>@endif</a>
                     </li>
                     <li>
-                        <a class="nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0 {{ ($title == "Simulasi") ? 'active text-gray-900' : 'text-gray-900' }}" href="/simulasi">Simulasi @if ($title == "Simulasi")<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-400"></div>@endif</a>
+                        <a class="nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0 {{ ($title == "Simulasi") ? 'active text-gray-900' : 'text-gray-900' }}" href="/simulasi">Simulasi @if ($title == "Simulasi")<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-700"></div>@endif</a>
                     </li>
                     <li>
-                        <a class="nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0 {{ ($title == "Bantuan") ? 'active text-gray-900' : 'text-gray-900' }}" href="/bantuan">Bantuan @if ($title == "Bantuan")<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-400"></div>@endif</a>
+                        <a class="nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0 {{ ($title == "Bantuan") ? 'active text-gray-900' : 'text-gray-900' }}" href="/bantuan">Bantuan @if ($title == "Bantuan")<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-700"></div>@endif</a>
                     </li>
                 </ul>
             </div>
@@ -156,4 +180,18 @@
             }
         });
     });
+
+    const menuButton = document.getElementById('menu-button');
+  const dropdownMenu = document.querySelector('.absolute');
+
+  menuButton.addEventListener('click', () => {
+    dropdownMenu.classList.toggle('hidden');
+  });
+
+  // Close the dropdown when clicking outside
+  document.addEventListener('click', (event) => {
+    if (!menuButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+      dropdownMenu.classList.add('hidden');
+    }
+  });
 </script>

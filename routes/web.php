@@ -5,6 +5,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\StudentMateriController;
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,10 +25,13 @@ Route::get('/', function()
        ['title'=>'Home']);
 });
 
-Route::get('/login', function () {
-    return View::make('pages.login',
-        ['title'=>'Login']);
-});
+// login
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/welcome', [HomeController::class, 'index'])->name('home')->middleware('auth');
+//end login
 
 Route::get('/daftar', function () {
     return View::make('pages.daftar',
@@ -35,6 +41,11 @@ Route::get('/daftar', function () {
 Route::get('/materi', [StudentMateriController::class, 'index'])->name('materi.index');
 
 Route::get('/materi/{materi:slug}', [StudentMateriController::class, 'show'])->name('materi.show');
+
+Route::get('/simulasi', function () {
+    return View::make('pages.simulasi',
+        ['title'=>'Simulasi']);
+});
 
 Route::get('/bantuan', function () {
     return View::make('pages.bantuan',

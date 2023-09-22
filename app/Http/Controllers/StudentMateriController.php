@@ -36,7 +36,8 @@ class StudentMateriController extends Controller
         return view('pages.materi_slug',
         [
             "title"=> $materi->title,
-            "description" => $materi->description
+            "description" => $materi->description,
+            "pdf_file" => $materi->pdf_file,
         ]);
     }
 }

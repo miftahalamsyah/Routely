@@ -28,17 +28,35 @@
         <!-- login dengan email -->
         <div class="py-5 flex-col flex md:w-1/2">
             <h1 class="text-3xl text-gray-900 font-semibold mb-5">Login dengan email</h1>
-            <input type="email" placeholder="Alamat email" id="input-email" name="email" class="mt-5 p-5 h-14 border-4 border-stone-900 rounded-xl " value="">
-            <input type="password" placeholder="Kata sandi" id="input-password" name="password" class="my-5 p-5 h-14 border-4 border-stone-900 rounded-xl " value="">
-            <div class="form-actions">
-                <button class="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-semibold text-stone-900 transition duration-300 ease-out border-4 border-violet-300 rounded-3xl group">
+            @if(session()->has('success'))
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                {{ session('success') }}
+                <button type="button" class="absolute top-0 bottom-0 right-0 px-4 py-3" data-dismiss="alert" aria-label="Close">
+                    <svg class="fill-current h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M6.293 6.293a1 1 0 0 1 1.414 0L10 8.586l2.293-2.293a1 1 0 1 1 1.414 1.414L11.414 10l2.293 2.293a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 0-1.414z"/></svg>
+                </button>
+            </div>
+            @endif
+
+            @if(session()->has('loginError'))
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded rounded-xl relative" role="alert">
+                {{ session('loginError') }}
+                <button type="button" class="absolute top-0 bottom-0 right-0 px-4 py-3" data-dismiss="alert" aria-label="Close">
+                    <svg class="fill-current h-6 w-6 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M14.293 5.293a1 1 0 0 1 1.414 1.414L11.414 10l4.293 4.293a1 1 0 1 1-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 1 1-1.414-1.414L8.586 10 4.293 5.293a1 1 0 1 1 1.414-1.414L10 8.586l4.293-4.293a1 1 0 0 1 1.414 0z"/></svg>
+                </button>
+            </div>
+            @endif
+            <form action="/login" method="post" class="flex flex-col">
+                @csrf
+                <input type="email" placeholder="Alamat email" id="input-email" name="email" class="mt-5 p-5 h-14 border-4 border-stone-900 rounded-xl " value="" required="">
+                <input type="password" placeholder="Kata sandi" id="input-password" name="password" class="my-5 p-5 h-14 border-4 border-stone-900 rounded-xl " value="" required="">
+                <button type="submit" class="w-1/4 relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-semibold text-stone-900 transition duration-300 ease-out border-4 border-violet-300 rounded-3xl group">
                     <span class="absolute inset-0 flex items-center justify-center w-full h-full text-stone-900 duration-300 -translate-x-full bg-violet-300 group-hover:translate-x-0 ease">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </span>
                     <span class="absolute flex items-center justify-center w-full h-full text-stone-900 transition-all duration-300 transform group-hover:translate-x-full ease">Login</span>
                     <span class="relative invisible">Login</span>
                 </button>
-            </div>
+            </form>
         </div>
 
         <!-- register -->
