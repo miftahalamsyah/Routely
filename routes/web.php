@@ -54,10 +54,10 @@ Route::get('/bantuan', function () {
 
 
 //admin dashboard
-
 Route::get('/dashboard', [DashboardController::class, 'index'], function(){
     return view('dashboard.index',
     ['title'=>'Admin Dashboard']);
 });
 
 Route::resource('/dashboard/materis', \App\Http\Controllers\MateriController::class);
+Route::resource('/dashboard/siswa', \App\Http\Controllers\UserController::class);

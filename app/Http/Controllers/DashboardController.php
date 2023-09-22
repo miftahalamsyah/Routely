@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Materi;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
@@ -20,10 +21,16 @@ class DashboardController extends Controller
         $materis = Materi::latest()->paginate(3);
         $users = User::paginate(10);
 
-        return view('dashboard.index', compact('users','materis'))->with([
-            'title' => 'Admin Dashboard',
-            'materiCount' => $materiCount,
-            'userCount' => $userCount,
+        if (Auth::check()) {
+            return view('dashboard.index', compact('users','materis'))->with([
+                'title' => 'Admin Dashboard',
+                'materiCount' => $materiCount,
+                'userCount' => $userCount,
         ]);
+        } else {
+            return view('pages.login', [
+                'title' => 'Login',
+            ]);
+        }
     }
 }

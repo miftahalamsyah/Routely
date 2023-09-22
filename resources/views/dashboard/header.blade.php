@@ -24,7 +24,7 @@
                         <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard/materis">Materi</a>
                     </li>
                     <li>
-                        <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/">Home</a>
+                        <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard/siswa">Siswa</a>
                     </li>
                     <li>
                         <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/">Home</a>
@@ -42,7 +42,7 @@
                         <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard/materis">Materi</a>
                 </li>
                 <li>
-                    <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/">Home</a>
+                    <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard/siswa">Siswa</a>
                 </li>
                 <li>
                     <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/">Home</a>

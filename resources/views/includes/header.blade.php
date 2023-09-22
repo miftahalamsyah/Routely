@@ -8,24 +8,25 @@
             <div class="flex md:order-2">
             @auth
                 <div class="relative inline-block text-left">
-                <div>
-                    <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-normal text-gray-900 border hover:bg-gray-100" id="menu-button" aria-expanded="true" aria-haspopup="true">
-                    Hi, {{ explode(' ', Auth::user()->name)[0] }}!
-                    <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-                    </svg>
-                    </button>
-                </div>
-
-                
-                <div class="absolute right-0 z-10 w-56 origin-top-right rounded-xl bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-                    <div class="py-1" role="none">
-                    <a href="/welcome" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-0">Dashboard</a>
-                    <form method="POST" action="#" role="none">
-                        <button type="submit" class="text-gray-700 block w-full px-4 py-2 text-left text-sm rounded-t rounded-3xl hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-3">Sign out</button>
-                    </form>
+                    <div class="mr-2">
+                        <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-2xl bg-gray-50 px-3 py-2 text-sm font-normal text-gray-900 border hover:bg-gray-100" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                        Hi, {{ explode(' ', Auth::user()->name)[0] }}!
+                        <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                        </svg>
+                        </button>
                     </div>
-                </div>
+
+                    
+                    <div class="absolute right-0 z-10 w-56 origin-top-right rounded-xl bg-gray-50 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                        <div class="py-1" role="none">
+                            <a href="/welcome" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-0">Dashboard</a>
+                            <form action="/logout" method="post">
+                                @csrf
+                                <button type="submit" class="w-full text-left text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100">Keluar</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
 
             @else
@@ -43,10 +44,10 @@
                 </a>
             @endauth
                 <div class="navbarmobile hidden">
-                    <button id="showBreadcrumbs" class="text-gray-900 font-bold border-gray-350 border hover:bg-gray-100 font-bold rounded-2xl text-sm px-4 py-2 text-center mr-3 md:mr-0"  style="display: none;">
+                    <button id="showBreadcrumbs" class="bg-gray-50 text-gray-900 font-bold border-gray-350 border hover:bg-gray-100 font-bold rounded-2xl text-sm px-4 py-2 text-center mr-3 md:mr-0"  style="display: none;">
                         <svg height="20px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="20px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2 s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2 S29.104,22,28,22z"/></svg>
                     </button>
-                    <button id="hideBreadcrumbs" class="text-green-900 font-bold border-gray-350 border hover:bg-gray-100 font-bold rounded-2xl text-sm px-4 py-2 text-center mr-3 md:mr-0" style="display: none;">
+                    <button id="hideBreadcrumbs" class="bg-gray-50 text-green-900 font-bold border-gray-350 border hover:bg-gray-100 font-bold rounded-2xl text-sm px-4 py-2 text-center mr-3 md:mr-0" style="display: none;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                     </button>
                 </div>

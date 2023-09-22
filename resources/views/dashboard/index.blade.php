@@ -91,7 +91,7 @@
         <!-- Daftar Materi -->
         <div class="my-5 mx-2 block rounded-xl border border-stone-600 border p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto; scrollbar-width: none;">
             <h1 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-gray-50 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Materi</h1>
-            <table class="min-w-full divide-y divide-gray-200 text-gray-50">
+            <table class="min-w-full divide-y divide-gray-200 text-gray-50 my-4">
                 <thead>
                     <tr>
                         <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wider">
@@ -135,7 +135,7 @@
                 @endforelse
                 </tbody>
             </table>
-            <a href="/dashboard/materis">Selengkapnya</a>
+            <a href="/dashboard/materis" class="bg-violet-400 my-2 p-2 rounded-xl hover:bg-violet-300 font-semibold text-stone-800">Selengkapnya</a>
         </div>
 
     </main>
