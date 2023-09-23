@@ -23,26 +23,52 @@
         <svg class="mx-auto" width="40" height="40" fill="#1c1917" viewBox="0 0 512 512"><path d="M512 96c0 50.2-59.1 125.1-84.6 155c-3.8 4.4-9.4 6.1-14.5 5H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c53 0 96 43 96 96s-43 96-96 96H139.6c8.7-9.9 19.3-22.6 30-36.8c6.3-8.4 12.8-17.6 19-27.2H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320c-53 0-96-43-96-96s43-96 96-96h39.8c-21-31.5-39.8-67.7-39.8-96c0-53 43-96 96-96s96 43 96 96zM117.1 489.1c-3.8 4.3-7.2 8.1-10.1 11.3l-1.8 2-.2-.2c-6 4.6-14.6 4-20-1.8C59.8 473 0 402.5 0 352c0-53 43-96 96-96s96 43 96 96c0 30-21.1 67-43.5 97.9c-10.7 14.7-21.7 28-30.8 38.5l-.6 .7zM128 352a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM416 128a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
     </div>
 
-    <!-- login dan register -->
-    <div class="md:flex md:flex-row">
-        <!-- login dengan email -->
+    <!-- register -->
+    <form method="POST" action="{{ route('daftar') }}">
+        @csrf <!-- CSRF token -->
         <div class="py-5 flex-col flex md:w-1/2">
             <h1 class="text-3xl text-gray-900 font-semibold pb-5">Daftar dengan email</h1>
             <p class="pb-5">Gunakan alamat email untuk mendaftar.</p>
-            <input type="email" placeholder="Alamat email" id="input-email" name="email" class="mt-5 p-5 h-14 border-4 border-stone-900 rounded-xl " value="">
-            <input type="password" placeholder="Kata sandi" id="input-password" name="password" class="my-5 p-5 h-14 border-4 border-stone-900 rounded-xl " value="">
-            <div class="form-actions">
-            <button class="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-semibold text-stone-900 transition duration-300 ease-out border-4 border-violet-300 rounded-3xl shadow-md group">
-                <span class="absolute inset-0 flex items-center justify-center w-full h-full text-stone-900 duration-300 -translate-x-full bg-violet-300 group-hover:translate-x-0 ease">
-                <svg fill="#000000" width="20px" height="20px" viewBox="0 0 16 16" id="register-16px" xmlns="http://www.w3.org/2000/svg">
-                    <path id="Path_184" data-name="Path 184" d="M57.5,41a.5.5,0,0,0-.5.5V43H47V31h2v.5a.5.5,0,0,0,.5.5h5a.5.5,0,0,0,.5-.5V31h2v.5a.5.5,0,0,0,1,0v-1a.5.5,0,0,0-.5-.5H55v-.5A1.5,1.5,0,0,0,53.5,28h-3A1.5,1.5,0,0,0,49,29.5V30H46.5a.5.5,0,0,0-.5.5v13a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-2A.5.5,0,0,0,57.5,41ZM50,29.5a.5.5,0,0,1,.5-.5h3a.5.5,0,0,1,.5.5V31H50Zm11.854,4.646-2-2a.5.5,0,0,0-.708,0l-6,6A.5.5,0,0,0,53,38.5v2a.5.5,0,0,0,.5.5h2a.5.5,0,0,0,.354-.146l6-6A.5.5,0,0,0,61.854,34.146ZM54,40V38.707l5.5-5.5L60.793,34.5l-5.5,5.5Zm-2,.5a.5.5,0,0,1-.5.5h-2a.5.5,0,0,1,0-1h2A.5.5,0,0,1,52,40.5Zm0-3a.5.5,0,0,1-.5.5h-2a.5.5,0,0,1,0-1h2A.5.5,0,0,1,52,37.5ZM54.5,35h-5a.5.5,0,0,1,0-1h5a.5.5,0,0,1,0,1Z" transform="translate(-46 -28)"/>
-                </svg>
-                </span>
-                <span class="absolute flex items-center justify-center w-full h-full text-stone-900 transition-all duration-300 transform group-hover:translate-x-full ease">Daftar</span>
-                <span class="relative invisible">Daftar</span>
-            </button>
+
+            <!-- Name field -->
+            <input type="text" placeholder="Nama Lengkap" id="input-name" name="name" class="mt-5 p-5 h-14 border-4 border-stone-900 rounded-xl" value="{{ old('name') }}">
+            @error('name')
+                <div class="text-red-500">{{ $message }}</div>
+            @enderror
+
+            <!-- Email field -->
+            <input type="email" placeholder="Alamat email" id="input-email" name="email" class="mt-5 p-5 h-14 border-4 border-stone-900 rounded-xl" value="{{ old('email') }}">
+            @error('email')
+                <div class="text-red-500">{{ $message }}</div>
+            @enderror
+
+            <!-- Password field -->
+            <input type="password" placeholder="Kata sandi" id="input-password" name="password" class="mt-5 p-5 h-14 border-4 border-stone-900 rounded-xl" value="{{ old('password') }}">
+            @error('password')
+                <div class="text-red-500">{{ $message }}</div>
+            @enderror
+
+            <!-- Repeat Password field -->
+            <input type="password" placeholder="Ulangi Kata Sandi" id="input-password_confirmation" name="password_confirmation" class="mt-5 p-5 h-14 border-4 border-stone-900 rounded-xl" value="{{ old('password_confirmation') }}">
+            @error('password_confirmation')
+                <div class="text-red-500">{{ $message }}</div>
+            @enderror
+
+
+            <div class="form-actions my-5">
+                <button type="submit" class="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-semibold text-stone-900 transition duration-300 ease-out border-4 border-violet-300 rounded-3xl shadow-md group">
+                    <span class="absolute inset-0 flex items-center justify-center w-full h-full text-stone-900 duration-300 -translate-x-full bg-violet-300 group-hover:translate-x-0 ease">
+                        <svg fill="#000000" width="20px" height="20px" viewBox="0 0 16 16" id="register-16px" xmlns="http://www.w3.org/2000/svg">
+                            <!-- ... your SVG code ... -->
+                        </svg>
+                    </span>
+                    <span class="absolute flex items-center justify-center w-full h-full text-stone-900 transition-all duration-300 transform group-hover:translate-x-full ease">Daftar</span>
+                    <span class="relative invisible">Daftar</span>
+                </button>
             </div>
         </div>
-    </div>
+    </form>
+
+
 </section>
 @endsection

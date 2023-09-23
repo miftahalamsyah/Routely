@@ -6,7 +6,9 @@ use App\Http\Controllers\MateriController;
 use App\Http\Controllers\StudentMateriController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StudentSimulasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,14 +31,10 @@ Route::get('/', function()
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
-
-Route::get('/welcome', [HomeController::class, 'index'])->name('home')->middleware('auth');
 //end login
 
-Route::get('/daftar', function () {
-    return View::make('pages.daftar',
-        ['title'=>'Daftar']);
-});
+Route::get('/daftar', [DaftarController::class, 'index'])->name('daftar');
+Route::post('/daftar', [DaftarController::class, 'store']);
 
 Route::get('/materi', [StudentMateriController::class, 'index'])->name('materi.index');
 
@@ -61,3 +59,7 @@ Route::resource('/dashboard/materis', \App\Http\Controllers\MateriController::cl
 Route::resource('/dashboard/siswa', \App\Http\Controllers\UserController::class);
 
 Route::get('/fetch-data', [DataController::class, 'index']);
+
+Route::get('/student', [HomeController::class, 'index'])->name('student.index')->middleware('auth');
+Route::get('/student/materi', [StudentMateriController::class, 'index'])->name('student.materi')->middleware('auth');
+Route::get('/student/simulasi', [StudentSimulasiController::class, 'index'])->name('student.simulasi')->middleware('auth');

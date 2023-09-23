@@ -17,9 +17,9 @@ class StudentMateriController extends Controller
      */
     public function index(): View
     {
-        $materis = Materi::latest()->paginate(5);
+        $materis = Materi::latest()->paginate(10);
 
-        return view('pages.materi', 
+        return view('student.materi', 
         [
             "title" => "Materi",
         ],
@@ -33,7 +33,7 @@ class StudentMateriController extends Controller
      */
     public function show(Materi $materi)
     {  
-        return view('pages.materi_slug',
+        return view('student.materi_slug',
         [
             "title"=> $materi->title,
             "description" => $materi->description,

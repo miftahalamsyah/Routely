@@ -10,8 +10,10 @@
                     <h4 class="font-semibold text-3xl text-center my-8">{{ $title }}</h4>
                     <p class="font-bold text-md">Deskripsi</p>
                     <p class="text-md">{{ $description }}</p>
-                    <p class="font-semibold text-md mt-4">Materi di atas dapat diunduh dalam bentuk .pdf di bawah ini</p>
-                    <iframe src="{{ asset('storage/pdfs/' . $pdf_file) }}" class="rounded-xl my-4" frameborder="0" width="100%" height="600"></iframe>
+                    @if ($pdf_file)
+                        <p class="font-semibold text-md mt-4">Materi di atas dapat diunduh dalam bentuk .pdf di bawah ini</p>
+                        <iframe src="{{ asset('storage/pdfs/' . $pdf_file) }}" class="rounded-xl my-4" frameborder="0" width="100%" height="600"></iframe>
+                    @endif
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@ class LoginController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            return redirect('/welcome');
+            return redirect('/student');
         } else {
             return view('pages.login',[
                 'title'=>"Login"
@@ -27,7 +27,7 @@ class LoginController extends Controller
 
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('/welcome');
+            return redirect()->intended('/student');
         }
         
         return back()->with('loginError', 'Gagal untuk Masuk');

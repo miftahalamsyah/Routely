@@ -17,7 +17,7 @@ class MateriController extends Controller
      */
     public function index(): View
     {
-        $materis = Materi::latest()->paginate(5);
+        $materis = Materi::latest()->paginate(10);
 
         return view('dashboard.materi.index', compact('materis'));
     }

@@ -28,7 +28,10 @@
                     <h4 class="font-semibold text-xl text-center my-8">{{ $materi->title }}</h4>
                     <p class="font-bold text-md">Deskripsi</p>
                     <p class="text-md">{!! $materi->description !!}</p>
-                    <iframe src="{{ asset('storage/pdfs/' . $materi->pdf_file) }}" class="rounded-xl my-4" frameborder="0" width="100%" height="600"></iframe>
+                    @if ($materi->pdf_file)
+                        <p class="font-semibold text-md mt-4">Materi di atas dapat diunduh dalam bentuk .pdf di bawah ini</p>
+                        <iframe src="{{ asset('storage/pdfs/' . $materi->pdf_file) }}" class="rounded-xl my-4" frameborder="0" width="100%" height="600"></iframe>
+                    @endif
                 </div>
             </div>
         </div>
