@@ -24,11 +24,20 @@
             </div>
         </div>
     {{-- clock card --}}
-        <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card">
-            <div class="max-w-full px-3">
-               <span id="clock" class="text-stone-700 text-3xl font-extrabold"></span>
+    <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-white shadow-md rounded-lg">
+        <div class="flex items-center justify-center">
+            <div class="w-16 h-16 bg-gradient-to-tl from-violet-500 to-orange-500 rounded-full flex items-center justify-center">
+                <p class="text-stone-50 text-3xl font-semibold" id="clockIcon">
+                    🕒
+                </p>
             </div>
         </div>
+        <div class="flex flex-col ml-4">
+            <p class="text-stone-700 text-lg font-semibold">Current Time</p>
+            <p class="text-student text-3xl font-extrabold" id="clock"></p>
+        </div>
+    </div>
+
     </div>
 
     {{-- score section --}}
