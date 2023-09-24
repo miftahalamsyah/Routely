@@ -19,7 +19,7 @@ class StudentMateriController extends Controller
     {
         $materis = Materi::latest()->paginate(10);
 
-        return view('student.materi', 
+        return view('student.materi',
         [
             "title" => "Materi",
         ],
@@ -32,12 +32,23 @@ class StudentMateriController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Materi $materi)
-    {  
+    {
         return view('student.materi_slug',
         [
             "title"=> $materi->title,
             "description" => $materi->description,
             "pdf_file" => $materi->pdf_file,
         ]);
+    }
+
+    public function dashboard(): View
+    {
+        $materis = Materi::latest()->paginate(3);
+
+        return view('student.materi',
+        [
+            "title" => "Materi",
+        ],
+            compact('materis'));
     }
 }

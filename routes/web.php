@@ -52,7 +52,7 @@ Route::get('/bantuan', function () {
 
 
 //admin dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth');
 
 
 Route::resource('/dashboard/materis', \App\Http\Controllers\MateriController::class);
@@ -62,4 +62,5 @@ Route::get('/fetch-data', [DataController::class, 'index']);
 
 Route::get('/student', [HomeController::class, 'index'])->name('student.index')->middleware('auth');
 Route::get('/student/materi', [StudentMateriController::class, 'index'])->name('student.materi')->middleware('auth');
+Route::get('/student/materi/{materi:slug}', [StudentMateriController::class, 'show'])->name('student.materi.show')->middleware('auth');
 Route::get('/student/simulasi', [StudentSimulasiController::class, 'index'])->name('student.simulasi')->middleware('auth');

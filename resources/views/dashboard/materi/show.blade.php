@@ -26,6 +26,11 @@
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
                     <h4 class="font-semibold text-xl text-center my-8">{{ $materi->title }}</h4>
+                    <div class="relative">
+                        <a class="block shadow-xl rounded-2xl">
+                            <img src="{{ asset('storage/thumbnails/' . $materi->thumbnail_image) }}" alt="{{ $materi-> title }}" class="w-full h-32 object-cover shadow-soft-2xl rounded-2xl" />
+                        </a>
+                    </div>
                     <p class="font-bold text-md">Deskripsi</p>
                     <p class="text-md">{!! $materi->description !!}</p>
                     @if ($materi->pdf_file)
@@ -62,12 +67,12 @@
     <script>
         //message with toastr
         @if(session()->has('success'))
-        
-            toastr.success('{{ session('success') }}', 'BERHASIL!'); 
+
+            toastr.success('{{ session('success') }}', 'BERHASIL!');
 
         @elseif(session()->has('error'))
 
-            toastr.error('{{ session('error') }}', 'GAGAL!'); 
-            
+            toastr.error('{{ session('error') }}', 'GAGAL!');
+
         @endif
     </script>

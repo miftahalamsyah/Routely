@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str; 
+use Illuminate\Support\Str;
 
 class MateriController extends Controller
 {
@@ -43,7 +43,8 @@ class MateriController extends Controller
         $this->validate($request, [
             'title'     => 'required|min:5',
             'description'   => 'required|min:10',
-            'pdf_file' => 'nullable|mimes:pdf|max:10000'
+            'pdf_file' => 'nullable|mimes:pdf|max:10000',
+            'thumbnail_image' => 'nullable|image|max:2048'
         ]);
 
         $slug = Str::slug($request->title);
@@ -54,11 +55,19 @@ class MateriController extends Controller
             $fileName = null; // Set it to null or any default value as needed.
         }
 
+        if ($request->hasFile('thumbnail_image')) {
+            $thumbnailName = time() . '.' . $request->thumbnail_image->extension();
+            $request->thumbnail_image->storeAs('public/thumbnails', $thumbnailName);
+        } else {
+            $thumbnailName = null; // Set it to null or any default value as needed.
+        }
+
         Materi::create([
             'title' => $request->title,
             'slug' => $slug,
             'description' => $request->description,
-            'pdf_file' => $fileName
+            'pdf_file' => $fileName,
+            'thumbnail_image' => $thumbnailName
         ]);
 
         return redirect()->route('materis.index')->with(['success' => 'Data Berhasil Disimpan!']);
@@ -103,7 +112,8 @@ class MateriController extends Controller
         $this->validate($request, [
             'title'     => 'required|min:5',
             'description'   => 'required|min:10',
-            'pdf_file' => 'nullable|mimes:pdf|max:10000'
+            'pdf_file' => 'nullable|mimes:pdf|max:10000',
+            'thumbnail_image' => 'nullable|image|max:2048'
         ]);
 
         $materi = Materi::findOrFail($id);
@@ -114,12 +124,20 @@ class MateriController extends Controller
         } else {
             $fileName = null; // Set it to null or any default value as needed.
         }
-        
+
+        if ($request->hasFile('thumbnail_image')) {
+            $thumbnailName = time() . '.' . $request->thumbnail_image->extension();
+            $request->thumbnail_image->storeAs('public/thumbnails', $thumbnailName);
+        } else {
+            $thumbnailName = null; // Set it to null or any default value as needed.
+        }
+
         $materi->update([
             'title' => $request->title,
             'slug' => $slug,
             'description' => $request->description,
-            'pdf_file' => $fileName
+            'pdf_file' => $fileName,
+            'thumbnail_image' => $thumbnailName
         ]);
 
         return redirect()->route('materis.index')->with(['success' => 'Data Berhasil Diubah!']);

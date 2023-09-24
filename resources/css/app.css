@@ -2,6 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg-student,
+.bg-student:hover {
+    background-color: #5c578c;
+}
+
+.bg-student-white {
+    background-color: #f2f1f4;
+}
+.hover\:bg-student-white:hover {
+    background-color: #f2f1f4;
+}
+
+.text-student {
+    color: #5c578c;
+}
+.border-student {
+    border-color: #5c578c;
+}
+.hover\:text-student:hover {
+    color: #5c578c;
+}
+
+.bg-student-dark {
+    background-color: #4c4471;
+}
+
+.text-student-dark {
+    color: #4c4471;
+}
+.border-student-dark {
+    border-color: #4c4471;
+}
+.hover\:text-student-dark:hover {
+    color: #4c4471;
+}
+
 @font-face {
     font-family: 'Athletics-Bold';
     src: local('Athletics-Bold'), url('/resources/fonts/Athletics-Bold.woff2') format('woff2');
@@ -14,7 +50,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #9F7AEA; /* Violet-400 color */
+    background-color: #5c578c; /* Violet-400 color */
     border-radius: 6px; /* Rounded corners for the thumb */
 }
 
@@ -35,7 +71,7 @@
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: #9F7AEA; /* Violet-400 color */
+    background-color: #5c578c; /* Violet-400 color */
     border-radius: 6px; /* Rounded corners for the thumb */
 }
 

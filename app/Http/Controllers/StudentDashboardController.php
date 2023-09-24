@@ -10,19 +10,11 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-class HomeController extends Controller
+class StudentDashboardController extends Controller
 {
     public function index()
     {
+        $materiCount = Materi::count();
         $materis = Materi::latest()->paginate(3);
-
-        if (Auth::check()) {
-            return view('student.index', [
-                'title' => "Student Dashboard",
-                'materis' => $materis,
-        ]);
-        } else {
-            return view('pages.login'); // Show the login page if not authenticated
-        }
     }
 }

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Materi extends Model
 {
     use HasFactory;
-    
+
     /**
      * fillable
      *
@@ -17,6 +17,7 @@ class Materi extends Model
     protected $fillable = [
         'title',
         'slug',
+        'thumbnail_image',
         'pdf_file',
         'description',
     ];

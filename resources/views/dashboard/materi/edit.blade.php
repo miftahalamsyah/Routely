@@ -41,8 +41,18 @@
                         </div>
 
                         <div class="mb-4">
+                            <label for="thumbnail_image" class="block text-md font-semibold text-gray-800">Thumbnail Image</label>
+                            <input type="file" id="thumbnail_image" name="thumbnail_image" value="{{ old('thumbnail_image', $materi->thumbnail_image) }}"
+                                class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 @error('thumbnail_image') border-red-500 @enderror">
+                            @error('thumbnail_image')
+                                <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
+                            @enderror
+                            </input>
+                        </div>
+
+                        <div class="mb-4">
                             <label for="pdf_file" class="block text-md font-semibold text-gray-800">File PDF</label>
-                            <input type="file" id="pdf_file" name="pdf_file" value="{{ old('pdf_file', $materi->pdf_file) }}" placeholder="Masukkan Judul Materi"
+                            <input type="file" id="pdf_file" name="pdf_file" value="{{ old('pdf_file', $materi->pdf_file) }}"
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 @error('pdf_file') border-red-500 @enderror">
                             @error('pdf_file')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
@@ -94,12 +104,12 @@
     <script>
         //message with toastr
         @if(session()->has('success'))
-        
-            toastr.success('{{ session('success') }}', 'BERHASIL!'); 
+
+            toastr.success('{{ session('success') }}', 'BERHASIL!');
 
         @elseif(session()->has('error'))
 
-            toastr.error('{{ session('error') }}', 'GAGAL!'); 
-            
+            toastr.error('{{ session('error') }}', 'GAGAL!');
+
         @endif
     </script>
