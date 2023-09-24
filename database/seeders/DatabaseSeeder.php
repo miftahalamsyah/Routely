@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Miftah Rizky Alamsyah',
             'email' => 'miftahrizkyalamsyah@upi.edu',
-            'password' => bcrypt('miftah')
+            'password' => bcrypt('miftah'),
+            'is_admin' => true,
         ]);
     }
 }

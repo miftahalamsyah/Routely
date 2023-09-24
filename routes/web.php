@@ -52,11 +52,10 @@ Route::get('/bantuan', function () {
 
 
 //admin dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('admin');
 
-
-Route::resource('/dashboard/materis', \App\Http\Controllers\MateriController::class);
-Route::resource('/dashboard/siswa', \App\Http\Controllers\UserController::class);
+Route::resource('/dashboard/materis', \App\Http\Controllers\MateriController::class)->middleware('admin');
+Route::resource('/dashboard/siswa', \App\Http\Controllers\UserController::class)->middleware('admin');
 
 Route::get('/fetch-data', [DataController::class, 'index']);
 

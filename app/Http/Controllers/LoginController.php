@@ -25,11 +25,16 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-        if(Auth::attempt($credentials)){
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/student');
+
+            if (auth()->user()->is_admin) {
+                return redirect()->intended('/dashboard');
+            } else {
+                return redirect()->intended('/student');
+            }
         }
-        
+
         return back()->with('loginError', 'Gagal untuk Masuk');
     }
 
