@@ -7,20 +7,30 @@
         <p class="mb-4 text-2xl font-extrabold tracking-tight leading-none text-student-dark md:text-3xl">, {{ explode(' ', Auth::user()->name)[0] }}!</p>
     </div>
     <div class="flex flex-col sm:flex-row w-full">
-    {{-- user card --}}
-        <div class="flex w-full p-4 mb-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl">
-            <div class="max-w-full px-2">
-                <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl">
-                    <p class="text-stone-50 text-lg font-semibold">
-                        {{ substr(Auth::user()->name, 0, 1) }}
-                        {{ substr(strrchr(Auth::user()->name, ' '), 1, 1) }}
-                    </p>
+    {{-- siswa card --}}
+        <div class="flex w-full p-4 mb-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl justify-between">
+            {{-- siswa photo --}}
+            <div class="flex">
+                <div class="px-2">
+                    <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl">
+                        <p class="text-stone-50 text-lg font-semibold">
+                            {{ substr(Auth::user()->name, 0, 1) }}
+                            {{ substr(strrchr(Auth::user()->name, ' '), 1, 1) }}
+                        </p>
+                    </div>
+                </div>
+                {{-- siswa info --}}
+                <div class="px-2">
+                    <p class="mb-0 font-semibold leading-normal text-sm">{{ Auth::user()->name }}</p>
+                    <p class="mb-0 text-xs">{{ Auth::user()->email }}</p>
+                    <p class="mb-0 text-sm">Siswa</p>
                 </div>
             </div>
+            {{-- siswa edit profile --}}
             <div class="max-w-full px-2">
-                <p class="mb-0 font-semibold leading-normal text-sm">{{ Auth::user()->name }}</p>
-                <p class="mb-0 text-xs">{{ Auth::user()->email }}</p>
-                <p class="mb-0 text-sm">Siswa</p>
+                <a href="/student/profile" class="mb-0 text-xs leading-normal text-student">
+                    Edit Profile
+                </a>
             </div>
         </div>
     {{-- clock card --}}
@@ -64,7 +74,7 @@
             <div class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card">
                 <div class="max-w-full h-16 px-3">
                     <div class="flex items-center justify-between">
-                    <p class="mb-0 text-stone-700 leading-normal text-sm">Nilai Simulasi</p>
+                    <p class="mb-0 text-stone-700 leading-normal text-sm">Nilai Tugas</p>
                     <!-- Button to toggle score visibility -->
                     <button class="toggle-score-button" aria-label="Toggle Score Visibility">
                         <p class="text-stone-700 leading-normal text-xs hover:underline">Lihat</p>
@@ -93,6 +103,15 @@
                         <p class="mb-0 text-stone-700 font-extrabold text-3xl hidden-score">***</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-12">
+        <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">👨‍🏫 Pertemuan</p>
+        <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card">
+            <div class="max-w-full px-3 mx-auto text-center">
+               <span class="text-stone-700 text-lg tracking-tight leading-none">Tidak ada pertemuan</span>
             </div>
         </div>
     </div>

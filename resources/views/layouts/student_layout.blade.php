@@ -68,9 +68,9 @@ body {
 
     // Find the greeting based on the current hour
     let greeting;
-    if (currentHour >= 3 && currentHour < 12) {
+    if (currentHour >= 3 && currentHour < 10) {
         greeting = 'Selamat Pagi';
-    } else if (currentHour >= 12 && currentHour < 15) {
+    } else if (currentHour >= 10 && currentHour < 15) {
         greeting = 'Selamat Siang';
     } else if (currentHour >= 15 && currentHour < 18) {
         greeting = 'Selamat Sore';
@@ -80,6 +80,8 @@ body {
 
     document.getElementById('greeting').textContent = greeting;
 
-
+    function closePopup() {
+        document.querySelector('.fixed').remove();
+    }
 </script>
 

@@ -17,8 +17,8 @@
 
     <main class="mt-40 max-w-6xl mx-auto items-center animate-up">
         <div class="mb-16 text-center">
-            <h1 class="mb-6 text-5xl font-extrabold leading-none max-w-5xl mx-auto tracking-normal text-gray-50 sm:text-6xl md:text-6xl lg:text-7xl md:tracking-tight"><span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline">Routely</span>&nbsp;Admin Dashboard</h1>
-        </div>  
+            <h1 class="mb-6 text-3xl font-extrabold leading-none max-w-5xl mx-auto tracking-normal text-gray-50 sm:text-3xl md:text-4xl lg:text-5xl md:tracking-tight"><span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline">Routely</span>&nbsp;Dashboard Guru</h1>
+        </div>
 
         <!-- quick dashboard monitor card for number of materis and users-->
         <div class="mx-2 block flex flex-col sm:flex-row ">
@@ -38,6 +38,55 @@
             </div>
         </div>
 
+                <!-- Daftar Pertemuan -->
+        <div class="my-5 mx-2 block rounded-xl border border-stone-600 border p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">
+            <h1 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-gray-50 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Pertemuan</h1>
+            <table class="min-w-full divide-y divide-gray-200 text-gray-50">
+                <thead>
+                    <tr>
+                        <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                            No
+                        </th>
+                        <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                            Nama
+                        </th>
+                        <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                            Email
+                        </th>
+                        <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                            Status
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                @forelse ($users as $index => $user)
+                    <tr>
+                        <td class="px-3 py-4 whitespace-nowrap">
+                            {{ $index + 1 }}
+                        </td>
+                        <td class="px-3 py-4 whitespace-nowrap">
+                            {{ $user->name }}
+                        </td>
+                        <td class="px-3 py-4 whitespace-nowrap">
+                            {{ $user->email }}
+                        </td>
+                        <td class="px-3 py-4 whitespace-nowrap">
+                            <p class="text-yellow-500">Belum</p>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
+                            <div class="mx-auto bg-gray-100 text-gray-600 p-2 rounded-xl">
+                                Data users tidak tersedia.
+                            </div>
+                        </td>
+                    </tr>
+                @endforelse
+                </tbody>
+            </table>
+            {{ $users->links() }}
+        </div>
 
         <!-- Daftar Siswa -->
         <div class="my-5 mx-2 block rounded-xl border border-stone-600 border p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">
@@ -49,7 +98,7 @@
                             No
                         </th>
                         <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wider">
-                            Nama                        
+                            Nama
                         </th>
                         <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wider">
                             Email
@@ -99,7 +148,7 @@
                             No
                         </th>
                         <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wider">
-                            Title                   
+                            Title
                         </th>
                         <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wider">
                             PDF File
@@ -170,7 +219,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const elements = document.querySelectorAll('.animate-up');
-        
+
         elements.forEach((element) => {
             element.classList.add('animate');
         });

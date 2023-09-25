@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str; 
+use Illuminate\Support\Str;
 
 
 class DashboardController extends Controller
@@ -17,9 +17,9 @@ class DashboardController extends Controller
     public function index()
     {
         $materiCount = Materi::count();
-        $userCount = User::count();
+        $userCount = User::where('is_admin', 0)->count();
         $materis = Materi::latest()->paginate(3);
-        $users = User::paginate(10);
+        $users = User::where('is_admin', 0)->paginate(10);
 
         if (Auth::check()) {
             return view('dashboard.index', compact('users','materis'))->with([
