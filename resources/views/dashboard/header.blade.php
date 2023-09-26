@@ -15,7 +15,7 @@
                             </svg>
                         </button>
                     </div>
-                    
+
                     <div class="absolute right-0 z-10 w-56 origin-top-right rounded-xl bg-stone-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden border border-stone-600" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                         <div class="py-1" role="none">
                             <a href="/dashboard" class="text-stone-50 block px-4 py-2 text-sm hover:bg-stone-700" role="menuitem" tabindex="-1" id="menu-item-0">Dashboard</a>
@@ -47,7 +47,7 @@
                         <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard/siswa">Siswa</a>
                     </li>
                     <li>
-                        <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/">Home</a>
+                        <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard/tugas">Tugas</a>
                     </li>
                 </ul>
             </div>
@@ -65,7 +65,7 @@
                     <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard/siswa">Siswa</a>
                 </li>
                 <li>
-                    <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/">Home</a>
+                    <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard/tugas">Tugas</a>
                 </li>
             </ul>
         </div>

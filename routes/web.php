@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MateriController;
+use App\Http\Controllers\TugasController;
 use App\Http\Controllers\StudentMateriController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\LoginController;
@@ -57,6 +58,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 Route::resource('/dashboard/materis', \App\Http\Controllers\MateriController::class)->middleware('admin');
 Route::resource('/dashboard/siswa', \App\Http\Controllers\UserController::class)->middleware('admin');
+Route::resource('/dashboard/tugas', \App\Http\Controllers\TugasController::class)->middleware('admin');
 
 Route::get('/fetch-data', [DataController::class, 'index']);
 

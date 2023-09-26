@@ -43,10 +43,10 @@
                 </a>
             @endauth
                 <div class="navbarmobile hidden">
-                    <button id="showBreadcrumbs" class="bg-gray-50 text-gray-900 font-semibold border-gray-350 border hover:bg-gray-100 font-semibold rounded-2xl text-sm px-4 py-2 text-center mr-3 md:mr-0"  style="display: none;">
+                    <button id="showBreadcrumbs" class="bg-gray-50 text-gray-900 font-semibold border-gray-350 border hover:bg-gray-100 font-semibold rounded-lg text-sm px-2 py-1 text-center mr-3 md:mr-0"  style="display: none;">
                         <svg height="20px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="20px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2 s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2 S29.104,22,28,22z"/></svg>
                     </button>
-                    <button id="hideBreadcrumbs" class="bg-gray-50 text-green-900 font-semibold border-gray-350 border hover:bg-gray-100 font-semibold rounded-2xl text-sm px-4 py-2 text-center mr-3 md:mr-0" style="display: none;">
+                    <button id="hideBreadcrumbs" class="bg-gray-50 text-green-900 font-semibold border-gray-350 border hover:bg-gray-100 font-semibold rounded-lg text-sm px-2 py-1 text-center mr-3 md:mr-0" style="display: none;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                     </button>
                 </div>
@@ -93,24 +93,41 @@
         </div>
         <!-- Breadcrumbs for mobile -->
         <div class="navbarmobile hidden">
-            <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:hidden">
+            <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-stone-50 md:hidden">
                 <li>
                     @active('student.index')
-                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 active text-gray-900" href="/">Dashboard</a>
+                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 active text-gray-900" href="/student">Dashboard<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
+                    @else
+                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 text-gray-900" href="/student">Dashboard</a>
                     @endactive
-
                 </li>
                 <li>
-                    <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 {{ ($title == "Materi") ? 'active text-gray-900' : 'text-gray-900' }}" href="/materi">Materi @if ($title == "Materi")<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-400"></div>@endif</a>
+                    @active('student.materi')
+                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 active text-gray-900" href="/student/materi">Materi<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
+                    @else
+                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 text-gray-900" href="/student/materi">Materi</a>
+                    @endactive
                 </li>
                 <li>
-                    <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 {{ ($title == "Tes") ? 'active text-gray-900' : 'text-gray-900' }}" href="/tes">Tes @if ($title == "Tes")<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-400"></div>@endif</a>
+                    @active('student.simulasi')
+                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 active text-gray-900" href="/student/simulasi">Simulasi<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
+                    @else
+                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 text-gray-900" href="/student/simulasi">Simulasi</a>
+                    @endactive
                 </li>
                 <li>
-                    <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 {{ ($title == "Simulasi") ? 'active text-gray-900' : 'text-gray-900' }}" href="/simulasi">Simulasi @if ($title == "Simulasi")<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-400"></div>@endif</a>
+                    @active('student.tes')
+                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 active text-gray-900" href="/student/tes">Tes<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
+                    @else
+                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 text-gray-900" href="/student/tes">Tes</a>
+                    @endactive
                 </li>
                 <li>
-                    <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 {{ ($title == "Bantuan") ? 'active text-gray-900' : 'text-gray-900' }}" href="/bantuan">Bantuan @if ($title == "Bantuan")<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-400"></div>@endif</a>
+                    @active('student.bantuan')
+                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 active text-gray-900" href="/student/bantuan">Bantuan<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
+                    @else
+                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 text-gray-900" href="/student/bantuan">Bantuan</a>
+                    @endactive
                 </li>
             </ul>
         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Materi;
+use App\Models\Tugas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
@@ -16,5 +17,6 @@ class StudentDashboardController extends Controller
     {
         $materiCount = Materi::count();
         $materis = Materi::latest()->paginate(3);
+        $tugass = Tugas::all();
     }
 }
