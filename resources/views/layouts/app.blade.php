@@ -9,17 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>{{ $title }} | Routely</title>
 </head>
-<body>  
+<body>
     <header>
-        @include('includes.header')
+        @include('includes.navbar')
     </header>
-    
-    <main class="row z-0 w-full">
-        
-        <div class="container mx-auto items-center">
+
+    <main id="main-content" class="max-w-5xl justify-center mx-auto mt-12 transition-margin ease-in-out duration-300">
+
+        <div class="content-container">
             @yield('content')
         </div>
-        
+
     </div>
     </main>
 
@@ -31,7 +31,7 @@
 <style>
 :root {
     /* bg-gray-50 */
-    background-color: #F9FAFB;; 
+    background-color: #f2f1f4;
 }
 
 h1 {
@@ -59,7 +59,7 @@ body {
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const elements = document.querySelectorAll('.animate-up');
-        
+
         elements.forEach((element) => {
             element.classList.add('animate');
         });

@@ -17,7 +17,8 @@ class Tugas extends Model
      * @var array
      */
     protected $table = 'tugas'; // Specify the correct table name here
-
+    protected $guarded=['id'];
+    protected $with = ['pertemuan'];
 
     public function user()
     {
@@ -26,7 +27,7 @@ class Tugas extends Model
 
     public function pertemuan()
     {
-        return $this->hasMany(Pertemuan::class, 'tugas_id');
+        return $this->belongsTo(Pertemuan::class, 'pertemuan_id');
     }
 
 }

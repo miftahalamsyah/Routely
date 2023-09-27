@@ -41,7 +41,11 @@
             <div class="px-2">
                 <p class="mb-0 font-semibold leading-normal text-sm">{{ Auth::user()->name }}</p>
                 <p class="mb-0 text-xs">{{ Auth::user()->email }}</p>
-                <p class="mb-0 text-sm">Siswa</p>
+                @if (Auth::user()->is_admin === 0)
+                    <p class="mb-0 text-sm">Siswa</p>
+                @else
+                    <p class="mb-0 text-sm">Guru</p>
+                @endif
             </div>
         </div>
         {{-- Edit profile form --}}
@@ -66,7 +70,7 @@
                     <input type="password" name="password_confirmation" id="password_confirmation" class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700">
                 </div>
                 <div class="flex justify-end">
-                    <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-student-dark rounded-md hover:bg-student focus:outline-none focus:bg-student-dark">Save Changes</button>
+                    <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-student-dark rounded-md hover:bg-violet-900 focus:outline-none focus:bg-violet-900">Save Changes</button>
                 </div>
                 @if (session('status'))
                 <div class="fixed inset-0 z-50 flex items-center justify-center">

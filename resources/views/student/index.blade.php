@@ -157,7 +157,7 @@
             @empty
                 <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card">
                     <div class="max-w-full px-3 mx-auto text-center">
-                    <span class="text-stone-700 text-lg tracking-tight leading-none">Tidak ada Tugas</span>
+                        <span class="text-stone-700 text-lg tracking-tight leading-none">Tidak ada Tugas</span>
                     </div>
                 </div>
             @endforelse
@@ -172,7 +172,7 @@
         <div class="grid md:grid-cols-3 mx-auto flex justify-center">
             @forelse ($materis as $materi)
                 <!-- individual card -->
-                <div class="relative flex flex-col min-w-0 break-words bg-white border shadow-lg rounded-2xl mx-2 mb-4 hover:bg-gray-100">
+                <div class="relative flex flex-col min-w-0 break-words bg-stone-50 border shadow-lg rounded-2xl mx-2 mb-4 hover:bg-gray-100">
                     <div class="relative">
                         <a class="block shadow-xl rounded-2xl">
                             <img src="{{ asset('storage/thumbnails/' . $materi->thumbnail_image) }}" alt="{{ $materi-> title }}" class="w-full h-32 object-cover shadow-soft-2xl rounded-2xl" />

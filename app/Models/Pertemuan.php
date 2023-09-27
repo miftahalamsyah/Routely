@@ -7,11 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pertemuan extends Model
 {
+    use HasFactory;
     protected $table = 'pertemuan';
-    protected $fillable = [
-        'pertemuan_ke',
-        'tanggal'
-    ];
+    protected $guarded = ['id'];
 
     public function materi()
     {

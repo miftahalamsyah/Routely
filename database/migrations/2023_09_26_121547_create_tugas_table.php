@@ -10,6 +10,7 @@ class CreateTugasTable extends Migration
     {
         Schema::create('tugas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('pertemuan_id');
             $table->string('name'); // Nama tugas
             $table->text('slug');
             $table->text('description')->nullable(); // Deskripsi tugas

@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('pertemuan', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('materi_id');
+            $table->foreignId('tugas_id');
             $table->integer('pertemuan_ke');
             $table->date('tanggal');
             // Tambahkan kolom-kolom lain yang diperlukan
             $table->timestamps();
-        }); 
+        });
     }
 
     /**

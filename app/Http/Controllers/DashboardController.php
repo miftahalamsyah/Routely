@@ -20,17 +20,17 @@ class DashboardController extends Controller
     {
         $materiCount = Materi::count();
         $userCount = User::where('is_admin', 0)->count();
-        $materis = Materi::latest()->paginate(3);
+        $materis = Materi::all();
         $users = User::where('is_admin', 0)->paginate(10);
         $tugass = Tugas::all();
         $pertemuans = Pertemuan::all();
 
         if (Auth::check()) {
-            return view('dashboard.index', compact('users','materis', 'tugass', 'pertemuans'))->with([
+            return view('dashboard.index', compact('users', 'materis', 'tugass', 'pertemuans'))->with([
                 'title' => 'Admin Dashboard',
                 'materiCount' => $materiCount,
                 'userCount' => $userCount,
-        ]);
+            ]);
         } else {
             return view('pages.login', [
                 'title' => 'Login',

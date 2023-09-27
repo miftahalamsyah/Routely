@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('materis', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('pertemuan_id');
             $table->string('title');
             $table->text('slug');
             $table->string('thumbnail_image', 255)->nullable();

@@ -21,4 +21,12 @@ class Materi extends Model
         'pdf_file',
         'description',
     ];
+
+    protected $guarded=['id'];
+    protected $with = ['pertemuan'];
+
+    public function pertemuan()
+    {
+        return $this->belongsToMany(Pertemuan::class, 'pertemuan_id');
+    }
 }

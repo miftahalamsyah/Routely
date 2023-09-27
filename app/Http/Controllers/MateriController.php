@@ -41,6 +41,7 @@ class MateriController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $this->validate($request, [
+            'pertemuan_id' => 'required',
             'title'     => 'required|min:5',
             'description'   => 'required|min:10',
             'pdf_file' => 'nullable|mimes:pdf|max:10000',
@@ -63,6 +64,7 @@ class MateriController extends Controller
         }
 
         Materi::create([
+            'pertemuan_id' => $request->pertemuan,
             'title' => $request->title,
             'slug' => $slug,
             'description' => $request->description,

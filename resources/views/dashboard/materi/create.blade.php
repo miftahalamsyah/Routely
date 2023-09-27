@@ -31,6 +31,15 @@
                         @csrf
 
                         <div class="mb-4">
+                            <label for="pertemuan_id" class="block text-md font-semibold text-gray-800">Pertemuan ke berapa</label>
+                            <input type="number" id="pertemuan_id" name="pertemuan_id" value="{{ old('pertemuan_id') }}" placeholder="Masukkan Pertemuan ke berapa"
+                                class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 @error('pertemuan_id') border-red-500 @enderror">
+                            @error('pertemuan_id')
+                                <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-4">
                             <label for="title" class="block text-md font-semibold text-gray-800">Title</label>
                             <input type="text" id="title" name="title" value="{{ old('title') }}" placeholder="Masukkan Judul Materi"
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 @error('title') border-red-500 @enderror">
