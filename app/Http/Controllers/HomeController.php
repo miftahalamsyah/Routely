@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Materi;
+use App\Models\Tugas;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,10 +17,12 @@ class HomeController extends Controller
     public function index()
     {
         $materis = Materi::latest()->paginate(3);
+        $tugass = Tugas::all();
         if (Auth::check()) {
             return view('student.index', [
                 'title' => "Student Dashboard",
                 'materis' => $materis,
+                'tugass' => $tugass,
         ]);
         } else {
             return view('pages.login'); // Show the login page if not authenticated

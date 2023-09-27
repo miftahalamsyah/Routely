@@ -45,47 +45,40 @@
                 <thead>
                     <tr>
                         <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wider">
-                            No
+                            Pertemuan Ke
                         </th>
                         <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wider">
-                            Nama
+                            Materi
                         </th>
                         <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wider">
-                            Email
-                        </th>
-                        <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wider">
-                            Status
+                            Tugas
                         </th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
-                @forelse ($users as $index => $user)
+                @forelse ($pertemuans as $pertemuan)
                     <tr>
                         <td class="px-3 py-4 whitespace-nowrap">
-                            {{ $index + 1 }}
+                            {{ $pertemuan->pertemuan_ke }}
                         </td>
                         <td class="px-3 py-4 whitespace-nowrap">
-                            {{ $user->name }}
+                            {{ $pertemuan->materi->title }}
                         </td>
                         <td class="px-3 py-4 whitespace-nowrap">
-                            {{ $user->email }}
-                        </td>
-                        <td class="px-3 py-4 whitespace-nowrap">
-                            <p class="text-yellow-500">Belum</p>
+                            {{ $pertemuan->tugas->name }}
                         </td>
                     </tr>
                 @empty
                     <tr>
                         <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
                             <div class="mx-auto bg-gray-100 text-gray-600 p-2 rounded-xl">
-                                Data users tidak tersedia.
+                                Data pertemuan tidak tersedia.
                             </div>
                         </td>
                     </tr>
                 @endforelse
                 </tbody>
             </table>
-            {{ $users->links() }}
         </div>
 
                 <!-- Daftar Pertemuan -->
@@ -109,7 +102,7 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
-                @forelse ($tugas as $index => $tugas)
+                @forelse ($tugass as $index => $tugas)
                     <tr>
                         <td class="px-3 py-4 whitespace-nowrap">
                             {{ $index + 1 }}

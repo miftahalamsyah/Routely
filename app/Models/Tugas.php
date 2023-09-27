@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Http\Models\User;
+use App\Http\Models\Pertemuan;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,21 +16,17 @@ class Tugas extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'name',
-        'description',
-        'due_date',
-        'maximum_score',
-        'score',
-        'submission_status',
-        'assign_to',
-        'user_id',
+    protected $table = 'tugas'; // Specify the correct table name here
 
-    ];
 
     public function user()
     {
         return $this->belongsTo(User::class)->where('is_admin', 0);
+    }
+
+    public function pertemuan()
+    {
+        return $this->hasMany(Pertemuan::class, 'tugas_id');
     }
 
 }

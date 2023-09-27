@@ -41,13 +41,16 @@
                         <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard">Home</a>
                     </li>
                     <li>
+                        <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard/pertemuan">Pertemuan</a>
+                    </li>
+                    <li>
                         <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard/materis">Materi</a>
                     </li>
                     <li>
-                        <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard/siswa">Siswa</a>
+                        <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard/tugas">Tugas</a>
                     </li>
                     <li>
-                        <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard/tugas">Tugas</a>
+                        <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard/siswa">Siswa</a>
                     </li>
                 </ul>
             </div>
@@ -56,13 +59,16 @@
         <div class="navbarmobile hidden">
             <ul class="bg-transparent mx-2 flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
                 <li>
-                <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard">Home</a>
-                    </li>
-                    <li>
-                        <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard/materis">Materi</a>
+                    <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard">Home</a>
                 </li>
                 <li>
                     <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard/siswa">Siswa</a>
+                </li>
+                <li>
+                    <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard/pertemuan">Pertemuan</a>
+                </li>
+                <li>
+                    <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard/materis">Materi</a>
                 </li>
                 <li>
                     <a class="text-gray-50 nav block relative py-2 pl-3 pr-4 font-bold rounded md:p-0" href="/dashboard/tugas">Tugas</a>

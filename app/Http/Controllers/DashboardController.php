@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Materi;
+use App\Models\Pertemuan;
 use App\Models\Tugas;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -21,10 +22,11 @@ class DashboardController extends Controller
         $userCount = User::where('is_admin', 0)->count();
         $materis = Materi::latest()->paginate(3);
         $users = User::where('is_admin', 0)->paginate(10);
-        $tugas = Tugas::all();
+        $tugass = Tugas::all();
+        $pertemuans = Pertemuan::all();
 
         if (Auth::check()) {
-            return view('dashboard.index', compact('users','materis', 'tugas'))->with([
+            return view('dashboard.index', compact('users','materis', 'tugass', 'pertemuans'))->with([
                 'title' => 'Admin Dashboard',
                 'materiCount' => $materiCount,
                 'userCount' => $userCount,

@@ -11,6 +11,7 @@ class CreateTugasTable extends Migration
         Schema::create('tugas', function (Blueprint $table) {
             $table->id();
             $table->string('name'); // Nama tugas
+            $table->text('slug');
             $table->text('description')->nullable(); // Deskripsi tugas
             $table->dateTime('due_date'); // Tanggal batas pengumpulan
             $table->decimal('maximum_score', 5, 2); // Nilai maksimal
