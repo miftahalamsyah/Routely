@@ -17,9 +17,7 @@ class CreateTugasTable extends Migration
             $table->dateTime('due_date'); // Tanggal batas pengumpulan
             $table->decimal('maximum_score', 5, 2); // Nilai maksimal
             $table->enum('submission_status', ['submitted', 'not_submitted'])->default('not_submitted'); // Status pengumpulan
-            $table->decimal('score', 5, 2)->nullable(); // Nilai yang didapatkan siswa
-            $table->unsignedBigInteger('user_id');
-            $table->string('assign_to')->nullable();
+            $table->decimal('score', 5, 2)->default('100'); // Nilai yang didapatkan siswa
             $table->timestamps();
         });
     }

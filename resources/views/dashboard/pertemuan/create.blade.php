@@ -48,24 +48,6 @@
                             @enderror
                         </div>
 
-                        <div class="form-group">
-                            <label for="materi">Materi</label>
-                            <select name="materi[]" class="form-control" multiple>
-                                @foreach ($materis as $materi)
-                                    <option value="{{ $materi->id }}">{{ $materi->title }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="tugas">Tugas</label>
-                            <select name="tugas[]" class="form-control" multiple>
-                                @foreach ($tugass as $tugas)
-                                    <option value="{{ $tugas->id }}">{{ $tugas->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
                         <div class="flex justify-end">
                             <button type="submit"
                                 class="bg-violet-500 text-white px-4 py-2 rounded-md hover:bg-violet-600 focus:outline-none focus:bg-violet-600">

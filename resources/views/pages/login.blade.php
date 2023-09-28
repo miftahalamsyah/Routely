@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="mt-20 max-w-6xl justify-center mx-auto px-5">
+<section class="mt-20 max-w-6xl justify-center mx-auto px-5 animate-up">
     <!-- login dengan auth provider -->
     <div class="pt-10 pb-5">
         <h1 class="text-3xl text-gray-900 font-semibold">Auth Providers</h1>
@@ -24,7 +24,7 @@
     </div>
 
     <!-- login dan register -->
-    <div class="md:flex md:flex-row">
+    <div class="md:flex md:flex-row pb-20">
         <!-- login dengan email -->
         <div class="py-5 flex-col flex md:w-1/2">
             <h1 class="text-3xl text-gray-900 font-semibold mb-5">Login dengan email</h1>
@@ -47,8 +47,8 @@
             @endif
             <form action="/login" method="post" class="flex flex-col">
                 @csrf
-                <input type="email" placeholder="Alamat email" id="input-email" name="email" class="mt-5 p-5 h-14 border-4 border-stone-900 rounded-xl bg-stone-50" value="" required="">
-                <input type="password" placeholder="Kata sandi" id="input-password" name="password" class="my-5 p-5 h-14 border-4 border-stone-900 rounded-xl bg-stone-50" value="" required="">
+                <input type="email" placeholder="Alamat email" id="input-email" name="email" class="mt-5 p-5 h-14 border-4 border-stone-900 rounded-xl bg-stone-50" value="" required>
+                <input type="password" placeholder="Kata sandi" id="input-password" name="password" class="my-5 p-5 h-14 border-4 border-stone-900 rounded-xl bg-stone-50" value="" required>
                 <button type="submit" class="w-1/4 relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-semibold text-stone-900 transition duration-300 ease-out border-4 border-violet-300 rounded-3xl group">
                     <span class="absolute inset-0 flex items-center justify-center w-full h-full text-stone-900 duration-300 -translate-x-full bg-violet-300 group-hover:translate-x-0 ease">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>

@@ -11,7 +11,7 @@ class DataController extends Controller
 {
     public function index()
     {
-        $userCount = User::count();
+        $userCount = User::where('is_admin', 0)->count();
         $materiCount = Materi::count();
 
         $data = [

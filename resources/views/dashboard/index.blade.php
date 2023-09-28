@@ -62,10 +62,22 @@
                             {{ $pertemuan->pertemuan_ke }}
                         </td>
                         <td class="px-3 py-4 whitespace-nowrap">
-                            {{ $pertemuan->materi->title }}
+                            @foreach ($pertemuan->materi as $materi)
+                                {{ $materi->title }}
+                                {{-- Add a separator if there are more than one Materi --}}
+                                @if (!$loop->last)
+                                    ,
+                                @endif
+                            @endforeach
                         </td>
                         <td class="px-3 py-4 whitespace-nowrap">
-                            {{ $pertemuan->tugas->name }}
+                            @foreach ($pertemuan->tugas as $tugas)
+                                {{ $tugas->name }}
+                                {{-- Add a separator if there are more than one Materi --}}
+                                @if (!$loop->last)
+                                    ,
+                                @endif
+                            @endforeach
                         </td>
                     </tr>
                 @empty
@@ -128,7 +140,6 @@
                 @endforelse
                 </tbody>
             </table>
-            {{ $users->links() }}
         </div>
 
         <!-- Daftar Siswa -->

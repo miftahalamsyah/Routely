@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 
 class Materi extends Model
 {
@@ -14,19 +16,12 @@ class Materi extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'title',
-        'slug',
-        'thumbnail_image',
-        'pdf_file',
-        'description',
-    ];
 
     protected $guarded=['id'];
     protected $with = ['pertemuan'];
 
-    public function pertemuan()
+    public function pertemuan(): BelongsTo
     {
-        return $this->belongsToMany(Pertemuan::class, 'pertemuan_id');
+        return $this->belongsTo(Pertemuan::class, 'pertemuan_id');
     }
 }

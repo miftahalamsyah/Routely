@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tugas;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -24,29 +25,26 @@ class TugasController extends Controller
         return view('dashboard.tugas.create', compact('users'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
+        $this->validate($request, [
+            'pertemuan_id' => 'required',
+            'name'     => 'required',
+            'description'   => 'required',
+            'due_date' => 'required',
+            'maximum_score' => 'required',
+        ]);
+
         $slug = Str::slug($request->name);
         // Logika untuk menyimpan tugas yang baru dibuat
-        $assignment = new Tugas;
-        $assignment->name = $request->name;
-        $assignment->slug = $slug;
-        $assignment->description = $request->description;
-        $assignment->due_date = $request->due_date;
-        $assignment->maximum_score = $request->maximum_score;
-
-        // Periksa nilai 'assign_to'
-        if ($request->assign_to == 'all') {
-            // Memberikan tugas kepada semua pengguna
-            $users = User::all();
-            foreach ($users as $user) {
-                $user->tugas()->save($assignment);
-            }
-        } else {
-            // Memberikan tugas kepada pengguna tertentu
-            $user = User::find($request->assign_to);
-            $user->tugas()->save($assignment);
-        }
+        Tugas::create([
+            'pertemuan_id' => $request->pertemuan_id,
+            'name' => $request->name,
+            'slug' => $slug,
+            'description' => $request->description,
+            'due_date' => $request->due_date,
+            'maximum_score' => $request->maximum_score,
+        ]);
 
         return redirect()->route('tugas.index')->with('success', 'Tugas berhasil ditambahkan.');
     }

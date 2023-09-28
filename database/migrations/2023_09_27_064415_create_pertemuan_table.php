@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pertemuan', function (Blueprint $table) {
+        Schema::create('pertemuans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('materi_id');
-            $table->foreignId('tugas_id');
+            $table->text('slug');
             $table->integer('pertemuan_ke');
             $table->date('tanggal');
-            // Tambahkan kolom-kolom lain yang diperlukan
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pertemuan');
+        Schema::dropIfExists('pertemuans');
     }
 };

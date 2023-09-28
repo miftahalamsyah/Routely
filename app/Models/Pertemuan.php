@@ -4,20 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 
 class Pertemuan extends Model
 {
     use HasFactory;
-    protected $table = 'pertemuan';
     protected $guarded = ['id'];
 
-    public function materi()
+    public function materi(): HasMany
     {
-        return $this->belongsToMany(Materi::class);
+        return $this->hasMany(Materi::class);
     }
 
-    public function tugas()
+    public function tugas(): HasMany
     {
-        return $this->belongsToMany(Tugas::class);
+        return $this->hasMany(Tugas::class);
     }
 }

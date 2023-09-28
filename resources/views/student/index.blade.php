@@ -23,18 +23,22 @@
                 <div class="px-2">
                     <p class="mb-0 font-semibold leading-normal text-sm">{{ Auth::user()->name }}</p>
                     <p class="mb-0 text-xs">{{ Auth::user()->email }}</p>
+                    @if (Auth::user()->is_admin === 0)
                     <p class="mb-0 text-sm">Siswa</p>
+                    @else
+                    <p class="mb-0 text-sm">Guru</p>
+                    @endif
                 </div>
             </div>
             {{-- siswa edit profile --}}
             <div class="max-w-full px-2">
-                <a href="/student/profile" class="mb-0 text-xs leading-normal text-student">
+                <a href="/student/profile" class="mb-0 text-xs leading-normal text-student hover:underline">
                     Edit Profile
                 </a>
             </div>
         </div>
     {{-- clock card --}}
-    <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-white shadow-md rounded-lg">
+    <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-white shadow-md rounded-2xl">
         <div class="flex items-center justify-center">
             <div class="w-16 h-16 bg-gradient-to-tl from-violet-500 to-orange-500 rounded-full flex items-center justify-center">
                 <p class="text-stone-50 text-3xl font-semibold" id="clockIcon">
@@ -107,15 +111,39 @@
         </div>
     </div>
 
+    {{-- pertemuan --}}
     <div class="mt-12">
         <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">👨‍🏫 Pertemuan</p>
-        <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card">
-            <div class="max-w-full px-3 mx-auto text-center">
-               <span class="text-stone-700 text-lg tracking-tight leading-none">Tidak ada pertemuan</span>
+        <div class="grid md:grid-cols-3 mx-auto flex justify-center">
+            @forelse ($pertemuans as $pertemuan)
+            <!-- individual card -->
+            <div class="relative flex flex-col min-w-0 break-words bg-white border shadow-lg rounded-2xl mx-2 mb-4 hover:bg-gray-100">
+                <div class="flex-auto px-1 pt-6">
+                    <p class="mb-6 px-2 leading-normal text-sm overflow-hidden h-24 ...">{{ $pertemuan->pertemuan_ke }}</p>
+                    <div class="flex items-center justify-between px-2 pb-4">
+                        <a href="/student/pertemuan/{{ $pertemuan->slug }}">
+                        <button class="mr-2 text-sm relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border bg-violet-200 rounded-xl group">
+                            <span class="absolute inset-0 flex items-center justify-center w-full h-full text-stone-50 duration-300 -translate-x-full bg-orange-500 group-hover:translate-x-0 ease">
+                                Lihat Pertemuan
+                            </span>
+                            <span class="absolute flex items-center justify-center w-full h-full text-student transition-all duration-300 transform group-hover:translate-x-full ease">Lihat Pertemuan</span>
+                            <span class="relative invisible">Lihat Pertemuan</span>
+                        </button>
+                        </a>
+                    </div>
+                </div>
             </div>
+            @empty
+            <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card">
+                <div class="max-w-full px-3 mx-auto text-center">
+                    <span class="text-stone-700 text-lg tracking-tight leading-none">Tidak ada Tugas</span>
+                </div>
+            </div>
+            @endforelse
         </div>
     </div>
 
+    {{-- tugas --}}
     <div class="mt-12">
         <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">📝 Tugas</p>
         <div class="grid md:grid-cols-3 mx-auto flex justify-center">

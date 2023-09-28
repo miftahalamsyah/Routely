@@ -9,7 +9,7 @@ use App\Http\Controllers\StudentMateriController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DaftarController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StudentDashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentSimulasiController;
 
@@ -64,7 +64,7 @@ Route::resource('/dashboard/pertemuan', \App\Http\Controllers\PertemuanControlle
 
 Route::get('/fetch-data', [DataController::class, 'index']);
 
-Route::get('/student', [HomeController::class, 'index'])->name('student.index')->middleware('auth');
+Route::get('/student', [StudentDashboardController::class, 'index'])->name('student.index')->middleware('auth');
 Route::get('/student/profile', [ProfileController::class, 'index'])->name('student.profile')->middleware('auth');
 Route::put('/student/profile', [ProfileController::class, 'update'])->name('student.profile.update')->middleware('auth');
 

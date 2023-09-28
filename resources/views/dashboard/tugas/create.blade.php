@@ -31,6 +31,15 @@
                         @csrf
 
                         <div class="mb-4">
+                            <label for="pertemuan_id" class="block text-md font-semibold text-gray-800">Pertemuan ke berapa</label>
+                            <input type="number" id="pertemuan_id" name="pertemuan_id" value="{{ old('pertemuan_id') }}" placeholder="Masukkan Pertemuan ke berapa"
+                                class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 @error('pertemuan_id') border-red-500 @enderror">
+                            @error('pertemuan_id')
+                                <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-4">
                             <label for="name" class="block text-md font-semibold text-gray-800">Nama Tugas</label>
                             <input type="text" id="name" name="name" value="{{ old('name') }}" placeholder="Masukkan Judul Tugas"
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 @error('name') border-red-500 @enderror">
@@ -66,20 +75,6 @@
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
                         </div>
-
-                        <div class="mb-4">
-                            <label for="assign_to" class="block text-md font-semibold text-gray-800">Assign To</label>
-                            <select id="assign_to" name="assign_to" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 @error('assign_to') border-red-500 @enderror">
-                                <option value="all">Semua Pengguna</option>
-                                @foreach($users as $user)
-                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                @endforeach
-                            </select>
-                            @error('assign_to')
-                                <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
-                            @enderror
-                        </div>
-
 
                         <div class="my-3">
                             <button type="submit" class="bg-violet-400 hover:bg-violet-300 rounded-xl p-2 mr-2 font-semibold">Simpan</button>

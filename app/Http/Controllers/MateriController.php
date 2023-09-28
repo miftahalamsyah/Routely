@@ -64,7 +64,7 @@ class MateriController extends Controller
         }
 
         Materi::create([
-            'pertemuan_id' => $request->pertemuan,
+            'pertemuan_id' => $request->pertemuan_id,
             'title' => $request->title,
             'slug' => $slug,
             'description' => $request->description,

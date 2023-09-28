@@ -25,19 +25,19 @@ class PertemuanController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $this->validate($request,[
             'pertemuan_ke' => 'required|integer',
             'tanggal' => 'required',
         ]);
 
-        $pertemuan = Pertemuan::create([
+        $slug = Str::slug($request->title);
+
+        Pertemuan::create([
+            'slug' => $slug,
             'pertemuan_ke' => $request->input('pertemuan_ke'),
             'tanggal' => $request->input('tanggal'),
             // Tambahkan kolom-kolom lain yang sesuai
         ]);
-
-        $pertemuan->materi()->sync($request->input('materi'));
-        $pertemuan->tugas()->sync($request->input('tugas'));
 
         return redirect()->route('pertemuan.index')->with('success', 'Pertemuan berhasil dibuat');
     }
@@ -51,23 +51,21 @@ class PertemuanController extends Controller
 
     public function update(Request $request, Pertemuan $pertemuan)
     {
-        $request->validate([
+        $this->validate($request,[
             'pertemuan_ke' => 'required|integer',
-            'materi_id' => 'required|array',
-            'materi_id.*' => 'exists:materis,id',
-            'tugas_id' => 'required|array',
-            'tugas_id.*' => 'exists:tugass,id',
+            'tanggal' => 'required',
         ]);
 
-        $pertemuan = Pertemuan::create([
+        $slug = Str::slug($request->title);
+
+        Pertemuan::create([
+            'slug' => $slug,
             'pertemuan_ke' => $request->input('pertemuan_ke'),
+            'tanggal' => $request->input('tanggal'),
+            // Tambahkan kolom-kolom lain yang sesuai
         ]);
 
-        $pertemuan->materis()->sync($request->input('materi_id'));
-        $pertemuan->tugass()->sync($request->input('tugas_id'));
-
-        return redirect()->route('pertemuan.index')
-            ->with('success', 'Pertemuan created successfully.');
+        return redirect()->route('pertemuan.index')->with('success', 'Pertemuan berhasil dibuat');
     }
 
     public function destroy(Pertemuan $pertemuan)
