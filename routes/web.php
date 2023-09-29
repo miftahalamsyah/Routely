@@ -12,6 +12,8 @@ use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\StudentDashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentSimulasiController;
+use App\Http\Controllers\GitHubController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +36,9 @@ Route::get('/', function()
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('auth/github', [GitHubController::class, 'gitRedirect'])->name('auth.github');
+Route::get('auth/github/callback', [GitHubController::class, 'gitCallback']);
 //end login
 
 Route::get('/daftar', [DaftarController::class, 'index'])->name('daftar');

@@ -12,7 +12,7 @@ class LoginController extends Controller
         if (Auth::check()) {
             return redirect('/student');
         } else {
-            return view('pages.login',[
+            return view('pages.masuk',[
                 'title'=>"Login"
             ]);
         }
