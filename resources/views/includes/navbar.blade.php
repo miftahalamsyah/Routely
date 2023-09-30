@@ -1,8 +1,3 @@
-{{-- mobile navbar --}}
-<div class="fixed top-0 w-full z-20 left-0 md:hidden">
-
-</div>
-
 {{-- desktop navbar --}}
 <div class="md:block hidden">
     <div class="justify-center mx-auto bg-opacity-75 backdrop-blur-sm px-2">
