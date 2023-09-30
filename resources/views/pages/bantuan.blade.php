@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.student_layout')
 
 @section('content')
 <section class="mt-20 max-w-6xl justify-center mx-auto px-5">

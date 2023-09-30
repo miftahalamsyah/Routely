@@ -10,10 +10,12 @@
                 <div class="relative inline-block text-left">
                     <div class="mr-2">
                         <button type="button" class="inline-flex w-full justify-center rounded-lg bg-violet-200 px-2 py-1 text-sm font-semibold text-student border hover:bg-gray-100" id="menu-button" aria-expanded="true" aria-haspopup="true">
-                        Hi, {{ explode(' ', Auth::user()->name)[0] }}!
-                        <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-                        </svg>
+                            <p class="my-auto">
+                                Hi, {{ explode(' ', Auth::user()->name)[0] }}!
+                            </p>
+                            <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                            </svg>
                         </button>
                     </div>
                     <div class="absolute right-0 z-10 w-56 origin-top-right rounded-xl bg-gray-50 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
@@ -61,10 +63,10 @@
                         @endactive
                     </li>
                     <li>
-                        @active('student.materi')
-                            <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 active text-gray-900" href="/student/materi">Materi<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
+                        @active('student.pertemuan')
+                            <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 active text-gray-900" href="/student/pertemuan">Pertemuan<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
                         @else
-                            <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 text-gray-900" href="/student/materi">Materi</a>
+                            <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 text-gray-900" href="/student/pertemuan">Pertemuan</a>
                         @endactive
                     </li>
                     <li>
@@ -82,10 +84,10 @@
                         @endactive
                     </li>
                     <li>
-                        @active('student.bantuan')
-                            <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 active text-gray-900" href="/student/bantuan">Bantuan<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
+                        @active('pages.bantuan')
+                            <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 active text-gray-900" href="/bantuan">Bantuan<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
                         @else
-                            <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 text-gray-900" href="/student/bantuan">Bantuan</a>
+                            <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 text-gray-900" href="/bantuan">Bantuan</a>
                         @endactive
                     </li>
                 </ul>
@@ -102,10 +104,10 @@
                     @endactive
                 </li>
                 <li>
-                    @active('student.materi')
-                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 active text-gray-900" href="/student/materi">Materi<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
+                    @active('student.pertemuan')
+                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 active text-gray-900" href="/student/pertemuan">Pertemuan<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
                     @else
-                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 text-gray-900" href="/student/materi">Materi</a>
+                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 text-gray-900" href="/student/pertemuan">Pertemuan</a>
                     @endactive
                 </li>
                 <li>
@@ -123,10 +125,10 @@
                     @endactive
                 </li>
                 <li>
-                    @active('student.bantuan')
-                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 active text-gray-900" href="/student/bantuan">Bantuan<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
+                    @active('pages.bantuan')
+                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 active text-gray-900" href="/bantuan">Bantuan<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
                     @else
-                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 text-gray-900" href="/student/bantuan">Bantuan</a>
+                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 text-gray-900" href="/bantuan">Bantuan</a>
                     @endactive
                 </li>
             </ul>

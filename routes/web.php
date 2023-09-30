@@ -9,6 +9,7 @@ use App\Http\Controllers\StudentMateriController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DaftarController;
+use App\Http\Controllers\StudentPertemuanController;
 use App\Http\Controllers\StudentDashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentSimulasiController;
@@ -44,20 +45,7 @@ Route::get('auth/github/callback', [GitHubController::class, 'gitCallback']);
 Route::get('/daftar', [DaftarController::class, 'index'])->name('daftar');
 Route::post('/daftar', [DaftarController::class, 'store']);
 
-Route::get('/materi', [StudentMateriController::class, 'index'])->name('materi.index');
-
-Route::get('/materi/{materi:slug}', [StudentMateriController::class, 'show'])->name('materi.show');
-
-Route::get('/simulasi', function () {
-    return View::make('pages.simulasi',
-        ['title'=>'Simulasi']);
-});
-
-Route::get('/bantuan', function () {
-    return View::make('pages.bantuan',
-        ['title'=>'Bantuan']);
-});
-
+Route::view('/bantuan', 'pages.bantuan', ['title' => 'Bantuan'])->name('pages.bantuan');
 
 //admin dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('admin');
@@ -73,6 +61,7 @@ Route::get('/student', [StudentDashboardController::class, 'index'])->name('stud
 Route::get('/student/profile', [ProfileController::class, 'index'])->name('student.profile')->middleware('auth');
 Route::put('/student/profile', [ProfileController::class, 'update'])->name('student.profile.update')->middleware('auth');
 
+Route::get('/student/pertemuan', [StudentPertemuanController::class, 'index'])->name('student.pertemuan')->middleware('auth');
 Route::get('/student/materi', [StudentMateriController::class, 'index'])->name('student.materi')->middleware('auth');
 Route::get('/student/materi/{materi:slug}', [StudentMateriController::class, 'show'])->name('student.materi.show')->middleware('auth');
 Route::get('/student/simulasi', [StudentSimulasiController::class, 'index'])->name('student.simulasi')->middleware('auth');
