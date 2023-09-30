@@ -6,6 +6,10 @@ use App\Models\Pertemuan;
 use App\Models\Materi;
 use App\Models\Tugas;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class PertemuanController extends Controller
 {
@@ -30,7 +34,7 @@ class PertemuanController extends Controller
             'tanggal' => 'required',
         ]);
 
-        $slug = Str::slug($request->title);
+        $slug = Str::slug("pertemuan_ke_{$request->pertemuan_ke}");
 
         Pertemuan::create([
             'slug' => $slug,
@@ -56,7 +60,7 @@ class PertemuanController extends Controller
             'tanggal' => 'required',
         ]);
 
-        $slug = Str::slug($request->title);
+        $slug = Str::slug("pertemuan_ke_{$request->pertemuan_ke}");
 
         Pertemuan::create([
             'slug' => $slug,

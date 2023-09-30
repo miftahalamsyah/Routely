@@ -32,8 +32,11 @@
 
                         <div class="mb-4">
                             <label for="pertemuan_id" class="block text-md font-semibold text-gray-800">Pertemuan ke berapa</label>
-                            <input type="number" id="pertemuan_id" name="pertemuan_id" value="{{ old('pertemuan_id') }}" placeholder="Masukkan Pertemuan ke berapa"
-                                class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 @error('pertemuan_id') border-red-500 @enderror">
+                            <select id="pertemuan_id" name="pertemuan_id" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 @error('pertemuan_id') border-red-500 @enderror">
+                                @foreach ($pertemuans as $pertemuan)
+                                    <option value="{{ $pertemuan->id }}">Pertemuan ke-{{ $pertemuan->pertemuan_ke }}</option>
+                                @endforeach
+                            </select>
                             @error('pertemuan_id')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror

@@ -18,7 +18,9 @@ class UserController extends Controller
      */
     public function index(): View
     {
-        $users = User::orderBy('name')->paginate(10);
+        $users = User::where('is_admin', 0)
+                    ->orderBy('name')
+                    ->paginate(10);
 
         return view('dashboard.siswa.index', compact('users'));
     }

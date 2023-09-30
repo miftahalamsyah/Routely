@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Materi;
+use App\Models\Pertemuan;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -29,7 +30,8 @@ class MateriController extends Controller
      */
     public function create(): View
     {
-        return view('dashboard.materi.create');
+        $pertemuans = Pertemuan::all();
+        return view('dashboard.materi.create', compact('pertemuans'));
     }
 
     /**

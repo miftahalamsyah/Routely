@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tugas;
 use App\Models\User;
+use App\Models\Pertemuan;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -21,8 +22,9 @@ class TugasController extends Controller
     public function create()
     {
         // Logika untuk menampilkan formulir pembuatan tugas
-        $users = User::where('is_admin', 0)->paginate(10);
-        return view('dashboard.tugas.create', compact('users'));
+        // $users = User::where('is_admin', 0)->paginate(10);
+        $pertemuans = Pertemuan::all();
+        return view('dashboard.tugas.create', compact('pertemuans'));
     }
 
     public function store(Request $request): RedirectResponse

@@ -62,6 +62,7 @@ Route::get('/student/profile', [ProfileController::class, 'index'])->name('stude
 Route::put('/student/profile', [ProfileController::class, 'update'])->name('student.profile.update')->middleware('auth');
 
 Route::get('/student/pertemuan', [StudentPertemuanController::class, 'index'])->name('student.pertemuan')->middleware('auth');
+Route::get('/student/pertemuan/{pertemuan:slug}', [StudentPertemuanController::class, 'show'])->name('student.pertemuan.show')->middleware('auth');
 Route::get('/student/materi', [StudentMateriController::class, 'index'])->name('student.materi')->middleware('auth');
 Route::get('/student/materi/{materi:slug}', [StudentMateriController::class, 'show'])->name('student.materi.show')->middleware('auth');
 Route::get('/student/simulasi', [StudentSimulasiController::class, 'index'])->name('student.simulasi')->middleware('auth');

@@ -9,7 +9,7 @@
             @auth
                 <div class="relative inline-block text-left">
                     <div class="mr-2">
-                        <button type="button" class="inline-flex w-full justify-center rounded-lg bg-violet-200 px-2 py-1 text-sm font-semibold text-student border hover:bg-gray-100" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                        <button type="button" class="inline-flex w-full justify-center rounded-lg bg-violet-200 px-2 py-1 text-sm font-semibold text-student border hover:bg-violet-300" id="menu-button" aria-expanded="true" aria-haspopup="true">
                             <p class="my-auto">
                                 Hi, {{ explode(' ', Auth::user()->name)[0] }}!
                             </p>

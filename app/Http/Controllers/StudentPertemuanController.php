@@ -33,11 +33,33 @@ class StudentPertemuanController extends Controller
      */
     public function show(Pertemuan $pertemuan)
     {
+        $materis = [];
+        foreach ($pertemuan->materi as $materi) {
+            $materis[] = [
+                "title" => $materi->title,
+                "slug" => $materi->slug,
+                "description" => $materi->description,
+                "thumbnail_image" => $materi->thumbnail_image,
+            ];
+        }
+
+        $tugass = [];
+        foreach ($pertemuan->tugas as $tugas) {
+            $tugass[] = [
+                "name" => $tugas->name,
+                "slug" => $tugas->slug,
+                "description" => $tugas->description,
+                "submission_status" => $tugas->submission_status,
+            ];
+        }
+
         return view('student.pertemuan_slug',
         [
-            "title"=> $pertemuan->title,
-            "description" => $pertemuan->description,
-            "pdf_file" => $pertemuan->pdf_file,
+            "title" => "Pertemuan Ke-$pertemuan->pertemuan_ke",
+            "pertemuan_ke"=> $pertemuan->pertemuan_ke,
+            "tanggal" => $pertemuan->tanggal,
+            "materi" => $materis,
+            "tugas" => $tugass,
         ]);
     }
 

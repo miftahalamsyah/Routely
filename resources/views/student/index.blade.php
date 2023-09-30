@@ -38,7 +38,7 @@
             </div>
         </div>
     {{-- clock card --}}
-    <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-white shadow-md rounded-2xl">
+    <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl">
         <div class="flex items-center justify-center">
             <div class="w-16 h-16 bg-gradient-to-tl from-violet-500 to-orange-500 rounded-full flex items-center justify-center">
                 <p class="text-stone-50 text-3xl font-semibold" id="clockIcon">
@@ -122,7 +122,7 @@
                     <p class="mb-6 px-2 leading-normal text-xl font-bold overflow-hidden h-24 ...">Pertemuan {{ $pertemuan->pertemuan_ke }}</p>
                     <div class="flex items-center justify-between px-2 pb-4">
                         <a href="/student/pertemuan/{{ $pertemuan->slug }}">
-                            <button class="mr-2 text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border bg-violet-200 rounded-xl shadow-md hover:bg-violet-100 ">
+                            <button class="mr-2 text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border bg-violet-200 rounded-xl shadow-md hover:bg-violet-300 ">
                                 Lihat Pertemuan
                             </button>
                         </a>
@@ -132,7 +132,7 @@
             @empty
             <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card">
                 <div class="max-w-full px-3 mx-auto text-center">
-                    <span class="text-stone-700 text-lg tracking-tight leading-none">Tidak ada Tugas</span>
+                    <span class="text-stone-700 text-md tracking-tight leading-none">Tidak ada Tugas</span>
                 </div>
             </div>
             @endforelse
@@ -145,7 +145,7 @@
         <div class="grid md:grid-cols-3 mx-auto flex justify-center">
             @forelse ($tugass as $tugas)
                 <!-- individual card -->
-                <div class="relative flex flex-col min-w-0 break-words bg-white border shadow-lg rounded-2xl mx-2 mb-4">
+                <div class="relative flex flex-col min-w-0 break-words bg-stone-50 border shadow-lg rounded-2xl mx-2 my-4">
                     <div class="flex-auto px-1 pt-6">
                         <div>
                             @if ($tugas->submission_status === 'submitted')
@@ -167,7 +167,7 @@
                         <p class="mb-6 px-2 leading-normal text-sm overflow-hidden h-24 ...">{{ $tugas->description }}</p>
                         <div class="flex items-center justify-between px-2 pb-4">
                             <a href="/student/tugas/{{ $tugas->slug }}">
-                            <button class="mr-2 text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border bg-violet-200 rounded-xl shadow-md hover:bg-violet-100 ">
+                            <button class="mr-2 text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border bg-violet-200 rounded-xl shadow-md hover:bg-violet-300 ">
                                 Lihat Tugas
                             </button>
                             </a>
@@ -177,7 +177,7 @@
             @empty
                 <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card">
                     <div class="max-w-full px-3 mx-auto text-center">
-                        <span class="text-stone-700 text-lg tracking-tight leading-none">Tidak ada Tugas</span>
+                        <span class="text-stone-700 text-md tracking-tight leading-none">Tidak ada Tugas</span>
                     </div>
                 </div>
             @endforelse
@@ -205,7 +205,7 @@
                         <p class="mb-6 px-2 leading-normal text-sm overflow-hidden h-24 ...">{{ $materi->description }}</p>
                         <div class="flex items-center justify-between px-2 pb-4">
                             <a href="/student/materi/{{ $materi->slug }}">
-                                <button class="mr-2 text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border bg-violet-200 rounded-xl shadow-md hover:bg-violet-100 ">
+                                <button class="mr-2 text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border bg-violet-200 rounded-xl shadow-md hover:bg-violet-300 ">
                                     Lihat Materi
                                 </button>
                             </a>
@@ -215,7 +215,7 @@
             @empty
                 <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card">
                     <div class="max-w-full px-3 mx-auto text-center">
-                    <span class="text-stone-700 text-lg tracking-tight leading-none">Data Materi Tidak Ada</span>
+                    <span class="text-stone-700 text-md tracking-tight leading-none">Data Materi Tidak Ada</span>
                     </div>
                 </div>
             @endforelse

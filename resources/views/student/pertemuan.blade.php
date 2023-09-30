@@ -27,15 +27,15 @@
 
     <h2 class="mb-4 text-2xl font-extrabold tracking-tight leading-none text-student md:text-3xl">Pertemuan</h2>
 
-    <div class="grid md:grid-cols-3 mx-auto flex justify-center">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
     @forelse ($pertemuans as $pertemuan)
         <!-- individual card -->
-        <div class="relative flex flex-col min-w-0 break-words bg-white border shadow-lg rounded-2xl mx-2 my-4 hover:bg-gray-100">
+        <div class="relative flex flex-col break-words bg-white border shadow-lg rounded-2xl">
             <div class="flex-auto px-1 pt-6">
                 <p class="mb-6 px-2 leading-normal text-xl font-bold overflow-hidden h-24 ...">Pertemuan {{ $pertemuan->pertemuan_ke }}</p>
                 <div class="flex items-center justify-between px-2 pb-4">
                     <a href="/student/pertemuan/{{ $pertemuan->slug }}">
-                        <button class="mr-2 text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border bg-violet-200 rounded-xl shadow-md hover:bg-violet-100 ">
+                        <button class="mr-2 text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border bg-violet-200 rounded-xl shadow-md hover:bg-violet-300">
                             Lihat Pertemuan
                         </button>
                     </a>
