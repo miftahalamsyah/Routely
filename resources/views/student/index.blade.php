@@ -13,14 +13,15 @@
             <div class="flex">
                 <div class="px-2">
                     <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl">
-                        <p class="text-stone-50 text-lg font-semibold">
+                        <a href="/student/profile" class="text-stone-50 text-lg font-semibold">
                             {{ substr(Auth::user()->name, 0, 1) }}
                             {{ substr(strrchr(Auth::user()->name, ' '), 1, 1) }}
-                        </p>
+                        </a>
                     </div>
                 </div>
                 {{-- siswa info --}}
                 <div class="px-2">
+                    <a  href="/student/profile">
                     <p class="mb-0 font-semibold leading-normal text-sm">{{ Auth::user()->name }}</p>
                     <p class="mb-0 text-xs">{{ Auth::user()->email }}</p>
                     @if (Auth::user()->is_admin === 0)
@@ -28,10 +29,11 @@
                     @else
                     <p class="mb-0 text-sm">Guru</p>
                     @endif
+                    </a>
                 </div>
             </div>
             {{-- siswa edit profile --}}
-            <div class="max-w-full px-2">
+            <div class="max-w-full px-2 hidden md:block">
                 <a href="/student/profile" class="mb-0 text-xs leading-normal text-student hover:underline">
                     Edit Profile
                 </a>
@@ -92,8 +94,8 @@
                 </div>
             </div>
 
-            <div class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card">
-                <div class="max-w-full h-16 px-3">
+            <div class="flex-auto p-4 bg-stone-50 shadow-md rounded-2xl score-card">
+                <div class="max-w-full h-16 gap-4">
                     <div class="flex items-center justify-between">
                     <p class="mb-0 text-stone-700 leading-normal text-sm">Nilai Post-Test</p>
                     <!-- Button to toggle score visibility -->
@@ -114,10 +116,10 @@
     {{-- pertemuan --}}
     <div class="mt-12">
         <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">👨‍🏫 Pertemuan</p>
-        <div class="grid md:grid-cols-3 mx-auto flex justify-center">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             @forelse ($pertemuans as $pertemuan)
             <!-- individual card -->
-            <div class="relative flex flex-col min-w-0 break-words bg-stone-50 border shadow-lg rounded-2xl mx-2 mb-4">
+            <div class="relative flex flex-col break-words bg-stone-50 border shadow-lg rounded-2xl">
                 <div class="flex-auto px-1 pt-6">
                     <p class="mb-6 px-2 leading-normal text-xl font-bold overflow-hidden h-24 ...">Pertemuan {{ $pertemuan->pertemuan_ke }}</p>
                     <div class="flex items-center justify-between px-2 pb-4">
@@ -142,10 +144,10 @@
     {{-- tugas --}}
     <div class="mt-12">
         <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">📝 Tugas</p>
-        <div class="grid md:grid-cols-3 mx-auto flex justify-center">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             @forelse ($tugass as $tugas)
                 <!-- individual card -->
-                <div class="relative flex flex-col min-w-0 break-words bg-stone-50 border shadow-lg rounded-2xl mx-2 my-4">
+                <div class="relative flex flex-col break-words bg-stone-50 border shadow-lg rounded-2xl">
                     <div class="flex-auto px-1 pt-6">
                         <div>
                             @if ($tugas->submission_status === 'submitted')
@@ -189,10 +191,10 @@
             <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">📖 Materi</p>
             <a href="/student/materi"><p class="my-4 text-xs py-1 px-2 font-extrabold tracking-tight leading-none bg-violet-200 rounded-lg shadow-md text-student-dark md:text-sm">Lihat Semua</p></a>
         </div>
-        <div class="grid md:grid-cols-3 mx-auto flex justify-center">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             @forelse ($materis as $materi)
                 <!-- individual card -->
-                <div class="relative flex flex-col min-w-0 break-words bg-stone-50 border shadow-lg rounded-2xl mx-2 mb-4">
+                <div class="relative flex flex-col break-words bg-stone-50 border shadow-lg rounded-2xl">
                     <div class="relative">
                         <a class="block shadow-xl rounded-2xl">
                             <img src="{{ asset('storage/thumbnails/' . $materi->thumbnail_image) }}" alt="{{ $materi-> title }}" class="w-full h-32 object-cover shadow-soft-2xl rounded-2xl" />
