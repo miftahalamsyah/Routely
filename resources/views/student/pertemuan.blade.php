@@ -30,7 +30,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
     @forelse ($pertemuans as $pertemuan)
         <!-- individual card -->
-        <div class="relative flex flex-col break-words bg-stone-50 border shadow-lg rounded-2xl">
+        <div class="relative flex flex-col break-words bg-stone-50 bg-opacity-75 border shadow-lg rounded-2xl">
             <div class="flex-auto px-1 pt-6">
                 <p class="mb-6 px-2 leading-normal text-xl font-bold overflow-hidden h-24 ...">Pertemuan {{ $pertemuan->pertemuan_ke }}</p>
                 <div class="flex items-center justify-between px-2 pb-4">

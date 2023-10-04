@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="mt-12 max-w-6xl justify-center mx-auto px-5">
+<section class="mt-12 max-w-6xl justify-center mx-auto px-5 min-h-screen">
     <nav class="flex my-2" aria-label="Breadcrumb">
         <ol class="inline-flex items-center space-x-1 md:space-x-3">
             <li class="inline-flex items-center">
@@ -37,7 +37,7 @@
     <div class="rounded-xl">
         <div class="row">
             <div class="col-md-12 py-5">
-                <div class="border-0 shadow-sm">
+                <div class="shadow-sm">
                     <div class="flex items-center">
                         <p class="font-bold text-2xl">Materi</p>
                         <hr class="border-t border-student flex-grow ml-2">

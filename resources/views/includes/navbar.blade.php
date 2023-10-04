@@ -1,5 +1,5 @@
 {{-- desktop navbar --}}
-<div class="md:block hidden">
+<div class="block">
     <div class="justify-center mx-auto bg-opacity-75 backdrop-blur-sm px-2">
         <div class="flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="/" class="flex items-center">

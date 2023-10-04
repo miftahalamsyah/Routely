@@ -17,7 +17,7 @@ class StudentPertemuanController extends Controller
      */
     public function index(): View
     {
-        $pertemuans = Pertemuan::latest()->paginate(10);
+        $pertemuans = Pertemuan::paginate(10);
 
         return view('student.pertemuan',
         [
