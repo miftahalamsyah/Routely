@@ -22,7 +22,10 @@ class UserController extends Controller
                     ->orderBy('name')
                     ->paginate(10);
 
-        return view('dashboard.siswa.index', compact('users'));
+        return view('dashboard.siswa.index',
+        [
+            "title" => "Siswa",
+        ], compact('users'));
     }
 
     /**
@@ -32,7 +35,10 @@ class UserController extends Controller
      */
     public function create(): View
     {
-        return view('dashboard.siswa.create');
+        return view('dashboard.siswa.create',
+        [
+            "title" => "Tambah Siswa",
+        ]);
     }
 
     /**

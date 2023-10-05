@@ -16,7 +16,10 @@ class TugasController extends Controller
         // Logika untuk menampilkan daftar tugas
         $tugass = Tugas::all();
         $users = User::where('is_admin', 0)->paginate(10);
-        return view('dashboard.tugas.index', compact('tugass', 'users'));
+        return view('dashboard.tugas.index',
+        [
+            "title" => "Tugas",
+        ], compact('tugass', 'users'));
     }
 
     public function create()
@@ -24,7 +27,10 @@ class TugasController extends Controller
         // Logika untuk menampilkan formulir pembuatan tugas
         // $users = User::where('is_admin', 0)->paginate(10);
         $pertemuans = Pertemuan::all();
-        return view('dashboard.tugas.create', compact('pertemuans'));
+        return view('dashboard.tugas.create',
+        [
+            "title" => "Tambah Tugas",
+        ], compact('pertemuans'));
     }
 
     public function store(Request $request): RedirectResponse

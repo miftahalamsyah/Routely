@@ -16,7 +16,10 @@ class PertemuanController extends Controller
     public function index()
     {
         $pertemuans = Pertemuan::all();
-        return view('dashboard.pertemuan.index', compact('pertemuans'));
+        return view('dashboard.pertemuan.index',
+        [
+            "title" => "Pertemuan",
+        ], compact('pertemuans'));
     }
 
     public function create()
@@ -24,7 +27,10 @@ class PertemuanController extends Controller
         $materis = Materi::all();
         $tugass = Tugas::all();
 
-        return view('dashboard.pertemuan.create', compact('materis', 'tugass'));
+        return view('dashboard.pertemuan.create',
+        [
+            "title" => "Tambah Pertemuan",
+        ],compact('materis', 'tugass'));
     }
 
     public function store(Request $request)

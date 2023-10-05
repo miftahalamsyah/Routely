@@ -14,8 +14,7 @@
                 <div class="px-2">
                     <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl">
                         <a href="/student/profile" class="text-stone-50 text-lg font-semibold">
-                            {{ substr(Auth::user()->name, 0, 1) }}
-                            {{ substr(strrchr(Auth::user()->name, ' '), 1, 1) }}
+                            {{ substr(Auth::user()->name, 0, 1) }}{{ substr(strrchr(Auth::user()->name, ' '), 1, 1) }}
                         </a>
                     </div>
                 </div>

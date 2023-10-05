@@ -20,7 +20,10 @@ class MateriController extends Controller
     {
         $materis = Materi::latest()->paginate(10);
 
-        return view('dashboard.materi.index', compact('materis'));
+        return view('dashboard.materi.index',
+        [
+            "title" => "Materi",
+        ], compact('materis'));
     }
 
     /**
@@ -31,7 +34,10 @@ class MateriController extends Controller
     public function create(): View
     {
         $pertemuans = Pertemuan::all();
-        return view('dashboard.materi.create', compact('pertemuans'));
+        return view('dashboard.materi.create',
+        [
+            "title" => "Tambah Materi",
+        ], compact('pertemuans'));
     }
 
     /**
@@ -87,7 +93,10 @@ class MateriController extends Controller
     {
         $materi = Materi::findOrFail($id);
 
-        return view('dashboard.materi.show', compact('materi'));
+        return view('dashboard.materi.show',
+        [
+            "title" => "Materi",
+        ],compact('materi'));
     }
 
     /**
@@ -100,7 +109,10 @@ class MateriController extends Controller
     {
         $materi = Materi::findOrFail($id);
 
-        return view('dashboard.materi.edit', compact('materi'));
+        return view('dashboard.materi.edit',
+        [
+            "title" => "Materi",
+        ], compact('materi'));
     }
 
     /**
