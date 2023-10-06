@@ -59,7 +59,7 @@
     <div class="mt-12">
         <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">🏆 Score</p>
         <div class="flex flex-col sm:flex-row w-full mb-6">
-            <div class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card">
+            <div class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card hover:shadow-lg">
                 <div class="max-w-full h-16 px-3">
                     <div class="flex items-center justify-between">
                     <p class="mb-0 text-stone-700 leading-normal text-sm">Nilai Pre-Test</p>
@@ -76,7 +76,7 @@
                 </div>
             </div>
 
-            <div class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card">
+            <div class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card hover:shadow-lg">
                 <div class="max-w-full h-16 px-3">
                     <div class="flex items-center justify-between">
                     <p class="mb-0 text-stone-700 leading-normal text-sm">Nilai Tugas</p>
@@ -93,7 +93,7 @@
                 </div>
             </div>
 
-            <div class="flex-auto p-4 bg-stone-50 shadow-md rounded-2xl score-card">
+            <div class="flex-auto p-4 bg-stone-50 shadow-md rounded-2xl score-card hover:shadow-lg">
                 <div class="max-w-full h-16 gap-4">
                     <div class="flex items-center justify-between">
                     <p class="mb-0 text-stone-700 leading-normal text-sm">Nilai Post-Test</p>
@@ -118,7 +118,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             @forelse ($pertemuans as $pertemuan)
             <!-- individual card -->
-            <div class="relative flex flex-col break-words bg-stone-50 border shadow-lg rounded-2xl">
+            <div class="relative flex flex-col break-words bg-stone-50 border shadow-md rounded-2xl hover:shadow-lg">
                 <div class="flex-auto px-1 pt-6">
                     <p class="mb-6 px-2 leading-normal text-xl font-bold overflow-hidden h-24 ...">Pertemuan {{ $pertemuan->pertemuan_ke }}</p>
                     <div class="flex items-center justify-between px-2 pb-4">
@@ -146,7 +146,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             @forelse ($tugass as $tugas)
                 <!-- individual card -->
-                <div class="relative flex flex-col break-words bg-stone-50 border shadow-lg rounded-2xl">
+                <div class="relative flex flex-col break-words bg-stone-50 border shadow-md rounded-2xl hover:shadow-lg">
                     <div class="flex-auto px-1 pt-6">
                         <div>
                             @if ($tugas->submission_status === 'submitted')
@@ -193,7 +193,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             @forelse ($materis as $materi)
                 <!-- individual card -->
-                <div class="relative flex flex-col break-words bg-stone-50 border shadow-lg rounded-2xl">
+                <div class="relative flex flex-col break-words bg-stone-50 border shadow-md rounded-2xl hover:shadow-lg">
                     <div class="relative">
                         <a class="block shadow-xl rounded-2xl">
                             <img src="{{ asset('storage/thumbnails/' . $materi->thumbnail_image) }}" alt="{{ $materi-> title }}" class="w-full h-32 object-cover shadow-soft-2xl rounded-2xl" />

@@ -30,7 +30,7 @@
 </html>
 <style>
 :root {
-    background: linear-gradient(45deg,#c0c8e0, #f2f1f4, #f2f1f4, #fafaf9 );
+    background: linear-gradient(#f2f1f4, #f2f1f4, #fafaf9 );
 }
 
 h1 {
