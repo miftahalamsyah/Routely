@@ -13,7 +13,7 @@
     <header>
         @include('includes.navbar')
     </header>
-
+        @include('includes.sidebar')
     <main id="main-content" class="max-w-5xl justify-center mx-auto mt-12 transition-margin ease-in-out duration-300">
         <div class="content-container">
             @yield('content')

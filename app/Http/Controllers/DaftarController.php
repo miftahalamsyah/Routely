@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class DaftarController extends Controller
 {
@@ -19,21 +20,36 @@ class DaftarController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        // Validation rules
+        $rules = [
             'name' => 'required|max:255',
             'email' => 'required|email:dns|unique:users',
             'password' => 'required|min:8|max:255',
-            'password_confirmation' => 'required|same:password', // Ensure 'password_confirmation' matches 'password'
-        ], [
+            'password_confirmation' => 'required|same:password',
+        ];
+
+        // Custom error messages
+        $messages = [
             'password_confirmation.same' => 'The password confirmation does not match.',
+        ];
+
+        // Validate the request
+        $validatedData = $request->validate($rules, $messages);
+
+        // Hash the password
+        $password = Hash::make($validatedData['password']);
+
+        // Generate a UUID for the 'slug' column
+        $slug = (string) Str::uuid();
+
+        // Create the user with the validated data and manually set the 'slug'
+        User::create([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'password' => $password,
+            'slug' => $slug, // Assign the generated slug
         ]);
-
-        $validatedData['password'] = Hash::make($validatedData['password']);
-
-        User::create($validatedData);
 
         return redirect('/login')->with('success', 'Registrasi Berhasil, Silahkan Masuk');
     }
-
-
 }

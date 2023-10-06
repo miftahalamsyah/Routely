@@ -61,6 +61,7 @@ class UserController extends Controller
             'name'     => $request->name,
             'email'    => $request->email,
             'password' => Hash::make($request->password),
+            'slug'     => $slug,
         ]);
 
         return redirect()->route('siswa.index')->with(['success' => 'Data Berhasil Disimpan!']);
@@ -114,6 +115,7 @@ class UserController extends Controller
             'name'     => $request->name,
             'email'    => $request->email,
             'password' => Hash::make($request->password),
+            'slug'     => $slug,
         ]);
 
         return redirect()->route('siswa.index')->with(['success' => 'Data Berhasil Diubah!']);

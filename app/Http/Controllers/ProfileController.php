@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -13,27 +15,16 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): View
     {
         $user = Auth::user();
 
         return view('student.profile', [
             'title' => "Profil",
-            "name"=> $user->name
+            "name" => "$user->name",
+            "slug" => "$user->slug",
         ]);
 
-    }
-
-    public function show ()
-    {
-        $user = Auth::user();
-
-        return view('pages.profil_publik', [
-            "title" => "$user->name",
-            "name" => $user->name,
-            "email" => $user->email,
-            "is_admin" => $user->is_admin,
-        ]);
     }
 
     /**
@@ -42,7 +33,7 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request): RedirectResponse
     {
         $user = Auth::user();
 

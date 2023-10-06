@@ -14,6 +14,7 @@ use App\Http\Controllers\StudentDashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentSimulasiController;
 use App\Http\Controllers\GitHubController;
+use App\Http\Controllers\ProfilPublikController;
 
 
 /*
@@ -61,7 +62,7 @@ Route::get('/student', [StudentDashboardController::class, 'index'])->name('stud
 Route::get('/student/profile', [ProfileController::class, 'index'])->name('student.profile')->middleware('auth');
 Route::put('/student/profile', [ProfileController::class, 'update'])->name('student.profile.update')->middleware('auth');
 
-Route::get('/profil_publik/slug', [ProfileController::class, 'show'])->name('profil_publik')->middleware('auth');
+Route::get('/profil_publik/{user:slug}', [ProfilPublikController::class, 'show'])->name('profil_publik');
 
 Route::get('/student/pertemuan', [StudentPertemuanController::class, 'index'])->name('student.pertemuan')->middleware('auth');
 Route::get('/student/pertemuan/{pertemuan:slug}', [StudentPertemuanController::class, 'show'])->name('student.pertemuan.show')->middleware('auth');

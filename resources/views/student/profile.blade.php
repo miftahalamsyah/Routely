@@ -48,7 +48,7 @@
                     @endif
                 </div>
             </div>
-            <a href="/profil_publik/slug">
+            <a href="/profil_publik/{{ $slug }}">
                 <button class="mr-2 text-xs font-medium leading-normal text-stone-900 transition duration-300 ease-out hover:underline">
                 Lihat Profil Publik
                 </button>
