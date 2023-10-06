@@ -19,34 +19,41 @@
             <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
             </svg>
-            <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">Profile</span>
+            <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">Profil</span>
         </div>
         </li>
     </ol>
     </nav>
 
-    <h2 class="mb-4 text-2xl font-extrabold tracking-tight leading-none text-student md:text-3xl">Profile</h2>
+    <h2 class="mb-4 text-2xl font-extrabold tracking-tight leading-none text-student md:text-3xl">Edit Profil</h2>
     <!-- Content -->
     <div class="w-full p-4 sm:mb-0 sm:mr-4 bg-white shadow-md rounded-xl">
-        <div class="flex mb-12">
-            <div class="px-2">
-                <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl">
-                    <p class="text-stone-50 text-lg font-semibold">
-                        {{ substr(Auth::user()->name, 0, 1) }}
-                        {{ substr(strrchr(Auth::user()->name, ' '), 1, 1) }}
-                    </p>
+        <div class="flex justify-between mb-12">
+            <div class="flex">
+                <div class="px-2">
+                    <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl">
+                        <p class="text-stone-50 text-lg font-semibold">
+                            {{ substr(Auth::user()->name, 0, 1) }}{{ substr(strrchr(Auth::user()->name, ' '), 1, 1) }}
+                        </p>
+                    </div>
+                </div>
+                {{-- siswa info --}}
+                <div class="px-2 text-stone-900">
+                    <p class="mb-0 font-semibold leading-normal text-sm">{{ Auth::user()->name }}</p>
+                    <p class="mb-0 text-xs">{{ Auth::user()->email }}</p>
+                    @if (Auth::user()->is_admin === 0)
+                        <p class="mb-0 text-sm">Siswa</p>
+                    @else
+                        <p class="mb-0 text-sm">Guru</p>
+                    @endif
                 </div>
             </div>
-            {{-- siswa info --}}
-            <div class="px-2">
-                <p class="mb-0 font-semibold leading-normal text-sm">{{ Auth::user()->name }}</p>
-                <p class="mb-0 text-xs">{{ Auth::user()->email }}</p>
-                @if (Auth::user()->is_admin === 0)
-                    <p class="mb-0 text-sm">Siswa</p>
-                @else
-                    <p class="mb-0 text-sm">Guru</p>
-                @endif
-            </div>
+            <a href="/profil_publik/slug">
+                <button class="mr-2 text-xs font-medium leading-normal text-stone-900 transition duration-300 ease-out hover:underline">
+                Lihat Profil Publik
+                </button>
+            </a>
+
         </div>
         {{-- Edit profile form --}}
         <div class="px-2">

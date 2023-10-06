@@ -15,10 +15,25 @@ class ProfileController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+
         return view('student.profile', [
-            'title' => "Student Dashboard",
+            'title' => "Profil",
+            "name"=> $user->name
         ]);
 
+    }
+
+    public function show ()
+    {
+        $user = Auth::user();
+
+        return view('pages.profil_publik', [
+            "title" => "$user->name",
+            "name" => $user->name,
+            "email" => $user->email,
+            "is_admin" => $user->is_admin,
+        ]);
     }
 
     /**

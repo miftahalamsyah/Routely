@@ -62,11 +62,16 @@
             <div class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card hover:shadow-lg">
                 <div class="max-w-full h-16 px-3">
                     <div class="flex items-center justify-between">
-                    <p class="mb-0 text-stone-700 leading-normal text-sm">Nilai Pre-Test</p>
-                    <!-- Button to toggle score visibility -->
-                    <button class="toggle-score-button" aria-label="Toggle Score Visibility">
-                        <p class="text-stone-700 leading-normal text-xs hover:underline">Lihat</p>
-                    </button>
+                        <p class="mb-0 text-stone-700 leading-normal text-sm">Nilai Pre-Test</p>
+                        <!-- Button to toggle score visibility -->
+                        <div class="relative group">
+                            <button class="toggle-score-button" aria-label="Toggle Score Visibility">
+                                <p class="text-stone-700 leading-normal text-xs hover:underline">Lihat</p>
+                            </button>
+                            <div class="tooltip hidden group-hover:block absolute bg-stone-600 shadow-md text-stone-50 p-1 text-xs rounded-md shadow-md">
+                                Lihat dan sembunyikan nilai
+                            </div>
+                        </div>
                     </div>
                     <!-- Score container initially hidden -->
                     <div class="score-container hidden">
@@ -79,11 +84,16 @@
             <div class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card hover:shadow-lg">
                 <div class="max-w-full h-16 px-3">
                     <div class="flex items-center justify-between">
-                    <p class="mb-0 text-stone-700 leading-normal text-sm">Nilai Tugas</p>
-                    <!-- Button to toggle score visibility -->
-                    <button class="toggle-score-button" aria-label="Toggle Score Visibility">
-                        <p class="text-stone-700 leading-normal text-xs hover:underline">Lihat</p>
-                    </button>
+                        <p class="mb-0 text-stone-700 leading-normal text-sm">Nilai Tugas</p>
+                        <!-- Button to toggle score visibility -->
+                        <div class="relative group">
+                            <button class="toggle-score-button" aria-label="Toggle Score Visibility">
+                                <p class="text-stone-700 leading-normal text-xs hover:underline">Lihat</p>
+                            </button>
+                            <div class="tooltip hidden group-hover:block absolute bg-stone-600 shadow-md text-stone-50 p-1 text-xs rounded-md shadow-md">
+                                Lihat dan sembunyikan nilai
+                            </div>
+                        </div>
                     </div>
                     <!-- Score container initially hidden -->
                     <div class="score-container hidden">
@@ -96,11 +106,16 @@
             <div class="flex-auto p-4 bg-stone-50 shadow-md rounded-2xl score-card hover:shadow-lg">
                 <div class="max-w-full h-16 gap-4">
                     <div class="flex items-center justify-between">
-                    <p class="mb-0 text-stone-700 leading-normal text-sm">Nilai Post-Test</p>
-                    <!-- Button to toggle score visibility -->
-                    <button class="toggle-score-button" aria-label="Toggle Score Visibility">
-                        <p class="text-stone-700 leading-normal text-xs hover:underline">Lihat</p>
-                    </button>
+                        <p class="mb-0 text-stone-700 leading-normal text-sm">Nilai Post-Test</p>
+                        <!-- Button to toggle score visibility -->
+                        <div class="relative group">
+                            <button class="toggle-score-button" aria-label="Toggle Score Visibility">
+                                <p class="text-stone-700 leading-normal text-xs hover:underline">Lihat</p>
+                            </button>
+                            <div class="tooltip hidden group-hover:block absolute bg-stone-600 shadow-md text-stone-50 p-1 text-xs rounded-md shadow-md">
+                                Lihat dan sembunyikan nilai
+                            </div>
+                        </div>
                     </div>
                     <!-- Score container initially hidden -->
                     <div class="score-container hidden">
