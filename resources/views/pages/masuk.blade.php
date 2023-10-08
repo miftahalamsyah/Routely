@@ -59,10 +59,11 @@
 
                 <p class="mt-4 text-sm text-gray-500 sm:mt-0">
                    Belum punya akun?
-                    <a href="/daftar" class="text-gray-700 font-semibold hover:underline">Daftar</a>.
+                    <a href="/daftar" class="text-gray-700 font-semibold hover:underline">Daftar dengan email</a>.
                 </p>
 
-            <div>
+            {{-- Github create not working --}}
+            {{-- <div>
                 <hr class="my-6">
                 <div class="flex flex-row justify-center items-center font-semibold">
                     <a href="{{ route('auth.github') }}" class="w-full text-stone-50 flex items-center justify-center rounded-xl bg-stone-800 hover:bg-stone-700 shadow">
@@ -70,7 +71,7 @@
                         Login dengan Github
                     </a>
                 </div>
-            </div>
+            </div> --}}
             </form>
         </div>
     </main>

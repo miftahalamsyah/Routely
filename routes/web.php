@@ -32,7 +32,7 @@ Route::get('/', function()
 {
    return View::make('pages.home',
        ['title'=>'Home']);
-});
+})->name('pages.home');
 
 // login
 Route::get('/login', [LoginController::class, 'index'])->name('login');

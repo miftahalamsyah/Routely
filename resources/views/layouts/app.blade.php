@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="app.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>{{ $title }} | Routely</title>
 </head>
 <body>
     <header>
-        @include('includes.navbar')
+        @include('includes.header')
     </header>
 
     <main id="main-content" class="max-w-5xl justify-center mx-auto mt-12 transition-margin ease-in-out duration-300">
@@ -36,6 +37,7 @@
 
 h1 {
     font-family: 'Athletics-Bold', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
 }
 
 body {

@@ -55,7 +55,7 @@ class UserController extends Controller
             'password' => ['required', 'confirmed', 'min:8'],
         ]);
 
-        $slug = Str::slug($request->name);
+        $slug = (string) Str::uuid();
 
         User::create([
             'name'     => $request->name,
@@ -109,7 +109,7 @@ class UserController extends Controller
             'password' => ['required', 'confirmed', 'min:8'],
         ]);
 
-        $slug = Str::slug($request->name);
+        $slug = (string) Str::uuid();
 
         User::create([
             'name'     => $request->name,

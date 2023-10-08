@@ -32,7 +32,7 @@
                 </p>
 
                 <a href="/login" class="mt-8 inline-block rounded-3xl shadow bg-violet-200 px-12 py-3 text-sm font-medium text-student transition hover:bg-violet-300">
-                    Coba Sekarang
+                    Selengkapnya
                 </a>
             </div>
 
