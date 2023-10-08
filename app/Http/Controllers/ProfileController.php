@@ -23,6 +23,7 @@ class ProfileController extends Controller
             'title' => "Profil",
             "name" => "$user->name",
             "slug" => "$user->slug",
+            "email" => "$user->email",
         ]);
 
     }
