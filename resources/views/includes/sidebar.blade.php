@@ -1,5 +1,5 @@
 <!-- Sidebar Toggle -->
-<div class="sticky top-0 mx-auto bg-opacity-75 backdrop-blur-md inset-x-0 z-10 border-b px-4 sm:px-6 md:px-8">
+<div class="sticky top-2 rounded-3xl mx-2 bg-stone-50 shadow-sm inset-x-0 z-10 border-b px-4 sm:px-6 md:px-8">
     <div class="flex items-center py-4">
         <!-- Navigation Toggle -->
         <button id="sidebar-toggle" class="text-stone-900 hover:text-gray-800 focus:outline-none focus:text-stone-800" aria-label="Toggle sidebar">
@@ -12,7 +12,7 @@
 
         <!-- Breadcrumb -->
         <ol class="mx-3 flex items-center leading-none whitespace-nowrap" aria-label="Breadcrumb">
-            <a href="/dashboard" class="flex items-center text-sm text-stone-900 font-semibold">
+            <a href="/student" class="flex items-center text-sm text-stone-900 font-semibold">
                 Dashboard
             </a>
             <svg class="flex-shrink-0 mx-3 overflow-visible h-2.5 w-2.5 text-stone-900 " width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

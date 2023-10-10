@@ -17,14 +17,17 @@ class ProfileController extends Controller
      */
     public function index(): View
     {
-        $user = Auth::user();
+        $profile = Auth::user();
+        $users = User::where('is_admin', 0)
+                    ->orderBy('updated_at', 'desc')
+                    ->get();
 
-        return view('student.profile', [
-            'title' => "Profil",
-            "name" => "$user->name",
-            "slug" => "$user->slug",
-            "email" => "$user->email",
-        ]);
+        return view('student.profile.index', [
+            "title" => "Profil",
+            "name" => $profile->name,
+            "slug" => $profile->slug,
+            "email" => $profile->email,
+        ], compact('users'));
 
     }
 
@@ -54,5 +57,16 @@ class ProfileController extends Controller
         $user->save();
 
         return redirect()->back()->with('status', 'Profile updated successfully.');
+    }
+
+    public function leaderboard()
+    {
+        $users = User::where('is_admin', 0)
+                    ->orderBy('name')
+                    ->paginate(10);
+
+        return view('includes.leaderboard', [
+            "title" => "Leaderboard",
+        ], compact('users'));
     }
 }

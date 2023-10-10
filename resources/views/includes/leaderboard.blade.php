@@ -7,16 +7,25 @@
             <table class="min-w-full mt-12">
                 <tbody class="text-stone-700 text-left">
                     <!-- Replace with your leaderboard data -->
+                    @forelse ($users as $index => $user)
                     <tr>
-                        <td class="py-2 px-4 font-semibold">1</td>
-                        <td class="py-2 px-4">John Doe</td>
+                        <td class="py-2 px-4 font-semibold">
+                            {{ $index + 1 }}
+                        </td>
+                        <td class="py-2 px-4">
+                            {{ $user-> name}}
+                        </td>
                         <td class="py-2 px-4 font-semibold">1000 points</td>
                     </tr>
+                    @empty
                     <tr>
-                        <td class="py-2 px-4 font-semibold">2</td>
-                        <td class="py-2 px-4">Jane Smith</td>
-                        <td class="py-2 px-4 font-semibold">950 points</td>
+                        <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
+                            <div class="mx-auto bg-gray-100 text-gray-600 p-2 rounded-xl">
+                                Data leaderboard tidak tersedia.
+                            </div>
+                        </td>
                     </tr>
+                    @endforelse
                     <!-- Add more rows as needed -->
                 </tbody>
             </table>
