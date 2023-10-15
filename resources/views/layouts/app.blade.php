@@ -8,6 +8,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>{{ $title }} | Routely</title>
 </head>
 <body>
@@ -32,7 +35,7 @@
 <style>
 :root {
     /* bg-gray-50 */
-    background-color: #f2f1f4;
+    background: linear-gradient(#f2f1f4, #f2f1f4, #fafaf9);
 }
 
 h1 {
@@ -41,7 +44,7 @@ h1 {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .animate-up {

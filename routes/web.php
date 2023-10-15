@@ -69,4 +69,5 @@ Route::get('/student/pertemuan', [StudentPertemuanController::class, 'index'])->
 Route::get('/student/pertemuan/{pertemuan:slug}', [StudentPertemuanController::class, 'show'])->name('student.pertemuan.show')->middleware('auth');
 Route::get('/student/materi', [StudentMateriController::class, 'index'])->name('student.materi')->middleware('auth');
 Route::get('/student/materi/{materi:slug}', [StudentMateriController::class, 'show'])->name('student.materi.show')->middleware('auth');
+Route::match(['get', 'post'], 'student/materi/{slug}', [StudentMateriController::class, 'show'])->name('student.materi.show');
 Route::get('/student/simulasi', [StudentSimulasiController::class, 'index'])->name('student.simulasi')->middleware('auth');

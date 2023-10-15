@@ -6,6 +6,7 @@ use App\Models\Materi;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class StudentMateriController extends Controller
@@ -33,11 +34,29 @@ class StudentMateriController extends Controller
      */
     public function show(Materi $materi)
     {
+        $user = Auth::user();
+
+        if (!$user->materis->contains($materi)) {
+            $user->materis()->attach($materi);
+        }
+
+        if (request()->has('selesai')) {
+            $user->scores += 10;
+            $user->save();
+
+            $score = new Score;
+            $score->user_id = $user->id;
+            $score->name = $materi->title;
+            $score->score = 10;
+            $score->save();
+        }
+
         return view('student.materi_slug',
         [
             "title"=> $materi->title,
             "description" => $materi->description,
             "pdf_file" => $materi->pdf_file,
+            "materi" => $materi,
         ]);
     }
 

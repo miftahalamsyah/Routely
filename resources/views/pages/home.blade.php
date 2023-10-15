@@ -3,7 +3,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="mt-20 max-w-6xl justify-center mx-auto">
+<section class="mt-20 max-w-6xl justify-center mx-auto ">
     <div class="px-10 py-24 mx-auto animate-up min-h-screen">
         <div class="w-full mx-auto text-center">
             <h1 class="mb-6 text-5xl font-extrabold leading-none max-w-5xl mx-auto tracking-normal text-gray-900 sm:text-xl md:text-5xl lg:text-7xl md:tracking-tight">Gunakan<span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline"> Routely </span>untuk pengalaman belajar yang baru*</h1>

@@ -1,7 +1,7 @@
 @extends('layouts.student_layout')
 
 @section('content')
-<section class="max-w-6xl justify-center mx-auto px-5">
+<section class="w-full justify-center mx-auto px-4 lg:px-12">
     <div class="flex justify-center text-center">
         <p id="greeting" class="mb-4 text-2xl font-extrabold tracking-tight leading-none text-student-dark md:text-3xl">Selamat Datang</p>
         <p class="mb-4 text-2xl font-extrabold tracking-tight leading-none text-student-dark md:text-3xl">, {{ explode(' ', Auth::user()->name)[0] }}!</p>
@@ -34,7 +34,7 @@
             {{-- siswa edit profile --}}
             <div class="max-w-full px-2 hidden md:block">
                 <a href="/student/profile" class="mb-0 text-xs leading-normal text-student hover:underline">
-                    Edit Profile
+                    Lihat Profil
                 </a>
             </div>
         </div>
@@ -56,10 +56,10 @@
     </div>
 
     {{-- score section --}}
-    <div class="mt-12">
+    <div class="p-4 mt-12 bg-stone-50 shadow-md rounded-2xl score-card">
         <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">🏆 Score</p>
         <div class="flex flex-col sm:flex-row w-full mb-6">
-            <div class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card hover:shadow-lg">
+            <div class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-violet-50 border rounded-2xl score-card">
                 <div class="max-w-full h-16 px-3">
                     <div class="flex items-center justify-between">
                         <p class="mb-0 text-stone-700 leading-normal text-sm">Nilai Pre-Test</p>
@@ -81,7 +81,7 @@
                 </div>
             </div>
 
-            <div class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card hover:shadow-lg">
+            <div class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-violet-50 border rounded-2xl score-card">
                 <div class="max-w-full h-16 px-3">
                     <div class="flex items-center justify-between">
                         <p class="mb-0 text-stone-700 leading-normal text-sm">Nilai Tugas</p>
@@ -103,7 +103,7 @@
                 </div>
             </div>
 
-            <div class="flex-auto p-4 bg-stone-50 shadow-md rounded-2xl score-card hover:shadow-lg">
+            <div class="flex-auto p-4 bg-violet-50 border rounded-2xl score-card">
                 <div class="max-w-full h-16 gap-4">
                     <div class="flex items-center justify-between">
                         <p class="mb-0 text-stone-700 leading-normal text-sm">Nilai Post-Test</p>
@@ -128,12 +128,15 @@
     </div>
 
     {{-- pertemuan --}}
-    <div class="mt-12">
-        <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">👨‍🏫 Pertemuan</p>
+    <div class="p-4 mt-12 bg-stone-50 shadow-md rounded-2xl score-card">
+        <div class="justify-between flex">
+            <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">👨‍🏫 Pertemuan</p>
+            <a href="/student/pertemuan"><p class="my-4 text-xs py-1 px-2 font-extrabold tracking-tight leading-none bg-violet-200 hover:bg-violet-300 rounded-lg shadow-md text-student-dark md:text-sm">Lihat Semua</p></a>
+        </div>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             @forelse ($pertemuans as $pertemuan)
             <!-- individual card -->
-            <div class="relative flex flex-col break-words bg-stone-50 border shadow-md rounded-2xl hover:shadow-lg">
+            <div class="relative flex flex-col break-words bg-stone-50 border rounded-2xl lg:mb-4 mb-0">
                 <div class="flex-auto px-1 pt-6">
                     <p class="mb-6 px-2 leading-normal text-xl font-bold overflow-hidden h-24 ...">Pertemuan {{ $pertemuan->pertemuan_ke }}</p>
                     <div class="flex items-center justify-between px-2 pb-4">
@@ -156,7 +159,7 @@
     </div>
 
     {{-- tugas --}}
-    <div class="mt-12">
+    <div class="p-4 mt-12 bg-stone-50 shadow-md rounded-2xl score-card">
         <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">📝 Tugas</p>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             @forelse ($tugass as $tugas)
@@ -200,10 +203,10 @@
             </div>
     </div>
 
-    <div class="mt-12">
+    <div class="p-4 mt-12 bg-stone-50 shadow-md rounded-2xl score-card">
         <div class="justify-between flex">
             <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">📖 Materi</p>
-            <a href="/student/materi"><p class="my-4 text-xs py-1 px-2 font-extrabold tracking-tight leading-none bg-violet-200 rounded-lg shadow-md text-student-dark md:text-sm">Lihat Semua</p></a>
+            <a href="/student/materi"><p class="my-4 text-xs py-1 px-2 font-extrabold tracking-tight leading-none hover:bg-violet-300 bg-violet-200 rounded-lg shadow-md text-student-dark md:text-sm">Lihat Semua</p></a>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             @forelse ($materis as $materi)

@@ -38,7 +38,8 @@ class GitHubController extends Controller
                 return redirect('/student');
             }
         } catch (Exception $e) {
-            return redirect('/student');
+            // return redirect('/login');
+            dd($e->getMessage());
         }
     }
 }

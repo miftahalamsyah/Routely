@@ -52,9 +52,13 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function tugas(): HasMany
+    public function materis()
     {
-        return $this->hasMany(Tugas::class);
+        return $this->belongsToMany(Materi::class)->withTimestamps();
     }
 
+    public function scores()
+    {
+        return $this->hasMany(Score::class);
+    }
 }

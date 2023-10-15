@@ -1,17 +1,16 @@
 @extends('layouts.student_layout')
 
 @section('content')
-<section class="max-w-6xl mx-auto px-5">
-    <h2 class="mb-4 text-2xl font-extrabold tracking-tight leading-none text-student md:text-3xl">Profil</h2>
+<section class="w-full justify-center mx-auto px-4 lg:px-12">
     <div class="flex flex-col sm:flex-row items-center my-5 gap-x-10 justify-center">
         <div class="flex items-center justify-center w-32 h-32 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl">
             <p class="text-stone-50 text-5xl font-semibold">{{ substr($name, 0, 1) }}{{ substr(strrchr($name, ' '), 1, 1) }}</p>
         </div>
         <div class="my-auto mt-4 lg:mt-0">
-            <h1 class="text-4xl text-stone-700">{{ $name }}</h1>
-            <h2 class="text-md text-stone-700">{{ $email }}</h2>
-            <p class="pt-2 text-md text-stone-700">Profil Publik Anda dapat diakses melalui</p>
-            <a href="http://127.0.0.1:8000/profil_publik/{{ $slug }}" class="text-md text-student">http://127.0.0.1:8000/profil_publik/{{ $slug }}</a>
+            <h1 class="text-4xl text-stone-700 mx-5">{{ $name }}</h1>
+            <h2 class="text-md text-stone-700 mx-5">{{ $email }}</h2>
+            <p class="pt-2 text-md text-stone-700 mx-5">Profil Publik Anda dapat diakses melalui</p>
+            <a href="http://127.0.0.1:8000/profil_publik/{{ $slug }}" class="mx-5 text-md text-student">http://127.0.0.1:8000/profil_publik/{{ $slug }}</a>
         </div>
     </div>
 
