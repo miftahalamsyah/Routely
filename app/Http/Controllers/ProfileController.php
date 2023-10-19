@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
@@ -19,7 +20,7 @@ class ProfileController extends Controller
     {
         $profile = Auth::user();
         $users = User::where('is_admin', 0)
-                    ->orderBy('updated_at', 'desc')
+                    ->orderBy('updated_at', 'asc')
                     ->get();
 
         return view('student.profile.index', [
@@ -43,8 +44,15 @@ class ProfileController extends Controller
 
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
-            'password' => 'nullable|string|min:8|confirmed',
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                Rule::unique('users')->ignore($user->id),
+            ],
+            'password' => 'nullable|string|min:8',
+            'password_confirmation' => 'nullable|string|min:8|same:password',
         ]);
 
         $user->name = $request->name;
@@ -54,10 +62,13 @@ class ProfileController extends Controller
             $user->password = Hash::make($request->password);
         }
 
-        $user->save();
-
-        return redirect()->back()->with('status', 'Profile updated successfully.');
+        if ($user->save()) {
+            return redirect()->back()->with('status', 'Profil berhasil diperbaharui.');
+        } else {
+            return redirect()->back()->with('error', 'Profile gagal diperbaharui. Konfirmasi password tidak sesuai.');
+        }
     }
+
 
     public function leaderboard()
     {

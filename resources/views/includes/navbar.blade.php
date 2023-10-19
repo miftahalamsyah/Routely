@@ -1,5 +1,5 @@
 <!-- Sidebar Toggle -->
-<div class="sticky top-2 rounded-3xl mx-2 bg-stone-50 shadow-sm inset-x-0 z-10 border-b px-4 sm:px-6 md:px-8 lg:hidden">
+<div class="sticky top-2 rounded-3xl mx-2 bg-stone-50 shadow-md inset-x-0 z-30 border-b px-4 sm:px-6 md:px-8 lg:hidden">
     <div class="flex items-center py-4">
     <!-- Navigation Toggle -->
     <button id="sidebar-toggle" class="text-stone-900 hover:text-gray-800 focus:outline-none focus:text-stone-800" aria-label="Toggle sidebar">
