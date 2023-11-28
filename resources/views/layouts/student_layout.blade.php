@@ -71,12 +71,18 @@
                 </li>
                 <li class="relative group">
                     <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 text-stone-400   {{ $title === "Profil" ? 'bg-student text-stone-50' : '' }}" href="/student/profile">
-                        <svg class="mx-auto w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"></path>
-                        </svg>
+                        <svg width="16" height="16" fill="currentColor" class="mx-autp w-5 h-5" viewBox="0 0 35 35" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg"><path d="M17.5 16.383a8.067 8.067 0 1 1 8.067-8.067 8.076 8.076 0 0 1-8.067 8.067Zm0-13.633a5.567 5.567 0 1 0 5.567 5.566A5.573 5.573 0 0 0 17.5 2.75Zm13.977 32a1.25 1.25 0 0 1-1.23-1.037A12.663 12.663 0 0 0 17.5 22.852 12.663 12.663 0 0 0 4.753 33.713a1.25 1.25 0 0 1-2.464-.426A15.1 15.1 0 0 1 17.5 20.352a15.1 15.1 0 0 1 15.211 12.935 1.25 1.25 0 0 1-1.02 1.444 1.2 1.2 0 0 1-.214.019Z"/></svg>
                     </a>
                     <div class="tooltip hidden group-hover:block absolute top-2 ml-12 bg-stone-600 shadow-md text-stone-50 p-1 text-xs rounded-md">
                         Profil
+                    </div>
+                </li>
+                <li class="relative group">
+                    <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 text-stone-400   {{ request()->routeIs('student.chat') ? 'bg-student text-stone-50' : '' }}" href="/student/chat">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-5 h-5 icon line-color"><path d="M18.81 16.23 20 21l-4.95-2.48A9.84 9.84 0 0 1 12 19c-5 0-9-3.58-9-8s4-8 9-8 9 3.58 9 8a7.49 7.49 0 0 1-2.19 5.23Z" "/></svg>
+                    </a>
+                    <div class="tooltip hidden group-hover:block absolute top-2 ml-12 bg-stone-600 shadow-md text-stone-50 p-1 text-xs rounded-md">
+                        Chat
                     </div>
                 </li>
             </ul>
@@ -117,11 +123,27 @@
                             <input type="search" id="search" name="search" class="px-2 w-full bg-stone-50 border-none outline-none" placeholder="Telusuri...">
                         </div>
 
-                        <button type="button" class="shadow inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-stone-50 text-gray-700 border-2 border-stone-100 align-middle hover:bg-stone-100 transition-all text-xs">
-                            <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#currentColor" viewBox="0 0 16 16">
-                            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
-                            </svg>
-                        </button>
+                        <div class="dropdown inline-block relative">
+                            <button type="button" class="shadow inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-stone-50 text-gray-700 border-2 border-stone-100 align-middle hover:bg-stone-100 transition-all text-xs">
+                                <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
+                                </svg>
+                            </button>
+                            <ul class="dropdown-menu absolute mr-40 bg-stone-50 rounded-2xl hidden text-gray-700 pt-2 w-40 right-0 transform translate-x-full">
+                                <li class="text-xs">
+                                    <a class="rounded-2xl bg-stone-50 hover:bg-stone-100 p-2 block whitespace-no-wrap shadow-md" href="#">Lorem ipsum dolor amet mo di pam</a>
+                                </li>
+                                <li class="text-xs">
+                                    <a class="rounded-2xl bg-stone-50 hover:bg-stone-100 p-2 block whitespace-no-wrap shadow-md" href="#">Lorem ipsum dolor amet mo di pam</a>
+                                </li>
+                                <li class="text-xs">
+                                    <a class="rounded-2xl bg-stone-50 hover:bg-stone-100 p-2 block whitespace-no-wrap shadow-md" href="#">Lorem ipsum dolor amet mo di pam</a>
+                                </li>
+                                <li class="text-xs">
+                                    <a class="rounded-2xl bg-stone-50 hover:bg-stone-100 p-2 block whitespace-no-wrap shadow-md" href="#">Lorem ipsum dolor amet mo di pam</a>
+                                </li>
+                            </ul>
+                        </div>
 
                         <div class="flex md:order-2 z-10">
                             @auth
@@ -205,6 +227,10 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
 </style>
 
 <script>
@@ -215,23 +241,6 @@ body {
             element.classList.add('animate');
         });
     });
-
-     // Get the current hour (0-23) from the user's system clock
-     const currentHour = new Date().getHours();
-
-    // Find the greeting based on the current hour
-    let greeting;
-    if (currentHour >= 3 && currentHour < 10) {
-        greeting = 'Selamat Pagi';
-    } else if (currentHour >= 10 && currentHour < 15) {
-        greeting = 'Selamat Siang';
-    } else if (currentHour >= 15 && currentHour < 18) {
-        greeting = 'Selamat Sore';
-    } else {
-        greeting = 'Selamat Malam';
-    }
-
-    document.getElementById('greeting').textContent = greeting;
 
     function closePopup() {
         document.querySelector('.fixed').remove();

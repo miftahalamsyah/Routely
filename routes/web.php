@@ -1,20 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\MateriController;
-use App\Http\Controllers\TugasController;
-use App\Http\Controllers\PertemuanController;
-use App\Http\Controllers\StudentMateriController;
-use App\Http\Controllers\DataController;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DaftarController;
-use App\Http\Controllers\StudentPertemuanController;
-use App\Http\Controllers\StudentDashboardController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\StudentSimulasiController;
+use App\Http\Controllers\DataController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GitHubController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MateriController;
+use App\Http\Controllers\PertemuanController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilPublikController;
+use App\Http\Controllers\StudentChatController;
+use App\Http\Controllers\StudentDashboardController;
+use App\Http\Controllers\StudentMateriController;
+use App\Http\Controllers\StudentPertemuanController;
+use App\Http\Controllers\StudentSimulasiController;
+use App\Http\Controllers\TugasController;
+
 
 
 /*
@@ -71,3 +73,5 @@ Route::get('/student/materi', [StudentMateriController::class, 'index'])->name('
 Route::get('/student/materi/{materi:slug}', [StudentMateriController::class, 'show'])->name('student.materi.show')->middleware('auth');
 Route::match(['get', 'post'], 'student/materi/{slug}', [StudentMateriController::class, 'show'])->name('student.materi.show');
 Route::get('/student/simulasi', [StudentSimulasiController::class, 'index'])->name('student.simulasi')->middleware('auth');
+
+Route::get('/student/chat', [StudentChatController::class, 'index'])->name('student.chat')->middleware('auth');

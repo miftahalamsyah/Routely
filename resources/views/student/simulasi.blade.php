@@ -2,13 +2,34 @@
 
 @section('content')
 <section class="mt-12 max-w-6xl justify-center mx-auto px-5">
-
-    <h2 class="mb-4 text-2xl font-extrabold tracking-tight leading-none text-student md:text-3xl">Simulasi</h2>
     <!-- Content -->
-    <div class="py-12 mb-12 px-4 mx-auto text-center z-20 animate-up w-full">
-        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">Simulasi</h1>
-        <p class="mb-8 text-xl">Koleksi sumber bantuan</p>
-        <iframe src="https://networksimulator.vercel.app/" class="rounded-2xl my-4 shadow-md h-screen border border-gray-100" frameborder="0" width="100%"></iframe>
+    <div class="py-12 mb-12 px-4 mx-auto text-right z-20 animate-up w-full">
+        <a href="javascript:void(0);" class="px-4 py-2 text-sm font-medium text-white bg-student rounded-xl focus:outline-none focus:bg-violet-900" id="fullscreenLink">Open in Fullscreen</a>
+        <iframe src="https://networksimulator.vercel.app/" id="fullscreenIframe" class="rounded-2xl h-screen my-4 shadow-md border border-gray-100" frameborder="0" width="100%"></iframe>
     </div>
 </section>
+
+<script>
+    // Function to open the iframe in fullscreen mode
+    function openIframeFullscreen(iframe) {
+        if (iframe.requestFullscreen) {
+            iframe.requestFullscreen();
+        } else if (iframe.mozRequestFullScreen) { // Firefox
+            iframe.mozRequestFullScreen();
+        } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+            iframe.webkitRequestFullscreen();
+        } else if (iframe.msRequestFullscreen) { // IE/Edge
+            iframe.msRequestFullscreen();
+        }
+    }
+
+    const fullscreenLink = document.getElementById('fullscreenLink');
+    const fullscreenIframe = document.getElementById('fullscreenIframe');
+
+    // Add a click event listener to the link
+    fullscreenLink.addEventListener('click', function() {
+        openIframeFullscreen(fullscreenIframe);
+    });
+</script>
+
 @endsection

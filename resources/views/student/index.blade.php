@@ -266,21 +266,38 @@
     });
 
 
-   function updateClock() {
-      const clockElement = document.getElementById('clock');
-      const now = new Date();
-      const hours = now.getHours().toString().padStart(2, '0');
-      const minutes = now.getMinutes().toString().padStart(2, '0');
-      const seconds = now.getSeconds().toString().padStart(2, '0');
-      const timeString = `${hours}:${minutes}:${seconds}`;
-      clockElement.textContent = timeString;
-   }
+    // Get the current hour (0-23) from the user's system clock
+     const currentHour = new Date().getHours();
 
-   // Update the clock every second
-   setInterval(updateClock, 1000);
+    // Find the greeting based on the current hour
+    let greeting;
+    if (currentHour >= 3 && currentHour < 10) {
+        greeting = 'Selamat Pagi';
+    } else if (currentHour >= 10 && currentHour < 15) {
+        greeting = 'Selamat Siang';
+    } else if (currentHour >= 15 && currentHour < 18) {
+        greeting = 'Selamat Sore';
+    } else {
+        greeting = 'Selamat Malam';
+    }
 
-   // Initial update
-   updateClock();
+    document.getElementById('greeting').textContent = greeting;
+
+    function updateClock() {
+        const clockElement = document.getElementById('clock');
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+        const timeString = `${hours}:${minutes}:${seconds}`;
+        clockElement.textContent = timeString;
+    }
+
+    // Update the clock every second
+    setInterval(updateClock, 1000);
+
+    // Initial update
+    updateClock();
 
 </script>
 @endsection
