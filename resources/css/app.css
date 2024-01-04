@@ -57,6 +57,8 @@
 @font-face {
     font-family: 'Athletics-Bold';
     src: local('Athletics-Bold'), url('/resources/fonts/Athletics-Bold.woff2') format('woff2');
+
+    font-display: swap;
 }
 
 /* For Webkit-based browsers (e.g., Chrome, Safari) */
