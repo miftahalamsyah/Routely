@@ -81,8 +81,16 @@
                     </div>
                 @endif
                 @if (session('error'))
-                    <div class="p-4 mb-4 text-sm text-red-600 rounded-lg bg-red-100 dark:bg-red-700 dark:text-white" role="alert">
-                        <span class="font-medium">{{ session('error') }}</span>
+                    <div id="errorMessage" class="fixed items-center top-5 left-0 right-0 flex flex-col sm:flex-row justify-center bg-red-100 dark:bg-red-700 dark:text-white max-w-sm shadow rounded-2xl mx-auto py-5 pl-6 pr-8 sm:pr-6 z-50">
+                        <div class="flex flex-row items-center border-b sm:border-b-0 w-full sm:w-auto pb-4 sm:pb-0">
+                            <div class="text-red-500">
+                                <svg class="w-6 sm:w-5 h-6 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            </div>
+                            <div class="text-sm font-medium ml-3">Error</div>
+                        </div>
+                        <div class="text-sm tracking-wide text-gray-500 mt-4 sm:mt-0 sm:ml-4">
+                            {{ session('error') }}
+                        </div>
                     </div>
                 @endif
             </form>

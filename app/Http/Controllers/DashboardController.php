@@ -19,12 +19,14 @@ class DashboardController extends Controller
     public function index()
     {
         $materiCount = Materi::count();
+        $pertemuanCount = Pertemuan::count();
         $userCount = User::where('is_admin', 0)->count();
 
         if (Auth::check()) {
             return view('dashboard.index', [
                 'title' => 'Admin Dashboard',
                 'materiCount' => $materiCount,
+                'pertemuanCount' => $pertemuanCount,
                 'userCount' => $userCount,
                 'tugass' => Tugas::all(),
                 'materis' => Materi::all(),

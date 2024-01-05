@@ -234,7 +234,7 @@
             @empty
                 <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card">
                     <div class="max-w-full px-3 mx-auto text-center">
-                    <span class="text-stone-700 text-md tracking-tight leading-none">Data Materi Tidak Ada</span>
+                    <span class="text-stone-700 text-md tracking-tight leading-none">Tidak ada materi</span>
                     </div>
                 </div>
             @endforelse

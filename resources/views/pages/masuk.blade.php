@@ -17,11 +17,8 @@
             @endif
 
             @if(session()->has('loginError'))
-            <div role="alert" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 my-3 rounded relative" role="alert">
+            <div role="alert" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 my-3 rounded-2xl relative" role="alert">
                 {{ session('loginError') }}
-                <button type="button" class="absolute top-0 bottom-0 right-0 px-4 py-3" data-dismiss="alert" aria-label="Close">
-                    <svg class="fill-current h-6 w-6 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M14.293 5.293a1 1 0 0 1 1.414 1.414L11.414 10l4.293 4.293a1 1 0 1 1-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 1 1-1.414-1.414L8.586 10 4.293 5.293a1 1 0 1 1 1.414-1.414L10 8.586l4.293-4.293a1 1 0 0 1 1.414 0z"/></svg>
-                </button>
             </div>
             @endif
 

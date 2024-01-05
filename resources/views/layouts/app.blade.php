@@ -38,10 +38,6 @@
     background: linear-gradient(#f2f1f4, #f2f1f4, #fafaf9);
 }
 
-h1 {
-    font-family: 'Athletics-Bold', sans-serif;
-    /* font-family: 'Poppins', sans-serif; */
-}
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;

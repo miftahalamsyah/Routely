@@ -32,8 +32,8 @@ use App\Http\Controllers\TugasController;
 
 Route::get('/', function()
 {
-   return View::make('pages.home',
-       ['title'=>'Home']);
+    return View::make('pages.home',
+        ['title'=>'Home']);
 })->name('pages.home');
 
 // login
@@ -49,6 +49,7 @@ Route::get('/daftar', [DaftarController::class, 'index'])->name('daftar');
 Route::post('/daftar', [DaftarController::class, 'store']);
 
 Route::view('/bantuan', 'pages.bantuan', ['title' => 'Bantuan'])->name('pages.bantuan');
+Route::view('/berpikir-komputasi', 'pages.berpikir-komputasi', ['title' => 'Berpikir Komputasi'])->name('pages.berpikir-komputasi');
 
 //admin dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('admin');

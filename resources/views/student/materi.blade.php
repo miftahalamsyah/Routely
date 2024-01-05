@@ -30,13 +30,11 @@
             </div>
         </div>
     @empty
-        <tr>
-            <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
-                <div class="bg-gray-100 text-gray-600 p-2 rounded-xl">
-                    Data materi belum tersedia.
-                </div>
-            </td>
-        </tr>
+        <div class="px-6 py-4 whitespace-nowrap text-center">
+            <div class="bg-gray-100 text-gray-600 p-2 rounded-xl mx-auto">
+                Data materi belum tersedia.
+            </div>
+        </div>
     @endforelse
     </div>
 </section>

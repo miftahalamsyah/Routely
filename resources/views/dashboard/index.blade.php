@@ -1,31 +1,32 @@
 @extends('dashboard.layout')
 
 @section('content')
-<section class="flex-1 p-4 mt-10 max-w-6xl mx-auto items-center animate-up transition-margin ease-in-out duration-300">
-    <div class="mb-16 text-center">
-        <h1 class="mb-6 text-3xl font-extrabold leading-none max-w-5xl mx-auto tracking-normal text-gray-50 sm:text-3xl md:text-4xl lg:text-5xl md:tracking-tight"><span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline">Routely</span>&nbsp;Dashboard Guru</h1>
+<section class="flex-1 p-4 mt-8 max-w-6xl mx-auto items-center animate-up transition-margin ease-in-out duration-300">
+    <div class="mb-8 text-center">
+        <h1 class="mb-6 text-xl font-extrabold leading-none max-w-5xl mx-auto tracking-normal text-gray-50 sm:text-3xl md:text-2xl lg:text-3xl md:tracking-tight"><span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline">Routely</span>&nbsp;Dashboard Guru</h1>
     </div>
 
     <!-- quick dashboard monitor card for number of materis and users-->
     <div class="mx-2 flex flex-col sm:flex-row ">
         <div class="w-full h-24 bg-stone-700 text-gray-50 p-4 max-w-sm block rounded-xl border border-stone-600 border-2 mr-2 mb-2">
-            Siswa
-            <p class="font-bold text-3xl py-2" id="userCount">Loading...</p>
+            <a href="/dashboard/siswa">Siswa</a>
+            <p class="font-bold text-3xl py-2" id="userCount">{{ $userCount }}</p>
+        </div>
+        <div class="w-full h-24 bg-stone-700 text-gray-50 p-4 max-w-sm block rounded-xl border border-stone-600 border-2 mr-2 mb-2">
+            <a href="/dashboard/pertemuan">Pertemuan</a>
+            <p class="font-bold text-3xl py-2" id="materiCount">{{ $pertemuanCount }}</p>
         </div>
         <div class="w-full h-24 bg-stone-700 text-gray-50 p-4 max-w-sm block rounded-xl border border-stone-600 border-2 mr-2 mb-2">
             Materi
-            <p class="font-bold text-3xl py-2" id="materiCount">Loading...</p>
-        </div>
-        <div class="w-full h-24 bg-stone-700 text-gray-50 p-4 max-w-sm block rounded-xl border border-stone-600 border-2 mr-2 mb-2">
-            Ditugaskan
+            <p class="font-bold text-3xl py-2" id="materiCount">{{ $materiCount }}</p>
         </div>
         <div class="w-full h-24 bg-stone-700 text-gray-50 p-4 max-w-sm block rounded-xl border border-stone-600 border-2 mb-2">
             Diselesaikan
         </div>
     </div>
 
-                    <!-- Daftar Tugas -->
-    <div class="my-5 mx-2 block rounded-xl border border-stone-600 p-8 bg-stone-700">
+    <!-- Daftar Pertemuan -->
+    <div class="my-5 mx-2 block rounded-xl border-stone-600 border p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">
         <h1 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-gray-50 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Pertemuan</h1>
         <table class="min-w-full divide-y divide-gray-200 text-gray-50">
             <thead>
@@ -79,8 +80,8 @@
         </table>
     </div>
 
-            <!-- Daftar Pertemuan -->
-    <div class="my-5 mx-2 block rounded-xl border border-stone-600 border p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">
+    <!-- Daftar Tugas -->
+    <div class="my-5 mx-2 block rounded-xl border-stone-600 border p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">
         <h1 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-gray-50 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Tugas</h1>
         <table class="min-w-full divide-y divide-gray-200 text-gray-50">
             <thead>

@@ -4,6 +4,9 @@
 
 @section('content')
 <section class="mt-20 max-w-6xl justify-center mx-auto ">
+    <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+        <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#5c578c] to-[#C4B5FD] opacity-25 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+    </div>
     <div class="px-10 py-24 mx-auto animate-up min-h-screen">
         <div class="w-full mx-auto text-center">
             <h1 class="mb-6 text-5xl leading-none max-w-5xl mx-auto tracking-normal text-gray-900 sm:text-xl md:text-5xl lg:text-7xl md:tracking-tight">Gunakan<span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline"> Routely </span>untuk pengalaman belajar yang baru*</h1>
@@ -15,23 +18,23 @@
             </div>
         </div>
     </div>
+    <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+        <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#5c578c] to-#C4B5FD] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+    </div>
 </section>
 
 {{-- Computational Thinking --}}
-<section>
+<section class="mb-20">
     <div class="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
         <div class="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-16">
             <div class="mx-auto max-w-lg text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right">
                 <h2 class="text-stone-800 text-3xl font-bold sm:text-4xl">Berfokus pada Berpikir Komputasi</h2>
 
                 <p class="mt-4 text-stone-700">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut vero
-                    aliquid sint distinctio iure ipsum cupiditate? Quis, odit assumenda?
-                    Deleniti quasi inventore, libero reiciendis minima aliquid tempora.
-                    Obcaecati, autem.
+                    Memahami, merumuskan, dan menyelesaikan masalah dengan pendekatan komputasional.
                 </p>
 
-                <a href="/login" class="mt-8 inline-block rounded-3xl shadow bg-violet-200 px-12 py-3 text-sm font-medium text-student transition hover:bg-violet-300">
+                <a href="/berpikir-komputasi" class="mt-8 inline-block rounded-3xl shadow bg-violet-200 px-12 py-3 text-sm font-medium text-student transition hover:bg-violet-300">
                     Selengkapnya
                 </a>
             </div>
@@ -98,7 +101,7 @@
 </section>
 
 {{-- Problem Posing --}}
-<section>
+<section class="mb-20">
     <div class="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
         <div class="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-16">
 
@@ -164,13 +167,10 @@
                 <h2 class="text-stone-800 text-3xl font-bold sm:text-4xl">Dengan Menerapkan Problem Posing</h2>
 
                 <p class="mt-4 text-stone-700">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut vero
-                    aliquid sint distinctio iure ipsum cupiditate? Quis, odit assumenda?
-                    Deleniti quasi inventore, libero reiciendis minima aliquid tempora.
-                    Obcaecati, autem.
+                    Mengembangkan kreativitas dan pemikiran analitis dengan merumuskan masalah-masalah yang dapat diselesaikan melalui pendekatan komputasional.
                 </p>
 
-                <a href="/login" class="mt-8 inline-block rounded-3xl shadow bg-violet-200 px-12 py-3 text-sm font-medium text-student transition hover:bg-violet-300">
+                <a href="/problem-posing" class="mt-8 inline-block rounded-3xl shadow bg-violet-200 px-12 py-3 text-sm font-medium text-student transition hover:bg-violet-300">
                     Selengkapnya
                 </a>
             </div>
@@ -179,3 +179,9 @@
     </div>
 </section>
 @endsection
+
+<style>
+    h1 {
+        font-family: 'Athletics-Bold', sans-serif;
+    }
+</style>
