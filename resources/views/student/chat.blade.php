@@ -1,36 +1,57 @@
 @extends('layouts.student_layout')
 
 @section('content')
-<section class="w-full justify-center mx-auto px-2 lg:px-12">
-    <!-- Content -->
-    <div class="flex flex-cols-2 py-12 grid-rows-1 gap-2">
-        <div class="bg-gray-50 w-1/3 shadow-md rounded-3xl p-5">
-            <div class="flex w-full p-2 my-2 bg-stone-100 text-stone-900 shadow border rounded-3xl text-xs">
-                <input type="search" id="search" name="search" class="w-full bg-stone-100 border-none outline-none" placeholder="Cari Pesan...">
+<section class="w-full min-h-screen justify-center mx-auto mt-20 px-2 lg:px-12">
+    <!-- Chat Content -->
+    <div class="max-h-screen max-w-3xl bg-gray-50 overflow-y-auto">
+        <!-- Chat Content -->
+        @foreach($chats as $chat)
+            <div class="flex mb-2">
+                @if($chat->user_id == auth()->id())
+                    <div class="flex-shrink-0"></div>
+                    <div class="max-w-3xl mx-auto py-2 px-4 shadow-md rounded-3xl bg-gradient-to-r from-violet-200 to-violet-100 text-right w-full">
+                        <span class="font-semibold text-xs text-gray-700">{{ $chat->user->name }}</span>
+                        <br>
+                        <span class="text-gray-800 text-sm">{{ $chat->message }}</span>
+                    </div>
+                @else
+                    <div class="max-w-3xl mx-auto py-2 px-4 shadow-md rounded-3xl bg-gradient-to-r from-gray-100 to-gray-50 text-left w-full">
+                        <span class="font-semibold text-xs text-gray-700">{{ $chat->user->name }}</span>
+                        <br>
+                        <span class="text-gray-800 text-sm">{{ $chat->message }}</span>
+                    </div>
+                    <div class="flex-shrink-0"></div>
+                @endif
             </div>
-            @forelse ($users as $index => $user)
-                <div class="flex h-14 items-center">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl text-stone-50 text-md font-semibold border">
-                        {{ substr($user->name, 0, 1) }}{{ substr(strrchr($user->name, ' '), 1, 1) }}
-                    </div>
-                    <div class="py-2 px-2 text-xs text-inline ">
-                        {{ $user-> name}}
-                    </div>
+        @endforeach
+    </div>
+
+
+    <!-- Chat Input Form -->
+    <div class="max-w-3xl mx-auto">
+        <form action="{{ route('chat.store') }}" method="POST">
+            @csrf
+            <div class="flex items-center py-2 px-3 bg-gray-50 rounded-3xl shadow-md">
+                <input type="message" name="message" id="message" class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-3xl border border-gray-300 focus:ring-violet-500 focus:border-violet-500" placeholder="Type your message...">
+                <button type="submit" class="inline-flex justify-center p-2 text-student rounded-full cursor-pointer hover:bg-violet-100">
+                    <svg class="w-6 h-6 rotate-90" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
+                </button>
+            </div>
+            @if (session('status'))
+                <!-- Success Message -->
+                <div id="successMessage" class="fixed items-center top-5 left-0 right-0 flex flex-col sm:flex-row justify-center bg-stone-50 max-w-sm shadow rounded-2xl mx-auto py-5 pl-6 pr-8 sm:pr-6 z-50">
+                    <!-- ... (same as your code) ... -->
                 </div>
-            @empty
-                <tr>
-                    <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
-                        <div class="mx-auto bg-gray-100 text-gray-600 p-2 rounded-xl">
-                            Data leaderboard tidak tersedia.
-                        </div>
-                    </td>
-                </tr>
-            @endforelse
-        </div>
-    <div class="bg-gray-50 w-full w-3/4 shadow-md rounded-3xl">2</div>
-</div>
-
-
+            @endif
+            @if (session('error'))
+                <!-- Error Message -->
+                <div id="errorMessage" class="fixed items-center top-5 left-0 right-0 flex flex-col sm:flex-row justify-center bg-red-100 dark:bg-red-700 dark:text-white max-w-sm shadow rounded-2xl mx-auto py-5 pl-6 pr-8 sm:pr-6 z-50">
+                    <!-- ... (same as your code) ... -->
+                </div>
+            @endif
+        </form>
+    </div>
 </section>
+
 
 @endsection

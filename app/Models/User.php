@@ -61,4 +61,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Score::class);
     }
+
+    public function chats()
+    {
+        return $this->hasMany(Chat::class)->withTimestamps();
+    }
 }

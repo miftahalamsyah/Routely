@@ -76,3 +76,4 @@ Route::match(['get', 'post'], 'student/materi/{slug}', [StudentMateriController:
 Route::get('/student/simulasi', [StudentSimulasiController::class, 'index'])->name('student.simulasi')->middleware('auth');
 
 Route::get('/student/chat', [StudentChatController::class, 'index'])->name('student.chat')->middleware('auth');
+Route::resource('/student/chat', \App\Http\Controllers\StudentChatController::class)->middleware('auth');
