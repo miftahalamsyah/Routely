@@ -5,6 +5,7 @@ use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GitHubController;
+use App\Http\Controllers\KelompokController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\PertemuanController;
@@ -58,6 +59,7 @@ Route::resource('/dashboard/materis', \App\Http\Controllers\MateriController::cl
 Route::resource('/dashboard/siswa', \App\Http\Controllers\UserController::class)->middleware('admin');
 Route::resource('/dashboard/tugas', \App\Http\Controllers\TugasController::class)->middleware('admin');
 Route::resource('/dashboard/pertemuan', \App\Http\Controllers\PertemuanController::class)->middleware('admin');
+Route::resource('/dashboard/kelompok', \App\Http\Controllers\KelompokController::class)->middleware('admin');
 
 Route::get('/fetch-data', [DataController::class, 'index']);
 

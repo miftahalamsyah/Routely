@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Tugas;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -16,6 +17,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
     use HasRoles;
+
+    protected $guarded=['id'];
 
     /**
      * The attributes that are mass assignable.
@@ -52,6 +55,8 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    protected $with = ['kelompok'];
+
     public function materis()
     {
         return $this->belongsToMany(Materi::class)->withTimestamps();
@@ -65,5 +70,10 @@ class User extends Authenticatable
     public function chats()
     {
         return $this->hasMany(Chat::class)->withTimestamps();
+    }
+
+    public function kelompok(): BelongsTo
+    {
+        return $this->belongsTo(Kelompok::class, 'kelompok_id');
     }
 }

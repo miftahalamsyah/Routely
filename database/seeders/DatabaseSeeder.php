@@ -31,5 +31,13 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('bhoysnesia@gmail.com'),
             'is_admin' => false,
         ]);
+
+        User::create([
+            'name' => 'Sosok Keluarbiasaan',
+            'email' => 'miftahrizkyalamsyah@protonmail.com',
+            'slug' => (string) Str::uuid(),
+            'password' => bcrypt('miftahrizkyalamsyah@protonmail.com'),
+            'is_admin' => false,
+        ]);
     }
 }

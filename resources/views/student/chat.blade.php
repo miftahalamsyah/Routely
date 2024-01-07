@@ -1,21 +1,21 @@
 @extends('layouts.student_layout')
 
 @section('content')
-<section class="w-full min-h-screen justify-center mx-auto mt-20 px-2 lg:px-12">
+<section class="max-w-3xl justify-center mx-auto mt-2 px-2 lg:px-12">
     <!-- Chat Content -->
-    <div class="max-h-screen max-w-3xl bg-gray-50 overflow-y-auto">
+    <div id="chatContainer" class="max-h-[70vh] bg-gray-50 overflow-y-auto mb-2 p-2 rounded-3xl">
         <!-- Chat Content -->
         @foreach($chats as $chat)
             <div class="flex mb-2">
                 @if($chat->user_id == auth()->id())
                     <div class="flex-shrink-0"></div>
-                    <div class="max-w-3xl mx-auto py-2 px-4 shadow-md rounded-3xl bg-gradient-to-r from-violet-200 to-violet-100 text-right w-full">
+                    <div class="my-1 max-w-3xl mx-auto py-2 px-4 shadow-md rounded-3xl bg-gradient-to-r from-violet-200 to-violet-100 text-right w-full">
                         <span class="font-semibold text-xs text-gray-700">{{ $chat->user->name }}</span>
                         <br>
                         <span class="text-gray-800 text-sm">{{ $chat->message }}</span>
                     </div>
                 @else
-                    <div class="max-w-3xl mx-auto py-2 px-4 shadow-md rounded-3xl bg-gradient-to-r from-gray-100 to-gray-50 text-left w-full">
+                    <div class="my-1 max-w-3xl mx-auto py-2 px-4 shadow-md rounded-3xl bg-gradient-to-r from-gray-100 to-gray-50 text-left w-full">
                         <span class="font-semibold text-xs text-gray-700">{{ $chat->user->name }}</span>
                         <br>
                         <span class="text-gray-800 text-sm">{{ $chat->message }}</span>
@@ -51,6 +51,11 @@
             @endif
         </form>
     </div>
+
+    <script>
+        var chatContainer = document.getElementById('chatContainer');
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    </script>
 </section>
 
 
