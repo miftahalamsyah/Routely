@@ -57,12 +57,14 @@
                         </div>
 
                         <div class="mb-4">
-                            <label for="maximum_score" class="block text-md font-semibold text-gray-800">Nilai Maksimal</label>
-                            <input type="number" id="maximum_score" name="maximum_score" value="{{ old('maximum_score', 100) }}" step="0.01" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 @error('maximum_score') border-red-500 @enderror">
-                            @error('maximum_score')
+                            <label for="tugas_file" class="block text-md font-semibold text-gray-800">File Tugas</label>
+                            <input type="file" id="tugas_file" name="tugas_file" value="{{ old('tugas_file') }}" placeholder="Masukkan File Tugas"
+                                class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 @error('tugas_file') border-red-500 @enderror">
+                            @error('tugas_file')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
-                          </div>
+                            </input>
+                        </div>
 
                         <div class="my-3">
                             <button type="submit" class="bg-violet-400 hover:bg-violet-300 rounded-xl p-2 mr-2 font-semibold">Simpan</button>

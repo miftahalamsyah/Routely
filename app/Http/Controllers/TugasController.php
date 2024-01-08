@@ -38,9 +38,8 @@ class TugasController extends Controller
         $this->validate($request, [
             'pertemuan_id' => 'required',
             'name'     => 'required',
-            'description'   => 'required',
             'due_date' => 'required',
-            'maximum_score' => 'required',
+            'tugas_file' => 'nullable|mimes:pdf,doc,docx|max:4096',
         ]);
 
         $slug = Str::slug($request->name);
@@ -50,8 +49,8 @@ class TugasController extends Controller
             'name' => $request->name,
             'slug' => $slug,
             'description' => $request->description,
+            'tugas_file' => $request->tugas_file,
             'due_date' => $request->due_date,
-            'maximum_score' => $request->maximum_score,
         ]);
 
         return redirect()->route('tugas.index')->with('success', 'Tugas berhasil ditambahkan.');

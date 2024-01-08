@@ -33,6 +33,7 @@ class StudentPertemuanController extends Controller
      */
     public function show(Pertemuan $pertemuan)
     {
+        // $pertemuan = Pertemuan::findOrFail($pertemuan);
         $materis = [];
         foreach ($pertemuan->materi as $materi) {
             $materis[] = [
@@ -55,6 +56,7 @@ class StudentPertemuanController extends Controller
 
         return view('student.pertemuan_slug',
         [
+            "pertemuan" => $pertemuan,
             "title" => "Pertemuan Ke-$pertemuan->pertemuan_ke",
             "pertemuan_ke"=> $pertemuan->pertemuan_ke,
             "tanggal" => $pertemuan->tanggal,

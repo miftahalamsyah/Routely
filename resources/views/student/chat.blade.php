@@ -1,11 +1,11 @@
 @extends('layouts.student_layout')
 
 @section('content')
-<section class="max-w-3xl justify-center mx-auto mt-2 px-2 lg:px-12">
+<section class="max-w-3xl justify-center min-h-screen mx-auto mt-2 px-2 lg:px-12">
     <!-- Chat Content -->
-    <div id="chatContainer" class="max-h-[70vh] bg-gray-50 overflow-y-auto mb-2 p-2 rounded-3xl">
+    <div id="chatContainer" class="max-h-[70vh] bg-gray-50 min-h-[70vh] overflow-y-auto mb-2 p-2 rounded-3xl">
         <!-- Chat Content -->
-        @foreach($chats as $chat)
+        @forelse($chats as $chat)
             <div class="flex mb-2">
                 @if($chat->user_id == auth()->id())
                     <div class="flex-shrink-0"></div>
@@ -23,7 +23,11 @@
                     <div class="flex-shrink-0"></div>
                 @endif
             </div>
-        @endforeach
+        @empty
+            <div class="flex mb-2 justify-center mt-[35vh]">
+                <span class="font-semibold text-xs text-gray-700">Tidak ada percakapan</span>
+            </div>
+        @endforelse
     </div>
 
 

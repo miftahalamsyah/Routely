@@ -5,8 +5,28 @@
 <section class="w-full justify-center mx-auto px-4 lg:px-12 min-h-screen">
     <div class="rounded-xl">
         <div class="row">
-            <div class="col-md-12 py-5">
+            <div class="col-md-12 py-5 text-gray-900">
                 <div class="shadow-sm">
+                    <div class="flex items-center">
+                        <p class="font-bold text-2xl">Tujuan Pembelajaran</p>
+                        <hr class="border-t border-student flex-grow ml-2">
+                    </div>
+                    <div class="relative flex flex-col min-w-0 break-words bg-stone-50 border shadow-lg rounded-2xl my-4">
+                        <div class="flex-auto p-6">
+                            <span class="text-md">{{ $pertemuan->tujuan_pembelajaran }}</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <p class="font-bold text-2xl">Apersepsi</p>
+                        <hr class="border-t border-student flex-grow ml-2">
+                    </div>
+                    <div class="relative flex flex-col min-w-0 break-words bg-stone-50 border shadow-lg rounded-2xl my-4">
+                        <div class="flex-auto p-6">
+                            <span class="text-md">{{ $pertemuan->apersepsi }}</span>
+                        </div>
+                    </div>
+
                     <div class="flex items-center">
                         <p class="font-bold text-2xl">Materi</p>
                         <hr class="border-t border-student flex-grow ml-2">
@@ -33,7 +53,7 @@
                         </div>
                     </div>
                     @empty
-                    <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card">
+                    <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl my-4">
                         <div class="max-w-full px-3 mx-auto text-center">
                             <span class="italic text-stone-700 text-md tracking-tight leading-none">Tidak ada Materi</span>
                         </div>
@@ -75,7 +95,7 @@
                         </div>
                     </div>
                     @empty
-                    <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card">
+                    <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl my-4">
                         <div class="max-w-full px-3 mx-auto text-center">
                             <span class="italic text-stone-700 text-md tracking-tight leading-none">Tidak ada Tugas</span>
                         </div>

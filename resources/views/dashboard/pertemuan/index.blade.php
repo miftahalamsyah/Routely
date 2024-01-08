@@ -16,28 +16,28 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            No
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Pertemuan Ke
                                         </th>
                                         <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Tanggal
                                         </th>
+                                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Tujuan Pembelajaran
+                                        </th>
                                         <th scope="col" class="px-6 py-3 bg-gray-50"></th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
-                                    @forelse ($pertemuans as $index => $pertemuan)
+                                    @forelse ($pertemuans as $pertemuan)
                                         <tr>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                {{ $index + 1 }}
-                                            </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 {{ $pertemuan->pertemuan_ke }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 {{ $pertemuan->tanggal }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                {{ $pertemuan->tujuan_pembelajaran }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                 <div class="flex space-x-2 justify-end"> <!-- Use justify-end to align content to the right -->

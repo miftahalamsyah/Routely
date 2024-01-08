@@ -38,6 +38,8 @@ class PertemuanController extends Controller
         $this->validate($request,[
             'pertemuan_ke' => 'required|integer',
             'tanggal' => 'required',
+            'tujuan_pembelajaran' => 'required',
+            'apersepsi' => 'required'
         ]);
 
         $slug = Str::slug("pertemuan_ke_{$request->pertemuan_ke}");
@@ -46,7 +48,8 @@ class PertemuanController extends Controller
             'slug' => $slug,
             'pertemuan_ke' => $request->input('pertemuan_ke'),
             'tanggal' => $request->input('tanggal'),
-            // Tambahkan kolom-kolom lain yang sesuai
+            'tujuan_pembelajaran' => $request->input('tujuan_pembelajaran'),
+            'apersepsi' => $request->input('apersepsi'),
         ]);
 
         return redirect()->route('pertemuan.index')->with('success', 'Pertemuan berhasil dibuat');
@@ -64,6 +67,8 @@ class PertemuanController extends Controller
         $this->validate($request,[
             'pertemuan_ke' => 'required|integer',
             'tanggal' => 'required',
+            'tujuan_pembelajaran' => 'required',
+            'apersepsi' => 'required'
         ]);
 
         $slug = Str::slug("pertemuan_ke_{$request->pertemuan_ke}");
@@ -72,7 +77,8 @@ class PertemuanController extends Controller
             'slug' => $slug,
             'pertemuan_ke' => $request->input('pertemuan_ke'),
             'tanggal' => $request->input('tanggal'),
-            // Tambahkan kolom-kolom lain yang sesuai
+            'tujuan_pembelajaran' => $request->input('tujuan_pembelajaran'),
+            'apersepsi' => $request->input('apersepsi'),
         ]);
 
         return redirect()->route('pertemuan.index')->with('success', 'Pertemuan berhasil dibuat');

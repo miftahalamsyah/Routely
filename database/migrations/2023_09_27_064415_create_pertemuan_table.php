@@ -16,6 +16,8 @@ return new class extends Migration
             $table->text('slug');
             $table->integer('pertemuan_ke');
             $table->date('tanggal');
+            $table->text('tujuan_pembelajaran');
+            $table->text('apersepsi');
             $table->timestamps();
         });
     }

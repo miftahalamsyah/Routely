@@ -35,6 +35,24 @@
                             @enderror
                         </div>
 
+                        <div class="mb-4">
+                            <label for="tujuan_pembelajaran" class="block text-md font-semibold text-gray-800">Tujuan Pembelajaran</label>
+                            <textarea type="text" id="tujuan_pembelajaran" name="tujuan_pembelajaran" value="{{ old('tujuan_pembelajaran') }}" placeholder="Masukkan tujuan Pembelajarannya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">
+                            </textarea>
+                            @error('tujuan_pembelajaran')
+                                <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="apersepsi" class="block text-md font-semibold text-gray-800">Apersepsi</label>
+                            <textarea type="text" id="apersepsi" name="apersepsi" value="{{ old('apersepsi') }}" placeholder="Masukkan apersepsinya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">
+                            </textarea>
+                            @error('apersepsi')
+                                <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
+                            @enderror
+                        </div>
+
                         <div class="flex justify-end">
                             <button type="submit"
                                 class="bg-violet-500 text-white px-4 py-2 rounded-md hover:bg-violet-600 focus:outline-none focus:bg-violet-600">
