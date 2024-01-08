@@ -41,7 +41,7 @@
 
                 <div class="col-span-6 sm:col-span-3">
                     <label for="Password" class="block text-sm font-medium text-gray-700">
-                        Password
+                        Kata Sandi
                     </label>
                     <input type="password" id="input-password" name="password" class="my-2 p-2 shadow rounded-xl w-full" value="{{ old('password') }}" required>
                     @error('password')
@@ -51,7 +51,7 @@
 
                 <div class="col-span-6 sm:col-span-3">
                     <label for="PasswordConfirmation" class="block text-sm font-medium text-gray-700">
-                        Konfirmasi Password
+                        Konfirmasi Kata Sandi
                     </label>
                     <input type="password" id="input-password_confirmation" name="password_confirmation" class="my-2 p-2 shadow rounded-xl w-full" value="{{ old('password_confirmation') }}" required>
                     @error('password_confirmation')

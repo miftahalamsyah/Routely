@@ -36,6 +36,9 @@
 .hover\:text-student-dark:hover {
     color: #4c4471;
 }
+.hover\:bg-student-dark:hover {
+    background-color: #4c4471;
+}
 
 .loading-bar {
     position: fixed;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,11 +22,14 @@ class LoginController extends Controller
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
-            'email' => 'required',
+            'email' => 'required|email',
             'password' => 'required'
         ]);
 
-        if (Auth::attempt($credentials)) {
+        // Add the 'remember' key to the $credentials array
+        // $credentials['remember'] = $request->filled('remember');
+
+        if (Auth::attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
 
             if (auth()->user()->is_admin) {

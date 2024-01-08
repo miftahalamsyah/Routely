@@ -36,12 +36,19 @@
 
                 <div class="col-span-6 sm:col-span-3">
                     <label for="Password" class="block text-sm font-medium text-gray-700">
-                        Password
+                        Kata Sandi
                     </label>
                     <input type="password" id="input-password" name="password" class="my-2 p-2 shadow rounded-xl w-full" required>
                     @error('password')
                         <div class="text-red-500">{{ $message }}</div>
                     @enderror
+                </div>
+
+                <div class="col-span-6 sm:col-span-3">
+                    <label for="remember" class="inline-flex items-center my-2">
+                        <input type="checkbox" name="remember" id="remember" class="form-checkbox">
+                        <span class="ml-2 text-sm font-medium text-gray-700">Ingat Saya</span>
+                    </label>
                 </div>
 
                 <div class="form-actions mt-2 mb-6">
@@ -55,7 +62,7 @@
                 </div>
 
                 <p class="mt-4 text-sm text-gray-500 sm:mt-0">
-                   Belum punya akun?
+                    Belum punya akun?
                     <a href="/daftar" class="text-gray-700 font-semibold hover:underline">Daftar dengan email</a>.
                 </p>
 
