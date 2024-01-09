@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Lencana;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -18,6 +19,7 @@ class ProfileController extends Controller
      */
     public function index(): View
     {
+        $lencanas = Lencana::all();
         $profile = Auth::user();
         $users = User::where('is_admin', 0)
                     ->orderBy('updated_at', 'asc')
@@ -28,6 +30,7 @@ class ProfileController extends Controller
             "name" => $profile->name,
             "slug" => $profile->slug,
             "email" => $profile->email,
+            "lencanas" => $lencanas,
         ], compact('users'));
 
     }

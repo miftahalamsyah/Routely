@@ -13,12 +13,16 @@
                         <span class="font-semibold text-xs text-gray-700">{{ $chat->user->name }}</span>
                         <br>
                         <span class="text-gray-800 text-sm">{{ $chat->message }}</span>
+                        <br>
+                        <span class="text-xs text-gray-500">{{ $chat->created_at->translatedFormat('H:i, l j F Y') }}</span>
                     </div>
                 @else
                     <div class="my-1 max-w-3xl mx-auto py-2 px-4 shadow-md rounded-3xl bg-gradient-to-r from-gray-100 to-gray-50 text-left w-full">
                         <span class="font-semibold text-xs text-gray-700">{{ $chat->user->name }}</span>
                         <br>
                         <span class="text-gray-800 text-sm">{{ $chat->message }}</span>
+                        <br>
+                        <span class="text-xs text-gray-500">{{ $chat->created_at->translatedFormat('H:i, l j F Y') }}</span>
                     </div>
                     <div class="flex-shrink-0"></div>
                 @endif
@@ -28,6 +32,7 @@
                 <span class="font-semibold text-xs text-gray-700">Tidak ada percakapan</span>
             </div>
         @endforelse
+
     </div>
 
 

@@ -136,7 +136,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             @forelse ($pertemuans as $pertemuan)
             <!-- individual card -->
-            <div class="relative flex flex-col break-words bg-stone-50 border-2 hover:shadow rounded-2xl lg:mb-4 mb-0">
+            <div class="relative flex flex-col break-words bg-stone-100 border-2 hover:shadow-md rounded-2xl lg:mb-4 mb-0">
                 <div class="flex-auto px-1 pt-6">
                     <p class="mb-6 px-2 leading-normal text-xl font-bold overflow-hidden h-24 ...">Pertemuan {{ $pertemuan->pertemuan_ke }}</p>
                     <div class="flex items-center justify-between px-2 pb-4">
@@ -149,7 +149,7 @@
                 </div>
             </div>
             @empty
-            <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card">
+            <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-100 border-2 shadow-md rounded-2xl score-card">
                 <div class="max-w-full px-3 mx-auto text-center">
                     <span class="text-stone-700 text-md tracking-tight leading-none">Tidak ada Tugas</span>
                 </div>
@@ -164,7 +164,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             @forelse ($tugass as $tugas)
                 <!-- individual card -->
-                <div class="relative flex flex-col break-words bg-stone-50 border-2 rounded-2xl hover:shadow-lg">
+                <div class="relative flex flex-col break-words bg-stone-100 border-2 rounded-2xl hover:shadow-lg">
                     <div class="flex-auto px-1 pt-6">
                         <div>
                             @if ($tugas->submission_status === 'submitted')
@@ -194,7 +194,7 @@
                     </div>
                 </div>
             @empty
-                <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card">
+                <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-100 border-2 shadow-md rounded-2xl score-card">
                     <div class="max-w-full px-3 mx-auto text-center">
                         <span class="text-stone-700 text-md tracking-tight leading-none">Tidak ada Tugas</span>
                     </div>
@@ -211,7 +211,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             @forelse ($materis as $materi)
                 <!-- individual card -->
-                <div class="relative flex flex-col break-words bg-stone-50 border-2 rounded-2xl hover:shadow-lg">
+                <div class="relative flex flex-col break-words bg-stone-100 border-2 rounded-2xl hover:shadow-lg">
                     <div class="relative">
                         <a class="block shadow rounded-2xl">
                             <img src="{{ asset('storage/thumbnails/' . $materi->thumbnail_image) }}" alt="{{ $materi-> title }}" class="w-full h-32 object-cover shadow-soft-2xl rounded-2xl" />
@@ -232,7 +232,7 @@
                     </div>
                 </div>
             @empty
-                <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl score-card">
+                <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-100 border-2 shadow-md rounded-2xl score-card">
                     <div class="max-w-full px-3 mx-auto text-center">
                     <span class="text-stone-700 text-md tracking-tight leading-none">Tidak ada materi</span>
                     </div>

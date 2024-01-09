@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Lencana;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -24,12 +25,15 @@ class ProfilPublikController extends Controller
 
     public function show (User $user)
     {
+        $lencanas = Lencana::all();
+
         return view('pages.profil_publik', [
             "title" => "$user->name",
             "name" => "$user->name",
             "slug" => "$user->slug",
             "email" => "$user->email",
             "is_admin" => "$user->is_admin",
+            "lencanas" => $lencanas,
         ]);
     }
 }

@@ -61,6 +61,7 @@ Route::resource('/dashboard/tugas', \App\Http\Controllers\TugasController::class
 Route::resource('/dashboard/pertemuan', \App\Http\Controllers\PertemuanController::class)->middleware('admin');
 Route::resource('/dashboard/kelompok', \App\Http\Controllers\KelompokController::class)->middleware('admin');
 Route::resource('/dashboard/nilai', \App\Http\Controllers\NilaiController::class)->middleware('admin');
+Route::resource('/dashboard/lencana', \App\Http\Controllers\LencanaController::class)->middleware('admin');
 
 Route::get('/fetch-data', [DataController::class, 'index']);
 
