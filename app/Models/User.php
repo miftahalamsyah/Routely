@@ -61,11 +61,6 @@ class User extends Authenticatable
         return $this->belongsToMany(Materi::class)->withTimestamps();
     }
 
-    public function scores()
-    {
-        return $this->hasMany(Score::class);
-    }
-
     public function chats()
     {
         return $this->hasMany(Chat::class)->withTimestamps();
@@ -75,4 +70,20 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Kelompok::class, 'kelompok_id');
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Handle the created event
+        static::created(function ($user) {
+            // Create a corresponding record in the nilai table
+            Nilai::create([
+                'user_id' => $user->id,
+                'pretest' => null, // Set your default values or null
+                'posttest' => null, // Set your default values or null
+            ]);
+        });
+    }
+
 }

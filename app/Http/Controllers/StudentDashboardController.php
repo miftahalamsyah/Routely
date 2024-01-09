@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Materi;
+use App\Models\Nilai;
 use App\Models\Tugas;
 use App\Models\Pertemuan;
 use App\Models\User;
@@ -20,11 +21,19 @@ class StudentDashboardController extends Controller
         $materiCount = Materi::count();
 
         if (Auth::check()) {
+            $user = Auth::user();
+
+            $nilaiPretest = Nilai::where('user_id', $user->id)->value('pretest');
+            $nilaiPosttest = Nilai::where('user_id', $user->id)->value('posttest');
+
+
             return view('student.index', [
                 'title' => 'Student Dashboard',
                 'pertemuans' => Pertemuan::all(),
                 'tugass' => Tugas::all(),
                 'materis' => Materi::all(),
+                'nilaiPretest' => $nilaiPretest,
+                'nilaiPosttest' => $nilaiPosttest,
             ]);
         } else {
             return view('pages.login', [

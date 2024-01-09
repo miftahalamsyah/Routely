@@ -32,25 +32,23 @@ class KelompokController extends Controller
     }
 
     public function store(Request $request)
-{
-    $this->validate($request, [
-        'user_id' => 'required',
-        'no_kelompok' => 'required',
-        'name' => 'required',
-        'description' => 'required',
-    ]);
+    {
+        $this->validate($request, [
+            'user_id' => 'required|exists:users,id',
+            'no_kelompok' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+        ]);
 
-    $kelompok = Kelompok::create([
-        'user_id' => $request->input('user_id'),
-        'no_kelompok' => $request->input('no_kelompok'),
-        'name' => $request->input('name'),
-        'description' => $request->input('description'),
-    ]);
+        $kelompok = Kelompok::create([
+            'user_id' => $request->input('user_id'),
+            'no_kelompok' => $request->input('no_kelompok'),
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+        ]);
 
-    return redirect()->route('kelompok.index')->with('status', 'Kelompok created successfully!');
-}
-
-
+        return redirect()->route('kelompok.index')->with('status', 'Kelompok created successfully!');
+    }
 
     public function edit(string $id): View
     {

@@ -74,7 +74,7 @@
                     </div>
                     <!-- Score container initially hidden -->
                     <div class="score-container hidden">
-                        <p class="mb-0 text-stone-50 font-extrabold text-3xl actual-score">60</p>
+                        <p class="mb-0 text-stone-50 font-extrabold text-3xl actual-score">{{ is_null($nilaiPretest) ? '-' : $nilaiPretest }}</p>
                         <p class="mb-0 text-stone-50 font-extrabold text-3xl hidden-score">***</p>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                     </div>
                     <!-- Score container initially hidden -->
                     <div class="score-container hidden">
-                        <p class="mb-0 text-stone-50 font-extrabold text-3xl actual-score">80</p>
+                        <p class="mb-0 text-stone-50 font-extrabold text-3xl actual-score">{{ is_null($nilaiPosttest) ? '-' : $nilaiPosttest }}</p>
                         <p class="mb-0 text-stone-50 font-extrabold text-3xl hidden-score">***</p>
                     </div>
                 </div>
