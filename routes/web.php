@@ -16,6 +16,7 @@ use App\Http\Controllers\StudentDashboardController;
 use App\Http\Controllers\StudentMateriController;
 use App\Http\Controllers\StudentPertemuanController;
 use App\Http\Controllers\StudentSimulasiController;
+use App\Http\Controllers\StudentTesController;
 use App\Http\Controllers\TugasController;
 
 
@@ -70,6 +71,7 @@ Route::get('/student/profile', [ProfileController::class, 'index'])->name('stude
 Route::put('/student/profile', [ProfileController::class, 'update'])->name('student.profile.update')->middleware('auth');
 
 
+
 Route::get('/profil_publik/{user:slug}', [ProfilPublikController::class, 'show'])->name('profil_publik');
 
 Route::get('/student/pertemuan', [StudentPertemuanController::class, 'index'])->name('student.pertemuan')->middleware('auth');
@@ -78,6 +80,7 @@ Route::get('/student/materi', [StudentMateriController::class, 'index'])->name('
 Route::get('/student/materi/{materi:slug}', [StudentMateriController::class, 'show'])->name('student.materi.show')->middleware('auth');
 Route::match(['get', 'post'], 'student/materi/{slug}', [StudentMateriController::class, 'show'])->name('student.materi.show');
 Route::get('/student/simulasi', [StudentSimulasiController::class, 'index'])->name('student.simulasi')->middleware('auth');
+Route::get('/student/tes', [StudentTesController::class, 'index'])->name('student.tes')->middleware('auth');
 
 Route::get('/student/chat', [StudentChatController::class, 'index'])->name('student.chat')->middleware('auth');
 Route::resource('/student/chat', \App\Http\Controllers\StudentChatController::class)->middleware('auth');

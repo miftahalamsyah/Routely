@@ -71,6 +71,11 @@ class User extends Authenticatable
         return $this->belongsTo(Kelompok::class, 'kelompok_id');
     }
 
+    public function nilai()
+    {
+        return $this->hasMany(Nilai::class);
+    }
+
     protected static function boot()
     {
         parent::boot();

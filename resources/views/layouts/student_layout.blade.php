@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="app.css">
     <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{{ asset('js/transition.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -126,65 +126,53 @@
                             <input type="search" id="search" name="search" class="px-2 w-full bg-stone-50 border-none outline-none" placeholder="Telusuri...">
                         </div>
 
-                        <div class="dropdown inline-block relative">
-                            <button type="button" class="shadow inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-stone-50 text-gray-700 border-2 border-stone-100 align-middle hover:bg-stone-100 transition-all text-xs">
+                        <div x-data="{ isOpen: false }" class="dropdown inline-block relative">
+                            <button @click="isOpen = !isOpen" type="button" class="shadow inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-stone-50 text-gray-700 border-2 border-stone-100 align-middle hover:bg-stone-100 transition-all text-xs">
                                 <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#currentColor" viewBox="0 0 16 16">
                                     <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
                                 </svg>
                             </button>
-                            <ul class="dropdown-menu absolute mr-40 bg-stone-50 rounded-2xl hidden text-gray-700 pt-2 w-40 right-0 transform translate-x-full">
-                                <li class="text-xs">
-                                    <a class="rounded-2xl bg-stone-50 hover:bg-stone-100 p-2 block whitespace-no-wrap shadow-md" href="#">Lorem ipsum dolor amet mo di pam</a>
-                                </li>
-                                <li class="text-xs">
-                                    <a class="rounded-2xl bg-stone-50 hover:bg-stone-100 p-2 block whitespace-no-wrap shadow-md" href="#">Lorem ipsum dolor amet mo di pam</a>
-                                </li>
-                                <li class="text-xs">
-                                    <a class="rounded-2xl bg-stone-50 hover:bg-stone-100 p-2 block whitespace-no-wrap shadow-md" href="#">Lorem ipsum dolor amet mo di pam</a>
-                                </li>
+                            <ul x-show="isOpen" @click.away="isOpen = false" class="dropdown-menu absolute mr-40 mt-1 bg-stone-50 rounded-2xl hidden text-gray-700 pt-2 w-40 right-0 transform translate-x-full">
                                 <li class="text-xs">
                                     <a class="rounded-2xl bg-stone-50 hover:bg-stone-100 p-2 block whitespace-no-wrap shadow-md" href="#">Lorem ipsum dolor amet mo di pam</a>
                                 </li>
                             </ul>
                         </div>
 
-                        <div class="flex md:order-2 z-10">
+                        <div x-data="{ open: false }" class="md:order-2 z-10 dropdown inline-block relative">
                             @auth
-                                <div class="relative inline-block text-left">
-                                    <div id="menu-button" class="mr-2">
-                                        <button type="button" class="inline-flex w-full justify-center" id="menu-button" aria-expanded="true" aria-haspopup="true">
-                                                <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl text-stone-50 text-md font-semibold border">
-                                                    {{ substr(Auth::user()->name, 0, 1) }}{{ substr(strrchr(Auth::user()->name, ' '), 1, 1) }}
-                                                </div>
-                                        </button>
+                                <button @click="open = !open" type="button" class="shadow inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium align-middle transition-all text-xs" aria-expanded="true" aria-haspopup="true">
+                                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl text-stone-50 text-md font-semibold border">
+                                        {{ substr(Auth::user()->name, 0, 1) }}{{ substr(strrchr(Auth::user()->name, ' '), 1, 1) }}
                                     </div>
-                                    <div class="absolute right-0 w-56 origin-top-right rounded-xl bg-gray-50 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-                                        <div class="py-1" role="none">
-                                            <a href="/student" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-0">Dashboard</a>
-                                            <a href="/student/profile" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-0">Profil</a>
-                                            <form action="/logout" method="post">
-                                                @csrf
-                                                <button type="submit" class="w-full text-left text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100">Keluar</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                </button>
+                                <ul x-show="open" @click.away="open = false" class="dropdown-menu absolute mr-40 bg-stone-50 mt-1 rounded-2xl hidden text-gray-700 w-40 right-0 transform translate-x-full">
+                                    <li class="text-xs rounded-2xl shadow-md">
+                                        <a href="/student" class="text-gray-700 block px-4 py-2 text-sm rounded-t-2xl hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-0">Dashboard</a>
+                                        <a href="/student/profile" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-0">Profil</a>
+                                        <form action="/logout" method="post">
+                                            @csrf
+                                            <button type="submit" class="w-full text-left text-gray-700 rounded-b-2xl block px-4 py-2 text-sm hover:bg-gray-100">Keluar</button>
+                                        </form>
+                                    </li>
+                                </ul>
                             @else
                                 <a href="/login">
                                     <button class="mr-2 text-sm bg-violet-200 relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-semibold text-student transition duration-300 ease-out border border-gray-150 rounded-3xl group">
                                         <span class="bg-violet-300 absolute inset-0 flex items-center justify-center w-full h-full text-student duration-300 -translate-x-full group-hover:translate-x-0 ease">
-                                        <svg width="20px" height="20px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                            <rect width="16" height="16" id="icon-bound" fill="none" />
-                                            <path d="M14,14l0,-12l-6,0l0,-2l8,0l0,16l-8,0l0,-2l6,0Zm-6.998,-0.998l4.998,-5.002l-5,-5l-1.416,1.416l2.588,2.584l-8.172,0l0,2l8.172,0l-2.586,2.586l1.416,1.416Z" />
-                                        </svg>
+                                            <svg width="20px" height="20px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <rect width="16" height="16" id="icon-bound" fill="none" />
+                                                <path d="M14,14l0,-12l-6,0l0,-2l8,0l0,16l-8,0l0,-2l6,0Zm-6.998,-0.998l4.998,-5.002l-5,-5l-1.416,1.416l2.588,2.584l-8.172,0l0,2l8.172,0l-2.586,2.586l1.416,1.416Z" />
+                                            </svg>
                                         </span>
                                         <span class="absolute flex items-center justify-center w-full h-full text-student transition-all duration-300 transform group-hover:translate-x-full ease">Login</span>
                                         <span class="relative invisible">Login</span>
                                     </button>
                                 </a>
                             @endauth
-                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </nav>

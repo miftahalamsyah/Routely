@@ -11,15 +11,16 @@
     <div class="bg-gray-50 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">
-                <h1 class="font-semibold text-4xl text-center my-8  ">Tambah Pertemuan</h1>
+                <h1 class="font-semibold text-4xl text-center my-8  ">Edit Pertemuan</h1>
                 <div class="border-0 shadow-sm">
 
-                    <form action="{{ route('pertemuan.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('pertemuan.update', $pertemuan->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
 
                         <div class="mb-4">
                             <label for="pertemuan_ke" class="block text-md font-semibold text-gray-800">Pertemuan ke berapa</label>
-                            <input type="number" id="pertemuan_ke" name="pertemuan_ke" value="{{ old('pertemuan_ke') }}" placeholder="Masukkan Pertemuan ke berapa"
+                            <input type="number" id="pertemuan_ke" name="pertemuan_ke" value="{{ old('pertemuan_ke', $pertemuan->pertemuan_ke) }}" placeholder="Masukkan Pertemuan ke berapa"
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 @error('pertemuan_ke') border-red-500 @enderror">
                             @error('pertemuan_ke')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
@@ -28,7 +29,7 @@
 
                         <div class="mb-4">
                             <label for="tanggal" class="block text-md font-semibold text-gray-800">Tanggal</label>
-                            <input type="date" id="tanggal" name="tanggal" value="{{ old('tanggal') }}" placeholder="Masukkan Pertemuan ke berapa"
+                            <input type="date" id="tanggal" name="tanggal" value="{{ old('tanggal', $pertemuan->tanggal) }}" placeholder="Masukkan Pertemuan ke berapa"
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 @error('tanggal') border-red-500 @enderror">
                             @error('tanggal')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
@@ -37,8 +38,7 @@
 
                         <div class="mb-4">
                             <label for="tujuan_pembelajaran" class="block text-md font-semibold text-gray-800">Tujuan Pembelajaran</label>
-                            <textarea type="text" id="tujuan_pembelajaran" name="tujuan_pembelajaran" placeholder="Masukkan tujuan Pembelajarannya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('tujuan_pembelajaran') }}
-                            </textarea>
+                            <textarea id="tujuan_pembelajaran" name="tujuan_pembelajaran" placeholder="Masukkan tujuan Pembelajarannya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('tujuan_pembelajaran', $pertemuan->tujuan_pembelajaran) }}</textarea>
                             @error('tujuan_pembelajaran')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -46,8 +46,7 @@
 
                         <div class="mb-4">
                             <label for="apersepsi" class="block text-md font-semibold text-gray-800">Apersepsi</label>
-                            <textarea type="text" id="apersepsi" name="apersepsi" placeholder="Masukkan apersepsinya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('apersepsi') }}
-                            </textarea>
+                            <textarea id="apersepsi" name="apersepsi" placeholder="Masukkan apersepsinya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('apersepsi', $pertemuan->apersepsi) }}</textarea>
                             @error('apersepsi')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -56,7 +55,7 @@
                         <div class="flex justify-end">
                             <button type="submit"
                                 class="bg-violet-500 text-white px-4 py-2 rounded-md hover:bg-violet-600 focus:outline-none focus:bg-violet-600">
-                                Create Pertemuan
+                                Update Pertemuan
                             </button>
                         </div>
                     </form>

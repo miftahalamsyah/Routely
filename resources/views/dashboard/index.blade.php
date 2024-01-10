@@ -35,6 +35,9 @@
                         Pertemuan Ke
                     </th>
                     <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                        Tanggal
+                    </th>
+                    <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wider">
                         Materi
                     </th>
                     <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wider">
@@ -47,6 +50,9 @@
                 <tr>
                     <td class="px-3 py-4 whitespace-nowrap">
                         {{ $pertemuan->pertemuan_ke }}
+                    </td>
+                    <td class="px-3 py-4 whitespace-nowrap">
+                        {{ $pertemuan->tanggal }}
                     </td>
                     <td class="px-3 py-4 whitespace-nowrap">
                         @foreach ($pertemuan->materi as $materi)
@@ -180,7 +186,7 @@
     </div>
 
     <!-- Daftar Siswa -->
-    <div class="my-5 mx-2 block rounded-xl border border-stone-600 border p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">
+    <div class="my-5 mx-2 block rounded-xl border border-stone-600 p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">
         <h1 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-gray-50 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Siswa</h1>
         <table class="min-w-full divide-y divide-gray-200 text-gray-50">
             <thead>

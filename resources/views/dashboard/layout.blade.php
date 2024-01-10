@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="app.css">
         <script defer src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
         <title>{{ $title }} | Routely</title>
     </head>
 
@@ -27,14 +28,37 @@
                             </svg>
                         </button>
 
-                        <div class="relative inline-flex">
-                            <button id="dropdown-with-header" type="button" class="inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-stone-700 text-gray-700 align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-xs dark:bg-gray-800 dark:hover:bg-slate-800 dark:text-gray-400 dark:hover:text-white dark:focus:ring-gray-700 dark:focus:ring-offset-gray-800">
-                                <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl">
-                                    <a href="/student/profile" class="text-stone-50 text-lg font-semibold">
+                        <div x-data="{ open: false }" class="md:order-2 z-10 dropdown inline-block relative">
+                            @auth
+                                <button @click="open = !open" type="button" class="shadow inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium align-middle transition-all text-xs" aria-expanded="true" aria-haspopup="true">
+                                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl text-stone-50 text-md font-semibold border">
                                         {{ substr(Auth::user()->name, 0, 1) }}{{ substr(strrchr(Auth::user()->name, ' '), 1, 1) }}
-                                    </a>
-                                </div>
-                            </button>
+                                    </div>
+                                </button>
+                                <ul x-show="open" @click.away="open = false" class="dropdown-menu absolute mr-40 bg-stone-700 border border-stone-600 rounded-2xl hidden text-gray-700 w-40 right-0 transform translate-x-full">
+                                    <li class="text-xs rounded-2xl shadow-md">
+                                        <a href="/student" class="text-gray-50 block px-4 py-2 text-sm rounded-t-2xl hover:bg-stone-500" role="menuitem" tabindex="-1" id="menu-item-0">Dashboard</a>
+                                        <a href="/student/profile" class="text-gray-50 block px-4 py-2 text-sm hover:bg-stone-500" role="menuitem" tabindex="-1" id="menu-item-0">Profil</a>
+                                        <form action="/logout" method="post">
+                                            @csrf
+                                            <button type="submit" class="w-full text-left text-gray-50 rounded-b-2xl block px-4 py-2 text-sm hover:bg-stone-500">Keluar</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            @else
+                                <a href="/login">
+                                    <button class="mr-2 text-sm bg-violet-200 relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-semibold text-student transition duration-300 ease-out border border-gray-150 rounded-3xl group">
+                                        <span class="bg-violet-300 absolute inset-0 flex items-center justify-center w-full h-full text-student duration-300 -translate-x-full group-hover:translate-x-0 ease">
+                                            <svg width="20px" height="20px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <rect width="16" height="16" id="icon-bound" fill="none" />
+                                                <path d="M14,14l0,-12l-6,0l0,-2l8,0l0,16l-8,0l0,-2l6,0Zm-6.998,-0.998l4.998,-5.002l-5,-5l-1.416,1.416l2.588,2.584l-8.172,0l0,2l8.172,0l-2.586,2.586l1.416,1.416Z" />
+                                            </svg>
+                                        </span>
+                                        <span class="absolute flex items-center justify-center w-full h-full text-student transition-all duration-300 transform group-hover:translate-x-full ease">Login</span>
+                                        <span class="relative invisible">Login</span>
+                                    </button>
+                                </a>
+                            @endauth
                         </div>
                     </div>
                 </div>
@@ -68,6 +92,10 @@
     .animate-up.animate {
         opacity: 1;
         transform: translateY(0);
+    }
+
+    .dropdown:hover .dropdown-menu {
+    display: block;
     }
 </style>
 

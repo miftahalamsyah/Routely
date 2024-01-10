@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pertemuan;
 use App\Models\Materi;
+use App\Models\Pertemuan;
 use App\Models\Tugas;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -55,25 +55,30 @@ class PertemuanController extends Controller
         return redirect()->route('pertemuan.index')->with('success', 'Pertemuan berhasil dibuat');
     }
 
-    public function edit(Pertemuan $pertemuan)
+    public function edit($id)
     {
+        $pertemuan = Pertemuan::findOrFail($id);
         $materis = Materi::all();
         $tugass = Tugas::all();
-        return view('dashboard.pertemuan.edit', compact('pertemuan', 'materis', 'tugass'));
+
+        return view('dashboard.pertemuan.edit', [
+            'title' => 'Edit Pertemuan',
+            'pertemuan' => $pertemuan,
+        ], compact('materis', 'tugass'));
     }
 
-    public function update(Request $request, Pertemuan $pertemuan)
+    public function update(Request $request, $id)
     {
-        $this->validate($request,[
+        $this->validate($request, [
             'pertemuan_ke' => 'required|integer',
             'tanggal' => 'required',
             'tujuan_pembelajaran' => 'required',
-            'apersepsi' => 'required'
+            'apersepsi' => 'required',
         ]);
 
         $slug = Str::slug("pertemuan_ke_{$request->pertemuan_ke}");
 
-        Pertemuan::create([
+        Pertemuan::where('id', $id)->update([
             'slug' => $slug,
             'pertemuan_ke' => $request->input('pertemuan_ke'),
             'tanggal' => $request->input('tanggal'),
@@ -81,7 +86,7 @@ class PertemuanController extends Controller
             'apersepsi' => $request->input('apersepsi'),
         ]);
 
-        return redirect()->route('pertemuan.index')->with('success', 'Pertemuan berhasil dibuat');
+        return redirect()->route('pertemuan.index')->with('success', 'Pertemuan berhasil diperbarui');
     }
 
     public function destroy(Pertemuan $pertemuan)

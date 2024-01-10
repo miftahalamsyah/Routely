@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Nilai;
 use App\Models\Lencana;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -24,6 +25,9 @@ class ProfileController extends Controller
         $users = User::where('is_admin', 0)
                     ->orderBy('updated_at', 'asc')
                     ->get();
+        $nilais = Nilai::whereHas('user', function ($query) {
+            $query->where('is_admin', 0);
+        })->get();
 
         return view('student.profile.index', [
             "title" => "Profil",
@@ -31,6 +35,7 @@ class ProfileController extends Controller
             "slug" => $profile->slug,
             "email" => $profile->email,
             "lencanas" => $lencanas,
+            "nilais" => $nilais,
         ], compact('users'));
 
     }
@@ -70,17 +75,5 @@ class ProfileController extends Controller
         } else {
             return redirect()->back()->with('error', 'Profile gagal diperbaharui. Konfirmasi password tidak sesuai.');
         }
-    }
-
-
-    public function leaderboard()
-    {
-        $users = User::where('is_admin', 0)
-                    ->orderBy('name')
-                    ->paginate(10);
-
-        return view('includes.leaderboard', [
-            "title" => "Leaderboard",
-        ], compact('users'));
     }
 }

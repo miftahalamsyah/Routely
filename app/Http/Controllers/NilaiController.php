@@ -11,7 +11,9 @@ class NilaiController extends Controller
 {
     public function index(): View
     {
-        $nilais = Nilai::all();
+        $nilais = Nilai::whereHas('user', function ($query) {
+            $query->where('is_admin', 0);
+        })->get();
 
         return view('dashboard.nilai.index',
         [

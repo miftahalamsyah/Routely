@@ -3,32 +3,37 @@
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl"><span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline"> Routely </span>League</h1>
 
         {{-- table user leaderboard --}}
-        <div>
+        <div class="overflow-x-auto">
             <table class="min-w-full mt-12">
+                <thead>
+                    <tr>
+                        <th class="py-2 px-4">#</th>
+                        <th class="py-2 px-4">Nama</th>
+                        <th class="py-2 px-4 font-semibold">Total Score</th>
+                    </tr>
+                </thead>
                 <tbody class="text-stone-700 text-left">
-                    <!-- Replace with your leaderboard data -->
-                    @forelse ($users as $index => $user)
-                    <tr>
-                        <td class="py-2 px-4 font-semibold">
-                            {{ $index + 1 }}
-                        </td>
-                        <td class="py-2 px-4">
-                            {{ $user-> name}}
-                        </td>
-                        <td class="py-2 px-4 font-semibold">1000 points</td>
-                    </tr>
+                    @php $index = 0; @endphp
+                    @forelse ($users->sortByDesc(function($user) {
+                        return $user->nilai->sum('total_nilai');
+                    }) as $user)
+                        @php $index++; @endphp
+                        <tr class="border-y-2">
+                            <td class="py-2 px-4 text-center">{{ $index }}</td>
+                            <td class="py-2 px-4 text-center">{{ $user->name }}</td>
+                            <td class="py-2 px-4 font-semibold text-center">{{ $user->nilai->sum('total_nilai') }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
-                            <div class="mx-auto bg-gray-100 text-gray-600 p-2 rounded-xl">
-                                Data leaderboard tidak tersedia.
-                            </div>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
+                                <div class="mx-auto bg-gray-100 text-gray-600 p-2 rounded-xl">
+                                    Data leaderboard tidak tersedia.
+                                </div>
+                            </td>
+                        </tr>
                     @endforelse
-                    <!-- Add more rows as needed -->
                 </tbody>
             </table>
         </div>
-     </div>
+    </div>
 </div>

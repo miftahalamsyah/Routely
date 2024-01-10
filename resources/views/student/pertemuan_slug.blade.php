@@ -4,6 +4,7 @@
 
 <section class="w-full justify-center mx-auto px-4 lg:px-12 min-h-screen">
     <div class="rounded-xl">
+        <p class="text-xs">{{ Carbon\Carbon::parse($pertemuan->tanggal)->format('l, j F Y') }}</p>
         <div class="row">
             <div class="col-md-12 py-5 text-gray-900">
                 <div class="shadow-sm">
