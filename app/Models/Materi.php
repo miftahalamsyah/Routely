@@ -30,8 +30,8 @@ class Materi extends Model
         return $this->belongsToMany(User::class)->withTimestamps();
     }
 
-    public function scores()
+    public function nilai()
     {
-        return $this->hasMany(Score::class);
+        return $this->hasMany(Nilai::class);
     }
 }

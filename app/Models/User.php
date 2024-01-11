@@ -76,6 +76,11 @@ class User extends Authenticatable
         return $this->hasMany(Nilai::class);
     }
 
+    public function absensi()
+    {
+        return $this->hasMany(Absensi::class);
+    }
+
     protected static function boot()
     {
         parent::boot();
