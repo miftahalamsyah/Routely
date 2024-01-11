@@ -39,7 +39,7 @@ class AbsensiController extends Controller
             'users' => 'required|array',
             'users.*.hadir' => 'required|boolean',
             'users.*.keterangan' => 'nullable|string',
-        ]);
+        ]); 
 
         foreach ($request->users as $user_id => $data) {
             $absensi = Absensi::create([
