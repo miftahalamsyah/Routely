@@ -40,7 +40,7 @@
             </div>
 
             <div class="grid grid-cols-2 gap-4 sm:grid-cols-2">
-                <a class="block rounded-xl bg-stone-50 p-4 shadow hover:shadow-lg" href="/berpikir-komputasi/dekomposisi">
+                <a class="block rounded-xl bg-stone-50 p-4 shadow hover:shadow-lg" href="/berpikir-komputasi/#dekomposisi">
                     <span class="inline-block rounded-lg bg-gray-50 p-3">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
@@ -54,7 +54,7 @@
                     </p>
                 </a>
 
-                <a class="block rounded-xl bg-stone-50 p-4 shadow hover:shadow-lg" href="/berpikir-komputasi/dekomposisi">
+                <a class="block rounded-xl bg-stone-50 p-4 shadow hover:shadow-lg" href="/berpikir-komputasi/#abstraksi">
                     <span class="inline-block rounded-lg bg-gray-50 p-3">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
@@ -68,7 +68,7 @@
                     </p>
                 </a>
 
-                <a class="block rounded-xl bg-stone-50 p-4 shadow hover:shadow-lg" href="/berpikir-komputasi/dekomposisi">
+                <a class="block rounded-xl bg-stone-50 p-4 shadow hover:shadow-lg" href="/berpikir-komputasi/#pengenalan-pola">
                     <span class="inline-block rounded-lg bg-gray-50 p-3">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
@@ -82,7 +82,7 @@
                     </p>
                 </a>
 
-                <a class="block rounded-xl bg-stone-50 p-4 shadow hover:shadow-lg" href="/berpikir-komputasi/dekomposisi">
+                <a class="block rounded-xl bg-stone-50 p-4 shadow hover:shadow-lg" href="/berpikir-komputasi/#algoritma">
                     <span class="inline-block rounded-lg bg-gray-50 p-3">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
