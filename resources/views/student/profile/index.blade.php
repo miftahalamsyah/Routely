@@ -1,7 +1,7 @@
 @extends('layouts.student_layout')
 
 @section('content')
-<section class="w-full justify-center mx-auto px-4 lg:px-12">
+<section class="w-full min-h-screen justify-center mx-auto px-4 lg:px-12">
     <div class="flex flex-col sm:flex-row items-center my-5 gap-x-10 justify-center">
         <div class="flex items-center justify-center w-32 h-32 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl">
             <p class="text-stone-50 text-5xl font-semibold">{{ substr($name, 0, 1) }}{{ substr(strrchr($name, ' '), 1, 1) }}</p>
