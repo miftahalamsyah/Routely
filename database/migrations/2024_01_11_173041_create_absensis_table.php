@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('pertemuan_id')->constrained()->onDelete('cascade');
-            $table->boolean('hadir')->default(true);
+            $table->boolean('hadir')->default(true)->nullable();
             $table->string('keterangan')->nullable();
             $table->timestamps();
         });

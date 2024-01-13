@@ -15,11 +15,17 @@ class AbsensiController extends Controller
 {
     public function index(): View
     {
-        $absensis = Absensi::with(['user', 'pertemuan'])->get();
-        return view('dashboard.absensi.index',
-        [
+        // Retrieve distinct pertemuan_id values
+        $pertemuanIds = Absensi::distinct()->pluck('pertemuan_id');
+
+        // Fetch the related pertemuan records
+        $pertemuans = Pertemuan::whereIn('id', $pertemuanIds)->get();
+
+        $absensis = Absensi::all();
+
+        return view('dashboard.absensi.index', [
             "title" => "Absensi",
-        ],compact('absensis'));
+        ], compact('pertemuans', 'absensis'));
     }
 
     public function create(): View
@@ -37,9 +43,9 @@ class AbsensiController extends Controller
         $request->validate([
             'pertemuan_id' => 'required|exists:pertemuans,id',
             'users' => 'required|array',
-            'users.*.hadir' => 'required|boolean',
+            'users.*.hadir' => 'nullable|boolean',
             'users.*.keterangan' => 'nullable|string',
-        ]); 
+        ]);
 
         foreach ($request->users as $user_id => $data) {
             $absensi = Absensi::create([
@@ -84,5 +90,19 @@ class AbsensiController extends Controller
         }
 
         return redirect()->route('absensi.index')->with('success', 'Absensi berhasil diubah.');
+    }
+
+    public function destroy(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'pertemuan_id' => 'required|exists:pertemuans,id',
+        ]);
+
+        $pertemuanId = $request->pertemuan_id;
+
+        // Delete Absensi records with the specified pertemuan_id
+        Absensi::where('pertemuan_id', $pertemuanId)->delete();
+
+        return redirect()->route('absensi.index')->with('success', 'Absensi berhasil dihapus.');
     }
 }
