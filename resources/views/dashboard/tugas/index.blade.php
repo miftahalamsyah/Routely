@@ -19,10 +19,10 @@
                                             No
                                         </th>
                                         <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Nama
+                                            Pertemuan Ke
                                         </th>
                                         <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Deskripsi
+                                            Nama
                                         </th>
                                         <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Batas Pengumpulan
@@ -37,10 +37,10 @@
                                                 {{ $index + 1 }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                {{ $tugas->name }}
+                                                {{ \App\Models\Pertemuan::where('id', $tugas->pertemuan_id)->value('pertemuan_ke') }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                {{ $tugas->description }}
+                                                {{ $tugas->name }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 {{ $tugas->due_date }}

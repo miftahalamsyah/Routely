@@ -43,13 +43,21 @@ class TugasController extends Controller
         ]);
 
         $slug = Str::slug($request->name);
+
+        if ($request->hasFile('tugas_file')) {
+            $fileName = time() . '.' . $request->tugas_file->extension();
+            $request->tugas_file->storeAs('public/tugas', $fileName);
+        } else {
+            $fileName = null; // Set it to null or any default value as needed.
+        }
+
         // Logika untuk menyimpan tugas yang baru dibuat
         Tugas::create([
             'pertemuan_id' => $request->pertemuan_id,
             'name' => $request->name,
             'slug' => $slug,
             'description' => $request->description,
-            'tugas_file' => $request->tugas_file,
+            'tugas_file' => $fileName,
             'due_date' => $request->due_date,
         ]);
 
