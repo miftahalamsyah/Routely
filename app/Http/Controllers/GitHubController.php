@@ -25,13 +25,16 @@ class GitHubController extends Controller
                 return redirect('/student');
             } else {
                 $slug = (string) Str::uuid();
+
+                $randomPassword = Str::random(16);
+
                 $gitUser = User::create([
                     'name' => $user->name,
                     'email' => $user->email,
                     'slug' => $slug,
                     'github_id' => $user->id,
                     'auth_type' => 'github',
-                    'password' => encrypt('gitpwd059')
+                    'password' => bcrypt($randomPassword),
                 ]);
 
                 Auth::login($gitUser);
