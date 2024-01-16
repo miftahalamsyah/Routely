@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Pertemuan;
+use App\Models\KategoriTes;
 
 
 class DatabaseSeeder extends Seeder
@@ -72,6 +73,18 @@ class DatabaseSeeder extends Seeder
             'tanggal' => '2024-05-30',
             'tujuan_pembelajaran' => 'Siswa dapat ',
             'apersepsi' => 'Siswa dapat',
+        ]);
+
+        KategoriTes::create([
+            'kategori_tes' => 'Pretest',
+            'waktu_tes' => '60',
+            'status_tes' => '1',
+        ]);
+
+        KategoriTes::create([
+            'kategori_tes' => 'Posttest',
+            'waktu_tes' => '60',
+            'status_tes' => '0',
         ]);
     }
 }
