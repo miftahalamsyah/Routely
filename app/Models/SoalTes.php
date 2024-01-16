@@ -13,6 +13,6 @@ class SoalTes extends Model
 
     public function kategori_tes(): BelongsTo
     {
-        return $this->belongsTo(KategoriTes::class, 'kategori_tes_id');
+        return $this->belongsTo(KategoriTes::class);
     }
 }

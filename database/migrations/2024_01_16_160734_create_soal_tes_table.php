@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('soal_tes', function (Blueprint $table) {
             $table->id();
+            $table->string('indikator');
             $table->string('pertanyaan');
             $table->string('gambar')->nullable();
             $table->string('jawaban_a');

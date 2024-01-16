@@ -19,8 +19,7 @@ use App\Http\Controllers\StudentSimulasiController;
 use App\Http\Controllers\StudentTesController;
 use App\Http\Controllers\StudentTugasController;
 use App\Http\Controllers\TugasController;
-
-
+use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +67,15 @@ Route::resource('/dashboard/nilai', \App\Http\Controllers\NilaiController::class
 Route::resource('/dashboard/lencana', \App\Http\Controllers\LencanaController::class)->middleware('admin');
 Route::resource('/dashboard/absensi', \App\Http\Controllers\AbsensiController::class)->middleware('admin');
 Route::resource('/dashboard/kategori-tes', \App\Http\Controllers\KategoriTesController::class)->middleware('admin');
+
+Route::get('/dashboard/pretest', [\App\Http\Controllers\SoalTesController::class, 'pretestindex'])->name('pretest.index')->middleware('admin');
+Route::get('/dashboard/pretest/create', [\App\Http\Controllers\SoalTesController::class, 'pretestcreate'])->name('pretest.create')->middleware('admin');
+Route::post('/dashboard/pretest', [\App\Http\Controllers\SoalTesController::class, 'preteststore'])->name('pretest.store')->middleware('admin');
+Route::get('/dashboard/pretest/edit', [\App\Http\Controllers\SoalTesController::class, 'pretestedit'])->name('pretest.edit')->middleware('admin');
+Route::delete('/dashboard/pretest/{id}', [\App\Http\Controllers\SoalTesController::class, 'pretestdestroy'])->name('pretest.destroy')->middleware('admin');
+
+
+Route::get('/dashboard/posttest', [\App\Http\Controllers\SoalTesController::class, 'posttestindex'])->name('posttest.index')->middleware('admin');
 
 Route::get('/fetch-data', [DataController::class, 'index']);
 
