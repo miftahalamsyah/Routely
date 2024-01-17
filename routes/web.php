@@ -21,6 +21,7 @@ use App\Http\Controllers\StudentTesController;
 use App\Http\Controllers\StudentTugasController;
 use App\Http\Controllers\TugasController;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\View;
 
 /*
 |--------------------------------------------------------------------------
