@@ -13,6 +13,11 @@ class KategoriTes extends Model
 
     public function soal_tes(): HasMany
     {
-        return $this->hasMany(SoalTes::class);
+        return $this->hasMany(SoalTes::class, 'kategori_tes_id');
+    }
+
+    public function hasil_tes_siswa(): HasMany
+    {
+        return $this->hasMany(SoalTes::class, 'hasil_tes_siswa_id');
     }
 }

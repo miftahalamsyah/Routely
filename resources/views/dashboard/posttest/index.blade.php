@@ -3,14 +3,14 @@
 @section('content')
 <section class="row z-0 p-4 max-w-6xl align-center mx-auto min-h-screen">
     <div class="my-8 text-center">
-        <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-gray-50 md:tracking-tight">Daftar Soal Pretest</h1>
+        <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-gray-50 md:tracking-tight">Daftar Soal Posttest</h1>
     </div>
     <div class="bg-gray-50 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
                     <div class="">
-                        <button class="bg-violet-400 my-2 p-2 rounded-xl hover:bg-violet-300"><a href="{{ route('pretest.create') }}" class="text-md font-semibold p-2">Tambah Soal Pretest</a></button>
+                        <button class="bg-violet-400 my-2 p-2 rounded-xl hover:bg-violet-300"><a href="{{ route('posttest.create') }}" class="text-md font-semibold p-2">Tambah Soal Posttest</a></button>
                         <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead>
@@ -77,10 +77,10 @@
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                 <div class="flex space-x-2 justify-end">
-                                                    <a href="{{ route('pretest.edit', $soal->id) }}" class="text-blue-600 hover:text-blue-900">
+                                                    <a href="{{ route('posttest.edit', $soal->id) }}" class="text-blue-600 hover:text-blue-900">
                                                         <svg fill="#262626" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21,12a1,1,0,0,0-1,1v6a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V5A1,1,0,0,1,5,4h6a1,1,0,0,0,0-2H5A3,3,0,0,0,2,5V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V13A1,1,0,0,0,21,12ZM6,12.76V17a1,1,0,0,0,1,1h4.24a1,1,0,0,0,.71-.29l6.92-6.93h0L21.71,8a1,1,0,0,0,0-1.42L17.47,2.29a1,1,0,0,0-1.42,0L13.23,5.12h0L6.29,12.05A1,1,0,0,0,6,12.76ZM16.76,4.41l2.83,2.83L18.17,8.66,15.34,5.83ZM8,13.17l5.93-5.93,2.83,2.83L10.83,16H8Z"/></svg>
                                                     </a>
-                                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('pretest.destroy', $soal->id) }}" method="POST">
+                                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('posttest.destroy', $soal->id) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="text-red-600 hover:text-red-900">
@@ -95,7 +95,7 @@
                                         <tr>
                                             <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
                                                 <div class="bg-gray-100 text-gray-600 p-2 rounded-xl">
-                                                    Data soal pretest tidak tersedia.
+                                                    Data soal posttest tidak tersedia.
                                                 </div>
                                             </td>
                                         </tr>

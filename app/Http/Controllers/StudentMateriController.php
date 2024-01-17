@@ -35,22 +35,6 @@ class StudentMateriController extends Controller
     public function show(Materi $materi)
     {
         $user = Auth::user();
-
-        if (!$user->materis->contains($materi)) {
-            $user->materis()->attach($materi);
-        }
-
-        if (request()->has('selesai')) {
-            $user->scores += 10;
-            $user->save();
-
-            $score = new Score;
-            $score->user_id = $user->id;
-            $score->name = $materi->title;
-            $score->score = 10;
-            $score->save();
-        }
-
         return view('student.materi_slug',
         [
             "title"=> $materi->title,

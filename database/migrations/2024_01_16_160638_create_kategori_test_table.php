@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('kategori_tes', function (Blueprint $table) {
             $table->id();
+            $table->text('slug');
             $table->string('kategori_tes');
             $table->string('waktu_tes');
             $table->boolean('status_tes');

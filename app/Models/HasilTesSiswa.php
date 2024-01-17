@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class SoalTes extends Model
+class HasilTesSiswa extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
@@ -15,4 +15,6 @@ class SoalTes extends Model
     {
         return $this->belongsTo(KategoriTes::class, 'kategori_tes_id');
     }
+
+
 }

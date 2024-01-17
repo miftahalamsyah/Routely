@@ -77,12 +77,14 @@ class DatabaseSeeder extends Seeder
 
         KategoriTes::create([
             'kategori_tes' => 'Pretest',
+            'slug' => 'pretest',
             'waktu_tes' => '60',
             'status_tes' => '1',
         ]);
 
         KategoriTes::create([
             'kategori_tes' => 'Posttest',
+            'slug' => 'posttest',
             'waktu_tes' => '60',
             'status_tes' => '0',
         ]);

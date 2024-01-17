@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\KategoriTes;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Str;
 
 class KategoriTesController extends Controller
 {
@@ -43,11 +45,13 @@ class KategoriTesController extends Controller
         ]);
 
         $status_tes = $request->has('status_tess');
+        $slug = Str::slug($request->kategori_tes);
 
         $kategoriTest = KategoriTes::create([
             'kategori_tes' => $request->input('kategori_tes'),
             'waktu_tes' => $request->input('waktu_tes'),
             'status_tes' => $status_tes,
+            'slug' => $slug,
         ]);
 
         return redirect()->route('kategori-tes.index')->with('status', 'Kategori Tes created successfully!');
@@ -80,8 +84,12 @@ class KategoriTesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(KategoriTes $kategoriTes)
+    public function destroy($id): RedirectResponse
     {
-        //
+        $kategoriTes = KategoriTes::findOrFail($id);
+        $kategoriTes->delete();
+
+        return redirect()->route('kategori-tes.index')
+            ->with('success', 'Kategori Tes deleted successfully.');
     }
 }
