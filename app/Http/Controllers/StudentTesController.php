@@ -24,6 +24,17 @@ class StudentTesController extends Controller
     public function show($slug)
     {
         $kategori_tes = KategoriTes::where('slug', $slug)->firstOrFail();
+
+        // Check if the user has already submitted the exam
+        $userHasSubmitted = HasilTesSiswa::where('user_id', auth()->id())
+            ->where('kategori_tes_id', $kategori_tes->id)
+            ->exists();
+
+        // Redirect to the index page with an alert if the user has already submitted
+        if ($userHasSubmitted) {
+            return redirect()->route('student.tes.index')->with('alert', 'You have already submitted the exam.');
+        }
+
         $soal_tes = SoalTes::where('kategori_tes_id', $kategori_tes->id)->get();
 
         return view('student.tes.slug', [

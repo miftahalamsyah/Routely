@@ -103,7 +103,7 @@ Route::get('/student/tugas/{tugas:slug}', [StudentTugasController::class, 'show'
 
 Route::get('/student/simulasi', [StudentSimulasiController::class, 'index'])->name('student.simulasi')->middleware('auth');
 
-Route::get('/student/tes', [StudentTesController::class, 'index'])->name('student.tes')->middleware('auth');
+Route::get('/student/tes', [StudentTesController::class, 'index'])->name('student.tes.index')->middleware('auth');
 Route::get('/student/tes/{slug}', [StudentTesController::class, 'show'])->name('student.tes.show')->middleware('auth');
 Route::post('/hasil_tes_siswa', [HasilTesSiswaController::class, 'store'])->name('hasil_tes_siswa.store');
 

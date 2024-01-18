@@ -10,6 +10,9 @@
                     <form method="POST" action="{{ route('hasil_tes_siswa.store') }}">
                         @csrf
 
+                        <input type="hidden" name="user_id" value="{{ auth()->id() }}">
+                        <input type="hidden" name="kategori_tes_id" value="{{ $kategori_tes->id }}">
+
                         @foreach ($soal_tes as $index=>$soal)
                             <div class="mb-8 bg-gray-50 rounded-2xl w-full p-5 border-2 border-gray-200">
                                 <div class="flex justify-between items-center">
@@ -18,7 +21,9 @@
                                 </div>
                                 <p class="text-gray-800 text-md my-2">{{ $soal->pertanyaan }}</p>
                                 @if ($soal->gambar)
-                                    <img src="{{ asset('storage/gambar/' . $soal->gambar) }}" alt="Gambar Soal">
+                                <div class="my-4 rounded-2xl overflow-hidden" style="max-width: 400px; max-height: 300px;">
+                                    <img src="{{ asset('storage/gambar/' . $soal->gambar) }}" alt="Gambar Soal" class="w-full h-full object-cover">
+                                </div>
                                 @endif
 
                                 {{-- Opsi jawaban a, b, c, d, e --}}

@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="w-full justify-center mx-auto px-4 lg:px-12 min-h-screen">
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-1 gap-4">
         @forelse ($kategori_tes as $tes)
         <div class="relative flex flex-col break-words bg-stone-50 border shadow-lg rounded-2xl">
             <div class="flex-auto px-1 pt-6">
