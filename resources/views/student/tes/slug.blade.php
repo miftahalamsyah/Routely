@@ -38,7 +38,7 @@
                             </div>
                         @endforeach
 
-                        <button type="submit" class="bg-student py-2 px-5 font-semibold text-gray-50 rounded-2xl hover:bg-student-dark shadow-md">Submit Answers</button>
+                        <button type="submit" class="bg-student py-2 px-5 font-semibold text-gray-50 rounded-2xl hover:bg-student-dark shadow-md">Kirim Jawaban</button>
                     </form>
                 </div>
             </div>

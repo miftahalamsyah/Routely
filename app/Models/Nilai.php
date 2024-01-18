@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Nilai extends Model
 {
@@ -28,6 +29,11 @@ class Nilai extends Model
         static::saving(function ($nilai) {
             $nilai->total_nilai = $nilai->pretest + $nilai->posttest;
         });
+    }
+
+    public function hasilTesSiswa(): BelongsTo
+    {
+        return $this->belongsTo(HasilTesSiswa::class, 'user_id', 'user_id');
     }
 
 }

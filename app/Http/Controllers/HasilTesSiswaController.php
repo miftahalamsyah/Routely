@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\HasilTesSiswa;
+use App\Models\Nilai;
 use App\Models\SoalTes;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class HasilTesSiswaController extends Controller
 {
@@ -80,7 +82,23 @@ class HasilTesSiswaController extends Controller
             'kategori_tes_id' => $request->kategori_tes_id,
         ]);
 
-        return redirect()->route('student.tes.index')->with('success', 'Hasil tes berhasil disimpan.');
+        // Store total column data in the appropriate column in the nilai table
+        if ($request->kategori_tes_id == 1) {
+            // Kategori Tes with id 1 corresponds to pretest
+            Nilai::updateOrCreate(
+                ['user_id' => $request->user_id],
+                ['pretest' => $totalScore]
+            );
+        } elseif ($request->kategori_tes_id == 2) {
+            // Kategori Tes with id 2 corresponds to posttest
+            Nilai::updateOrCreate(
+                ['user_id' => $request->user_id],
+                ['posttest' => $totalScore]
+            );
+        }
+
+        Alert::success('Success', 'Anda telah menyelesaikan Tes.');
+        return redirect()->route('student.tes.index');
     }
 
 

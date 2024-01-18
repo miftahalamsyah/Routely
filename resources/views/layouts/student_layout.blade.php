@@ -15,6 +15,7 @@
     <title>{{ $title }} | Routely</title>
 </head>
 <body>
+    @include('sweetalert::alert')
     <div id="sidebar-grey" class="hidden transition-all duration-300 transform fixed top-0 left-0 right-0 bottom-0 bg-stone-800 opacity-50 z-40 pointer-events-none"></div>
     {{-- Sidebar --}}
     <div id="logo-sidebar" class="transition-all duration-300 transform fixed top-5 left-5 bottom-5 z-40 w-24 bg-stone-50 border-r pt-7 pb-10 rounded-3xl shadow-md hidden md:block">

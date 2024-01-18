@@ -8,6 +8,8 @@ use App\Models\SoalTes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class StudentTesController extends Controller
 {
@@ -32,7 +34,8 @@ class StudentTesController extends Controller
 
         // Redirect to the index page with an alert if the user has already submitted
         if ($userHasSubmitted) {
-            return redirect()->route('student.tes.index')->with('alert', 'You have already submitted the exam.');
+            Alert::error('Maaf', 'Kamu telah mengikuti tes ini.');
+            return redirect()->route('student.tes.index');
         }
 
         $soal_tes = SoalTes::where('kategori_tes_id', $kategori_tes->id)->get();

@@ -10,6 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfileController extends Controller
 {
@@ -67,13 +68,15 @@ class ProfileController extends Controller
         $user->email = $request->email;
 
         if ($request->password) {
-            $user->password = Hash::make($request->password);
+            $user->password = bcrypt($request->password);
         }
 
-        if ($user->save()) {
-            return redirect()->back()->with('status', 'Profil berhasil diperbaharui.');
+        if ($user instanceof User && $user->save()) {
+            Alert::success('Success', 'Profil berhasil diperbaharui.');
+            return redirect()->back();
         } else {
-            return redirect()->back()->with('error', 'Profile gagal diperbaharui. Konfirmasi password tidak sesuai.');
+            Alert::error('Error', 'Profile gagal diperbaharui. Terjadi kesalahan.');
+            return redirect()->back();
         }
     }
 }
