@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('kategori_tes');
             $table->string('waktu_tes');
             $table->string('passcode')->nullable();
-            $table->boolean('status_tes');
+            $table->boolean('status_tes')->default(0);
             $table->timestamps();
         });
     }

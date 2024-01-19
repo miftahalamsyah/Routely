@@ -11,15 +11,16 @@
     <div class="bg-gray-50 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">
-                <h1 class="font-semibold text-4xl text-center my-8  ">Tambah Kategori Tes</h1>
+                <h1 class="font-semibold text-4xl text-center my-8  ">Edit Kategori Tes</h1>
                 <div class="border-0 shadow-sm">
 
-                    <form action="{{ route('kategori-tes.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('kategori-tes.update', $kategoriTes->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
 
                         <div class="mb-4">
                             <label for="kategori_tes" class="block text-md font-semibold text-gray-800">Kategori Tes</label>
-                            <input type="text" id="kategori_tes" name="kategori_tes" value="{{ old('kategori_tes') }}" placeholder="Masukkan Nama Kategori Tes"
+                            <input type="text" id="kategori_tes" name="kategori_tes" value="{{ old('kategori_tes', $kategoriTes->kategori_tes) }}" placeholder="Masukkan Nama Kategori Tes"
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">
                             </input>
                             @error('kategori_tes')
@@ -29,7 +30,7 @@
 
                         <div class="mb-4">
                             <label for="waktu_tes" class="block text-md font-semibold text-gray-800">Waktu Tes</label>
-                            <input type="text" id="waktu_tes" name="waktu_tes" value="{{ old('waktu_tes') }}" placeholder="Masukkan Waktu Tes"
+                            <input type="text" id="waktu_tes" name="waktu_tes" value="{{ old('waktu_tes', $kategoriTes->waktu_tes) }}" placeholder="Masukkan Waktu Tes"
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">
                             </input>
                             @error('waktu_tes')

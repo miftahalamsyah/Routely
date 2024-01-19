@@ -39,19 +39,19 @@ class KategoriTesController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $this->validate($request,[
             'kategori_tes' => 'required',
             'waktu_tes' => 'required|string',
+            'status_tes' => 'required',
         ]);
 
-        $status_tes = $request->has('status_tess');
         $slug = Str::slug($request->kategori_tes);
         $passcode = Str::random(6);
 
-        $kategoriTest = KategoriTes::create([
+        KategoriTes::create([
             'kategori_tes' => $request->input('kategori_tes'),
             'waktu_tes' => $request->input('waktu_tes'),
-            'status_tes' => $status_tes,
+            'status_tes' => $request->input('status_tes'),
             'slug' => $slug,
             'passcode' => $passcode,
         ]);
@@ -60,27 +60,45 @@ class KategoriTesController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * edit
+     *
+     * @param  mixed $id
+     * @return void
      */
-    public function show(KategoriTes $kategoriTes)
+    public function edit($id)
     {
-        //
-    }
+        $kategoriTes = KategoriTes::findOrFail($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(KategoriTes $kategoriTes)
-    {
-        //
+        return view('dashboard.kategori-tes.edit',
+        [
+            "title" => "Edit Kategori Tes",
+            'kategoriTes' => $kategoriTes,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, KategoriTes $kategoriTes)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'kategori_tes' => 'required',
+            'waktu_tes' => 'required',
+            'status_tes' => 'required'
+        ]);
+
+        $passcode = Str::random(6);
+        $slug = Str::slug($request->kategori_tes);
+
+        KategoriTes::where('id', $id)->update([
+            'slug' => $slug,
+            'kategori_tes' => $request->input('kategori_tes'),
+            'waktu_tes' => $request->input('waktu_tes'),
+            'status_tes' => $request->input('status_tes'),
+            'passcode' => $passcode,
+        ]);
+
+        return redirect()->route('kategori-tes.index')->with('status', 'Kategori Tes updated successfully!');
     }
 
     /**
