@@ -10,7 +10,6 @@ use App\Models\User;
 use App\Models\Pertemuan;
 use App\Models\KategoriTes;
 
-
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -80,6 +79,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'pretest',
             'waktu_tes' => '60',
             'status_tes' => '1',
+            'passcode' => Str::random(6)
         ]);
 
         KategoriTes::create([
@@ -87,6 +87,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'posttest',
             'waktu_tes' => '60',
             'status_tes' => '0',
+            'passcode' => Str::random(6)
         ]);
     }
 }

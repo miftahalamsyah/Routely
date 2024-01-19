@@ -12,6 +12,7 @@ use App\Http\Controllers\MateriController;
 use App\Http\Controllers\PertemuanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilPublikController;
+use App\Http\Controllers\SoalTesController;
 use App\Http\Controllers\StudentChatController;
 use App\Http\Controllers\StudentDashboardController;
 use App\Http\Controllers\StudentMateriController;
@@ -72,6 +73,7 @@ Route::resource('/dashboard/kategori-tes', \App\Http\Controllers\KategoriTesCont
 
 Route::get('/dashboard/pretest', [\App\Http\Controllers\SoalTesController::class, 'pretestindex'])->name('pretest.index')->middleware('admin');
 Route::get('/dashboard/pretest/create', [\App\Http\Controllers\SoalTesController::class, 'pretestcreate'])->name('pretest.create')->middleware('admin');
+Route::match(['get', 'post'], '/dashboard/pretest/import', [SoalTesController::class, 'pretestimport'])->name('pretest.import')->middleware('admin');
 Route::post('/dashboard/pretest', [\App\Http\Controllers\SoalTesController::class, 'preteststore'])->name('pretest.store')->middleware('admin');
 Route::get('/dashboard/pretest/edit', [\App\Http\Controllers\SoalTesController::class, 'pretestedit'])->name('pretest.edit')->middleware('admin');
 Route::delete('/dashboard/pretest/{id}', [\App\Http\Controllers\SoalTesController::class, 'pretestdestroy'])->name('pretest.destroy')->middleware('admin');
@@ -105,6 +107,14 @@ Route::get('/student/simulasi', [StudentSimulasiController::class, 'index'])->na
 
 Route::get('/student/tes', [StudentTesController::class, 'index'])->name('student.tes.index')->middleware('auth');
 Route::get('/student/tes/{slug}', [StudentTesController::class, 'show'])->name('student.tes.show')->middleware('auth');
+Route::get('/student/tes/{slug}/confirm', [StudentTesController::class, 'confirm'])
+    ->name('student.tes.confirm')
+    ->middleware('auth');
+
+Route::post('/student/tes/{slug}/confirm', [StudentTesController::class, 'validatePasscode'])
+    ->name('student.tes.validatePasscode')
+    ->middleware('auth');
+
 Route::post('/hasil_tes_siswa', [HasilTesSiswaController::class, 'store'])->name('hasil_tes_siswa.store');
 
 Route::get('/student/chat', [StudentChatController::class, 'index'])->name('student.chat')->middleware('auth');

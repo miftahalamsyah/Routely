@@ -45,7 +45,7 @@
         </div>
     </div>
 </section>
-{{-- <script>
+<script>
     document.addEventListener("DOMContentLoaded", function() {
         // Check if there's any progress in local storage
         let savedProgress = localStorage.getItem('soalTesProgress');
@@ -62,5 +62,5 @@
             localStorage.setItem('soalTesProgress', 'your_progress_data_here');
         });
     });
-</script> --}}
+</script>
 @endsection

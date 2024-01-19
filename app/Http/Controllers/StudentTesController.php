@@ -23,7 +23,40 @@ class StudentTesController extends Controller
         ]);
     }
 
-    public function show($slug)
+    public function confirm(Request $request, $slug)
+    {
+        $kategori_tes = KategoriTes::where('slug', $slug)->firstOrFail();
+
+        return view('student.tes.confirmation', [
+            "title" => "Tes",
+            'kategori_tes' => $kategori_tes,
+        ]);
+    }
+
+    public function validatePasscode(Request $request, $slug)
+    {
+        $request->validate([
+            'passcode' => 'required',
+        ]);
+
+        $kategori_tes = KategoriTes::where('slug', $slug)
+            ->where('passcode', $request->passcode)
+            ->first();
+
+        if ($kategori_tes) {
+            // Passcode is correct, set the session variable
+            $request->session()->put('passcode_validated', true);
+
+            // Redirect to the test page
+            return redirect()->route('student.tes.show', $slug);
+        } else {
+            // Passcode is incorrect, redirect back with an error message
+            Alert::error('Maaf', 'Passcode yang kamu masukan salah!.');
+            return redirect()->back();
+        }
+    }
+
+    public function show($slug, Request $request)
     {
         $kategori_tes = KategoriTes::where('slug', $slug)->firstOrFail();
 
@@ -36,6 +69,12 @@ class StudentTesController extends Controller
         if ($userHasSubmitted) {
             Alert::error('Maaf', 'Kamu telah mengikuti tes ini.');
             return redirect()->route('student.tes.index');
+        }
+
+        // Check if the student has validated the passcode
+        if (!$request->session()->has('passcode_validated')) {
+            // Redirect to the confirmation page if the passcode hasn't been validated
+            return redirect()->route('student.tes.confirm', $slug);
         }
 
         $soal_tes = SoalTes::where('kategori_tes_id', $kategori_tes->id)->get();

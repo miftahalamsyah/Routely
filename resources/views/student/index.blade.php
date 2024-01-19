@@ -55,7 +55,7 @@
     </div>
 
     {{-- score section --}}
-    <div class="p-4 mt-12 bg-student shadow-md rounded-2xl score-card">
+    <div class="p-4 mt-8 bg-student shadow-md rounded-2xl score-card">
         <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-stone-50 md:text-2xl">🏆 Score</p>
         <div class="flex flex-col sm:flex-row w-full mb-6">
             <div class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-student-dark rounded-2xl score-card">
@@ -128,7 +128,7 @@
     </div>
 
     {{-- pertemuan --}}
-    <div class="p-4 mt-12 bg-stone-50 shadow-md rounded-2xl score-card">
+    <div class="p-4 mt-8 bg-stone-50 shadow-md rounded-2xl score-card">
         <div class="justify-between flex">
             <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">👨‍🏫 Pertemuan</p>
             <a href="/student/pertemuan"><p class="my-4 text-xs py-1 px-2 font-extrabold tracking-tight leading-none bg-violet-200 hover:bg-violet-300 rounded-lg shadow-md text-student-dark md:text-sm">Lihat Semua</p></a>
@@ -159,7 +159,7 @@
     </div>
 
     {{-- tugas --}}
-    <div class="p-4 mt-12 bg-stone-50 shadow-md rounded-2xl score-card">
+    <div class="p-4 mt-8 bg-stone-50 shadow-md rounded-2xl score-card">
         <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">📝 Tugas</p>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             @forelse ($tugass as $tugas)
@@ -203,7 +203,7 @@
             </div>
     </div>
 
-    <div class="p-4 mt-12 bg-stone-50 shadow-md rounded-2xl score-card">
+    <div class="p-4 mt-8 bg-stone-50 shadow-md rounded-2xl score-card">
         <div class="justify-between flex">
             <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">📖 Materi</p>
             <a href="/student/materi"><p class="my-4 text-xs py-1 px-2 font-extrabold tracking-tight leading-none hover:bg-violet-300 bg-violet-200 rounded-lg shadow-md text-student-dark md:text-sm">Lihat Semua</p></a>

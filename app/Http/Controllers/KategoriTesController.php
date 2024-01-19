@@ -39,19 +39,21 @@ class KategoriTesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'kategori_tes' => 'required',
             'waktu_tes' => 'required|string',
         ]);
 
         $status_tes = $request->has('status_tess');
         $slug = Str::slug($request->kategori_tes);
+        $passcode = Str::random(6);
 
         $kategoriTest = KategoriTes::create([
             'kategori_tes' => $request->input('kategori_tes'),
             'waktu_tes' => $request->input('waktu_tes'),
             'status_tes' => $status_tes,
             'slug' => $slug,
+            'passcode' => $passcode,
         ]);
 
         return redirect()->route('kategori-tes.index')->with('status', 'Kategori Tes created successfully!');

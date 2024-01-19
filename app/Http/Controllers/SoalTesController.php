@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\SoalTesImport;
 use App\Models\SoalTes;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SoalTesController extends Controller
 {
     public function pretestindex()
     {
-        $soal_tes = SoalTes::where('kategori_tes_id', 1)->get();
+        $soal_tes = SoalTes::where('kategori_tes_id', 1)->paginate(20);
 
         return view('dashboard.pretest.index', [
             "title" => "PreTest",
@@ -81,6 +84,30 @@ class SoalTesController extends Controller
 
         return redirect()->route('pretest.index')->with('status', 'Soal Pretest deleted successfully!');
     }
+
+    public function pretestimport(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $request->validate([
+                'file' => 'required|mimes:xls,xlsx,csv|max:10240', // Adjust max file size as needed
+            ]);
+
+            $file = $request->file('file');
+
+            try {
+                Excel::import(new SoalTesImport, $file);
+            } catch (\Exception $e) {
+                return redirect()->back()->with('error', 'Failed to import data. Make sure the file format is correct.');
+            }
+
+            return redirect()->route('pretest.index')->with('success', 'Data imported successfully');
+        }
+
+        return view('dashboard.pretest.import', [
+            "title" => "Import Soal Pretest",
+        ]);
+    }
+
 
     //posttest function
 
