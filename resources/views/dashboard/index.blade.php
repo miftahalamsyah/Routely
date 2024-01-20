@@ -8,22 +8,39 @@
 
     <!-- quick dashboard monitor card for number of materis and users-->
     <div class="mx-2 flex flex-col sm:flex-row ">
-        <div class="w-full h-24 bg-stone-700 text-gray-50 p-4 max-w-sm block rounded-xl border border-stone-600 border-2 mr-2 mb-2">
+        <div class="w-full h-24 bg-stone-700 text-gray-50 p-4 max-w-sm block rounded-xl border-stone-600 border-2 mr-2 mb-2">
             <a href="/dashboard/siswa">Siswa</a>
             <p class="font-bold text-3xl py-2" id="userCount">{{ $userCount }}</p>
         </div>
-        <div class="w-full h-24 bg-stone-700 text-gray-50 p-4 max-w-sm block rounded-xl border border-stone-600 border-2 mr-2 mb-2">
+        <div class="w-full h-24 bg-stone-700 text-gray-50 p-4 max-w-sm block rounded-xl border-stone-600 border-2 mr-2 mb-2">
             <a href="/dashboard/pertemuan">Pertemuan</a>
             <p class="font-bold text-3xl py-2" id="materiCount">{{ $pertemuanCount }}</p>
         </div>
-        <div class="w-full h-24 bg-stone-700 text-gray-50 p-4 max-w-sm block rounded-xl border border-stone-600 border-2 mr-2 mb-2">
+        <div class="w-full h-24 bg-stone-700 text-gray-50 p-4 max-w-sm block rounded-xl border-stone-600 border-2 mr-2 mb-2">
             Materi
             <p class="font-bold text-3xl py-2" id="materiCount">{{ $materiCount }}</p>
         </div>
-        <div class="w-full h-24 bg-stone-700 text-gray-50 p-4 max-w-sm block rounded-xl border border-stone-600 border-2 mb-2">
-            Diselesaikan
+        <div class="w-full h-24 bg-stone-700 text-gray-50 p-4 max-w-sm block rounded-xl border-stone-600 border-2 mb-2">
+            Tugas
+            <p class="font-bold text-3xl py-2" id="materiCount">{{ $tugasCount }}</p>
         </div>
     </div>
+
+    <div class="m-3 grid grid-cols-2 gap-4">
+        <a href="/dashboard/nilai/pretest" class="text-sm">
+            <div class="w-full h-24 bg-stone-700 text-stone-50 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+                Pretest
+                <p class="font-bold text-2xl py-2">{{ $CountPretest }}/{{ $userCount }}</p>
+            </div>
+        </a>
+        <a href="/dashboard/nilai/posttest" class="text-sm">
+            <div class="w-full h-24 bg-stone-700 text-stone-50 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+                Posttest
+                <p class="font-bold text-2xl py-2">{{ $CountPosttest }}/{{ $userCount }}</p>
+            </div>
+        </a>
+    </div>
+
 
     <!-- Daftar Pertemuan -->
     <div class="my-5 mx-2 block rounded-xl border-stone-600 border p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">

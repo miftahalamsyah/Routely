@@ -179,4 +179,27 @@ class SoalTesController extends Controller
 
         return redirect()->route('posttest.index')->with('status', 'Soal Posttest deleted successfully!');
     }
+
+    public function posttestimport(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $request->validate([
+                'file' => 'required|mimes:xls,xlsx,csv|max:10240', // Adjust max file size as needed
+            ]);
+
+            $file = $request->file('file');
+
+            try {
+                Excel::import(new SoalTesImport, $file);
+            } catch (\Exception $e) {
+                return redirect()->back()->with('error', 'Failed to import data. Make sure the file format is correct.');
+            }
+
+            return redirect()->route('posttest.index')->with('success', 'Data imported successfully');
+        }
+
+        return view('dashboard.posttest.import', [
+            "title" => "Import Soal Posttest",
+        ]);
+    }
 }

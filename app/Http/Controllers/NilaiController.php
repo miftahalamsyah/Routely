@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Nilai;
+use App\Models\HasilTesSiswa;
 use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -15,10 +16,37 @@ class NilaiController extends Controller
             $query->where('is_admin', 0);
         })->get();
 
+        //get all HasilTesSiswa where kategori_tes_id = 1
+        $nilaiPretestPosttest = HasilTesSiswa::all();
+
+        $CountPretest = HasilTesSiswa::where('kategori_tes_id', 1)->count();
+        $CountPosttest = HasilTesSiswa::where('kategori_tes_id', 2)->count();
+        $CountStudent = User::where('is_admin', 0)->count();
+
         return view('dashboard.nilai.index',
         [
             "title" => "Nilai",
-        ],compact('nilais'));
+        ],compact('nilais','nilaiPretestPosttest', 'CountPretest', 'CountPosttest', 'CountStudent'));
+    }
+
+    public function pretest(): View
+    {
+        $nilaiPretest = HasilTesSiswa::where('kategori_tes_id', 1)->get();
+
+        return view('dashboard.nilai.pretest',
+        [
+            "title" => "Nilai Pretest",
+        ],compact('nilaiPretest'));
+    }
+
+    public function posttest(): View
+    {
+        $nilaiPosttest = HasilTesSiswa::where('kategori_tes_id', 2)->get();
+
+        return view('dashboard.nilai.posttest',
+        [
+            "title" => "Nilai Posttest",
+        ],compact('nilaiPosttest'));
     }
 
     public function create()

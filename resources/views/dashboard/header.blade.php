@@ -1,4 +1,4 @@
-<div class="top-0 fixed w-full z-20 left-0">
+<div class="top-0 fixed w-full left-0">
     <div class="bg-stone-800 bg-opacity-75 backdrop-blur-sm">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="/" class="flex items-center">

@@ -66,7 +66,10 @@ Route::resource('/dashboard/siswa', \App\Http\Controllers\UserController::class)
 Route::resource('/dashboard/tugas', \App\Http\Controllers\TugasController::class)->middleware('admin');
 Route::resource('/dashboard/pertemuan', \App\Http\Controllers\PertemuanController::class)->middleware('admin');
 Route::resource('/dashboard/kelompok', \App\Http\Controllers\KelompokController::class)->middleware('admin');
-Route::resource('/dashboard/nilai', \App\Http\Controllers\NilaiController::class)->middleware('admin');
+// Route::resource('/dashboard/nilai', \App\Http\Controllers\NilaiController::class)->middleware('admin');
+Route::get('/dashboard/nilai', [\App\Http\Controllers\NilaiController::class, 'index'])->name('nilai.index')->middleware('admin');
+Route::get('/dashboard/nilai/pretest', [\App\Http\Controllers\NilaiController::class, 'pretest'])->name('nilai.pretest')->middleware('admin');
+Route::get('/dashboard/nilai/posttest', [\App\Http\Controllers\NilaiController::class, 'posttest'])->name('nilai.posttest')->middleware('admin');
 Route::resource('/dashboard/lencana', \App\Http\Controllers\LencanaController::class)->middleware('admin');
 Route::resource('/dashboard/absensi', \App\Http\Controllers\AbsensiController::class)->middleware('admin');
 Route::resource('/dashboard/kategori-tes', \App\Http\Controllers\KategoriTesController::class)->middleware('admin');
@@ -80,6 +83,7 @@ Route::delete('/dashboard/pretest/{id}', [\App\Http\Controllers\SoalTesControlle
 
 Route::get('/dashboard/posttest', [\App\Http\Controllers\SoalTesController::class, 'posttestindex'])->name('posttest.index')->middleware('admin');
 Route::get('/dashboard/posttest/create', [\App\Http\Controllers\SoalTesController::class, 'posttestcreate'])->name('posttest.create')->middleware('admin');
+Route::match(['get', 'post'], '/dashboard/posttest/import', [SoalTesController::class, 'posttestimport'])->name('posttest.import')->middleware('admin');
 Route::post('/dashboard/posttest', [\App\Http\Controllers\SoalTesController::class, 'postteststore'])->name('posttest.store')->middleware('admin');
 Route::get('/dashboard/posttest/edit', [\App\Http\Controllers\SoalTesController::class, 'posttestedit'])->name('posttest.edit')->middleware('admin');
 Route::delete('/dashboard/posttest/{id}', [\App\Http\Controllers\SoalTesController::class, 'posttestdestroy'])->name('posttest.destroy')->middleware('admin');

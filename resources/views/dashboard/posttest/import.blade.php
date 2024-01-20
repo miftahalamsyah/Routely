@@ -13,8 +13,20 @@
             <div class="col-md-12 p-5">
                 <h1 class="font-semibold text-4xl text-center my-8  ">Import Soal Posttest</h1>
                 <div class="border-0 shadow-sm">
+                    <form method="POST" action="{{ route('posttest.import') }}" enctype="multipart/form-data">
+                        @csrf
 
+                        <div class="mb-4">
+                            <input type="file" name="file" accept=".xls, .xlsx, .csv">
+                        </div>
 
+                        <div class="flex justify-end">
+                            <button type="submit"
+                                class="bg-violet-500 text-white px-4 py-2 rounded-md hover:bg-violet-600 focus:outline-none focus:bg-violet-600">
+                                Import
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

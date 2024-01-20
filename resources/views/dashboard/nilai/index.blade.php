@@ -3,9 +3,97 @@
 @section('content')
 <section class="row z-0 p-4 max-w-6xl align-center mx-auto min-h-screen">
     <div class="my-8 text-center">
-        <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-gray-50 md:tracking-tight">Daftar Nilai</h1>
+        <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-stone-50 md:tracking-tight">Nilai Pretest dan Posttest</h1>
     </div>
-    <div class="bg-gray-50 rounded-xl mx-3">
+
+    <div class="m-3 grid grid-cols-2 gap-4">
+        <a href="/dashboard/nilai/pretest" class="text-sm">
+            <div class="w-full h-24 bg-stone-700 text-stone-50 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+                Pretest
+                <p class="font-bold text-2xl py-2">{{ $CountPretest }}/{{ $CountStudent }}</p>
+            </div>
+        </a>
+        <a href="/dashboard/nilai/posttest" class="text-sm">
+            <div class="w-full h-24 bg-stone-700 text-stone-50 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+                Posttest
+                <p class="font-bold text-2xl py-2">{{ $CountPosttest }}/{{ $CountStudent }}</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="bg-stone-50 rounded-xl mx-3">
+        <div class="row">
+            <div class="col-md-12 p-5">
+                <div class="border-0 shadow-sm">
+                    <div class="">
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200 w-full">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                            No.
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                            Nama Siswa
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                            Nilai PreTest
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                            Nilai PostTest
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                            Keterangan
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    @php
+                                        $groupedNilaiPretestPosttest = $nilaiPretestPosttest->groupBy('user_id');
+                                    @endphp
+                                    @forelse ($groupedNilaiPretestPosttest as $user_id => $groupedNilai)
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                {{ $loop->iteration }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                {{ \App\Models\User::where('id', $user_id)->value('name') }}
+                                            </td>
+                                            @foreach([1, 2] as $kategori_tes_id)
+                                                <td class="px-6 py-4 text-center">
+                                                    @foreach($groupedNilai->where('kategori_tes_id', $kategori_tes_id) as $nilai)
+                                                        {{ $nilai->total }}
+                                                    @endforeach
+                                                </td>
+                                            @endforeach
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                <span class="text-sm text-student italic">Tidak ada keterangan</span>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
+                                                <div class="mx-auto bg-gray-100 text-gray-600 p-2 rounded-xl">
+                                                    Data nilai tidak tersedia.
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- <section class="row z-0 p-4 max-w-6xl align-center mx-auto">
+    <div class="my-8 text-center">
+        <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-stone-50 md:tracking-tight">Daftar Nilai</h1>
+    </div>
+    <div class="bg-stone-50 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
@@ -15,16 +103,16 @@
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
                                             Nama Siswa
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
                                             Nilai Pre Test
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
                                             Nilai Post Test
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-gray-50"></th>
+                                        <th scope="col" class="px-6 py-3 bg-stone-50"></th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
@@ -72,5 +160,5 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 @endsection

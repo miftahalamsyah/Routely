@@ -10,7 +10,10 @@
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
                     <div class="">
-                        <button class="bg-violet-400 my-2 p-2 rounded-xl hover:bg-violet-300"><a href="{{ route('posttest.create') }}" class="text-md font-semibold p-2">Tambah Soal Posttest</a></button>
+                        <div class="justify-between">
+                            <button class="bg-violet-400 my-2 p-2 rounded-xl hover:bg-violet-300"><a href="{{ route('posttest.create') }}" class="text-md font-semibold p-2">Tambah Soal Pretest</a></button>
+                            <button class="bg-student my-2 p-2 rounded-xl text-gray-50"><a href="{{ route('posttest.import') }}" class="text-md font-semibold p-2">Import Spreadsheets</a></button>
+                        </div>
                         <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead>
