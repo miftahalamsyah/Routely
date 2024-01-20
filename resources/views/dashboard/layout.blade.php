@@ -66,7 +66,7 @@
             </nav>
         </header>
         @include('dashboard.sidebar')
-        <div id="loading-bar" class="loading-bar bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 z-30"></div>
+        <div id="loading-bar" class="loading-bar bg-gradient-to-r from-orange-500 via-purple-500 to-violet-700 z-30"></div>
         <div class="content-container ml-0 md:ml-64 z-0">
             @yield('content')
         </div>
