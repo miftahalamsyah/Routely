@@ -67,7 +67,7 @@
                             <button class="toggle-score-button" aria-label="Toggle Score Visibility">
                                 <p class="text-stone-50 leading-normal text-xs hover:underline">Lihat</p>
                             </button>
-                            <div class="tooltip hidden group-hover:block absolute bg-stone-600 shadow-md text-stone-50 p-1 text-xs rounded-md shadow-md">
+                            <div class="tooltip hidden group-hover:block absolute bg-stone-600 text-stone-50 p-1 text-xs rounded-md shadow-md">
                                 Lihat dan sembunyikan nilai
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                             <button class="toggle-score-button" aria-label="Toggle Score Visibility">
                                 <p class="text-stone-50 leading-normal text-xs hover:underline">Lihat</p>
                             </button>
-                            <div class="tooltip hidden group-hover:block absolute bg-stone-600 shadow-md text-stone-50 p-1 text-xs rounded-md shadow-md">
+                            <div class="tooltip hidden group-hover:block absolute bg-stone-600 text-stone-50 p-1 text-xs rounded-md shadow-md">
                                 Lihat dan sembunyikan nilai
                             </div>
                         </div>
@@ -112,7 +112,7 @@
                             <button class="toggle-score-button" aria-label="Toggle Score Visibility">
                                 <p class="text-stone-50 leading-normal text-xs hover:underline">Lihat</p>
                             </button>
-                            <div class="tooltip hidden group-hover:block absolute bg-stone-600 shadow-md text-stone-50 p-1 text-xs rounded-md shadow-md">
+                            <div class="tooltip hidden group-hover:block absolute bg-stone-600 text-stone-50 p-1 text-xs rounded-md shadow-md">
                                 Lihat dan sembunyikan nilai
                             </div>
                         </div>

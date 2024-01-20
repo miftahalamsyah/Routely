@@ -15,6 +15,7 @@ use App\Http\Controllers\ProfilPublikController;
 use App\Http\Controllers\SoalTesController;
 use App\Http\Controllers\StudentChatController;
 use App\Http\Controllers\StudentDashboardController;
+use App\Http\Controllers\StudentKelompokController;
 use App\Http\Controllers\StudentMateriController;
 use App\Http\Controllers\StudentPertemuanController;
 use App\Http\Controllers\StudentSimulasiController;
@@ -91,10 +92,10 @@ Route::delete('/dashboard/posttest/{id}', [\App\Http\Controllers\SoalTesControll
 Route::get('/fetch-data', [DataController::class, 'index']);
 
 Route::get('/student', [StudentDashboardController::class, 'index'])->name('student.index')->middleware('auth');
+
+Route::get('/student/kelompok', [StudentKelompokController::class, 'index'])->name('student.kelompok')->middleware('auth');
 Route::get('/student/profile', [ProfileController::class, 'index'])->name('student.profile.index')->middleware('auth');
 Route::put('/student/profile', [ProfileController::class, 'update'])->name('student.profile.update')->middleware('auth');
-
-
 
 Route::get('/profil_publik/{user:slug}', [ProfilPublikController::class, 'show'])->name('profil_publik');
 

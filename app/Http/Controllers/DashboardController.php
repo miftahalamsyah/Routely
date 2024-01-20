@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HasilTesSiswa;
+use App\Models\Kelompok;
 use App\Models\Materi;
 use App\Models\Pertemuan;
 use App\Models\Tugas;
@@ -20,6 +21,7 @@ class DashboardController extends Controller
     public function index()
     {
         $materiCount = Materi::count();
+        $kelompokCount = Kelompok::distinct('no_kelompok')->count();
         $tugasCount = Tugas::count();
         $pertemuanCount = Pertemuan::count();
         $userCount = User::where('is_admin', 0)->count();
@@ -31,6 +33,7 @@ class DashboardController extends Controller
                 'title' => 'Admin Dashboard',
                 'materiCount' => $materiCount,
                 'tugasCount' => $tugasCount,
+                'kelompokCount' => $kelompokCount,
                 'pertemuanCount' => $pertemuanCount,
                 'userCount' => $userCount,
                 'tugass' => Tugas::all(),

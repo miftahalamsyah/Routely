@@ -79,7 +79,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'pretest',
             'waktu_tes' => '60',
             'status_tes' => '1',
-            'passcode' => Str::random(6)
+            'passcode' => mt_rand(100000, 999999)
         ]);
 
         KategoriTes::create([
@@ -87,7 +87,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'posttest',
             'waktu_tes' => '60',
             'status_tes' => '0',
-            'passcode' => Str::random(6)
+            'passcode' => mt_rand(100000, 999999)
         ]);
     }
 }

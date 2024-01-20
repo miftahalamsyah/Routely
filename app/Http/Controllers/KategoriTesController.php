@@ -46,7 +46,7 @@ class KategoriTesController extends Controller
         ]);
 
         $slug = Str::slug($request->kategori_tes);
-        $passcode = Str::random(6);
+        $passcode = mt_rand(100000, 999999);
 
         KategoriTes::create([
             'kategori_tes' => $request->input('kategori_tes'),
@@ -87,7 +87,7 @@ class KategoriTesController extends Controller
             'status_tes' => 'required'
         ]);
 
-        $passcode = Str::random(6);
+        $passcode = mt_rand(100000, 999999);
         $slug = Str::slug($request->kategori_tes);
 
         KategoriTes::where('id', $id)->update([

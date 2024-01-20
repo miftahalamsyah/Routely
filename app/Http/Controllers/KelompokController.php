@@ -23,7 +23,12 @@ class KelompokController extends Controller
 
     public function create()
     {
-        $siswaUsers = User::where('is_admin', 0)->get();
+        $siswaUsers = User::where('is_admin', 0)
+            ->whereNotIn('id', function ($query) {
+                $query->select('user_id')
+                    ->from('kelompoks');
+            })
+            ->get();
 
         return view('dashboard.kelompok.create', [
             'title' => 'Tambah Kelompok',
@@ -36,8 +41,8 @@ class KelompokController extends Controller
         $this->validate($request, [
             'user_id' => 'required|exists:users,id',
             'no_kelompok' => 'required',
-            'name' => 'required',
-            'description' => 'required',
+            'name' => 'nullable',
+            'description' => 'nullable',
         ]);
 
         $kelompok = Kelompok::create([
@@ -53,18 +58,31 @@ class KelompokController extends Controller
     public function edit(string $id): View
     {
         $kelompok = Kelompok::findOrFail($id);
+        $siswaUsers = User::where('is_admin', 0)->get();
 
-        return view('dashboard.kelompok.edit', compact('kelompok'));
+        return view('dashboard.kelompok.edit', [
+            'title' => 'Edit Kelompok',
+            'kelompok' => $kelompok,
+            'siswaUsers' => $siswaUsers,
+        ]);
     }
 
     public function update(Request $request, $id): RedirectResponse
     {
-        $request->validate([
-            'name' => 'required|string',
-            'description' => 'required|string',
+        $this->validate($request, [
+            'user_id' => 'required|exists:users,id',
+            'no_kelompok' => 'required',
+            'name' => 'nullable',
+            'description' => 'nullable',
         ]);
 
-        $kelompok =Kelompok::create($request->all());
+        Kelompok::where('id', $id)
+            ->update([
+                'user_id' => $request->input('user_id'),
+                'no_kelompok' => $request->input('no_kelompok'),
+                'name' => $request->input('name'),
+                'description' => $request->input('description'),
+            ]);
 
         return redirect()->route('kelompok.index')
             ->with('success', 'Kelompok updated successfully.');
