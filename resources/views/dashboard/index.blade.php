@@ -1,7 +1,7 @@
 @extends('dashboard.layout')
 
 @section('content')
-<section class="flex-1 p-4 mt-8 max-w-6xl mx-auto items-center animate-up transition-margin ease-in-out duration-300">
+<section class="flex-1 p-4 mt-8 max-w-6xl mx-auto items-center transition-margin ease-in-out duration-300">
     <div class="mb-8 text-center">
         <h1 class="mb-6 text-xl font-extrabold leading-none max-w-5xl mx-auto tracking-normal text-gray-50 sm:text-3xl md:text-2xl lg:text-3xl md:tracking-tight"><span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline">Routely</span>&nbsp;Dashboard Guru</h1>
     </div>
@@ -39,7 +39,7 @@
         </a>
     </div>
 
-    <div class="m-2 grid grid-cols-2 gap-2">
+    <div class="mx-2 my-5 grid grid-cols-2 gap-2">
         <a href="/dashboard/nilai/pretest" class="text-sm">
             <div class="w-full h-24 bg-stone-700 text-stone-50 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
                 Pretest

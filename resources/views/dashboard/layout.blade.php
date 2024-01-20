@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         @vite('resources/css/app.css')
         <link rel="stylesheet" href="app.css">
+        <script src="{{ asset('js/loading-bar.js') }}" async></script>
         <script defer src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -65,6 +66,7 @@
             </nav>
         </header>
         @include('dashboard.sidebar')
+        <div id="loading-bar" class="loading-bar bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 z-30"></div>
         <div class="content-container ml-0 md:ml-64 z-0">
             @yield('content')
         </div>

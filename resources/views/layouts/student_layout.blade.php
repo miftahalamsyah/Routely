@@ -7,6 +7,7 @@
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="app.css">
     <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/loading-bar.js') }}" async></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -188,6 +189,7 @@
                 </div>
             </nav>
         </header>
+        <div id="loading-bar" class="loading-bar bg-gradient-to-r from-orange-500 via-purple-500 to-violet-700 z-30"></div>
         <div id="content-container" loading="lazy">
             @yield('content')
         </div>
