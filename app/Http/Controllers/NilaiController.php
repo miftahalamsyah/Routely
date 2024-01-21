@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\HasilTestSiswaPretestExport;
+use App\Exports\HasilTestSiswaPosttestExport;
 use App\Models\Nilai;
 use App\Models\HasilTesSiswa;
 use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class NilaiController extends Controller
 {
@@ -37,6 +40,16 @@ class NilaiController extends Controller
         [
             "title" => "Nilai Pretest",
         ],compact('nilaiPretest'));
+    }
+
+    public function exportPretest()
+    {
+        return Excel::download(new HasilTestSiswaPretestExport, 'Nilai Hasil Pretest.xlsx');
+    }
+
+    public function exportPosttest()
+    {
+        return Excel::download(new HasilTestSiswaPosttestExport, 'Nilai Hasil Posttest.xlsx');
     }
 
     public function posttest(): View

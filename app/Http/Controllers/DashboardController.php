@@ -44,8 +44,8 @@ class DashboardController extends Controller
                 'CountPosttest' => $CountPosttest,
             ]);
         } else {
-            return view('pages.login', [
-                'title' => 'Login',
+            return view('pages.home', [
+                'title' => 'Routely',
             ]);
         }
     }

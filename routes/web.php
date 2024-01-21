@@ -9,6 +9,7 @@ use App\Http\Controllers\HasilTesSiswaController;
 use App\Http\Controllers\KelompokController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MateriController;
+use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\PertemuanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilPublikController;
@@ -71,6 +72,9 @@ Route::resource('/dashboard/kelompok', \App\Http\Controllers\KelompokController:
 Route::get('/dashboard/nilai', [\App\Http\Controllers\NilaiController::class, 'index'])->name('nilai.index')->middleware('admin');
 Route::get('/dashboard/nilai/pretest', [\App\Http\Controllers\NilaiController::class, 'pretest'])->name('nilai.pretest')->middleware('admin');
 Route::get('/dashboard/nilai/posttest', [\App\Http\Controllers\NilaiController::class, 'posttest'])->name('nilai.posttest')->middleware('admin');
+Route::get('/dashboard/nilai/pretest/export-pretest', [NilaiController::class, 'exportPretest'])->name('nilai.pretest.export')->middleware('admin');
+Route::get('/dashboard/nilai/posttest/export-posttest', [NilaiController::class, 'exportPosttest'])->name('nilai.posttest.export')->middleware('admin');
+
 Route::resource('/dashboard/lencana', \App\Http\Controllers\LencanaController::class)->middleware('admin');
 Route::resource('/dashboard/absensi', \App\Http\Controllers\AbsensiController::class)->middleware('admin');
 Route::resource('/dashboard/kategori-tes', \App\Http\Controllers\KategoriTesController::class)->middleware('admin');
