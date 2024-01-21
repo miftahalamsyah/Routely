@@ -26,7 +26,12 @@ class DashboardController extends Controller
         $pertemuanCount = Pertemuan::count();
         $userCount = User::where('is_admin', 0)->count();
         $CountPretest = HasilTesSiswa::where('kategori_tes_id', 1)->count();
+        $meanPretest = HasilTesSiswa::where('kategori_tes_id', 1)->avg('total');
         $CountPosttest = HasilTesSiswa::where('kategori_tes_id', 2)->count();
+        $meanPosttest = HasilTesSiswa::where('kategori_tes_id', 2)->avg('total');
+        $averagePretest = (int) $meanPretest;
+        $averagePosttest = (int) $meanPosttest;
+
 
         if (Auth::check()) {
             return view('dashboard.index', [
@@ -42,6 +47,8 @@ class DashboardController extends Controller
                 'users' => User::where('is_admin', 0)->paginate(10),
                 'CountPretest' => $CountPretest,
                 'CountPosttest' => $CountPosttest,
+                'averagePretest' => $averagePretest,
+                'averagePosttest' => $averagePosttest,
             ]);
         } else {
             return view('pages.home', [

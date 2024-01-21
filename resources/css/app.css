@@ -16,6 +16,7 @@
 .text-student {
     color: #5c578c;
 }
+
 .border-student {
     border-color: #5c578c;
 }
@@ -59,13 +60,13 @@
 
 /* For Webkit-based browsers (e.g., Chrome, Safari) */
 ::-webkit-scrollbar {
-    width: 0.5rem; /* Adjust the width as needed */
+    width: 0.4rem; /* Adjust the width as needed */
     background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: #5c578c; /* Violet-400 color */
-    border-radius: 6px; /* Rounded corners for the thumb */
+    border-radius: 5px; /* Rounded corners for the thumb */
 }
 
 ::-webkit-scrollbar-track {
@@ -80,13 +81,13 @@
 }
 
 *::-webkit-scrollbar {
-    width: 0.5rem; /* Adjust the width as needed */
+    width: 0.4rem; /* Adjust the width as needed */
     background-color: transparent;
 }
 
 *::-webkit-scrollbar-thumb {
     background-color: #5c578c; /* Violet-400 color */
-    border-radius: 6px; /* Rounded corners for the thumb */
+    border-radius: 5px; /* Rounded corners for the thumb */
 }
 
 *::-webkit-scrollbar-track {

@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>{{ $title }} | Routely</title>
 </head>
-<body>
+<body class="">
     @include('sweetalert::alert')
     <div id="sidebar-grey" class="hidden transition-all duration-300 transform fixed top-0 left-0 right-0 bottom-0 bg-stone-800 opacity-50 z-40 pointer-events-none"></div>
     {{-- Sidebar --}}
@@ -205,7 +205,7 @@
 </html>
 <style>
 body {
-    background-color: rgba(242, 241, 244, 0.93);
+    background-color: rgba(242, 241, 244, 0.90);
 }
 
 :root {
