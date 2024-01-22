@@ -21,7 +21,7 @@
                         <tr class="border-y-2">
                             <td class="py-2 px-4 text-center">{{ $index }}</td>
                             <td class="py-2 px-4 text-center">{{ $user->name }}</td>
-                            <td class="py-2 px-4 font-semibold text-center">{{ $user->nilai->sum('total_nilai') }}</td>
+                            <td class="py-2 px-4 font-semibold text-center">{{ $user->nilai->sum('total_nilai') * 69 }}</td>
                         </tr>
                     @empty
                         <tr>

@@ -13,6 +13,7 @@ use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\PertemuanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilPublikController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SoalTesController;
 use App\Http\Controllers\StudentChatController;
 use App\Http\Controllers\StudentDashboardController;
@@ -96,6 +97,7 @@ Route::delete('/dashboard/posttest/{id}', [\App\Http\Controllers\SoalTesControll
 Route::get('/fetch-data', [DataController::class, 'index']);
 
 Route::get('/student', [StudentDashboardController::class, 'index'])->name('student.index')->middleware('auth');
+Route::get('/student/search', [SearchController::class, 'search'])->name('student.search')->middleware('auth');
 
 Route::get('/student/kelompok', [StudentKelompokController::class, 'index'])->name('student.kelompok')->middleware('auth');
 Route::get('/student/profile', [ProfileController::class, 'index'])->name('student.profile.index')->middleware('auth');

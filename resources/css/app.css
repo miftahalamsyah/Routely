@@ -51,6 +51,34 @@
     transition: opacity 0.3s;
 }
 
+/* Add these styles to your CSS file or style section */
+
+.gold-medal {
+    background-color: #ffd700; /* Gold */
+}
+
+.silver-medal {
+    background-color: #c0c0c0; /* Silver */
+}
+
+.bronze-medal {
+    background-color: #cd7f32; /* Bronze */
+}
+
+/* Additional styling for medal rows */
+.gold-medal td {
+    color: #000000; /* Black text for visibility on gold background */
+}
+
+.silver-medal td {
+    color: #000000; /* Black text for visibility on silver background */
+}
+
+.bronze-medal td {
+    color: #ffffff; /* White text for visibility on bronze background */
+}
+
+
 @font-face {
     font-family: 'Athletics-Bold';
     src: local('Athletics-Bold'), url('/resources/fonts/Athletics-Bold.woff2') format('woff2');
