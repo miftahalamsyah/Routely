@@ -33,33 +33,33 @@
         </a>
     </div>
 
-    <div class="bg-stone-50 rounded-xl mx-3">
+    <div class="bg-stone-300 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
                     <div class="">
                         <div class="overflow-x-auto">
-                            <table class="min-w-full divide-y divide-gray-200 w-full">
+                            <table class="min-w-full divide-y divide-stone-400 w-full">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-3000 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-3000 uppercase tracking-wider">
                                             No.
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-3000 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-3000 uppercase tracking-wider">
                                             Nama Siswa
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-3000 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-3000 uppercase tracking-wider">
                                             Nilai PreTest
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-3000 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-3000 uppercase tracking-wider">
                                             Nilai PostTest
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-3000 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-3000 uppercase tracking-wider">
                                             Keterangan
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-white divide-y divide-gray-200">
+                                <tbody class="bg-stone-300 divide-y divide-stone-400">
                                     @php
                                         $groupedNilaiPretestPosttest = $nilaiPretestPosttest->groupBy('user_id');
                                     @endphp
@@ -85,7 +85,7 @@
                                     @empty
                                         <tr>
                                             <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
-                                                <div class="mx-auto bg-gray-100 text-gray-600 p-2 rounded-xl">
+                                                <div class="mx-auto bg-stone-300 text-gray-600 p-2 rounded-xl">
                                                     Data nilai tidak tersedia.
                                                 </div>
                                             </td>

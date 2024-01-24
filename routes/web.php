@@ -79,6 +79,7 @@ Route::get('/dashboard/nilai/posttest/export-posttest', [NilaiController::class,
 Route::resource('/dashboard/lencana', \App\Http\Controllers\LencanaController::class)->middleware('admin');
 Route::resource('/dashboard/absensi', \App\Http\Controllers\AbsensiController::class)->middleware('admin');
 Route::resource('/dashboard/kategori-tes', \App\Http\Controllers\KategoriTesController::class)->middleware('admin');
+Route::resource('/dashboard/refleksi', \App\Http\Controllers\RefleksiController::class)->middleware('admin');
 
 Route::get('/dashboard/pretest', [\App\Http\Controllers\SoalTesController::class, 'pretestindex'])->name('pretest.index')->middleware('admin');
 Route::get('/dashboard/pretest/create', [\App\Http\Controllers\SoalTesController::class, 'pretestcreate'])->name('pretest.create')->middleware('admin');
@@ -102,6 +103,8 @@ Route::get('/student/search', [SearchController::class, 'search'])->name('studen
 Route::get('/student/kelompok', [StudentKelompokController::class, 'index'])->name('student.kelompok')->middleware('auth');
 Route::get('/student/profile', [ProfileController::class, 'index'])->name('student.profile.index')->middleware('auth');
 Route::put('/student/profile', [ProfileController::class, 'update'])->name('student.profile.update')->middleware('auth');
+Route::get('/student/refleksi', [\App\Http\Controllers\StudentRefleksiController::class, 'index'])->name('student.refleksi')->middleware('auth');
+Route::post('/student/refleksi', [\App\Http\Controllers\StudentRefleksiController::class, 'store'])->name('student.refleksi.store')->middleware('auth');
 
 Route::get('/profil_publik/{user:slug}', [ProfilPublikController::class, 'show'])->name('profil_publik');
 

@@ -41,36 +41,47 @@
 
     <div class="mx-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 my-5">
         <a href="/dashboard/nilai/pretest" class="text-sm">
-            <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-30 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
                 Pretest
                 <p class="font-bold text-2xl py-2">{{ $CountPretest }}/{{ $userCount }}</p>
+                <div class="w-full bg-stone-300 rounded-full">
+                    <div class="bg-violet-600 text-xs font-medium text-stone-300 text-center p-0.5 leading-none rounded-full"
+                        style="width: {{ ($CountPretest / $userCount) * 100 }}%">
+                        {{ round(($CountPretest / $userCount) * 100) }}%
+                    </div>
+                </div>
             </div>
         </a>
         <a href="/dashboard/nilai/pretest" class="text-sm">
-            <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-30 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
                 Rata-rata Pretest
                 <p class="font-bold text-2xl py-2">{{ $averagePretest }}</p>
             </div>
         </a>
         <a href="/dashboard/nilai/posttest" class="text-sm">
-            <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-30 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
                 Posttest
                 <p class="font-bold text-2xl py-2">{{ $CountPosttest }}/{{ $userCount }}</p>
+                <div class="w-full bg-stone-300 rounded-full">
+                    <div class="bg-violet-600 text-xs font-medium text-stone-300 text-center p-0.5 leading-none rounded-full"
+                        style="width: {{ ($CountPosttest / $userCount) * 100 }}%">
+                        {{ round(($CountPosttest / $userCount) * 100) }}%
+                    </div>
+                </div>
             </div>
         </a>
         <a href="/dashboard/nilai/posttest" class="text-sm">
-            <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-30 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
                 Rata-rata Posttest
                 <p class="font-bold text-2xl py-2">{{ $averagePosttest }}</p>
             </div>
         </a>
     </div>
 
-
     <!-- Daftar Pertemuan -->
     <div class="my-5 mx-2 block rounded-xl border-stone-600 border p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">
         <h1 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Pertemuan</h1>
-        <table class="min-w-full divide-y divide-gray-200 text-stone-300">
+        <table class="min-w-full divide-y divide-stone-500 text-stone-300">
             <thead>
                 <tr>
                     <th scope="col" class="px-3 py-3 text-center text-xs font-medium uppercase tracking-wider">
@@ -87,7 +98,7 @@
                     </th>
                 </tr>
             </thead>
-            <tbody class="divide-y divide-gray-200">
+            <tbody class="divide-y divide-stone-500">
             @forelse ($pertemuans as $pertemuan)
                 <tr>
                     <td class="px-3 py-4 whitespace-nowrap text-center">
@@ -131,7 +142,7 @@
     <!-- Daftar Tugas -->
     <div class="my-5 mx-2 block rounded-xl border-stone-600 border p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">
         <h1 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Tugas</h1>
-        <table class="min-w-full divide-y divide-gray-200 text-stone-300">
+        <table class="min-w-full divide-y divide-stone-500 text-stone-300">
             <thead>
                 <tr>
                     <th scope="col" class="px-3 py-3 text-center text-xs font-medium uppercase tracking-wider">
@@ -148,7 +159,7 @@
                     </th>
                 </tr>
             </thead>
-            <tbody class="divide-y divide-gray-200">
+            <tbody class="divide-y divide-stone-500">
             @forelse ($tugass as $index => $tugas)
                 <tr>
                     <td class="px-3 py-4 whitespace-nowrap text-center">
@@ -180,7 +191,7 @@
     <!-- Daftar Materi -->
     <div class="my-5 mx-2 block rounded-xl border border-stone-600 p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto; scrollbar-width: none;">
         <h1 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Materi</h1>
-        <table class="min-w-full divide-y divide-gray-200 text-stone-300 my-4">
+        <table class="min-w-full divide-y divide-stone-500 text-stone-300 my-4">
             <thead>
                 <tr>
                     <th scope="col" class="px-3 py-3 text-center text-xs font-medium uppercase tracking-wider">
@@ -197,7 +208,7 @@
                     </th>
                 </tr>
             </thead>
-            <tbody class="divide-y divide-gray-200">
+            <tbody class="divide-y divide-stone-500">
             @forelse ($materis as $index => $materi)
                 <tr>
                     <td class="px-3 py-4 whitespace-nowrap text-center">
@@ -227,10 +238,10 @@
         <a href="/dashboard/materis" class="bg-violet-400 my-2 p-2 rounded-xl hover:bg-violet-300 font-semibold text-stone-800">Selengkapnya</a>
     </div>
 
-    <!-- Daftar Siswa -->
+    {{-- Daftar Siswa --}}
     <div class="my-5 mx-2 block rounded-xl border border-stone-600 p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">
         <h1 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Siswa</h1>
-        <table class="min-w-full divide-y divide-gray-200 text-stone-300">
+        <table class="min-w-full divide-y divide-stone-500 text-stone-300">
             <thead>
                 <tr>
                     <th scope="col" class="px-3 py-3 text-center text-xs font-medium uppercase tracking-wider">
@@ -242,13 +253,10 @@
                     <th scope="col" class="px-3 py-3 text-center text-xs font-medium uppercase tracking-wider">
                         Email
                     </th>
-                    <th scope="col" class="px-3 py-3 text-center text-xs font-medium uppercase tracking-wider">
-                        Status
-                    </th>
                 </tr>
             </thead>
-            <tbody class="divide-y divide-gray-200">
-            @forelse ($users as $index => $user)
+            <tbody class="divide-y divide-stone-500">
+            @forelse ($users as $user)
                 <tr>
                     <td class="px-3 py-4 whitespace-nowrap text-center">
                         {{ $loop->iteration }}
@@ -259,14 +267,11 @@
                     <td class="px-3 py-4 whitespace-nowrap">
                         {{ $user->email }}
                     </td>
-                    <td class="px-3 py-4 whitespace-nowrap">
-                        <p class="text-yellow-500">Belum</p>
-                    </td>
                 </tr>
             @empty
                 <tr>
                     <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
-                        <div class="mx-auto bg-gray-100 text-gray-600 p-2 rounded-xl">
+                        <div class="mx-auto bg-stone-100 text-gray-600 p-2 rounded-xl">
                             Data users tidak tersedia.
                         </div>
                     </td>
@@ -274,7 +279,47 @@
             @endforelse
             </tbody>
         </table>
-        {{ $users->links() }}
     </div>
+
+    {{-- Leaderboard --}}
+    <div class="my-5 mx-2 block rounded-xl border border-stone-600 p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">
+        <div class="p-4 mx-auto text-center">
+            <h1 class="text-2xl font-extrabold tracking-tight leading-none text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl"><span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline"> Routely </span>League</h1>
+            {{-- table user leaderboard --}}
+            <div class="overflow-x-auto">
+                <table class="w-full mt-8">
+                    <thead class="text-stone-300">
+                        <tr>
+                            <th class="py-2 px-4">#</th>
+                            <th class="py-2 px-4">Nama</th>
+                            <th class="py-2 px-4 font-semibold">Total Score</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-stone-300">
+                        @php $index = 0; @endphp
+                        @forelse ($users->sortByDesc(function($user) {
+                            return $user->nilai->sum('total_nilai');
+                        }) as $user)
+                            @php $index++; @endphp
+                            <tr class="border-y border-stone-500">
+                                <td class="py-2 px-4 text-center">{{ $index }}</td>
+                                <td class="py-2 px-4 text-center">{{ $user->name }}</td>
+                                <td class="py-2 px-4 font-semibold text-center">{{ $user->nilai->sum('total_nilai') * 69 }}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
+                                    <div class="mx-auto bg-gray-100 text-gray-600 p-2 rounded-xl">
+                                        Data leaderboard tidak tersedia.
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
 </section>
 @endsection

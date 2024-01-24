@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\HasilTesSiswa;
 use App\Models\Kelompok;
 use App\Models\Materi;
+use App\Models\Nilai;
 use App\Models\Pertemuan;
 use App\Models\Tugas;
 use App\Models\User;
@@ -32,6 +33,14 @@ class DashboardController extends Controller
         $averagePretest = (int) $meanPretest;
         $averagePosttest = (int) $meanPosttest;
 
+        $users = User::where('is_admin', 0)
+                    ->orderBy('updated_at', 'asc')
+                    ->get();
+        $nilais = Nilai::whereHas('user', function ($query) {
+            $query->where('is_admin', 0);
+        })->get();
+
+        $kelompoks = Kelompok::all();
 
         if (Auth::check()) {
             return view('dashboard.index', [
@@ -49,6 +58,9 @@ class DashboardController extends Controller
                 'CountPosttest' => $CountPosttest,
                 'averagePretest' => $averagePretest,
                 'averagePosttest' => $averagePosttest,
+                'users' => $users,
+                'nilais' => $nilais,
+                'kelompoks' => $kelompoks,
             ]);
         } else {
             return view('pages.home', [

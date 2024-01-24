@@ -61,7 +61,7 @@
                     </div>
                     @endforelse
 
-                    <div class="mt-12 flex items-center">
+                    <div class="flex items-center">
                         <p class="font-bold text-2xl">Tugas</p>
                         <hr class="border-t border-student flex-grow ml-2">
                     </div>
@@ -102,6 +102,23 @@
                         </div>
                     </div>
                     @endforelse
+
+                    <div class="mt-4 flex items-center">
+                        <p class="font-bold text-2xl">Lembar Refleksi</p>
+                        <hr class="border-t border-student flex-grow ml-2">
+                    </div>
+                    <div class="relative min-w-0 break-words bg-stone-50 border shadow-lg rounded-2xl my-4">
+                        <div class="p-4">
+                            <p class="text-sm text-stone-700 pb-2">
+                                Lembar Refleksi Siswa adalah tempat di mana Anda dapat mengevaluasi dan merefleksikan pembelajaran Anda. Gunakan lembar ini untuk mencatat pertanyaan, saran, hambatan, dan pemahaman baru yang Anda dapatkan selama proses pembelajaran.
+                            </p>
+                            <a href="/student/refleksi">
+                                <button class="text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border bg-violet-200 rounded-xl shadow-md hover:bg-violet-300 ">
+                                    Isi Lembar Refleksi
+                                </button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

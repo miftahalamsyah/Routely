@@ -55,6 +55,16 @@
                     </div>
                 </li>
                 <li class="relative group">
+                    <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 text-stone-400   {{ request()->routeIs('student.refleksi') ? 'bg-student text-stone-50' : '' }}" href="/student/refleksi">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 76 76" xmlns="http://www.w3.org/2000/svg" baseProfile="full" xml:space="preserve">
+                            <path d="m21.537 46.008-2.408 10.435L17.5 54H6.863a34.963 34.963 0 0 0 1.738 3H19l.433-.1 9.96-2.298c-1.316-3.96-3.523-7.512-7.856-8.594ZM39 53l30.426-30.426a35.14 35.14 0 0 0-9.859-12.141L31 39v6h8v8ZM29 38 57.839 9.162a34.97 34.97 0 0 0-4.413-2.588L24 36v2h5Z"/>
+                        </svg>
+                    </a>
+                    <div class="tooltip hidden group-hover:block absolute top-2 ml-12 bg-stone-600 shadow-md text-stone-50 p-1 text-xs rounded-md">
+                        Lembar Refleksi
+                    </div>
+                </li>
+                <li class="relative group">
                     <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 text-stone-400   {{ request()->routeIs('student.tes.index', 'student.tes.show') ? 'bg-student text-stone-50' : '' }}" href="/student/tes">
                         <svg class="mx-auto w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 490 490">
                             <path d="M447.5 205h-55V95h-.024c-.001-2.601-.993-5.159-2.905-7.071l-85-85c-1.913-1.912-4.47-2.904-7.071-2.905V0h-255c-5.523 0-10 4.477-10 10v470c0 5.523 4.477 10 10 10h340c5.523 0 10-4.477 10-10V285h55c5.523 0 10-4.477 10-10v-60c0-5.523-4.477-10-10-10zm-140-170.858L358.358 85H307.5V34.142zM372.501 470H52.5V20h235v75c0 5.523 4.477 10 10 10h75v100h-210v.018a9.967 9.967 0 0 0-4.472 1.038l-60 30a10 10 0 0 0 0 17.888l60 30A9.99 9.99 0 0 0 162.5 285h210.001v185zM152.5 231.18v27.64L124.861 245l27.639-13.82zm240 33.82h-220v-10h220v10zm0-30h-220v-10h220v10zm45 30h-25v-40h25v40z"/><path d="M82.5 55h60v20h-60zm0 40h130v20h-130z"/>
@@ -142,7 +152,7 @@
                             </form>
                         </div>
 
-                        <div x-data="{ isOpen: false }" class="dropdown inline-block relative">
+                        {{-- <div x-data="{ isOpen: false }" class="dropdown inline-block relative">
                             <button @click="isOpen = !isOpen" type="button" class="shadow inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-stone-50 text-gray-700 border-2 border-stone-100 align-middle hover:bg-stone-100 transition-all text-xs">
                                 <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#currentColor" viewBox="0 0 16 16">
                                     <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
@@ -153,7 +163,7 @@
                                     <a class="rounded-2xl bg-stone-50 hover:bg-stone-100 p-2 block whitespace-no-wrap shadow-md" href="#">Lorem ipsum dolor amet mo di pam</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> --}}
 
                         <div x-data="{ open: false }" class="md:order-2 z-10 dropdown inline-block relative">
                             @auth
