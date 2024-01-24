@@ -37,7 +37,7 @@ class StudentMateriController extends Controller
         $user = Auth::user();
         return view('student.materi_slug',
         [
-            "title"=> $materi->title,
+            "title"=> "Materi - $materi->title",
             "description" => $materi->description,
             "pdf_file" => $materi->pdf_file,
             "materi" => $materi,

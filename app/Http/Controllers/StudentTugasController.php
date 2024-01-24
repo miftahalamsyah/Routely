@@ -40,7 +40,7 @@ class StudentTugasController extends Controller
         return view('student.tugas_slug',
         [
             "pertemuan" => $tugas,
-            "title" => "$tugas->name",
+            "title" => "Tugas - $tugas->name",
             "name"=> $tugas->name,
             "description" => $tugas->description,
             "tugas_file" => $tugas->tugas_file,

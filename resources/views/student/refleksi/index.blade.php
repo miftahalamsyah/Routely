@@ -1,7 +1,7 @@
 @extends('layouts.student_layout')
 
 @section('content')
-<section class="w-full mt-12 justify-center mx-auto px-4 lg:px-12 min-h-screen">
+<section class="w-full justify-center mx-auto px-4 lg:px-12 min-h-screen mt-2">
     <div class="grid grid-cols-1 sm:grid-cols-1 gap-4">
         <div class="relative flex flex-col break-words bg-stone-50 border shadow-lg rounded-2xl">
             <div class="row">

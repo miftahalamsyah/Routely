@@ -80,7 +80,7 @@ class StudentTesController extends Controller
         $soal_tes = SoalTes::where('kategori_tes_id', $kategori_tes->id)->get();
 
         return view('student.tes.slug', [
-            'title' => $kategori_tes->kategori_tes,
+            'title' => "Tes - $kategori_tes->kategori_tes",
             'kategori_tes' => $kategori_tes,
             'soal_tes' => $soal_tes,
         ]);

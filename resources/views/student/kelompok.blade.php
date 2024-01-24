@@ -2,9 +2,9 @@
 
 @section('content')
 <section class="w-full justify-center mx-auto px-4 lg:px-12 min-h-screen">
-    <div class="bg-gray-50 rounded-xl mt-12 p-5 shadow-md">
-        <h1 class="text-xl text-stone-800 text-center font-semibold">
-            Kelompok {{ $kelompokBelajar->no_kelompok ?? 'Belum Tersedia' }}
+    <div class="bg-gray-50 rounded-xl mt-12 p-4 shadow-md">
+        <h1 class="my-4 text-xl text-center font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">
+            👥 Kelompok {{ $kelompokBelajar->no_kelompok ?? 'Belum Tersedia' }}
         </h1>
         <table class="min-w-full mt-2">
             <thead>

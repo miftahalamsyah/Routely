@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\LembarRefleksiExport;
 use App\Models\Refleksi;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RefleksiController extends Controller
 {
@@ -17,6 +19,11 @@ class RefleksiController extends Controller
         [
             "title" => "Refleksi",
         ], compact('refleksis'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new LembarRefleksiExport, 'Hasil Lembar Refleksi.xlsx');
     }
 
     public function destroy(Refleksi $refleksi)

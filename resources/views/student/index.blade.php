@@ -55,7 +55,7 @@
     </div>
 
     {{-- score section --}}
-    <div class="p-4 mt-8 bg-student shadow-md rounded-2xl score-card">
+    <div class="p-4 mt-4  bg-student shadow-md rounded-2xl score-card">
         <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-stone-50 md:text-2xl">🏆 Nilai</p>
         <div class="flex flex-col sm:flex-row w-full mb-6">
             <div class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-student-dark rounded-2xl score-card">
@@ -96,7 +96,7 @@
                     </div>
                     <!-- Score container initially hidden -->
                     <div class="score-container hidden">
-                        <p class="mb-0 text-stone-50 font-extrabold text-3xl actual-score">70</p>
+                        <p class="mb-0 text-stone-50 font-extrabold text-3xl actual-score">-</p>
                         <p class="mb-0 text-stone-50 font-extrabold text-3xl hidden-score">***</p>
                     </div>
                 </div>
@@ -127,7 +127,37 @@
         </div>
     </div>
 
-    <div class="p-4 mt-8 bg-stone-50 shadow-md rounded-2xl score-card">
+    <div class="bg-gray-50 rounded-xl mt-4 p-4 shadow-md">
+        <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">
+            👥 Kelompok {{ $kelompokBelajar->no_kelompok ?? 'Belum Tersedia' }}
+        </p>
+        <table class="min-w-full mt-2">
+            <thead>
+                <tr>
+                    <th class="py-2 px-4">#</th>
+                    <th class="py-2 px-4">Nama</th>
+                </tr>
+            </thead>
+            <tbody class="text-stone-700 text-left">
+                @forelse ($usersInSameKelompok as $user)
+                    <tr class="border-y-2">
+                        <td class="py-2 px-4 text-center">{{ $loop->iteration }}</td>
+                        <td class="py-2 px-4 text-center">{{ $user->name }}</td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
+                            <div class="mx-auto bg-gray-100 text-gray-600 p-2 rounded-xl">
+                                Data kelompok belum tersedia.
+                            </div>
+                        </td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
+
+    <div class="p-4 mt-4  bg-stone-50 shadow-md rounded-2xl score-card">
         <div class="justify-between flex">
             <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">✍🏻 Model Pembelajaran</p>
         </div>
@@ -160,7 +190,7 @@
     </div>
 
     {{-- pertemuan --}}
-    <div class="p-4 mt-8 bg-stone-50 shadow-md rounded-2xl score-card">
+    <div class="p-4 mt-4  bg-stone-50 shadow-md rounded-2xl score-card">
         <div class="justify-between flex">
             <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">👨‍🏫 Pertemuan</p>
             <a href="/student/pertemuan"><p class="my-4 text-xs py-1 px-2 font-extrabold tracking-tight leading-none bg-violet-200 hover:bg-violet-300 rounded-lg shadow-md text-student-dark md:text-sm">Lihat Semua</p></a>
@@ -170,7 +200,7 @@
             <!-- individual card -->
             <div class="relative flex flex-col break-words bg-stone-100 border-2 hover:shadow-md rounded-2xl lg:mb-4 mb-0">
                 <div class="flex-auto px-1 pt-6">
-                    <p class="mb-6 px-2 leading-normal text-xl font-bold overflow-hidden h-24 ...">Pertemuan {{ $pertemuan->pertemuan_ke }}</p>
+                    <p class="mb-6 px-2 leading-normal text-xl font-bold overflow-hidden h-12 ...">Pertemuan {{ $pertemuan->pertemuan_ke }}</p>
                     <div class="flex items-center justify-between px-2 pb-4">
                         <a href="/student/pertemuan/{{ $pertemuan->slug }}">
                             <button class="mr-2 text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border bg-violet-200 rounded-xl shadow-md hover:bg-violet-300 ">
@@ -191,7 +221,7 @@
     </div>
 
     {{-- tugas --}}
-    <div class="p-4 mt-8 bg-stone-50 shadow-md rounded-2xl score-card">
+    <div class="p-4 mt-4  bg-stone-50 shadow-md rounded-2xl score-card">
         <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">📝 Tugas</p>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             @forelse ($tugass as $tugas)
@@ -235,7 +265,7 @@
             </div>
     </div>
 
-    <div class="p-4 mt-8 bg-stone-50 shadow-md rounded-2xl score-card">
+    <div class="p-4 mt-4  bg-stone-50 shadow-md rounded-2xl score-card">
         <div class="justify-between flex">
             <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">📖 Materi</p>
             <a href="/student/materi"><p class="my-4 text-xs py-1 px-2 font-extrabold tracking-tight leading-none hover:bg-violet-300 bg-violet-200 rounded-lg shadow-md text-student-dark md:text-sm">Lihat Semua</p></a>

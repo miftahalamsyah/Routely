@@ -5,6 +5,7 @@
     <div class="my-8 text-center">
         <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-stone-50 md:tracking-tight">Daftar Hasil Refleksi Siswa</h1>
     </div>
+    <button class="bg-student m-3 p-2 rounded-xl text-stone-50"><a href="{{ route('refleksi.export') }}" class="text-md font-semibold p-2">Ekspor ke Spreadsheets</a></button>
     <div class="bg-stone-50 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">

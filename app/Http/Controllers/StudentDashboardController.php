@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kelompok;
 use App\Models\Materi;
 use App\Models\Nilai;
 use App\Models\Tugas;
@@ -26,6 +27,13 @@ class StudentDashboardController extends Controller
             $nilaiPretest = Nilai::where('user_id', $user->id)->value('pretest');
             $nilaiPosttest = Nilai::where('user_id', $user->id)->value('posttest');
 
+            $kelompokBelajar = Kelompok::where('user_id', auth()->user()->id)->first();
+            $userIdsInSameKelompok = [];
+            if ($kelompokBelajar) {
+                $userIdsInSameKelompok = Kelompok::where('no_kelompok', $kelompokBelajar->no_kelompok)
+                    ->pluck('user_id');
+            }
+            $usersInSameKelompok = User::whereIn('id', $userIdsInSameKelompok)->get();
 
             return view('student.index', [
                 'title' => 'Student Dashboard',
@@ -34,6 +42,8 @@ class StudentDashboardController extends Controller
                 'materis' => Materi::all(),
                 'nilaiPretest' => $nilaiPretest,
                 'nilaiPosttest' => $nilaiPosttest,
+                'kelompokBelajar' => $kelompokBelajar,
+                'usersInSameKelompok' => $usersInSameKelompok,
             ]);
         } else {
             return view('pages.login', [

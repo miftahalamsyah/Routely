@@ -79,7 +79,9 @@ Route::get('/dashboard/nilai/posttest/export-posttest', [NilaiController::class,
 Route::resource('/dashboard/lencana', \App\Http\Controllers\LencanaController::class)->middleware('admin');
 Route::resource('/dashboard/absensi', \App\Http\Controllers\AbsensiController::class)->middleware('admin');
 Route::resource('/dashboard/kategori-tes', \App\Http\Controllers\KategoriTesController::class)->middleware('admin');
-Route::resource('/dashboard/refleksi', \App\Http\Controllers\RefleksiController::class)->middleware('admin');
+Route::get('/dashboard/refleksi',[\App\Http\Controllers\RefleksiController::class, 'index'])->name('refleksi')->middleware('admin');
+Route::get('/dashboard/refleksi/export', [\App\Http\Controllers\RefleksiController::class, 'export'])->name('refleksi.export')->middleware('admin');
+Route::delete('/dashboard/refleksi/{id}', [\App\Http\Controllers\RefleksiController::class, 'destroy'])->name('refleksi.destroy')->middleware('admin');
 
 Route::get('/dashboard/pretest', [\App\Http\Controllers\SoalTesController::class, 'pretestindex'])->name('pretest.index')->middleware('admin');
 Route::get('/dashboard/pretest/create', [\App\Http\Controllers\SoalTesController::class, 'pretestcreate'])->name('pretest.create')->middleware('admin');
