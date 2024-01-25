@@ -6,6 +6,7 @@ use App\Http\Controllers\DataController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GitHubController;
 use App\Http\Controllers\HasilTesSiswaController;
+use App\Http\Controllers\HasilTugasSiswaController;
 use App\Http\Controllers\KelompokController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MateriController;
@@ -117,20 +118,19 @@ Route::get('/student/materi', [StudentMateriController::class, 'index'])->name('
 Route::get('/student/materi/{materi:slug}', [StudentMateriController::class, 'show'])->name('student.materi.show')->middleware('auth');
 Route::match(['get', 'post'], 'student/materi/{slug}', [StudentMateriController::class, 'show'])->name('student.materi.show');
 
-Route::get('/student/tugas/{tugas:slug}', [StudentTugasController::class, 'show'])->name('student.tugas.show')->middleware('auth');
-
 Route::get('/student/simulasi', [StudentSimulasiController::class, 'index'])->name('student.simulasi')->middleware('auth');
+
+Route::get('/student/tugas/{tugas:slug}', [StudentTugasController::class, 'show'])->name('student.tugas.show')->middleware('auth');
+Route::post('/hasil_tugas_siswa', [HasilTugasSiswaController::class, 'store'])->name('hasil_tugas_siswa.store');
 
 Route::get('/student/tes', [StudentTesController::class, 'index'])->name('student.tes.index')->middleware('auth');
 Route::get('/student/tes/{slug}', [StudentTesController::class, 'show'])->name('student.tes.show')->middleware('auth');
 Route::get('/student/tes/{slug}/confirm', [StudentTesController::class, 'confirm'])
     ->name('student.tes.confirm')
     ->middleware('auth');
-
 Route::post('/student/tes/{slug}/confirm', [StudentTesController::class, 'validatePasscode'])
     ->name('student.tes.validatePasscode')
     ->middleware('auth');
-
 Route::post('/hasil_tes_siswa', [HasilTesSiswaController::class, 'store'])->name('hasil_tes_siswa.store');
 
 Route::get('/student/chat', [StudentChatController::class, 'index'])->name('student.chat')->middleware('auth');

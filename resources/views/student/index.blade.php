@@ -200,7 +200,7 @@
             <!-- individual card -->
             <div class="relative flex flex-col break-words bg-stone-100 border-2 hover:shadow-md rounded-2xl lg:mb-4 mb-0">
                 <div class="flex-auto px-1 pt-6">
-                    <p class="mb-6 px-2 leading-normal text-xl font-bold overflow-hidden h-12 ...">Pertemuan {{ $pertemuan->pertemuan_ke }}</p>
+                    <p class="mb-6 px-2 leading-normal text-xl font-bold overflow-hidden ...">Pertemuan {{ $pertemuan->pertemuan_ke }}</p>
                     <div class="flex items-center justify-between px-2 pb-4">
                         <a href="/student/pertemuan/{{ $pertemuan->slug }}">
                             <button class="mr-2 text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border bg-violet-200 rounded-xl shadow-md hover:bg-violet-300 ">
@@ -223,29 +223,25 @@
     {{-- tugas --}}
     <div class="p-4 mt-4  bg-stone-50 shadow-md rounded-2xl score-card">
         <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">📝 Tugas</p>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
             @forelse ($tugass as $tugas)
                 <!-- individual card -->
-                <div class="relative flex flex-col break-words bg-stone-100 border-2 rounded-2xl hover:shadow-lg">
+                <div class="relative grid break-words bg-stone-100 border-2 rounded-2xl hover:shadow-lg">
                     <div class="flex-auto px-1 pt-6">
-                        <div>
-                            @if ($tugas->submission_status === 'submitted')
-                            <div class="justify-between flex items-center mb-2 px-2">
-                                <a href="/student/tugas/{{ $tugas->slug }}">
-                                    <h2 class="text-xl font-bold">{{ $tugas->name }}</h2>
-                                </a>
-                                <span class="text-green-500 text-sm font-semibold">Dikerjakan</span>
-                            </div>
+                        <div class="mx-2">
+                            @php
+                                $submission = $submissions[$tugas->id] ?? null;
+                            @endphp
+
+                            @if($submission)
+                                <span class="text-green-500 text-right text-xs font-semibold">✅ Sudah Dikerjakan</span>
                             @else
-                            <div class="justify-between flex items-center mb-2 px-2">
-                                <a href="/student/tugas/{{ $tugas->slug }}">
-                                    <h2 class="text-xl font-bold">{{ $tugas->name }}</h2>
-                                </a>
-                                <span class="text-red-500 text-sm font-semibold">Belum Dikerjakan</span>
-                            </div>
+                                <span class="text-red-500 text-right text-xs font-semibold">❌ Belum Dikerjakan</span>
                             @endif
+                            <a href="/student/tugas/{{ $tugas->slug }}">
+                                <h2 class="mt-2 mb-6 leading-normal text-xl font-bold h-12">{{ $tugas->name }}</h2>
+                            </a>
                         </div>
-                        <p class="mb-6 px-2 leading-normal text-sm overflow-hidden h-24 ...">{{ $tugas->description }}</p>
                         <div class="flex items-center justify-between px-2 pb-4">
                             <a href="/student/tugas/{{ $tugas->slug }}">
                             <button class="mr-2 text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border bg-violet-200 rounded-xl shadow-md hover:bg-violet-300 ">
@@ -270,7 +266,7 @@
             <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">📖 Materi</p>
             <a href="/student/materi"><p class="my-4 text-xs py-1 px-2 font-extrabold tracking-tight leading-none hover:bg-violet-300 bg-violet-200 rounded-lg shadow-md text-student-dark md:text-sm">Lihat Semua</p></a>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
             @forelse ($materis as $materi)
                 <!-- individual card -->
                 <div class="relative flex flex-col break-words bg-stone-100 border-2 rounded-2xl hover:shadow-lg">

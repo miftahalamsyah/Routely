@@ -69,21 +69,16 @@
                     <div class="relative flex flex-col min-w-0 break-words bg-stone-50 border shadow-lg rounded-2xl my-4">
                         <div class="flex-auto px-1 pt-6">
                             <div>
-                                @if ($tugass['submission_status'] == 'submitted')
                                 <div class="justify-between flex items-center mb-2 px-2">
                                     <a href="/student/tugas/{{ $tugass['slug'] }}">
                                         <h2 class="text-xl font-bold">{{ $tugass['name'] }}</h2>
                                     </a>
-                                    <span class="text-green-500 text-sm font-semibold">Dikerjakan</span>
+                                    @if($submission)
+                                        <span class="text-green-500 text-sm font-semibold">✅ Sudah Dikerjakan</span>
+                                    @else
+                                        <span class="text-red-500 text-sm font-semibold">❌ Belum Dikerjakan</span>
+                                    @endif
                                 </div>
-                                @else
-                                <div class="justify-between flex items-center mb-2 px-2">
-                                    <a href="/student/tugas/{{ $tugass['slug'] }}">
-                                        <h2 class="text-xl font-bold">{{ $tugass['name'] }}</h2>
-                                    </a>
-                                    <span class="text-red-500 text-sm font-semibold">Belum Dikerjakan</span>
-                                </div>
-                                @endif
                             </div>
                             <p class="mb-6 px-2 leading-normal text-sm overflow-hidden h-24 ...">{{ $tugass['description'] }}</p>
                             <div class="flex items-center justify-between px-2 pb-4">

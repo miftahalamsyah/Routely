@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HasilTugasSiswa;
 use App\Models\Pertemuan;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -54,6 +55,11 @@ class StudentPertemuanController extends Controller
             ];
         }
 
+        $user = auth()->user();
+        $submission = HasilTugasSiswa::where('user_id', $user->id)
+            ->where('tugas_id', $tugas->id)
+            ->first();
+
         return view('student.pertemuan_slug',
         [
             "pertemuan" => $pertemuan,
@@ -62,6 +68,7 @@ class StudentPertemuanController extends Controller
             "tanggal" => $pertemuan->tanggal,
             "materi" => $materis,
             "tugas" => $tugass,
+            "submission" => $submission,
         ]);
     }
 

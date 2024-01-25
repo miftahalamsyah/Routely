@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HasilTugasSiswa;
 use App\Models\Tugas;
 use Illuminate\Http\Request;
 
@@ -36,6 +37,11 @@ class StudentTugasController extends Controller
      */
     public function show(Tugas $tugas)
     {
+        $user = auth()->user();
+
+        $submission = HasilTugasSiswa::where('user_id', $user->id)
+            ->where('tugas_id', $tugas->id)
+            ->first();
 
         return view('student.tugas_slug',
         [
@@ -45,7 +51,8 @@ class StudentTugasController extends Controller
             "description" => $tugas->description,
             "tugas_file" => $tugas->tugas_file,
             "due_date" => $tugas->due_date,
-        ]);
+            "submission" => $submission,
+        ],compact('tugas'));
     }
 
     /**

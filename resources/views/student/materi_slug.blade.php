@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="w-full justify-center mx-auto px-4 lg:px-12">
+<section class="w-full justify-center min-h-screen mx-auto px-4 lg:px-12">
     <div class="rounded-xl">
         <div class="row">
             <div class="col-md-12 py-5">

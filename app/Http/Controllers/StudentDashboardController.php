@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HasilTugasSiswa;
 use App\Models\Kelompok;
 use App\Models\Materi;
 use App\Models\Nilai;
@@ -35,15 +36,23 @@ class StudentDashboardController extends Controller
             }
             $usersInSameKelompok = User::whereIn('id', $userIdsInSameKelompok)->get();
 
+            $user = auth()->user();
+            $tugass = Tugas::all();
+            $submissions = HasilTugasSiswa::where('user_id', $user->id)
+                ->whereIn('tugas_id', $tugass->pluck('id'))
+                ->get()
+                ->keyBy('tugas_id');
+
             return view('student.index', [
                 'title' => 'Student Dashboard',
                 'pertemuans' => Pertemuan::all(),
-                'tugass' => Tugas::all(),
+                'tugass' => $tugass,
                 'materis' => Materi::all(),
                 'nilaiPretest' => $nilaiPretest,
                 'nilaiPosttest' => $nilaiPosttest,
                 'kelompokBelajar' => $kelompokBelajar,
                 'usersInSameKelompok' => $usersInSameKelompok,
+                "submissions" => $submissions,
             ]);
         } else {
             return view('pages.login', [
