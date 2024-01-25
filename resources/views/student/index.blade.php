@@ -238,11 +238,12 @@
                             @else
                                 <span class="text-red-500 text-right text-xs font-semibold">❌ Belum Dikerjakan</span>
                             @endif
+                            <p class="pt-2 text-xs text-stone-500">Pertemuan ke-{{$tugas->pertemuan_id}}</p>
                             <a href="/student/tugas/{{ $tugas->slug }}">
-                                <h2 class="mt-2 mb-6 leading-normal text-xl font-bold h-12">{{ $tugas->name }}</h2>
+                                <h2 class="leading-normal text-xl font-bold h-12">{{ $tugas->name }}</h2>
                             </a>
                         </div>
-                        <div class="flex items-center justify-between px-2 pb-4">
+                        <div class="flex items-center justify-between my-4 px-2">
                             <a href="/student/tugas/{{ $tugas->slug }}">
                             <button class="mr-2 text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border bg-violet-200 rounded-xl shadow-md hover:bg-violet-300 ">
                                 Lihat Tugas

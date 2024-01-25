@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HasilTugasSiswa;
 use App\Models\Tugas;
 use App\Models\User;
 use App\Models\Pertemuan;
@@ -64,11 +65,18 @@ class TugasController extends Controller
         return redirect()->route('tugas.index')->with('success', 'Tugas berhasil ditambahkan.');
     }
 
-    public function show($id)
+    public function show($tugas_id)
     {
-        // Logika untuk menampilkan detail tugas
-        $tugass = Tugas::find($id);
-        return view('dashboard.tugas.show', compact('assignment'));
+        $hasilTugasSiswa = HasilTugasSiswa::where('tugas_id', $tugas_id)->get();
+
+        if  (!$hasilTugasSiswa) {
+            return redirect()->back();
+        }
+
+        return view('dashboard.tugas.id',
+        [
+            "title" => "Hasil Pengerjaan Tugas",
+        ],compact('hasilTugasSiswa', 'tugas_id'));
     }
 
     public function edit($id)

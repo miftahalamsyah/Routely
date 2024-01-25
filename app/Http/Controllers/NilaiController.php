@@ -6,6 +6,7 @@ use App\Exports\HasilTestSiswaPretestExport;
 use App\Exports\HasilTestSiswaPosttestExport;
 use App\Models\Nilai;
 use App\Models\HasilTesSiswa;
+use App\Models\HasilTugasSiswa;
 use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;

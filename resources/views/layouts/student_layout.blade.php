@@ -118,7 +118,7 @@
 
     @include('includes.navbar')
 
-    <main id="main-content" class="justify-center lg:ml-24 pt-5 transition-margin ease-in-out duration-300">
+    <main id="main-content" class="justify-center ml-0 sm:ml-0 md:ml-28 lg:ml-24 pt-5 transition-margin ease-in-out duration-300">
         <header>
             <nav class="flex basis-full items-center mx-auto px-4 lg:px-12 py-3" aria-label="Global">
                 <div class="flex">
