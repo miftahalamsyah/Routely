@@ -2,6 +2,15 @@
 
 @section('content')
 <section class="row z-0 p-4 max-w-6xl align-center mx-auto min-h-screen">
+    <div class="m-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <a href="/dashboard/nilai/tugas" class="text-sm">
+            <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+                Nilai Tugas
+                <p class="font-bold text-2xl py-2">{{ $CountNilaiTugas }}/{{ $CountHasilTugasSiswa }}</p>
+            </div>
+        </a>
+    </div>
+
     <div class="my-8 text-center">
         <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-stone-300 md:tracking-tight">Nilai Pretest dan Posttest</h1>
     </div>

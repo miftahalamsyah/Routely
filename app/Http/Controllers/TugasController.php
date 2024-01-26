@@ -9,6 +9,7 @@ use App\Models\Pertemuan;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
 
 class TugasController extends Controller
 {
@@ -79,18 +80,60 @@ class TugasController extends Controller
         ],compact('hasilTugasSiswa', 'tugas_id'));
     }
 
-    public function edit($id)
+    public function nilai($hasilTugasSiswa_id)
     {
-        // Logika untuk menampilkan formulir pengeditan tugas
+        $hasilTugasSiswa = HasilTugasSiswa::find($hasilTugasSiswa_id);
+
+        if  (!$hasilTugasSiswa) {
+            return redirect()->back();
+        }
+
+        return view('dashboard.tugas.id.id',
+        [
+            "title" => "Menilai Tugas",
+        ],compact('hasilTugasSiswa'));
+    }
+
+    public function edit(string $id): View
+    {
+        $pertemuans = Pertemuan::all();
         $tugass = Tugas::find($id);
-        return view('dashboard.tugas.edit', compact('assignment'));
+
+        return view('dashboard.tugas.edit',
+        [
+            "title" => "Edit Tugas $tugass->name",
+        ], compact('tugass', 'pertemuans'));
     }
 
     public function update(Request $request, $id)
     {
-        // Logika untuk mengupdate tugas yang sudah ada
+        $this->validate($request, [
+            'pertemuan_id' => 'required',
+            'name'     => 'required',
+            'due_date' => 'required',
+            'tugas_file' => 'nullable|mimes:pdf,doc,docx|max:4096',
+        ]);
+
         $tugass = Tugas::find($id);
-        $tugass->update($request->all());
+        $slug = Str::slug($request->name);
+
+        if ($request->hasFile('tugas_file')) {
+            $fileName = time() . '.' . $request->tugas_file->extension();
+            $request->tugas_file->storeAs('public/tugas', $fileName);
+        } else {
+            $fileName = null; // Set it to null or any default value as needed.
+        }
+
+        // Logika untuk menyimpan tugas yang baru dibuat
+        $tugass->update([
+            'pertemuan_id' => $request->pertemuan_id,
+            'name' => $request->name,
+            'slug' => $slug,
+            'description' => $request->description,
+            'tugas_file' => $fileName,
+            'due_date' => $request->due_date,
+        ]);
+
         return redirect()->route('tugas.index')->with('success', 'Tugas berhasil diperbarui.');
     }
 

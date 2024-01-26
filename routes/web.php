@@ -11,6 +11,7 @@ use App\Http\Controllers\KelompokController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\NilaiTugasController;
 use App\Http\Controllers\PertemuanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilPublikController;
@@ -68,7 +69,6 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::resource('/dashboard/materis', \App\Http\Controllers\MateriController::class)->middleware('admin');
 Route::resource('/dashboard/siswa', \App\Http\Controllers\UserController::class)->middleware('admin');
 Route::resource('/dashboard/tugas', \App\Http\Controllers\TugasController::class)->middleware('admin');
-Route::get('/dashboard/tugas/{id}', [\App\Http\Controllers\NilaiController::class, 'show'])->name('tugas.show')->middleware('admin');
 
 Route::resource('/dashboard/pertemuan', \App\Http\Controllers\PertemuanController::class)->middleware('admin');
 Route::resource('/dashboard/kelompok', \App\Http\Controllers\KelompokController::class)->middleware('admin');
@@ -78,6 +78,10 @@ Route::get('/dashboard/nilai/pretest', [\App\Http\Controllers\NilaiController::c
 Route::get('/dashboard/nilai/posttest', [\App\Http\Controllers\NilaiController::class, 'posttest'])->name('nilai.posttest')->middleware('admin');
 Route::get('/dashboard/nilai/pretest/export-pretest', [NilaiController::class, 'exportPretest'])->name('nilai.pretest.export')->middleware('admin');
 Route::get('/dashboard/nilai/posttest/export-posttest', [NilaiController::class, 'exportPosttest'])->name('nilai.posttest.export')->middleware('admin');
+Route::get('/dashboard/nilai/tugas', [NilaiTugasController::class, 'index'])->name('nilai.tugas.index')->middleware('admin');
+Route::get('/dashboard/nilai/tugas/create/{tugas_id}/{user_id}/{hasil_tugas_siswas_id}', [NilaiTugasController::class, 'create'])->name('nilai.tugas.create')->middleware('admin');
+Route::post('/dashboard/nilai/tugas/store', [NilaiTugasController::class, 'store'])->name('nilai.tugas.store')->middleware('admin');
+Route::delete('/dashboard/nilai/tugas/destroy/{id}', [NilaiTugasController::class, 'destroy'])->name('nilai.tugas.destroy')->middleware('admin');
 
 Route::resource('/dashboard/lencana', \App\Http\Controllers\LencanaController::class)->middleware('admin');
 Route::resource('/dashboard/absensi', \App\Http\Controllers\AbsensiController::class)->middleware('admin');

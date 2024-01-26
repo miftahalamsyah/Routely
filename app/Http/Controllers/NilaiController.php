@@ -7,6 +7,7 @@ use App\Exports\HasilTestSiswaPosttestExport;
 use App\Models\Nilai;
 use App\Models\HasilTesSiswa;
 use App\Models\HasilTugasSiswa;
+use App\Models\NilaiTugas;
 use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -31,10 +32,13 @@ class NilaiController extends Controller
         $averagePretest = (int) $meanPretest;
         $averagePosttest = (int) $meanPosttest;
 
+        $CountNilaiTugas = NilaiTugas::count();
+        $CountHasilTugasSiswa = HasilTugasSiswa::count();
+
         return view('dashboard.nilai.index',
         [
             "title" => "Nilai",
-        ],compact('nilais','nilaiPretestPosttest', 'CountPretest', 'CountPosttest', 'CountStudent', 'averagePosttest', 'averagePretest'));
+        ],compact('nilais','nilaiPretestPosttest', 'CountPretest', 'CountPosttest', 'CountStudent', 'averagePosttest', 'averagePretest', 'CountNilaiTugas', 'CountHasilTugasSiswa'));
     }
 
     public function pretest(): View
