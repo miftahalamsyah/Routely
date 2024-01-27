@@ -96,7 +96,7 @@
                     </div>
                     <!-- Score container initially hidden -->
                     <div class="score-container hidden">
-                        <p class="mb-0 text-stone-50 font-extrabold text-3xl actual-score">-</p>
+                        <p class="mb-0 text-stone-50 font-extrabold text-3xl actual-score">{{ is_null($nilaiTugasTotal) ? '-' : $nilaiTugasTotal }}</p>
                         <p class="mb-0 text-stone-50 font-extrabold text-3xl hidden-score">***</p>
                     </div>
                 </div>

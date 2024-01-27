@@ -6,6 +6,7 @@ use App\Models\HasilTugasSiswa;
 use App\Models\Kelompok;
 use App\Models\Materi;
 use App\Models\Nilai;
+use App\Models\NilaiTugas;
 use App\Models\Tugas;
 use App\Models\Pertemuan;
 use App\Models\User;
@@ -43,6 +44,8 @@ class StudentDashboardController extends Controller
                 ->get()
                 ->keyBy('tugas_id');
 
+            $nilaiTugasTotal = NilaiTugas::where('user_id', $user->id)->sum('nilai_tugas');
+
             return view('student.index', [
                 'title' => 'Student Dashboard',
                 'pertemuans' => Pertemuan::all(),
@@ -53,6 +56,7 @@ class StudentDashboardController extends Controller
                 'kelompokBelajar' => $kelompokBelajar,
                 'usersInSameKelompok' => $usersInSameKelompok,
                 "submissions" => $submissions,
+                'nilaiTugasTotal' => $nilaiTugasTotal,
             ]);
         } else {
             return view('pages.login', [

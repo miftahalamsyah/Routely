@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Nilai;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -22,10 +23,12 @@ class UserController extends Controller
                     ->orderBy('name')
                     ->paginate(10);
 
+        $nilais = Nilai::all();
+
         return view('dashboard.siswa.index',
         [
             "title" => "Siswa",
-        ], compact('users'));
+        ], compact('users','nilais'));
     }
 
     /**

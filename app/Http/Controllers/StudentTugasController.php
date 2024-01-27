@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HasilTugasSiswa;
+use App\Models\NilaiTugas;
 use App\Models\Tugas;
 use Illuminate\Http\Request;
 
@@ -43,6 +44,10 @@ class StudentTugasController extends Controller
             ->where('tugas_id', $tugas->id)
             ->first();
 
+        $nilaiTugas = NilaiTugas::where('user_id', $user->id)
+        ->where('tugas_id', $tugas->id)
+        ->first();
+
         return view('student.tugas_slug',
         [
             "pertemuan" => $tugas,
@@ -52,6 +57,7 @@ class StudentTugasController extends Controller
             "tugas_file" => $tugas->tugas_file,
             "due_date" => $tugas->due_date,
             "submission" => $submission,
+            "nilaiTugas" => $nilaiTugas,
         ],compact('tugas'));
     }
 

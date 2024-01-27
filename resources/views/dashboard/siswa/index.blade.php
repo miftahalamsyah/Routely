@@ -3,9 +3,9 @@
 @section('content')
 <section class="row z-0 p-4 max-w-6xl align-center mx-auto min-h-screen">
     <div class="my-8 text-center">
-        <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-gray-50 md:tracking-tight">Daftar Siswa</h1>
+        <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-stone-50 md:tracking-tight">Daftar Siswa</h1>
     </div>
-    <div class="bg-gray-50 rounded-xl mx-3">
+    <div class="bg-stone-50 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
@@ -15,19 +15,19 @@
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">
                                             No
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">
                                             Nama
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-left text-xs font-medium text-stone-500 uppercase tracking-wider">
                                             Email
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-gray-50"></th>
+                                        <th scope="col" class="px-6 py-3 bg-stone-50"></th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-white divide-y divide-gray-200">
+                                <tbody class="bg-stone-50 divide-y divide-gray-200">
                                     @forelse ($users as $index => $user)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap">
@@ -58,7 +58,7 @@
                                     @empty
                                         <tr>
                                             <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
-                                                <div class="mx-auto bg-gray-100 text-gray-600 p-2 rounded-xl">
+                                                <div class="mx-auto bg-stone-100 text-gray-600 p-2 rounded-xl">
                                                     Data siswa tidak tersedia.
                                                 </div>
                                             </td>

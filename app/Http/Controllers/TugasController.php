@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HasilTugasSiswa;
+use App\Models\NilaiTugas;
 use App\Models\Tugas;
 use App\Models\User;
 use App\Models\Pertemuan;

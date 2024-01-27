@@ -21,9 +21,6 @@
                                             Siswa
                                         </th>
                                         <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
-                                            Hasil Tugas ID
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
                                             Nilai
                                         </th>
                                         <th scope="col" class="px-6 py-3 bg-stone-50"></th>
@@ -33,15 +30,12 @@
                                     @forelse ($nilaiTugas as $nilai)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-center">
-                                                {{ $nilai->tugas_id }}
+                                                <a href="{{ route('tugas.show', $nilai->tugas_id) }}">
+                                                    {{ $nilai->tugas_id }}
+                                                </a>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 {{ $nilai->user->name }}
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-center hover:text-student">
-                                                <a href="{{ route('tugas.show', $nilai->tugas_id) }}">
-                                                    {{ $nilai->hasil_tugas_siswa_id }}
-                                                </a>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-center">
                                                 {{ $nilai->nilai_tugas }}

@@ -38,6 +38,14 @@
                                 <p class="block text-md font-semibold text-stone-800">Keterangan <span class="text-xs font-normal">(opsional)</span></p>
                                 <p class="bg-stone-100 h-12 w-full px-4 py-2 border-2 rounded-2xl focus:ring-violet-400 focus:border-violet-400">{{ $submission->penjelasan }}</p>
                             </div>
+                            <div class="mb-4">
+                                <p class="block text-md font-semibold text-stone-800">Nilai</p>
+                                @if ($nilaiTugas)
+                                    <p class="bg-stone-100 h-12 w-full px-4 py-2 border-2 rounded-2xl focus:ring-violet-400 focus:border-violet-400">{{ $nilaiTugas->nilai_tugas }}</p>
+                                @else
+                                    <p class="bg-stone-100 h-12 w-full px-4 py-2 border-2 rounded-2xl focus:ring-violet-400 focus:border-violet-400 italic font-thin text-stone-500">Belum Dinilai</p>
+                                @endif
+                            </div>
                         </div>
                     @else
                         <div class="bg-stone-50 font-stone-800 p-5 my-4 rounded-2xl shadow-md">

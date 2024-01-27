@@ -10,7 +10,7 @@
         <a href="/dashboard/siswa">
             <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
                 Siswa
-                <p class="font-bold text-3xl py-2" id="userCount">{{ $userCount }}</p>
+                <p class="font-bold text-3xl py-2">{{ $userCount }}</p>
             </div>
         </a>
         <a href="/dashboard/kelompok">
@@ -28,7 +28,7 @@
         <a href="/dashboard/materi">
             <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
                 Materi
-                <p class="font-bold text-3xl py-2" id="materiCount">{{ $materiCount }}</p>
+                <p class="font-bold text-3xl py-2">{{ $materiCount }}</p>
             </div>
         </a>
         <a href="/dashboard/tugas">
