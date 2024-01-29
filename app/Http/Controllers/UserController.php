@@ -20,9 +20,7 @@ class UserController extends Controller
     public function index(): View
     {
         $users = User::where('is_admin', 0)
-                    ->orderBy('name')
-                    ->paginate(10);
-
+                    ->orderBy('name')->get();
         $nilais = Nilai::all();
 
         return view('dashboard.siswa.index',

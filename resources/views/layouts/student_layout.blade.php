@@ -219,11 +219,11 @@
 </html>
 <style>
 body {
-    background-color: rgba(242, 241, 244, 0.90);
+    background-color: rgba(240, 235, 245, 0.90);
 }
 
 :root {
-    background-image: url('/bg.jpg');
+    /* background-image: url('/bg.jpg'); */
     background-size: 100% auto;
 }
 

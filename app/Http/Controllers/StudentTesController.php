@@ -60,6 +60,12 @@ class StudentTesController extends Controller
     {
         $kategori_tes = KategoriTes::where('slug', $slug)->firstOrFail();
 
+        // Check if the status_tes is 0, redirect with an alert
+        if ($kategori_tes->status_tes == 0) {
+            Alert::error('Maaf', 'Tes ini belum tersedia.');
+            return redirect()->route('student.tes.index');
+        }
+
         // Check if the user has already submitted the exam
         $userHasSubmitted = HasilTesSiswa::where('user_id', auth()->id())
             ->where('kategori_tes_id', $kategori_tes->id)

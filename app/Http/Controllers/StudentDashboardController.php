@@ -38,13 +38,13 @@ class StudentDashboardController extends Controller
             $usersInSameKelompok = User::whereIn('id', $userIdsInSameKelompok)->get();
 
             $user = auth()->user();
-            $tugass = Tugas::all();
+            $tugass = Tugas::latest('created_at')->get();
             $submissions = HasilTugasSiswa::where('user_id', $user->id)
                 ->whereIn('tugas_id', $tugass->pluck('id'))
                 ->get()
                 ->keyBy('tugas_id');
 
-            $nilaiTugasTotal = NilaiTugas::where('user_id', $user->id)->sum('nilai_tugas');
+            $nilaiTugasRecords = NilaiTugas::where('user_id', $user->id)->get();
 
             return view('student.index', [
                 'title' => 'Student Dashboard',
@@ -56,7 +56,7 @@ class StudentDashboardController extends Controller
                 'kelompokBelajar' => $kelompokBelajar,
                 'usersInSameKelompok' => $usersInSameKelompok,
                 "submissions" => $submissions,
-                'nilaiTugasTotal' => $nilaiTugasTotal,
+                'nilaiTugasRecords' => $nilaiTugasRecords,
             ]);
         } else {
             return view('pages.login', [

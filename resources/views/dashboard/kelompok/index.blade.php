@@ -8,10 +8,10 @@
     <button class="bg-violet-400 p-2 m-3 rounded-xl hover:bg-violet-300"><a href="{{ route('kelompok.create') }}" class="text-md font-semibold p-2">Tambah Kelompok</a></button>
 
     @foreach ($kelompoks->unique('no_kelompok') as $uniqueKelompok)
-    <div class="bg-gray-50 rounded-xl m-3 text-lg text-stone-800 text-center p-5 font-semibold">
-        Kelompok {{ $loop->iteration }}
+    <div class="bg-gray-50 rounded-xl m-5 text-lg text-stone-800 text-center p-2 font-semibold">
+        <p class="p-3">Kelompok {{ $loop->iteration }}</p>
         <div class="row">
-            <div class="col-md-12 p-5">
+            <div class="col-md-12">
                 <div class="overflow-x-auto">
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead>
@@ -21,6 +21,12 @@
                                 </th>
                                 <th scope="col" class="px-6 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Nama Anggota
+                                </th>
+                                <th scope="col" class="px-6 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Nilai Pretest
+                                </th>
+                                <th scope="col" class="px-6 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Nilai Posttest
                                 </th>
                                 <th scope="col" class="px-6 py-3 bg-gray-50"></th>
                             </tr>
@@ -33,6 +39,12 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         {{ \App\Models\User::where('id', $kelompok->user_id)->value('name') }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        {{ \App\Models\Nilai::where('id', $kelompok->user_id)->value('pretest') }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                        {{ \App\Models\Nilai::where('id', $kelompok->user_id)->value('posttest') }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                         <div class="flex space-x-2 justify-end">
