@@ -8,6 +8,7 @@ use App\Models\Nilai;
 use App\Models\Tugas;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class NilaiTugasController extends Controller
 {
@@ -30,12 +31,14 @@ class NilaiTugasController extends Controller
         $hasilTugasSiswa = HasilTugasSiswa::all();
         $users = User::where('is_admin', 0)->get();
 
+        $hasilSiswa = HasilTugasSiswa::findOrFail($hasil_tugas_siswas_id);
+
         return view('dashboard.nilai.tugas.create', [
             "title" => "Isi Nilai Tugas",
             "defaultTugasId" => $tugas_id,
             "defaultUserId" => $user_id,
             "defaultHasilTugasSiswaId" => $hasil_tugas_siswas_id,
-        ], compact('tugass', 'users', 'hasilTugasSiswa', 'tugas_id'));
+        ], compact('tugass', 'users', 'hasilTugasSiswa', 'tugas_id', 'hasilSiswa'));
     }
 
     public function store(Request $request)
@@ -55,6 +58,38 @@ class NilaiTugasController extends Controller
         ]);
 
         return redirect()->route('tugas.index')->with('success', 'Nilai telah ditambahkan.');
+    }
+
+    public function edit($hasil_tugas_siswas_id): View
+    {
+        // $nilaiTugas = NilaiTugas::findOrFail($id);
+        $nilaiTugas = NilaiTugas::where('hasil_tugas_siswa_id', $hasil_tugas_siswas_id)->first();
+        $hasilTugasSiswa = HasilTugasSiswa::findOrFail($hasil_tugas_siswas_id);
+        $hasilSiswa = HasilTugasSiswa::findOrFail($hasil_tugas_siswas_id);
+
+        $tugass = Tugas::all();
+        $hasilTugasSiswa = HasilTugasSiswa::all();
+        $users = User::where('is_admin', 0)->get();
+
+        return view('dashboard.nilai.tugas.edit', [
+            'title' => 'Edit Nilai Tugas',
+            'nilaiTugas' => $nilaiTugas,
+        ], compact('tugass', 'users', 'hasilTugasSiswa', 'hasilSiswa'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nilai_tugas' => 'required|numeric|min:0|max:100',
+        ]);
+
+        $nilaiTugas = NilaiTugas::findOrFail($id);
+
+        $nilaiTugas->update([
+            'nilai_tugas' => $request->nilai_tugas,
+        ]);
+
+        return redirect()->route('tugas.index')->with('success', 'Nilai telah diperbarui.');
     }
 
     protected function updateJumlahNilaiTugas($tugasId)

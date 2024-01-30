@@ -57,7 +57,7 @@
     {{-- score section --}}
     <div class="p-4 mt-4  bg-student shadow-md rounded-2xl score-card">
         <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-stone-50 md:text-2xl">🏆 Nilai</p>
-        <div class="flex flex-col sm:flex-row w-full mb-6">
+        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 w-full mb-6">
             <div class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-student-dark rounded-2xl score-card">
                 <div class="max-w-full h-16 px-3">
                     <div class="flex items-center justify-between">
@@ -96,7 +96,7 @@
                     </div>
                     <!-- Score container initially hidden -->
                     <div class="score-container hidden">
-                        <div class="flex mb-0 text-stone-50 font-extrabold text-3xl actual-score">
+                        <div class="grid grid-cols-4 w-full mb-0 text-stone-50 font-extrabold text-3xl actual-score flex-shrink-0 overflow-x-auto">
                             @foreach($nilaiTugasRecords as $record)
                             <div class="flex flex-col">
                                 <p class="mb-0 text-stone-50 font-extrabold text-3xl actual-score mr-2">{{ $record->nilai_tugas }}</p>
@@ -230,7 +230,10 @@
     <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4">
     {{-- tugas --}}
     <div class="p-4 mt-4 bg-stone-50 shadow-md rounded-2xl score-card overflow-x-auto">
-        <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">📝 Tugas</p>
+        <div class="flex justify-between my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">
+            <p class="">📝 Tugas</p>
+            <p class="text-xs md:text-md tracking-tight my-auto border border-violet-300 bg-violet-200 rounded-lg text-student-dark py-1 px-2">{{ $StudentTugasCount }} /  {{ $tugasCount }} tugas dikerjakan</p>
+        </div>
         <div class="flex gap-4 w-full">
             @forelse ($tugass as $tugas)
                 <!-- individual card -->
@@ -248,7 +251,7 @@
                             @endif
                             <p class="pt-2 text-xs text-stone-500">Pertemuan ke-{{$tugas->pertemuan_id}}</p>
                             <a href="/student/tugas/{{ $tugas->slug }}">
-                                <h2 class="leading-normal text-xl font-bold h-12">{{ $tugas->name }}</h2>
+                                <h2 class="leading-normal text-lg font-bold h-12">{{ $tugas->name }}</h2>
                             </a>
                         </div>
                         <div class="absolute bottom-0 left-0 my-4 px-2">
@@ -270,20 +273,21 @@
         </div>
     </div>
 
-    <div class="p-4 mt-4  bg-stone-50 shadow-md rounded-2xl score-card">
+    <div class="p-4 mt-4 bg-stone-50 shadow-md rounded-2xl score-card overflow-x-auto">
         <div class="justify-between flex">
             <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">📖 Materi</p>
-            <a href="/student/materi"><p class="my-4 text-xs py-1 px-2 font-extrabold tracking-tight leading-none hover:bg-violet-300 bg-violet-200 rounded-lg shadow-md text-student-dark md:text-sm">Lihat Semua</p></a>
+            <a href="/student/materi"><p class="my-4 text-xs py-1 px-2 font-extrabold tracking-tight leading-none border border-violet-300 hover:bg-violet-300 bg-violet-200 rounded-lg shadow-md text-student-dark md:text-sm">Lihat Semua</p></a>
         </div>
         <div class="flex gap-4 w-full">
             @forelse ($materis as $materi)
                 <!-- individual card -->
                 <div class="relative grid break-words bg-stone-100 border-2 rounded-2xl hover:shadow-lg w-64 h-64 flex-shrink-0">
-                    <div class="flex-auto px-1 pt-6">
+                    <div class="flex-auto px-2 pt-6">
+                        <p class="pt-2 text-xs text-stone-500">Pertemuan ke-{{$materi->pertemuan_id}}</p>
                         <a href="/student/materi/{{ $materi->slug }}">
-                            <h2 class="text-xl font-bold p-2">{{ $materi->title }}</h2>
+                            <h2 class="leading-normal text-lg font-bold">{{ $materi->title }}</h2>
                         </a>
-                        <p class="mb-6 px-2 leading-normal text-sm overflow-hidden h-24 ...">{{ $materi->description }}</p>
+                        <p class="mb-6 leading-normal text-sm overflow-hidden h-24 ...">{{ $materi->description }}</p>
                         <div class="absolute bottom-0 left-0 my-4 px-2">
                             <a href="/student/materi/{{ $materi->slug }}">
                                 <button class="mr-2 text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border bg-violet-200 rounded-xl shadow-md hover:bg-violet-300 ">

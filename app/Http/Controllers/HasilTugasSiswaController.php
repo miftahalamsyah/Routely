@@ -10,6 +10,9 @@ class HasilTugasSiswaController extends Controller
 {
     public function store(Request $request)
     {
+        $user_id = auth()->user()->id;
+        $tugas_id = $request->tugas_id;
+
         $this->validate($request, [
             'tugas_id' => 'required',
             'user_id' => 'required',
@@ -22,12 +25,12 @@ class HasilTugasSiswaController extends Controller
         $powerpointFileName = null;
 
         if ($request->hasFile('topologi')) {
-            $topologiFileName = 'Topologi_' . time() . '.' . $request->topologi->extension();
+            $topologiFileName = "Topologi_{$user_id}_{$tugas_id}_" . time() . '.' . $request->topologi->extension();
             $request->topologi->storeAs('public/topologi', $topologiFileName);
         }
 
         if ($request->hasFile('powerpoint')) {
-            $powerpointFileName = 'Powerpoint_' . time() . '.' . $request->powerpoint->extension();
+            $powerpointFileName = "Presentasi_{$user_id}_{$tugas_id}_" . time() . '.' . $request->powerpoint->extension();
             $request->powerpoint->storeAs('public/powerpoint', $powerpointFileName);
         }
 

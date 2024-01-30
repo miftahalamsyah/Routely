@@ -11,19 +11,17 @@
     <div class="bg-gray-50 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">
-                <h1 class="font-semibold text-4xl text-center my-8  ">Isi Nilai Tugas</h1>
+                <h1 class="font-semibold text-4xl text-center my-8">Edit Nilai Tugas</h1>
                 <div class="border-0 shadow-sm">
-                    <form action="{{ route('nilai.tugas.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('nilai.tugas.update', $nilaiTugas->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <input type="hidden" name="tugas_id" value="{{ $defaultTugasId }}">
-                        <input type="hidden" name="user_id" value="{{ $defaultUserId }}">
-                        <input type="hidden" name="hasil_tugas_siswas_id" value="{{ $defaultHasilTugasSiswaId }}">
+                        @method('PUT')
 
                         <div class="mb-4">
                             <label for="tugas_id" class="block text-md font-semibold text-gray-800">Tugas ID</label>
                             <select id="tugas_id" name="tugas_id" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 @error('tugas_id') border-red-500 @enderror" disabled>
                                 @foreach ($tugass as $tugas)
-                                    <option value="{{ $tugas->id }}" {{ $tugas->id == $defaultTugasId ? 'selected' : '' }}>Tugas ke-{{ $tugas->id }}</option>
+                                    <option value="{{ $tugas->id }}" {{ $tugas->id == $nilaiTugas->tugas_id ? 'selected' : '' }}>Tugas ke-{{ $tugas->id }}</option>
                                 @endforeach
                             </select>
                             @error('tugas_id')
@@ -35,7 +33,7 @@
                             <label for="user_id" class="block text-md font-semibold text-gray-800">Nama Siswa</label>
                             <select id="user_id" name="user_id" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 @error('user_id') border-red-500 @enderror" disabled>
                                 @foreach ($users as $user)
-                                    <option value="{{ $user->id }}" {{ $user->id == $defaultUserId ? 'selected' : '' }}>{{ $user->name }}</option>
+                                    <option value="{{ $user->id }}" {{ $user->id == $nilaiTugas->user_id ? 'selected' : '' }}>{{ $user->name }}</option>
                                 @endforeach
                             </select>
                             @error('user_id')
@@ -47,7 +45,7 @@
                             <label for="hasil_tugas_siswa_id" class="block text-md font-semibold text-gray-800">Hasil Tugas Siswa</label>
                             <select id="hasil_tugas_siswa_id" name="hasil_tugas_siswa_id" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 @error('hasil_tugas_siswa_id') border-red-500 @enderror" disabled>
                                 @foreach ($hasilTugasSiswa as $hasil)
-                                    <option value="{{ $hasil->id }}" {{ $hasil->id == $defaultHasilTugasSiswaId ? 'selected' : '' }}>{{ $hasil->id }}</option>
+                                    <option value="{{ $hasil->id }}" {{ $hasil->id == $nilaiTugas->hasil_tugas_siswa_id ? 'selected' : '' }}>{{ $hasil->id }}</option>
                                 @endforeach
                             </select>
                             @error('hasil_tugas_siswa_id')
@@ -69,11 +67,11 @@
                             </div>
                         </a>
 
+
                         <div class="mb-4">
                             <label for="nilai_tugas" class="block text-md font-semibold text-gray-800">Nilai</label>
-                            <input type="number" id="nilai_tugas" name="nilai_tugas" value="{{ old('nilai_tugas') }}" placeholder="Masukkan Nilai Tugas"
+                            <input type="number" id="nilai_tugas" name="nilai_tugas" value="{{ old('nilai_tugas', $nilaiTugas->nilai_tugas) }}" placeholder="Masukkan Nilai Tugas"
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400" min="0" max="100">
-                            </input>
                             @error('nilai_tugas')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror

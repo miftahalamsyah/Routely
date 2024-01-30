@@ -73,11 +73,6 @@
                                     <a href="/student/tugas/{{ $tugass['slug'] }}">
                                         <h2 class="text-xl font-bold">{{ $tugass['name'] }}</h2>
                                     </a>
-                                    @if($submission)
-                                        <span class="text-green-500 text-sm font-semibold">✅ Sudah Dikerjakan</span>
-                                    @else
-                                        <span class="text-red-500 text-sm font-semibold">❌ Belum Dikerjakan</span>
-                                    @endif
                                 </div>
                             </div>
                             <p class="mb-6 px-2 leading-normal text-sm overflow-hidden h-24 ...">{{ $tugass['description'] }}</p>

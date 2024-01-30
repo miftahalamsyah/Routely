@@ -56,9 +56,6 @@ class StudentPertemuanController extends Controller
         }
 
         $user = auth()->user();
-        $submission = HasilTugasSiswa::where('user_id', $user->id)
-            ->where('tugas_id', $tugas->id)
-            ->first();
 
         return view('student.pertemuan_slug',
         [
@@ -68,7 +65,6 @@ class StudentPertemuanController extends Controller
             "tanggal" => $pertemuan->tanggal,
             "materi" => $materis,
             "tugas" => $tugass,
-            "submission" => $submission,
         ]);
     }
 

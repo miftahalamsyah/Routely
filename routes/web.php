@@ -82,6 +82,8 @@ Route::get('/dashboard/nilai/tugas', [NilaiTugasController::class, 'index'])->na
 Route::get('/dashboard/nilai/tugas/create/{tugas_id}/{user_id}/{hasil_tugas_siswas_id}', [NilaiTugasController::class, 'create'])->name('nilai.tugas.create')->middleware('admin');
 Route::post('/dashboard/nilai/tugas/store', [NilaiTugasController::class, 'store'])->name('nilai.tugas.store')->middleware('admin');
 Route::delete('/dashboard/nilai/tugas/destroy/{id}', [NilaiTugasController::class, 'destroy'])->name('nilai.tugas.destroy')->middleware('admin');
+Route::get('/dashboard/nilai/tugas/{hasil_tugas_siswas_id}/edit', [NilaiTugasController::class, 'edit'])->name('nilai.tugas.edit')->middleware('admin');
+Route::put('/dashboard/nilai/tugas/{id}', [NilaiTugasController::class, 'update'])->name('nilai.tugas.update')->middleware('admin');
 
 Route::resource('/dashboard/lencana', \App\Http\Controllers\LencanaController::class)->middleware('admin');
 Route::resource('/dashboard/absensi', \App\Http\Controllers\AbsensiController::class)->middleware('admin');
