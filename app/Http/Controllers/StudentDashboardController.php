@@ -26,8 +26,8 @@ class StudentDashboardController extends Controller
         if (Auth::check()) {
             $user = Auth::user();
 
-            $nilaiPretest = Nilai::where('user_id', $user->id)->value('pretest');
-            $nilaiPosttest = Nilai::where('user_id', $user->id)->value('posttest');
+            $nilaiPretest = round(Nilai::where('user_id', $user->id)->value('pretest'));
+            $nilaiPosttest = round(Nilai::where('user_id', $user->id)->value('posttest'));
 
             $kelompokBelajar = Kelompok::where('user_id', auth()->user()->id)->first();
             $userIdsInSameKelompok = [];

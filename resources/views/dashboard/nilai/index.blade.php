@@ -42,7 +42,7 @@
         </a>
     </div>
 
-    <div class="bg-stone-300 rounded-xl mx-3">
+    <div class="bg-stone-700 rounded-xl mx-3 border border-stone-600">
         <div class="row">
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
@@ -51,24 +51,24 @@
                             <table class="min-w-full divide-y divide-stone-400 w-full">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-3000 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-300 uppercase tracking-wider">
                                             No.
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-3000 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-300 uppercase tracking-wider">
                                             Nama Siswa
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-3000 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-300 uppercase tracking-wider">
                                             Nilai PreTest
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-3000 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-300 uppercase tracking-wider">
                                             Nilai PostTest
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-3000 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-300 uppercase tracking-wider">
                                             Keterangan
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-stone-300 divide-y divide-stone-400">
+                                <tbody class="text-stone-300 divide-y divide-stone-500">
                                     @php
                                         $groupedNilaiPretestPosttest = $nilaiPretestPosttest->groupBy('user_id');
                                     @endphp

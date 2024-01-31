@@ -31,7 +31,7 @@
                                 <a href="{{ asset('storage/topologi/' . $submission->topologi) }}" target="_blank" class="bg-stone-100 w-full px-4 py-2 border-2 rounded-2xl hover:bg-stone-200 focus:ring-violet-400 focus:border-violet-400">{{ $submission->topologi }}</a>
                             </div>
                             <div class="mb-4">
-                                <p class="mb-2 block text-md font-semibold text-stone-800">File Powerpoint <span class="text-xs font-normal">(.pptx, .ppt, .pdf, .odp)</span></p>
+                                <p class="mb-2 block text-md font-semibold text-stone-800">File Presentasi <span class="text-xs font-normal">(.pptx, .ppt, .pdf, .odp)</span></p>
                                 <a href="{{ asset('storage/powerpoint/' . $submission->powerpoint) }}" target="_blank" class="bg-stone-100 w-full px-4 py-2 border-2 rounded-2xl hover:bg-stone-200 focus:ring-violet-400 focus:border-violet-400">{{ $submission->powerpoint }}</a>
                             </div>
                             <div class="mb-4">
@@ -67,7 +67,7 @@
                                 </div>
 
                                 <div class="mb-4">
-                                    <label for="powerpoint" class="block text-md font-semibold text-stone-800">File Powerpoint <span class="text-xs font-normal">(.pptx, .ppt, .pdf, .odp)</span></label></label>
+                                    <label for="powerpoint" class="block text-md font-semibold text-stone-800">File Presentasi <span class="text-xs font-normal">(.pptx, .ppt, .pdf, .odp)</span></label></label>
                                     <input type="file" id="powerpoint" name="powerpoint" accept=".pptx,.ppt,.pdf,.odp" value="{{ old('powerpoint') }}"
                                         class="w-full px-4 py-2 border-2 rounded-2xl focus:ring-violet-400 focus:border-violet-400 @error('powerpoint') border-red-500 @enderror">
                                     @error('powerpoint')

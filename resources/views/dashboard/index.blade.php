@@ -189,7 +189,7 @@
     </div>
 
     <!-- Daftar Materi -->
-    <div class="my-5 mx-2 block rounded-xl border border-stone-600 p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto; scrollbar-width: none;">
+    <div class="my-5 mx-2 block rounded-xl border border-stone-600 p-8 bg-stone-700 overflow-x-auto">
         <h1 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Materi</h1>
         <table class="min-w-full divide-y divide-stone-500 text-stone-300 my-4">
             <thead>
@@ -235,7 +235,6 @@
             @endforelse
             </tbody>
         </table>
-        <a href="/dashboard/materis" class="bg-violet-400 my-2 p-2 rounded-xl hover:bg-violet-300 font-semibold text-stone-800">Selengkapnya</a>
     </div>
 
     {{-- Daftar Siswa --}}

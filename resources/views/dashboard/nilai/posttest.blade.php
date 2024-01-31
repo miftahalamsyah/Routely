@@ -12,7 +12,7 @@
         </a>
         <button class="bg-student p-2 rounded-xl text-stone-300"><a href="{{ route('nilai.posttest.export') }}" class="text-md font-semibold p-2">Ekspor ke Spreadsheets</a></button>
     </div>
-    <div class="bg-stone-300 rounded-xl mx-3">
+    <div class="bg-stone-700 rounded-xl mx-3 border border-stone-600">
         <div class="row">
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
@@ -21,31 +21,31 @@
                             <table class="min-w-full divide-y divide-stone-400">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-300 uppercase tracking-wider">
                                             No.
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-300 uppercase tracking-wider">
                                             Nama Siswa
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-300 uppercase tracking-wider">
                                             Total Nilai
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-300 uppercase tracking-wider">
                                             Dekomposisi
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-300 uppercase tracking-wider">
                                             Abstraksi
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-300 uppercase tracking-wider">
                                             Pengenalan Pola
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-stone-300 uppercase tracking-wider">
                                             Algoritma
                                         </th>
                                         <th scope="col" class="px-6 py-3 "></th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-stone-400">
+                                <tbody class="divide-y divide-stone-500 text-stone-300">
                                     @forelse ($nilaiPosttest as $index=>$nilai)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-center">

@@ -12,13 +12,13 @@
         </a>
         <button class="bg-student p-2 rounded-xl text-stone-300"><a href="{{ route('nilai.pretest.export') }}" class="text-md font-semibold p-2">Ekspor ke Spreadsheets</a></button>
     </div>
-    <div class="bg-stone-300 text-stone-800 rounded-xl mx-3">
+    <div class="bg-stone-700 text-stone-300 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
                     <div class="">
                         <div class="overflow-x-auto">
-                            <table class="min-w-full divide-y divide-stone-400">
+                            <table class="min-w-full divide-y divide-stone-400 text-stone-300">
                                 <thead>
                                     <tr>
                                         <th scope="col" class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
@@ -45,7 +45,7 @@
                                         <th scope="col" class="px-6 py-3"></th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-stone-400">
+                                <tbody class="divide-y divide-stone-500">
                                     @forelse ($nilaiPretest as $index=>$nilai)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-center">

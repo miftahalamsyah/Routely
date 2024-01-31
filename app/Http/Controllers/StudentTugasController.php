@@ -58,6 +58,7 @@ class StudentTugasController extends Controller
             "due_date" => $tugas->due_date,
             "submission" => $submission,
             "nilaiTugas" => $nilaiTugas,
+            "tugas" => $tugas,
         ],compact('tugas'));
     }
 

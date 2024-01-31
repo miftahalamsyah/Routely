@@ -234,7 +234,7 @@
             <p class="">📝 Tugas</p>
             <p class="text-xs md:text-md tracking-tight my-auto border border-violet-300 bg-violet-200 rounded-lg text-student-dark py-1 px-2">{{ $StudentTugasCount }} /  {{ $tugasCount }} tugas dikerjakan</p>
         </div>
-        <div class="flex gap-4 w-full">
+        <div class="flex gap-4 w-full overflow-x-auto">
             @forelse ($tugass as $tugas)
                 <!-- individual card -->
                 <div class="relative grid break-words bg-stone-100 border-2 rounded-2xl hover:shadow-lg w-64 h-64 flex-shrink-0">
@@ -276,9 +276,11 @@
     <div class="p-4 mt-4 bg-stone-50 shadow-md rounded-2xl score-card overflow-x-auto">
         <div class="justify-between flex">
             <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">📖 Materi</p>
-            <a href="/student/materi"><p class="my-4 text-xs py-1 px-2 font-extrabold tracking-tight leading-none border border-violet-300 hover:bg-violet-300 bg-violet-200 rounded-lg shadow-md text-student-dark md:text-sm">Lihat Semua</p></a>
+            <a href="/student/materi">
+                <p class="my-4 text-xs py-1 px-2 font-extrabold tracking-tight leading-none border border-violet-300 hover:bg-violet-300 bg-violet-200 rounded-lg shadow-md text-student-dark md:text-sm">Lihat Semua</p>
+            </a>
         </div>
-        <div class="flex gap-4 w-full">
+        <div class="flex gap-4 w-full overflow-x-auto">
             @forelse ($materis as $materi)
                 <!-- individual card -->
                 <div class="relative grid break-words bg-stone-100 border-2 rounded-2xl hover:shadow-lg w-64 h-64 flex-shrink-0">
@@ -300,12 +302,13 @@
             @empty
                 <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-100 border-2 shadow-md rounded-2xl score-card">
                     <div class="max-w-full px-3 mx-auto text-center">
-                    <span class="text-stone-700 text-md tracking-tight leading-none">Tidak ada materi</span>
+                        <span class="text-stone-700 text-md tracking-tight leading-none">Tidak ada materi</span>
                     </div>
                 </div>
             @endforelse
-            </div>
+        </div>
     </div>
+
 
     </div>
 </section>
