@@ -10,7 +10,7 @@
             <h1 class="text-4xl text-stone-700 mx-5">{{ $name }}</h1>
             <h2 class="text-md text-stone-700 mx-5">{{ $email }}</h2>
             <p class="pt-2 text-md text-stone-700 mx-5">Profil Publik Anda dapat diakses melalui</p>
-            <a href="http://127.0.0.1:8000/profil_publik/{{ $slug }}" class="mx-5 text-md text-student">http://127.0.0.1:8000/profil_publik/{{ $slug }}</a>
+            <a href="https://routely.me/profil_publik/{{ $slug }}" class="mx-5 text-md text-student">https://routely.me/profil_publik/{{ $slug }}</a>
         </div>
     </div>
 

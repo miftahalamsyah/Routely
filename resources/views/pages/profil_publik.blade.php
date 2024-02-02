@@ -10,7 +10,7 @@
         <h2 class="mb-8 text-md text-stone-700">{{ $email }}</h2>
         @if (auth()->check() && auth()->user()->email == $email)
         <p class="text-md text-stone-700">Profil Publik Anda dapat diakses melalui</p>
-        <p class="text-md text-stone-700">http://127.0.0.1:8000/profil_publik/{{ $slug }}</p>
+        <p class="text-md text-stone-700">https://routely.me/profil_publik/{{ $slug }}</p>
         @endif
     </div>
 

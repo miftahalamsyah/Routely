@@ -17,7 +17,7 @@ class NilaiTugasController extends Controller
         $tugass = Tugas::all();
         $hasilTugasSiswas = HasilTugasSiswa::all();
         $users = User::where('is_admin', 0);
-        $nilaiTugas = NilaiTugas::all();
+        $nilaiTugas = NilaiTugas::all()->sortBy('tugas_id');
 
         return view('dashboard.nilai.tugas.index',
         [

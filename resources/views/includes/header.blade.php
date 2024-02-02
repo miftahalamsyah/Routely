@@ -91,46 +91,6 @@
                 </ul>
             </div>
         </div>
-        <!-- Breadcrumbs for mobile -->
-        <div class="navbarmobile hidden">
-            <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-stone-50 md:hidden">
-                <li>
-                    @active('student.index')
-                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 active text-gray-900" href="/student">Dashboard<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
-                    @else
-                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 text-gray-900" href="/student">Dashboard</a>
-                    @endactive
-                </li>
-                <li>
-                    @active('student.pertemuan')
-                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 active text-gray-900" href="/student/pertemuan">Pertemuan<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
-                    @else
-                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 text-gray-900" href="/student/pertemuan">Pertemuan</a>
-                    @endactive
-                </li>
-                <li>
-                    @active('student.simulasi')
-                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 active text-gray-900" href="/student/simulasi">Simulasi<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
-                    @else
-                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 text-gray-900" href="/student/simulasi">Simulasi</a>
-                    @endactive
-                </li>
-                <li>
-                    @active('student.tes')
-                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 active text-gray-900" href="/student/tes">Tes<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
-                    @else
-                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 text-gray-900" href="/student/tes">Tes</a>
-                    @endactive
-                </li>
-                <li>
-                    @active('pages.bantuan')
-                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 active text-gray-900" href="/bantuan">Bantuan<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
-                    @else
-                        <a class="nav block relative py-2 pl-3 pr-4 font-semibold rounded md:p-0 text-gray-900" href="/bantuan">Bantuan</a>
-                    @endactive
-                </li>
-            </ul>
-        </div>
     </div>
 </div>
 
