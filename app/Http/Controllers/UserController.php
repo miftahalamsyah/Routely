@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 use App\Models\Nilai;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 
@@ -92,7 +96,10 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        return view('dashboard.siswa.edit', compact('user'));
+        return view('dashboard.siswa.edit',
+        [
+            "title" => "Edit Siswa",
+        ], compact('user'));
     }
 
     /**
@@ -104,22 +111,34 @@ class UserController extends Controller
      */
     public function update(Request $request, $id): RedirectResponse
     {
-        $this->validate($request, [
-            'name'     => 'required|min:5',
-            'email'    => 'required|min:10',
-            'password' => ['required', 'confirmed', 'min:8'],
+        $user = User::findOrFail($id);
+
+        $validator = Validator::make($request->all(), [
+            'name'  => 'required|min:5',
+            'email' => [
+                'required',
+                'min:10',
+                Rule::unique('users')->ignore($user->id),
+            ],
+            'password' => ['nullable', 'confirmed', 'min:8'],
         ]);
 
-        $slug = (string) Str::uuid();
+        if ($validator->fails()) {
+            return Redirect::back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
-        User::create([
-            'name'     => $request->name,
-            'email'    => $request->email,
-            'password' => Hash::make($request->password),
-            'slug'     => $slug,
-        ]);
+        $user->name = $request->name;
+        $user->email = $request->email;
 
-        return redirect()->route('siswa.index')->with(['success' => 'Data Berhasil Diubah!']);
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+
+        $user->save();
+
+        return redirect()->route('siswa.index')->with(['success' => 'Data Berhasil Diupdate!']);
     }
 
     /**

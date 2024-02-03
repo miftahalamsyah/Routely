@@ -41,6 +41,13 @@
                             @enderror
                         </div>
 
+                        <p class="block text-md font-semibold text-stone-800">Kelompok</p>
+                        <a href="/" target="_blank">
+                            <div class="mb-4 w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 bg-stone-100">
+                                <p class="text-student">{{ \App\Models\Kelompok::where('user_id', $hasilSiswa->user_id)->value('no_kelompok') }}</p>
+                            </div>
+                        </a>
+
                         <div class="mb-4">
                             <label for="hasil_tugas_siswa_id" class="block text-md font-semibold text-gray-800">Hasil Tugas Siswa</label>
                             <select id="hasil_tugas_siswa_id" name="hasil_tugas_siswa_id" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 @error('hasil_tugas_siswa_id') border-red-500 @enderror" disabled>

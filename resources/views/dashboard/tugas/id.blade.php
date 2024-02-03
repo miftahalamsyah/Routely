@@ -24,6 +24,9 @@
                                             ID Tugas
                                         </th>
                                         <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-3000 uppercase tracking-wider">
+                                            Kelompok
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-3000 uppercase tracking-wider">
                                             Nama Siswa
                                         </th>
                                         <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-3000 uppercase tracking-wider">
@@ -39,7 +42,7 @@
                                             Nilai
                                         </th>
                                         <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-3000 uppercase tracking-wider">
-                                            Beri dan Ubah Nilai
+                                            Aksi
                                         </th>
                                     </tr>
                                 </thead>
@@ -48,6 +51,9 @@
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-center">
                                                 {{ $item->tugas_id }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                {{ \App\Models\Kelompok::where('user_id', $item->user_id)->value('no_kelompok') }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 {{ $item->user->name }}

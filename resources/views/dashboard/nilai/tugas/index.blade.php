@@ -11,15 +11,23 @@
         </svg>
         <p class="ml-2 font-semibold text-md text-gray-50">Back</p>
     </a>
-    <div class="bg-stone-50 rounded-xl mx-3">
+
+    @foreach ($nilaiTugas->unique('tugas_id') as $uniqueTugas)
+    <div class="bg-gray-50 rounded-xl m-5 text-lg text-stone-800 text-center p-2 font-semibold">
+        <a href="{{ route('tugas.show', $loop->iteration) }}">
+            <p class="p-3">Tugas {{ $loop->iteration }}</p>
+        </a>
         <div class="row">
-            <div class="col-md-12 p-5">
+            <div class="col-md-12">
                 <div class="border-0 shadow-sm">
                     <div class="">
                         <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-stone-200">
                                 <thead>
                                     <tr>
+                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                            No.
+                                        </th>
                                         <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
                                             Tugas ID
                                         </th>
@@ -33,11 +41,14 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-stone-50 divide-y divide-stone-200">
-                                    @forelse ($nilaiTugas as $nilai)
+                                    @forelse ($nilaiTugas->where('tugas_id', $uniqueTugas->tugas_id) as $nilai)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                {{ $loop->iteration }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
                                                 <a href="{{ route('tugas.show', $nilai->tugas_id) }}">
-                                                    {{ $nilai->tugas_id }}
+                                                    {{ $nilai->tugas->name }}
                                                 </a>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
@@ -79,5 +90,7 @@
             </div>
         </div>
     </div>
+    @endforeach
+
 </section>
 @endsection

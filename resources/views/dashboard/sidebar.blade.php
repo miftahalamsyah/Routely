@@ -137,7 +137,7 @@
             <hr class="border-y border-stone-600 flex-grow">
 
             <li>
-                <a class="rounded-xl flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-stone-100 hover:bg-stone-700 {{ $title === 'Siswa' ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}" href="/dashboard/siswa">
+                <a class="rounded-xl flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-stone-100 hover:bg-stone-700 {{ in_array($title, ['Siswa', 'Tambah Siswa', 'Edit Siswa']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}" href="/dashboard/siswa">
                     <svg width="16" height="16" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" stroke-width="5" stroke="currentColor" fill="none">
                         <path d="M48.61 56.07A16.61 16.61 0 0 0 32 39.45a16.61 16.61 0 0 0-16.61 16.62ZM39.41 28a8.11 8.11 0 0 1-8.25 8.1 8.28 8.28 0 0 1-7.95-8.37V16.45a.06.06 0 0 1 .05-.06 60.56 60.56 0 0 1 8.27-.68 54.93 54.93 0 0 1 7.91.68.06.06 0 0 1 .06.06Z"/><path d="m23.21 20.14-8.27-3.8a.08.08 0 0 1 0-.13l16.38-7.82h.06l16.33 7.74a.07.07 0 0 1 0 .12l-8.21 3.89m-16.29 4.21h-2.32s-2 0-2 3.1c0 2.86 2 2.86 2 2.86h2.72m15.8-5.6h2.32s2 0 2 3.09c0 2.86-2 2.86-2 2.86H39m7.85 2.49V16.72"/><circle cx="46.85" cy="35.28" r="2.13"/><path d="M39.5 23a42.89 42.89 0 0 0-7.95-.69 40.85 40.85 0 0 0-8.34.69"/>
                     </svg>
