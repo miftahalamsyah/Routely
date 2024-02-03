@@ -11,7 +11,7 @@
 <script>
     function updateCopyrightYear() {
         var currentYear = new Date().getFullYear();
-        document.getElementById('copyright').innerText = '© ' + currentYear;
+        document.getElementById('copyright').innerText = '© ' + currentYear + ' Miftah Alamsyah';
     }
 
     // Call the function to set the initial value
