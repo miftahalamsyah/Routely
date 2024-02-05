@@ -1,0 +1,31 @@
+{
+    "theme_color":"#5c578c",
+    "background_color":"#f2f1f4",
+    "icons":
+        [
+            {
+                "purpose":"maskable",
+                "sizes":"512x512",
+                "src":"icon512_maskable.png",
+                "type":"image/png"
+            },
+            {
+                "purpose":"any",
+                "sizes":"512x512",
+                "src":"icon512_rounded.png",
+                "type":"image/png"
+            }
+        ],
+    "orientation":"any",
+    "display":"standalone",
+    "dir":"auto",
+    "lang":"en-US",
+    "name":"Routely | Computational Thinking",
+    "short_name":"routely",
+    "start_url":"https://www.routely.me/",
+    "scope":"https://www.routely.me/",
+    "description":"Gunakan Routely untuk pengalaman belajar yang baru, Dengan Routely, Anda dapat memahami routing dalam perspektif Computational Thinking, membuka peluang baru untuk pengalaman lebih pada materi routing.",
+    "id":"https://www.routely.me/",
+    "splash_pages": null
+
+}

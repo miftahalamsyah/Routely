@@ -1,5 +1,3 @@
-<title>Routely</title>
-
 @extends('layouts.app')
 
 @section('content')
@@ -104,7 +102,7 @@
             </p>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
+        <div class="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
             <a class="h-48 block rounded-xl bg-stone-50 p-4 shadow hover:shadow-lg" href="/berpikir-komputasi/dekomposisi">
                 <span class="inline-block rounded-lg bg-stone-50 p-3">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -113,7 +111,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path>
                     </svg>
                 </span>
-                <h2 class="mt-2 font-bold">Dekomposisi</h2>
+                <h2 class="mt-2 font-bold">Pengenalan</h2>
                 <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-stone-600">
                 Lorem ipsum dolor sit amet consectetur.
                 </p>
@@ -127,7 +125,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path>
                     </svg>
                 </span>
-                <h2 class="mt-2 font-bold">Abstraksi</h2>
+                <h2 class="mt-2 font-bold">Pemahaman</h2>
                 <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-stone-600">
                 Lorem ipsum dolor sit amet consectetur.
                 </p>
@@ -141,7 +139,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path>
                     </svg>
                 </span>
-                <h2 class="mt-2 font-bold">Pengenalan Pola</h2>
+                <h2 class="mt-2 font-bold">Situasi Masalah</h2>
                 <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-stone-600">
                 Lorem ipsum dolor sit amet consectetur.
                 </p>
@@ -155,7 +153,35 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path>
                     </svg>
                 </span>
-                <h2 class="mt-2 font-bold">Algoritma</h2>
+                <h2 class="mt-2 font-bold">Pengajuan Masalah</h2>
+                <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-stone-600">
+                Lorem ipsum dolor sit amet consectetur.
+                </p>
+            </a>
+
+            <a class="h-48 block rounded-xl bg-stone-50 p-4 shadow hover:shadow-lg" href="/berpikir-komputasi/dekomposisi">
+                <span class="inline-block rounded-lg bg-stone-50 p-3">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                        <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path>
+                    </svg>
+                </span>
+                <h2 class="mt-2 font-bold">Pemecahan Masalah</h2>
+                <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-stone-600">
+                Lorem ipsum dolor sit amet consectetur.
+                </p>
+            </a>
+
+            <a class="h-48 block rounded-xl bg-stone-50 p-4 shadow hover:shadow-lg" href="/berpikir-komputasi/dekomposisi">
+                <span class="inline-block rounded-lg bg-stone-50 p-3">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                        <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path>
+                    </svg>
+                </span>
+                <h2 class="mt-2 font-bold">Verifikasi</h2>
                 <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-stone-600">
                 Lorem ipsum dolor sit amet consectetur.
                 </p>

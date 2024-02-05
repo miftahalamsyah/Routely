@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .bg-student{
-    background-color: #5c578c;
+    background-color: rgb(92, 87, 140);
 }
 
 .bg-student-white {
