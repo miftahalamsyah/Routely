@@ -229,9 +229,9 @@ body {
     background-size: 100% auto;
 }
 
-h1 {
+/* h1 {
     font-family: 'Athletics-Bold', sans-serif;
-}
+} */
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -316,5 +316,3 @@ body {
     updateCopyrightYear();
 
 </script>
-
-

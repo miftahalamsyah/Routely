@@ -71,6 +71,8 @@ class TugasController extends Controller
     {
         $hasilTugasSiswa = HasilTugasSiswa::where('tugas_id', $tugas_id)->get();
         $nilaiTugas = NilaiTugas::all();
+        $userCount = User::where('is_admin', 0)->count();
+        $hasilTugasSiswaCount = HasilTugasSiswa::where('tugas_id', $tugas_id)->count();
 
         if  (!$hasilTugasSiswa) {
             return redirect()->back();
@@ -79,7 +81,7 @@ class TugasController extends Controller
         return view('dashboard.tugas.id',
         [
             "title" => "Hasil Pengerjaan Tugas",
-        ],compact('hasilTugasSiswa', 'tugas_id', 'nilaiTugas'));
+        ],compact('hasilTugasSiswa', 'tugas_id', 'nilaiTugas', 'userCount', 'hasilTugasSiswaCount'));
     }
 
     public function nilai($hasilTugasSiswa_id)

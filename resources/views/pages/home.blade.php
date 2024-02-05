@@ -6,7 +6,7 @@
 <section class="mt-20 max-w-6xl justify-center mx-auto">
     <div class="px-10 py-40 mx-auto animate-up">
         <div class="w-full mx-auto text-center">
-            <h1 class="mb-6 text-xl font-semibold leading-none max-w-3xl mx-auto tracking-normal text-stone-900 sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl md:tracking-tight">Gunakan<span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline"> Routely </span>untuk pengalaman belajar yang baru*</h1>
+            <h1 class="mb-6 text-4xl font-semibold leading-none max-w-3xl mx-auto tracking-normal text-stone-900 sm:text-4xl md:text-4xl lg:text-4xl xl:text-5xl md:tracking-tight">Gunakan<span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline"> Routely </span>untuk pengalaman belajar yang baru*</h1>
             <p class="px-0 mb-6 text-md text-stone-600 sm:text-md md:text-lg lg:text-lg lg:px-24"> Dengan Routely, Anda dapat memahami routing dalam perspektif Computational Thinking, membuka peluang baru untuk pengalaman lebih pada materi routing. </p>
             <div class="grid gap-3 w-full sm:inline-flex sm:justify-center">
                 <a class="inline-block rounded-3xl shadow bg-violet-200 px-12 py-3 text-sm font-medium text-student transition hover:bg-violet-300" href="/login">

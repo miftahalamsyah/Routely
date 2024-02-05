@@ -15,7 +15,22 @@
                         @if ($tugas_file)
                         <div class="bg-stone-100 py-2 px-4  my-4 rounded-2xl border-2 hover:shadow">
                             <p class="font-semibold text-md">File LKPD dapat diunduh dalam bentuk .pdf di bawah ini</p>
-                            <a href="{{ asset('storage/tugas/' . $tugas_file) }}" target="_blank" class="rounded-xl my-2 bg-student text-stone-50 px-4 py-2 inline-block hover:bg-student-dark">
+                            <a href="{{ asset('storage/tugas/' . $tugas_file) }}" target="_blank" class="rounded-xl my-2 bg-violet-200 text-student px-4 py-2 inline-block hover:bg-violet-300">
+                                {{ $tugas_file }}
+                            </a>
+                        </div>
+                        @endif
+                    </div>
+
+                    <div class="rounded-2xl bg-stone-50 p-5 my-4 shadow-md">
+                        <div class="bg-stone-100 py-2 px-4 my-4 rounded-2xl border-2 hover:shadow">
+                            <p class="font-bold text-md">Deskripsi</p>
+                            <p class="text-md">{{ $description }}</p>
+                        </div>
+                        @if ($tugas_file)
+                        <div class="bg-stone-100 py-2 px-4  my-4 rounded-2xl border-2 hover:shadow">
+                            <p class="font-semibold text-md">File LKPD dapat diunduh dalam bentuk .pdf di bawah ini</p>
+                            <a href="{{ asset('storage/tugas/' . $tugas_file) }}" target="_blank" class="rounded-xl my-2 bg-violet-200 text-student px-4 py-2 inline-block hover:bg-violet-300">
                                 {{ $tugas_file }}
                             </a>
                         </div>
@@ -85,7 +100,7 @@
                                 </div>
 
                                 <div class="my-3">
-                                    <button type="submit" class="bg-violet-400 hover:bg-violet-300 rounded-xl p-2 mr-2 font-semibold">Kirim</button>
+                                    <button type="submit" class="bg-student hover:bg-student-dark text-stone-50 rounded-xl p-2 mr-2 font-semibold">Kirim</button>
                                 </div>
                             </form>
                         </div>

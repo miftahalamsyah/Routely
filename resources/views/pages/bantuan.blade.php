@@ -3,11 +3,11 @@
 @section('content')
 <section class="mt-20 max-w-6xl justify-center mx-auto px-5">
     <div class="py-12 px-4 mx-auto text-center z-20 animate-up">
-        <h1 class="mb-4 text-xl font-extrabold tracking-tight leading-none text-stone-800 sm:text-xl md:text-3xl lg:text-4xl">Pusat Bantuan</h1>
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-stone-800 sm:text-4xl md:text-4xl lg:text-4xl xl:text-5xl">Pusat Bantuan</h1>
         <p class="mb-8 text-xl text-stone-800">Koleksi sumber bantuan</p>
     </div>
 
-    <div x-data="{ bantuan1: false }" class="max-w-3xl mx-auto bg-stone-50 p-5 rounded-2xl shadow-md my-4">
+    <div x-data="{ bantuan1: false }" class="max-w-4xl mx-auto bg-stone-50 p-5 rounded-2xl shadow-md my-4">
         <button @click="bantuan1 = !bantuan1" class="flex justify-between w-full">
             <h2 class="text-lg font-semibold">Membuat Akun</h2>
             <svg x-bind:class="{ 'rotate-180': bantuan1 }" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 justify-end transition-transform transform" viewBox="0 0 20 20" fill="currentColor" >
@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <div x-data="{ bantuan2: false }" class="max-w-3xl mx-auto bg-stone-50 p-5 rounded-2xl shadow-md my-4">
+    <div x-data="{ bantuan2: false }" class="max-w-4xl mx-auto bg-stone-50 p-5 rounded-2xl shadow-md my-4">
         <button @click="bantuan2 = !bantuan2" class="flex justify-between w-full">
             <h2 class="text-lg font-semibold">Melakukan Tes (Pretest & Posttest)</h2>
             <svg x-bind:class="{ 'rotate-180': bantuan2 }" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 justify-end transition-transform transform" viewBox="0 0 20 20" fill="currentColor" >
@@ -33,7 +33,7 @@
         </div>
     </div>
 
-    <div x-data="{ bantuan3: false }" class="max-w-3xl mx-auto bg-stone-50 p-5 rounded-2xl shadow-md my-4">
+    <div x-data="{ bantuan3: false }" class="max-w-4xl mx-auto bg-stone-50 p-5 rounded-2xl shadow-md my-4">
         <button @click="bantuan3 = !bantuan3" class="flex justify-between w-full">
             <h2 class="text-lg font-semibold">Mengumpulkan Tugas</h2>
             <svg x-bind:class="{ 'rotate-180': bantuan3 }" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 justify-end transition-transform transform" viewBox="0 0 20 20" fill="currentColor" >
@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    <div x-data="{ bantuan4: false }" class="max-w-3xl mx-auto bg-stone-50 p-5 rounded-2xl shadow-md my-4">
+    <div x-data="{ bantuan4: false }" class="max-w-4xl mx-auto bg-stone-50 p-5 rounded-2xl shadow-md my-4">
         <button @click="bantuan4 = !bantuan4" class="flex justify-between w-full transition duration-300 group">
             <h2 class="text-lg font-semibold">Mengisi Lembar Refleksi</h2>
             <svg x-bind:class="{ 'rotate-180': bantuan4 }" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 justify-end transition-transform transform" viewBox="0 0 20 20" fill="currentColor" >
