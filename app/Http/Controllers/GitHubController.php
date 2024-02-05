@@ -35,6 +35,7 @@ class GitHubController extends Controller
                     'slug' => $slug,
                     'github_id' => $user->id,
                     'auth_type' => 'github',
+                    'is_admin' => 0,
                     'password' => bcrypt($randomPassword),
                 ]);
 
