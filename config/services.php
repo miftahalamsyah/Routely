@@ -33,7 +33,7 @@ return [
 
     'github' => [
         'client_id' => 'ff9fbbc5b40e2d13e598',
-        'client_secret' => 'dc010dc3e66509510e28f126cdfc952fd7c4341b',
+        'client_secret' => 'd504ce5e802af73113590ddf469321f596dc3284',
         'redirect' => 'https://www.routely.me/auth/github/callback',
     ],
 ];
