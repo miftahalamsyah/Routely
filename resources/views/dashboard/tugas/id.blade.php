@@ -6,9 +6,9 @@
         <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-stone-300 md:tracking-tight">Hasil Pengerjaan Tugas {{ $tugas_id }}</h1>
     </div>
 
-    <div class="mx-3 text-xs h-30 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2">
+    <div class="mx-3 text-xs h-30 bg-stone-700 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
         Tugas {{ $tugas_id }}
-        <p class="font-bold text-lg py-2">{{ $hasilTugasSiswaCount }} dari {{ $userCount }} siswa telah mengerjakan</p>
+        <p class="font-normal text-stone-300 text-sm py-2">{{ $hasilTugasSiswaCount }} dari {{ $userCount }} siswa telah mengerjakan</p>
         <div class="w-full bg-stone-300 rounded-full">
             <div class="bg-violet-600 text-xs font-medium text-stone-300 text-center p-0.5 leading-none rounded-full"
                 style="width: {{ ($hasilTugasSiswaCount / $userCount) * 100 }}%">

@@ -83,4 +83,20 @@ class StudentDashboardController extends Controller
             return view('pages.login'); // Show the login page if not authenticated
         }
     }
+
+    public function problemPosing()
+    {
+        return view('student.model.problem-posing', [
+            'title' => 'Problem Posing',
+
+        ]);
+    }
+
+    public function berpikirKomputasi()
+    {
+        return view('student.model.berpikir-komputasi', [
+            'title' => 'Berpikir Komputasi',
+
+        ]);
+    }
 }

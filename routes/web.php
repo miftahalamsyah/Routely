@@ -111,6 +111,9 @@ Route::get('/fetch-data', [DataController::class, 'index']);
 Route::get('/student', [StudentDashboardController::class, 'index'])->name('student.index')->middleware('auth');
 Route::get('/student/search', [SearchController::class, 'search'])->name('student.search')->middleware('auth');
 
+Route::get('/student/problem-posing', [StudentDashboardController::class, 'problemPosing'])->name('student.problem-posing')->middleware('auth');
+Route::get('/student/berpikir-komputasi', [StudentDashboardController::class, 'berpikirKomputasi'])->name('student.berpikir-komputasi')->middleware('auth');
+
 Route::get('/student/kelompok', [StudentKelompokController::class, 'index'])->name('student.kelompok')->middleware('auth');
 Route::get('/student/profile', [ProfileController::class, 'index'])->name('student.profile.index')->middleware('auth');
 Route::put('/student/profile', [ProfileController::class, 'update'])->name('student.profile.update')->middleware('auth');

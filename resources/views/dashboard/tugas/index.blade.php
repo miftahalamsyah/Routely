@@ -2,14 +2,32 @@
 
 @section('content')
 <section class="row z-0 p-4 max-w-6xl align-center mx-auto min-h-screen">
-    <div class="my-8 text-center">
-        <h1 class="mb-6 text-2xl font-extrabold leading-none tracking-normal text-stone-300 md:tracking-tight">Daftar Tugas</h1>
+
+    <div class="grid grid-cols-2 gap-4 m-3">
+        @foreach ($tugass as $tugas)
+            <div class="text-xs h-30 bg-stone-700 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
+                Tugas {{ $tugas->id }}
+                @php
+                    $tugas_id = $tugas->id;
+                    $hasilTugasSiswaCount = \App\Models\HasilTugasSiswa::where('tugas_id', $tugas_id)->count();
+                @endphp
+                <p class="font-normal text-stone-300 text-sm py-2">{{ $hasilTugasSiswaCount }} dari {{ $userCount }} siswa telah mengerjakan</p>
+                <div class="w-full bg-stone-300 rounded-full">
+                    <div class="bg-violet-600 text-xs font-medium text-stone-300 text-center p-0.5 leading-none rounded-full"
+                        style="width: {{ ($hasilTugasSiswaCount / $userCount) * 100 }}%">
+                        {{ round(($hasilTugasSiswaCount / $userCount) * 100) }}%
+                    </div>
+                </div>
+            </div>
+        @endforeach
     </div>
-    <div class="bg-stone-700 rounded-xl mx-3">
+
+    <div class="bg-stone-700 rounded-xl mx-3 border-2 border-stone-600">
         <div class="row">
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
                     <div class="">
+                        <h1 class="text-center text-2xl font-extrabold leading-none tracking-normal text-stone-300 md:tracking-tight">Daftar Tugas</h1>
                         <button class="bg-violet-400 my-2 p-2 rounded-xl hover:bg-violet-300"><a href="{{ route('tugas.create') }}" class="text-md font-semibold p-2">Tambah tugas</a></button>
                         <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-stone-500">

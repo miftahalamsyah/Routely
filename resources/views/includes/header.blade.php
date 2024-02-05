@@ -11,7 +11,7 @@
                 <div class="relative inline-block text-left">
                     <div class="mr-2">
                         <button type="button" class="inline-flex w-full justify-center" id="menu-button" aria-expanded="true" aria-haspopup="true">
-                                <div class="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl text-stone-50 text-md font-semibold">
+                                <div class="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl text-stone-50 text-xs font-semibold border-2 border-stone-50 hover:shadow-md">
                                     {{ substr(Auth::user()->name, 0, 1) }}{{ substr(strrchr(Auth::user()->name, ' '), 1, 1) }}
                                 </div>
                         </button>

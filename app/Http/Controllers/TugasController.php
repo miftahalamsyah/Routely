@@ -19,10 +19,15 @@ class TugasController extends Controller
         // Logika untuk menampilkan daftar tugas
         $tugass = Tugas::all();
         $users = User::where('is_admin', 0)->paginate(10);
-        return view('dashboard.tugas.index',
-        [
+
+        $userCount = User::where('is_admin', 0)->count();
+
+        return view('dashboard.tugas.index', [
             "title" => "Tugas",
-        ], compact('tugass', 'users'));
+            "tugass" => $tugass,
+            "users" => $users,
+            "userCount" => $userCount,
+        ]);
     }
 
     public function create()
@@ -38,6 +43,9 @@ class TugasController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+        $pertemuan_id = $request->pertemuan_id;
+        $name = $request->name;
+
         $this->validate($request, [
             'pertemuan_id' => 'required',
             'name'     => 'required',
@@ -46,12 +54,11 @@ class TugasController extends Controller
         ]);
 
         $slug = Str::slug($request->name);
+        $fileName = null;
 
         if ($request->hasFile('tugas_file')) {
-            $fileName = time() . '.' . $request->tugas_file->extension();
+            $fileName = "Tugas_{$pertemuan_id}_{$name}_" . time() . '.' . $request->tugas_file->extension();
             $request->tugas_file->storeAs('public/tugas', $fileName);
-        } else {
-            $fileName = null; // Set it to null or any default value as needed.
         }
 
         // Logika untuk menyimpan tugas yang baru dibuat
@@ -111,6 +118,9 @@ class TugasController extends Controller
 
     public function update(Request $request, $id)
     {
+        $pertemuan_id = $request->pertemuan_id;
+        $name = $request->name;
+
         $this->validate($request, [
             'pertemuan_id' => 'required',
             'name'     => 'required',
@@ -122,10 +132,8 @@ class TugasController extends Controller
         $slug = Str::slug($request->name);
 
         if ($request->hasFile('tugas_file')) {
-            $fileName = time() . '.' . $request->tugas_file->extension();
+            $fileName = "Tugas_{$pertemuan_id}_{$name}_" . time() . '.' . $request->tugas_file->extension();
             $request->tugas_file->storeAs('public/tugas', $fileName);
-        } else {
-            $fileName = null; // Set it to null or any default value as needed.
         }
 
         // Logika untuk menyimpan tugas yang baru dibuat

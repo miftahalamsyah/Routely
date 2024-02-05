@@ -50,6 +50,7 @@ class StudentPertemuanController extends Controller
             $tugass[] = [
                 "name" => $tugas->name,
                 "slug" => $tugas->slug,
+                "tugas_file" => $tugas->tugas_file,
                 "description" => $tugas->description,
                 "submission_status" => $tugas->submission_status,
             ];
