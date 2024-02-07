@@ -28,7 +28,7 @@
                     <label for="Email" class="block text-sm font-medium text-gray-700">
                         Email
                     </label>
-                    <input type="email" id="input-email" name="email" class="my-2 p-2 shadow rounded-xl w-full" required>
+                    <input type="email" id="input-email" name="email" class="border-2 my-2 p-2 rounded-xl w-full" required>
                     @error('email')
                         <div class="text-red-500">{{ $message }}</div>
                     @enderror
@@ -38,7 +38,7 @@
                     <label for="Password" class="block text-sm font-medium text-gray-700">
                         Kata Sandi
                     </label>
-                    <input type="password" id="input-password" name="password" class="my-2 p-2 shadow rounded-xl w-full" required>
+                    <input type="password" id="input-password" name="password" class="border-2 my-2 p-2 rounded-xl w-full" required>
                     @error('password')
                         <div class="text-red-500">{{ $message }}</div>
                     @enderror

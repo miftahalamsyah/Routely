@@ -8,18 +8,7 @@
             <div class="col-md-12 py-5">
                 <div class="border-0">
                     <div class="rounded-2xl bg-stone-50 p-5 my-4 shadow-md">
-                        <div class="bg-stone-100 py-2 px-4 my-4 rounded-2xl border-2 hover:shadow">
-                            <p class="font-bold text-md">Deskripsi</p>
-                            <p class="text-md">{{ $description }}</p>
-                        </div>
-                        @if ($tugas_file)
-                        <div class="bg-stone-100 py-2 px-4  my-4 rounded-2xl border-2 hover:shadow">
-                            <p class="font-semibold text-md">File LKPD dapat diunduh dalam bentuk .pdf di bawah ini</p>
-                            <a href="{{ asset('storage/tugas/' . $tugas_file) }}" target="_blank" class="rounded-xl my-2 bg-violet-200 text-student px-4 py-2 inline-block hover:bg-violet-300">
-                                {{ $tugas_file }}
-                            </a>
-                        </div>
-                        @endif
+                        
                     </div>
 
                     <div class="rounded-2xl bg-stone-50 p-5 my-4 shadow-md">
@@ -46,7 +35,7 @@
                                 <a href="{{ asset('storage/topologi/' . $submission->topologi) }}" target="_blank" class="bg-stone-100 w-full px-4 py-2 border-2 rounded-2xl hover:bg-stone-200 focus:ring-violet-400 focus:border-violet-400">{{ $submission->topologi }}</a>
                             </div>
                             <div class="mb-4">
-                                <p class="mb-2 block text-md font-semibold text-stone-800">File Presentasi <span class="text-xs font-normal">(.pptx, .ppt, .pdf, .odp)</span></p>
+                                <p class="mb-2 block text-md font-semibold text-stone-800">File Tugas (Laporan) <span class="text-xs font-normal">(.pptx, .ppt, .pdf, .odp)</span></p>
                                 <a href="{{ asset('storage/powerpoint/' . $submission->powerpoint) }}" target="_blank" class="bg-stone-100 w-full px-4 py-2 border-2 rounded-2xl hover:bg-stone-200 focus:ring-violet-400 focus:border-violet-400">{{ $submission->powerpoint }}</a>
                             </div>
                             <div class="mb-4">
@@ -82,7 +71,7 @@
                                 </div>
 
                                 <div class="mb-4">
-                                    <label for="powerpoint" class="block text-md font-semibold text-stone-800">File Presentasi <span class="text-xs font-normal">(.pptx, .ppt, .pdf, .odp)</span></label></label>
+                                    <label for="powerpoint" class="block text-md font-semibold text-stone-800">File Tugas (Laporan) <span class="text-xs font-normal">(.pptx, .ppt, .pdf, .odp)</span></label></label>
                                     <input type="file" id="powerpoint" name="powerpoint" accept=".pptx,.ppt,.pdf,.odp" value="{{ old('powerpoint') }}"
                                         class="w-full px-4 py-2 border-2 rounded-2xl focus:ring-violet-400 focus:border-violet-400 @error('powerpoint') border-red-500 @enderror">
                                     @error('powerpoint')

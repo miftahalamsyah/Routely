@@ -23,7 +23,7 @@
                     <label for="FirstName" class="block text-sm font-medium text-gray-700">
                         Nama Lengkap
                     </label>
-                    <input type="text" id="input-name" name="name" class="my-2 p-2 shadow rounded-xl w-full" value="{{ old('name') }}" required>
+                    <input type="text" id="input-name" name="name" class="my-2 p-2 border-2 rounded-xl w-full" value="{{ old('name') }}" required>
                     @error('name')
                         <div class="text-red-500">{{ $message }}</div>
                     @enderror
@@ -33,7 +33,7 @@
                     <label for="Email" class="block text-sm font-medium text-gray-700">
                         Email
                     </label>
-                    <input type="email" id="input-email" name="email" class="my-2 p-2 shadow rounded-xl w-full" value="{{ old('email') }}" required>
+                    <input type="email" id="input-email" name="email" class="my-2 p-2 border-2 rounded-xl w-full" value="{{ old('email') }}" required>
                     @error('email')
                         <div class="text-red-500">{{ $message }}</div>
                     @enderror
@@ -43,7 +43,7 @@
                     <label for="Password" class="block text-sm font-medium text-gray-700">
                         Kata Sandi
                     </label>
-                    <input type="password" id="input-password" name="password" class="my-2 p-2 shadow rounded-xl w-full" value="{{ old('password') }}" required>
+                    <input type="password" id="input-password" name="password" class="my-2 p-2 border-2 rounded-xl w-full" value="{{ old('password') }}" required>
                     @error('password')
                         <div class="text-red-500">{{ $message }}</div>
                     @enderror
@@ -53,13 +53,13 @@
                     <label for="PasswordConfirmation" class="block text-sm font-medium text-gray-700">
                         Konfirmasi Kata Sandi
                     </label>
-                    <input type="password" id="input-password_confirmation" name="password_confirmation" class="my-2 p-2 shadow rounded-xl w-full" value="{{ old('password_confirmation') }}" required>
+                    <input type="password" id="input-password_confirmation" name="password_confirmation" class="my-2 p-2 border-2 rounded-xl w-full" value="{{ old('password_confirmation') }}" required>
                     @error('password_confirmation')
                         <div class="text-red-500">{{ $message }}</div>
                     @enderror
                 </div>
 
-                <div class="form-actions mt-2 mb-6">
+                <div class="form-actions my-6">
                     <button type="submit" class="w-full relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-semibold text-stone-900 transition duration-300 ease-out border border-violet-300 rounded-xl shadow group">
                         <span class="absolute inset-0 flex items-center justify-center w-full h-full text-stone-900 duration-300 -translate-x-full bg-violet-300 group-hover:translate-x-0 ease">
                             <svg fill="#000000" width="20px" height="20px" viewBox="0 0 16 16" id="register-16px" xmlns="http://www.w3.org/2000/svg">
