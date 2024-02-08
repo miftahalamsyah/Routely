@@ -166,7 +166,7 @@
             </li>
 
             <li>
-                <a class="rounded-xl flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-stone-100 hover:bg-stone-700 {{ $title === 'Lencana' ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}" href="/dashboard/lencana">
+                <a class="rounded-xl flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-stone-100 hover:bg-stone-700 {{ in_array($title, ['Lencana', 'Tambah Lencana', 'Edit Lencana']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}" href="/dashboard/lencana">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M18.5 8.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M8.5 14v8l3.818-3 3.182 3v-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

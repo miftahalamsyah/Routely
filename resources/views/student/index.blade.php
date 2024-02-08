@@ -58,13 +58,13 @@
     <div class="p-4 mt-4  bg-student shadow-md rounded-2xl score-card">
         <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-stone-50 md:text-2xl">🏆 Nilai</p>
         <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 w-full mb-6">
-            <div class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-student-dark rounded-2xl score-card">
+            <div x-data="{ isOpenPretest: false }" class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-student-dark rounded-2xl score-card">
                 <div class="max-w-full h-16 px-3">
                     <div class="flex items-center justify-between">
                         <p class="mb-0 text-stone-50 font-semibold leading-normal text-sm">Nilai Pre-Test</p>
                         <!-- Button to toggle score visibility -->
                         <div class="relative group">
-                            <button class="toggle-score-button" aria-label="Toggle Score Visibility">
+                            <button @click="isOpenPretest = !isOpenPretest" class="toggle-score-button" aria-label="Toggle Score Visibility">
                                 <p class="text-stone-50 leading-normal text-xs hover:underline">Lihat</p>
                             </button>
                             <div class="tooltip hidden group-hover:block absolute bg-stone-600 text-stone-50 p-1 text-xs rounded-md shadow-md">
@@ -73,20 +73,19 @@
                         </div>
                     </div>
                     <!-- Score container initially hidden -->
-                    <div class="score-container hidden">
-                        <p class="mb-0 text-stone-50 font-extrabold text-3xl actual-score">{{ is_null($nilaiPretest) ? '-' : $nilaiPretest }}</p>
-                        <p class="mb-0 text-stone-50 font-extrabold text-3xl hidden-score">***</p>
+                    <div x-show="isOpenPretest">
+                        <p class="mb-0 text-stone-50 font-extrabold text-3xl">{{ is_null($nilaiPretest) ? '-' : $nilaiPretest }}</p>
                     </div>
                 </div>
             </div>
 
-            <div class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-student-dark rounded-2xl score-card">
+            <div x-data="{ isOpenTugas: false }" class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-student-dark rounded-2xl score-card">
                 <div class="max-w-full h-16 px-3">
                     <div class="flex items-center justify-between">
                         <p class="mb-0 text-stone-50 font-semibold leading-normal text-sm">Nilai Tugas</p>
                         <!-- Button to toggle score visibility -->
                         <div class="relative group">
-                            <button class="toggle-score-button" aria-label="Toggle Score Visibility">
+                            <button @click="isOpenTugas = !isOpenTugas" class="toggle-score-button" aria-label="Toggle Score Visibility">
                                 <p class="text-stone-50 leading-normal text-xs hover:underline">Lihat</p>
                             </button>
                             <div class="tooltip hidden group-hover:block absolute bg-stone-600 text-stone-50 p-1 text-xs rounded-md shadow-md">
@@ -95,7 +94,7 @@
                         </div>
                     </div>
                     <!-- Score container initially hidden -->
-                    <div class="score-container hidden">
+                    <div x-show="isOpenTugas">
                         <div class="grid grid-cols-4 w-full mb-0 text-stone-50 font-extrabold text-3xl actual-score flex-shrink-0 overflow-x-auto">
                             @foreach($nilaiTugasRecords as $record)
                             <div class="flex flex-col">
@@ -104,19 +103,17 @@
                             </div>
                             @endforeach
                         </div>
-                        <p class="mb-0 text-stone-50 font-extrabold text-3xl hidden-score">***</p>
                     </div>
                 </div>
             </div>
 
-
-            <div class="flex-auto p-4 bg-student-dark rounded-2xl score-card">
+            <div x-data="{ isOpenPosttest: false }" class="flex-auto p-4 bg-student-dark rounded-2xl score-card">
                 <div class="max-w-full h-16 gap-4">
                     <div class="flex items-center justify-between">
                         <p class="mb-0 text-stone-50 font-semibold leading-normal text-sm">Nilai Post-Test</p>
                         <!-- Button to toggle score visibility -->
                         <div class="relative group">
-                            <button class="toggle-score-button" aria-label="Toggle Score Visibility">
+                            <button @click="isOpenPosttest = !isOpenPosttest" class="toggle-score-button" aria-label="Toggle Score Visibility">
                                 <p class="text-stone-50 leading-normal text-xs hover:underline">Lihat</p>
                             </button>
                             <div class="tooltip hidden group-hover:block absolute bg-stone-600 text-stone-50 p-1 text-xs rounded-md shadow-md">
@@ -125,9 +122,8 @@
                         </div>
                     </div>
                     <!-- Score container initially hidden -->
-                    <div class="score-container hidden">
+                    <div x-show="isOpenPosttest">
                         <p class="mb-0 text-stone-50 font-extrabold text-3xl actual-score">{{ is_null($nilaiPosttest) ? '-' : $nilaiPosttest }}</p>
-                        <p class="mb-0 text-stone-50 font-extrabold text-3xl hidden-score">***</p>
                     </div>
                 </div>
             </div>
@@ -313,30 +309,6 @@
     </div>
 </section>
 <script>
-    const toggleScoreButtons = document.querySelectorAll('.toggle-score-button');
-
-    toggleScoreButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const scoreCard = button.closest('.score-card');
-            const scoreContainer = scoreCard.querySelector('.score-container');
-            const actualScore = scoreContainer.querySelector('.actual-score');
-            const hiddenScore = scoreContainer.querySelector('.hidden-score');
-
-            scoreContainer.classList.toggle('hidden');
-
-            if (!scoreContainer.classList.contains('hidden')) {
-                // If score is visible, hide the default score and show the actual score
-                actualScore.classList.remove('hidden');
-                hiddenScore.classList.add('hidden');
-            } else {
-                // If score is hidden, hide the actual score and show the default score
-                actualScore.classList.add('hidden');
-                hiddenScore.classList.remove('hidden');
-            }
-        });
-    });
-
-
     // Get the current hour (0-23) from the user's system clock
      const currentHour = new Date().getHours();
 

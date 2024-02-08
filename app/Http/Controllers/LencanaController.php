@@ -48,6 +48,49 @@ class LencanaController extends Controller
         return redirect()->route('lencana.index')->with('status', 'Lencana created successfully!');
     }
 
+    public function edit($id)
+    {
+        $lencana = Lencana::find($id);
+
+        if (!$lencana) {
+            return redirect()->route('lencana.index')->with('error', 'Lencana not found');
+        }
+
+        return view('dashboard.lencana.edit', [
+            'title' => 'Edit Lencana',
+            'lencana' => $lencana,
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $lencana = Lencana::find($id);
+
+        if (!$lencana) {
+            return redirect()->route('lencana.index')->with('error', 'Lencana not found');
+        }
+
+        $request->validate([
+            'nama_lencana' => 'required|min:5',
+            'gambar_lencana' => 'nullable|image|max:2048'
+        ]);
+
+        if ($request->hasFile('gambar_lencana')) {
+            $lencanaName = time() . '.' . $request->gambar_lencana->extension();
+            $request->gambar_lencana->storeAs('public/lencana', $lencanaName);
+        } else {
+            $lencanaName = null; // Set it to null or any default value as needed.
+        }
+
+        $lencana->update([
+            'nama_lencana' => $request->nama_lencana,
+            'gambar_lencana' => $lencanaName,
+        ]);
+
+        return redirect()->route('lencana.index')->with('status', 'Lencana updated successfully!');
+    }
+
+
     public function destroy($id): RedirectResponse
     {
         $lencana = Lencana::findOrFail($id);

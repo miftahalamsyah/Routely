@@ -16,15 +16,15 @@
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" media="print" onload="this.onload=null;this.removeAttribute('media');" as="style">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" media="print" onload="this.onload=null;this.removeAttribute('media');" as="style">
         <noscript>
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito&display=swap">
         </noscript>
         <title>{{ $title }} | Routely</title>
     </head>
-    <body class="">
+    <body class="text-stone-700">
         @include('sweetalert::alert')
-        <div id="sidebar-grey" class="hidden transition-all duration-300 transform fixed top-0 left-0 right-0 bottom-0 bg-stone-800 opacity-50 z-40 pointer-events-none"></div>
+        <div id="sidebar-grey" class="hidden transition-all duration-300 transform fixed top-0 left-0 right-0 bottom-0 bg-stone-700 opacity-50 z-40 pointer-events-none"></div>
         {{-- Sidebar --}}
         <div id="logo-sidebar" class="transition-all duration-300 transform fixed top-5 left-5 bottom-5 z-40 w-24 bg-stone-50 border-r pt-7 pb-10 rounded-3xl shadow-md hidden md:block">
             {{-- logo --}}
@@ -130,7 +130,7 @@
                 <nav class="flex basis-full items-center mx-auto px-4 lg:px-12 py-3" aria-label="Global">
                     <div class="flex">
                         <!-- Navigation Toggle -->
-                        <button id="sidebar-toggle" class="text-stone-900 hover:text-gray-800 focus:outline-none focus:text-stone-800 hidden" aria-label="Toggle sidebar">
+                        <button id="sidebar-toggle" class="text-stone-900 hover:text-gray-800 focus:outline-none focus:text-stone-700 hidden" aria-label="Toggle sidebar">
                             <span class="sr-only">Toggle Navigation</span>
                             <svg class="w-5 h-5" width="16" height="16" fill="#111111" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
@@ -174,12 +174,12 @@
 
                             <div x-data="{ open: false }" class="md:order-2 z-10 dropdown inline-block relative">
                                 @auth
-                                    <button @click="open = !open" type="button" class="shadow inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium align-middle transition-all text-xs" aria-expanded="true" aria-haspopup="true">
+                                    <button @click="open = !open" type="button" class="shadow inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium align-middle transition-all text-xs">
                                         <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl text-stone-50 border-2 border-stone-50 text-md font-semibold">
                                             {{ substr(Auth::user()->name, 0, 1) }}{{ substr(strrchr(Auth::user()->name, ' '), 1, 1) }}
                                         </div>
                                     </button>
-                                    <ul x-show="open" @click.away="open = false" class="dropdown-menu absolute mr-40 bg-stone-50 mt-1 rounded-2xl hidden text-gray-700 w-40 right-0 transform translate-x-full">
+                                    <ul x-show="open"@click.away="open = false" class="dropdown-menu absolute mr-40 bg-stone-50 mt-1 rounded-2xl hidden text-gray-700 w-40 right-0 transform translate-x-full">
                                         <li class="text-xs rounded-2xl shadow-md">
                                             <a href="/student" class="text-gray-700 block px-4 py-2 text-sm rounded-t-2xl hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-0">Dashboard</a>
                                             <a href="/student/profile" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-0">Profil</a>
@@ -240,7 +240,7 @@ body {
 } */
 
 body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 .animate-up {
