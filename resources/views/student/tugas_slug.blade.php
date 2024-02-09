@@ -2,14 +2,11 @@
 
 @section('content')
 
-<section class="w-full justify-center mx-auto px-4 lg:px-12">
+<section class="w-full justify-center mx-auto px-4 lg:px-12 text-stone-700">
     <div class="rounded-xl">
         <div class="row">
             <div class="col-md-12 py-5">
                 <div class="border-0">
-                    <div class="rounded-2xl bg-stone-50 p-5 my-4 shadow-md">
-                        
-                    </div>
 
                     <div class="rounded-2xl bg-stone-50 p-5 my-4 shadow-md">
                         <div class="bg-stone-100 py-2 px-4 my-4 rounded-2xl border-2 hover:shadow">
@@ -94,6 +91,76 @@
                             </form>
                         </div>
                     @endif
+
+                    <div class="mt-12 flex items-center">
+                        <hr class="border-t border-student flex-grow mr-2">
+                        <p class="font-bold text-lg">Hasil Tugas Kelompok Lain</p>
+                        <hr class="border-t border-student flex-grow ml-2">
+                    </div>
+
+                    <div class="rounded-2xl bg-stone-50 p-5 my-4 shadow-md">
+                        <div class="row col-md-12 border-0 overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3">
+                                            Kelompok
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Nama Siswa
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            File Laporan
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200">
+                                    @php
+                                        $seenNoKelompok = [];
+                                    @endphp
+
+                                    @forelse ($hasilTugasSiswas as $hasilTugas)
+                                        @php
+                                            $noKelompok = \DB::table('kelompoks')
+                                                ->where('user_id', $hasilTugas->user_id)
+                                                ->pluck('no_kelompok')
+                                                ->first();
+
+                                            // Check if the no_kelompok has been seen before
+                                            if (!in_array($noKelompok, $seenNoKelompok)) {
+                                                // If not, add it to the seen array and display the row
+                                                $seenNoKelompok[] = $noKelompok;
+                                        @endphp
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                        {{ $noKelompok }}
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap max-w-[150px] overflow-hidden overflow-ellipsis">
+                                                        {{ $hasilTugas->user->name }}
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap max-w-[150px] overflow-hidden overflow-ellipsis hover:bg-stone-100">
+                                                        <a href="{{ asset('storage/powerpoint/' . $hasilTugas->powerpoint) }}" target="_blank">
+                                                            {{ $hasilTugas->powerpoint }}
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                        @php
+                                            }
+                                        @endphp
+                                    @empty
+                                        <tr>
+                                            <td colspan="7" class="px-6 py-4 whitespace-nowrap text-center">
+                                                <div class="mx-auto bg-stone-100 text-gray-600 p-2 rounded-xl">
+                                                    Belum tidak tersedia.
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="italic text-xs text-right mt-4">*hanya menampilkan satu siswa per satu kelompok</p>
+                    </div>
                 </div>
             </div>
         </div>

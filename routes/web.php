@@ -12,6 +12,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\NilaiTugasController;
+use App\Http\Controllers\StudentPengajuanMasalahController;
 use App\Http\Controllers\PertemuanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilPublikController;
@@ -113,6 +114,8 @@ Route::get('/student/search', [SearchController::class, 'search'])->name('studen
 
 Route::get('/student/problem-posing', [StudentDashboardController::class, 'problemPosing'])->name('student.problem-posing')->middleware('auth');
 Route::get('/student/berpikir-komputasi', [StudentDashboardController::class, 'berpikirKomputasi'])->name('student.berpikir-komputasi')->middleware('auth');
+
+Route::get('/student/pengajuan-masalah', [StudentPengajuanMasalahController::class, 'index'])->name('student.pengajuan-masalah')->middleware('auth');
 
 Route::get('/student/kelompok', [StudentKelompokController::class, 'index'])->name('student.kelompok')->middleware('auth');
 Route::get('/student/profile', [ProfileController::class, 'index'])->name('student.profile.index')->middleware('auth');

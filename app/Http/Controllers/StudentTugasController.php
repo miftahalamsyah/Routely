@@ -48,6 +48,9 @@ class StudentTugasController extends Controller
         ->where('tugas_id', $tugas->id)
         ->first();
 
+        $hasilTugasSiswas = HasilTugasSiswa::where('tugas_id', $tugas->id)
+            ->get();
+
         return view('student.tugas_slug',
         [
             "pertemuan" => $tugas,
@@ -59,6 +62,7 @@ class StudentTugasController extends Controller
             "submission" => $submission,
             "nilaiTugas" => $nilaiTugas,
             "tugas" => $tugas,
+            "hasilTugasSiswas" => $hasilTugasSiswas
         ],compact('tugas'));
     }
 
