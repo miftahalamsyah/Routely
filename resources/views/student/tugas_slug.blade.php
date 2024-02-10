@@ -150,8 +150,8 @@
                                     @empty
                                         <tr>
                                             <td colspan="7" class="px-6 py-4 whitespace-nowrap text-center">
-                                                <div class="mx-auto bg-stone-100 text-gray-600 p-2 rounded-xl">
-                                                    Belum tidak tersedia.
+                                                <div class="italic mx-auto bg-stone-100 text-gray-600 p-2 rounded-xl font-thin">
+                                                    Belum tersedia.
                                                 </div>
                                             </td>
                                         </tr>

@@ -12,12 +12,23 @@
 
                         <input type="hidden" name="user_id" value="{{ auth()->id() }}">
                         <input type="hidden" name="kategori_tes_id" value="{{ $kategori_tes->id }}">
+                        <div class="flex justify-between">
+                            <p></p>
+                            <button type="submit" class="bg-student py-2 px-5 font-semibold text-gray-50 rounded-2xl hover:bg-student-dark shadow-md">Kirim Jawaban</button>
+                        </div>
 
-                        @foreach ($soal_tes as $index=>$soal)
-                            <div class="mb-8 bg-gray-50 rounded-2xl w-full p-5 border-2 border-gray-200">
-                                <div class="flex justify-between items-center">
-                                    <p class="font-semibold text-md text-student">No. {{ $index + 1 }}</p>
-                                    <p class="font-semibold text-xs text-gray-300">{{ $soal->indikator }}</p>
+                        <div id="questionNumbers" class="flex my-4 space-x-2 justify-center">
+                            @foreach ($soal_tes as $index => $soal)
+                                <div class="question-number bg-stone-50 rounded-2xl py-1 px-3 text-center" data-index="{{ $index }}">{{ $index + 1 }}</div>
+                            @endforeach
+                        </div>
+
+
+                        @foreach ($soal_tes as $index => $soal)
+                            <div class="my-2 bg-gray-50 rounded-2xl w-full p-5 border-2 border-gray-200 question">
+                                <div class="flex">
+                                    <p class="font-semibold text-md text-student mr-2">No. {{ $index + 1 }}</p>
+                                    <p class="font-semibold text-md text-gray-400">- {{ $soal->indikator }}</p>
                                 </div>
                                 <p class="text-gray-800 text-md my-2">{{ $soal->pertanyaan }}</p>
                                 @if ($soal->gambar)
@@ -36,31 +47,111 @@
                                     @endforeach
                                 </div>
                             </div>
+                            <!-- Add these buttons within your form -->
                         @endforeach
-
-                        <button type="submit" class="bg-student py-2 px-5 font-semibold text-gray-50 rounded-2xl hover:bg-student-dark shadow-md">Kirim Jawaban</button>
+                        <div class="my-2 justify-center flex">
+                            <button type="button" id="previousBtn" class="bg-stone-50 py-2 px-4 rounded-2xl border-2 hover:bg-stone-100">Kembali</button>
+                            <button type="button" id="nextBtn" class="bg-stone-50 py-2 px-4 rounded-2xl border-2 hover:bg-stone-100">Lanjut</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Check if there's any progress in local storage
+    document.addEventListener("DOMContentLoaded", function () {
         let savedProgress = localStorage.getItem('soalTesProgress');
 
         if (savedProgress) {
-            // Show a warning if there's unsaved progress
-            window.onbeforeunload = function() {
-                return "You have unsaved progress. Are you sure you want to leave?";
+            window.onbeforeunload = function () {
+                return "Apakah anda yakin?";
             };
         }
 
-        // Save progress when the user leaves the page
-        window.addEventListener('beforeunload', function() {
-            localStorage.setItem('soalTesProgress', 'your_progress_data_here');
+        window.addEventListener('beforeunload', function () {
+            localStorage.setItem('soalTesProgress', 'option');
         });
+
+        let currentQuestion = 0;
+
+        function showQuestion(index) {
+            document.querySelectorAll('.question').forEach((question, i) => {
+                question.style.display = i === index ? 'block' : 'none';
+            });
+            currentQuestion = index;
+
+            // Enable/disable previous and next buttons based on the current question
+            previousBtn.disabled = currentQuestion === 0;
+            nextBtn.disabled = currentQuestion === {{ count($soal_tes) }} - 1;
+
+            // Change the font color based on the button state
+            previousBtn.classList.toggle('text-stone-300', previousBtn.disabled);
+            nextBtn.classList.toggle('text-stone-300', nextBtn.disabled);
+
+            // Update question numbers styles
+            updateQuestionNumbers(index, answeredCount);
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                showQuestion(currentQuestion - 1);
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < {{ count($soal_tes) }} - 1) {
+                showQuestion(currentQuestion + 1);
+            }
+        }
+
+        function updateQuestionNumberColor(index, color) {
+            document.querySelector(`.question-number:nth-child(${index + 1})`).classList.remove('bg-stone-50');
+            document.querySelector(`.question-number:nth-child(${index + 1})`).classList.add(color);
+        }
+
+        function showSoal(index) {
+            document.querySelectorAll('.soal').forEach((soal, i) => {
+                soal.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        document.getElementById('previousBtn').addEventListener('click', function() {
+            previousQuestion();
+            updateQuestionNumberColor(currentQuestion, 'bg-stone-50');
+            showSoal(currentQuestion);
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', function() {
+            nextQuestion();
+            updateQuestionNumberColor(currentQuestion, 'bg-stone-50');
+            showSoal(currentQuestion);
+        });
+
+        document.querySelectorAll('.question-number').forEach((questionNumber, index) => {
+            questionNumber.addEventListener('click', function() {
+                showQuestion(index);
+                showSoal(index);
+                updateQuestionNumberColor(currentQuestion, 'bg-stone-50');
+            });
+        });
+
+        document.querySelectorAll('input[type="radio"]').forEach((radio) => {
+            radio.addEventListener('change', function() {
+                updateQuestionNumberColor(currentQuestion, 'bg-stone-50');
+                let option = this.value;
+                if (option) {
+                    document.querySelector(`.question-number:nth-child(${currentQuestion + 1})`).classList.remove('bg-stone-50');
+                    document.querySelector(`.question-number:nth-child(${currentQuestion + 1})`).classList.add('bg-student', 'text-stone-50');
+                }
+                const value = this.value;
+                localStorage.setItem('selectedOption', value);
+            });
+        });
+
+        showQuestion(currentQuestion);
     });
 </script>
+
 @endsection

@@ -25,7 +25,7 @@
         @include('includes.header')
     </header>
 
-    <main id="main-content" class="max-w-5xl justify-center mx-auto mt-12 transition-margin ease-in-out duration-300">
+    <main id="main-content" class="max-w-5xl justify-center mx-auto pt-5 transition-margin ease-in-out duration-300">
         <div id="loading-bar" class="loading-bar bg-gradient-to-r from-orange-500 via-purple-500 to-violet-700 z-30"></div>
         <div class="content-container">
             @yield('content')
