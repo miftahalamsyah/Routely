@@ -116,6 +116,8 @@ Route::get('/student/problem-posing', [StudentDashboardController::class, 'probl
 Route::get('/student/berpikir-komputasi', [StudentDashboardController::class, 'berpikirKomputasi'])->name('student.berpikir-komputasi')->middleware('auth');
 
 Route::get('/student/pengajuan-masalah', [StudentPengajuanMasalahController::class, 'index'])->name('student.pengajuan-masalah')->middleware('auth');
+Route::post('/student/pengajuan-masalah', [StudentPengajuanMasalahController::class, 'store'])->name('student.pengajuan-masalah.store')->middleware('auth');
+Route::delete('/student/pengajuan-masalah/{id}', [StudentPengajuanMasalahController::class, 'destroy'])->name('student.pengajuan-masalah.destroy')->middleware('auth');
 
 Route::get('/student/kelompok', [StudentKelompokController::class, 'index'])->name('student.kelompok')->middleware('auth');
 Route::get('/student/profile', [ProfileController::class, 'index'])->name('student.profile.index')->middleware('auth');

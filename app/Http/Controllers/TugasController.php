@@ -57,7 +57,7 @@ class TugasController extends Controller
         $fileName = null;
 
         if ($request->hasFile('tugas_file')) {
-            $fileName = "Tugas_{$pertemuan_id}_{$name}_" . time() . '.' . $request->tugas_file->extension();
+            $fileName = "Tugas_P{$pertemuan_id}_{$name}_" . time() . '.' . $request->tugas_file->extension();
             $request->tugas_file->storeAs('public/tugas', $fileName);
         }
 
@@ -132,7 +132,7 @@ class TugasController extends Controller
         $slug = Str::slug($request->name);
 
         if ($request->hasFile('tugas_file')) {
-            $fileName = "Tugas_{$pertemuan_id}_{$name}_" . time() . '.' . $request->tugas_file->extension();
+            $fileName = "Tugas_P{$pertemuan_id}_{$name}_" . time() . '.' . $request->tugas_file->extension();
             $request->tugas_file->storeAs('public/tugas', $fileName);
         }
 

@@ -112,6 +112,9 @@
                                         <th scope="col" class="px-6 py-3">
                                             File Laporan
                                         </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Aksi
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-200">
@@ -141,6 +144,11 @@
                                                     <td class="px-6 py-4 whitespace-nowrap max-w-[150px] overflow-hidden overflow-ellipsis hover:bg-stone-100">
                                                         <a href="{{ asset('storage/powerpoint/' . $hasilTugas->powerpoint) }}" target="_blank">
                                                             {{ $hasilTugas->powerpoint }}
+                                                        </a>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap justify-center text-sm font-medium flex text-center">
+                                                        <a href="{{ asset('storage/powerpoint/' . $hasilTugas->powerpoint) }}" download="{{ $hasilTugas->powerpoint }}" class="py-0 text-stone-700 hover:text-violet-500">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 1200 1200" xml:space="preserve"><path d="M600 0C268.63 0 0 268.63 0 600s268.63 600 600 600c331.369 0 600-268.631 600-600C1200 268.63 931.369 0 600 0zm0 1069.565c-259.37 0-469.565-210.261-469.565-469.565S340.63 130.435 600 130.435c259.369 0 469.565 210.261 469.565 469.565S859.369 1069.565 600 1069.565zm117.392-720.652H482.608v266.739H335.87L600 864.13l264.13-248.478H717.391l.001-266.739z"/></svg>
                                                         </a>
                                                     </td>
                                                 </tr>

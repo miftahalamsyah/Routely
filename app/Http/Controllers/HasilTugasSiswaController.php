@@ -25,12 +25,12 @@ class HasilTugasSiswaController extends Controller
         $powerpointFileName = null;
 
         if ($request->hasFile('topologi')) {
-            $topologiFileName = "Topologi_{$user_id}_{$tugas_id}_" . time() . '.' . $request->topologi->extension();
+            $topologiFileName = "Topologi_S{$user_id}_T{$tugas_id}_" . time() . '.' . $request->topologi->extension();
             $request->topologi->storeAs('public/topologi', $topologiFileName);
         }
 
         if ($request->hasFile('powerpoint')) {
-            $powerpointFileName = "Presentasi_{$user_id}_{$tugas_id}_" . time() . '.' . $request->powerpoint->extension();
+            $powerpointFileName = "Presentasi_S{$user_id}_T{$tugas_id}_" . time() . '.' . $request->powerpoint->extension();
             $request->powerpoint->storeAs('public/powerpoint', $powerpointFileName);
         }
 

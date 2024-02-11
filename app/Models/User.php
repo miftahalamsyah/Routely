@@ -69,6 +69,7 @@ class User extends Authenticatable
     public function kelompok(): BelongsTo
     {
         return $this->belongsTo(Kelompok::class, 'kelompok_id');
+        return $this->belongsTo(Kelompok::class, 'user_id');
     }
 
     public function nilai()
@@ -85,6 +86,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Absensi::class);
     }
+
+    public function pengajuanMasalahUser()
+    {
+        return $this->hasMany(PengajuanMasalah::class, 'user_id');
+    }
+
+    public function nilaiTugas()
+    {
+        return $this->hasMany(NilaiTugas::class, 'user_id');
+    }
+
 
     protected static function boot()
     {

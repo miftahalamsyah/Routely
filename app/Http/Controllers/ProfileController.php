@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Nilai;
+use App\Models\NilaiTugas;
 use App\Models\Lencana;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -27,6 +28,10 @@ class ProfileController extends Controller
                     ->orderBy('updated_at', 'asc')
                     ->get();
         $nilais = Nilai::whereHas('user', function ($query) {
+            $query->where('is_admin', 0);
+        })->get();
+
+        $nilaiTugas = NilaiTugas::whereHas('user', function ($query) {
             $query->where('is_admin', 0);
         })->get();
 

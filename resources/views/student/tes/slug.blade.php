@@ -14,7 +14,7 @@
                         <input type="hidden" name="kategori_tes_id" value="{{ $kategori_tes->id }}">
                         <div class="flex justify-between">
                             <p></p>
-                            <button type="submit" class="bg-student py-2 px-5 font-semibold text-gray-50 rounded-2xl hover:bg-student-dark shadow-md">Kirim Jawaban</button>
+                            <button type="submit" id="submitBtn" class="bg-student py-2 px-5 font-semibold text-gray-50 rounded-full hover:bg-student-dark shadow-md">Selesaikan Tes</button>
                         </div>
 
                         <div id="questionNumbers" class="flex my-4 space-x-2 justify-center">
@@ -38,7 +38,7 @@
                                 @endif
 
                                 {{-- Opsi jawaban a, b, c, d, e --}}
-                                <div class="grid grid-cols-2 gap-4">
+                                <div class="grid grid-cols-1 gap-4">
                                     @foreach(['a', 'b', 'c', 'd', 'e'] as $option)
                                         <div class="flex items-center text-sm">
                                             <input type="radio" id="{{ $index }}_{{ $option }}" name="jawaban[{{ $index }}]" value="{{ $option }}">
@@ -62,16 +62,24 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        let savedProgress = localStorage.getItem('soalTesProgress');
+        const submitBtn = document.getElementById('submitBtn');
+        const form = document.querySelector('form');
+        let isSubmitConfirmed = false;
 
-        if (savedProgress) {
-            window.onbeforeunload = function () {
-                return "Apakah anda yakin?";
-            };
-        }
+        submitBtn.addEventListener('click', function () {
+            const userConfirmed = window.confirm('Apakah Anda yakin ingin selesaikan tes?');
 
-        window.addEventListener('beforeunload', function () {
-            localStorage.setItem('soalTesProgress', 'option');
+            if (userConfirmed) {
+                isSubmitConfirmed = true; // Set a flag to indicate confirmation
+                form.submit(); // Trigger the form submission
+            }
+        });
+
+        window.addEventListener('beforeunload', function (event) {
+            if (!isSubmitConfirmed) {
+                localStorage.setItem('soalTesProgress', 'option');
+                event.returnValue = 'You have unsaved changes. Are you sure you want to leave?';
+            }
         });
 
         let currentQuestion = 0;

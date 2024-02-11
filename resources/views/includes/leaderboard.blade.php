@@ -9,7 +9,7 @@
                     <tr>
                         <th class="py-2 px-4">#</th>
                         <th class="py-2 px-4">Nama</th>
-                        <th class="py-2 px-4 font-semibold">Total Score</th>
+                        <th class="py-2 px-4 font-semibold">Total Skor</th>
                     </tr>
                 </thead>
                 <tbody class="text-stone-700 text-left">

@@ -56,16 +56,18 @@ class MateriController extends Controller
             'thumbnail_image' => 'nullable|image|max:2048'
         ]);
 
+        $materiTitle = $request->title;
         $slug = Str::slug($request->title);
+
         if ($request->hasFile('pdf_file')) {
-            $fileName = time() . '.' . $request->pdf_file->extension();
+            $fileName = "Materi_{$materiTitle}_" . time() . '.' . $request->pdf_file->extension();
             $request->pdf_file->storeAs('public/pdfs', $fileName);
         } else {
             $fileName = null; // Set it to null or any default value as needed.
         }
 
         if ($request->hasFile('thumbnail_image')) {
-            $thumbnailName = time() . '.' . $request->thumbnail_image->extension();
+            $thumbnailName = "Foto_{$materiTitle}_" . time() . '.' . $request->thumbnail_image->extension();
             $request->thumbnail_image->storeAs('public/thumbnails', $thumbnailName);
         } else {
             $thumbnailName = null; // Set it to null or any default value as needed.
@@ -133,9 +135,9 @@ class MateriController extends Controller
         ]);
 
         $materiTitle = $request->title;
-
         $materi = Materi::findOrFail($id);
         $slug = Str::slug($request->title);
+
         if ($request->hasFile('pdf_file')) {
             $fileName = "Materi_{$materiTitle}_" . time() . '.' . $request->pdf_file->extension();
             $request->pdf_file->storeAs('public/pdfs', $fileName);
