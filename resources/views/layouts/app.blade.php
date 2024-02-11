@@ -10,6 +10,7 @@
     {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="{{ asset('js/loading-bar.js') }}" async></script>
+    <script src="{{ asset('js/progress-bar.js')}}" async></script>
     <link rel="manifest" href="{{ asset('manifest.json') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,12 +21,12 @@
 
     <title>{{ $title }} | Routely</title>
 </head>
-<body>
+<body class="justify-center mx-auto bg-stone-100 ">
     <header>
         @include('includes.header')
     </header>
 
-    <main id="main-content" class="max-w-5xl justify-center mx-auto pt-5 transition-margin ease-in-out duration-300">
+    <main id="main-content" class="justify-center mx-auto pt-5 transition-margin ease-in-out duration-300">
         <div id="loading-bar" class="loading-bar bg-gradient-to-r from-orange-500 via-purple-500 to-violet-700 z-30"></div>
         <div class="content-container">
             @yield('content')
@@ -42,7 +43,7 @@
 <style>
 :root {
     /* bg-gray-50 */
-    background: linear-gradient(#f2f1f4, #f2f1f4, #fafaf9);
+    /* background: linear-gradient(#f2f1f4, #f2f1f4, #fafaf9); */
 }
 
 

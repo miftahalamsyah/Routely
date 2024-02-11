@@ -78,12 +78,15 @@
     color: #ffffff; /* White text for visibility on bronze background */
 }
 
-
 @font-face {
-    font-family: 'Athletics-Bold';
-    src: local('Athletics-Bold'), url('/resources/fonts/Athletics-Bold.woff2') format('woff2');
-
+    font-family: 'ClashDisplay-Medium';
+    src: local('ClashDisplay-Medium'), url('/resources/fonts/ClashDisplay-Medium.woff2') format('woff2');
     font-display: swap;
+    font-style: normal;
+}
+
+.clashdisplaymedium {
+    font-family: 'ClashDisplay-Medium', sans-serif;
 }
 
 

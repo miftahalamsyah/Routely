@@ -16,9 +16,9 @@ A brief description of what Routely does and who it's for
 
 ## Tech Stack
 
-**Client:** Blade, TailwindCSS
+**Client:** Blade, TailwindCSS, Alpine.js
 
-**Server:** Laravel, Php
+**Server:** Laravel, PHP
 
 
 ## Installation
