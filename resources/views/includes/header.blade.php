@@ -30,14 +30,14 @@
 
             @else
                 <a href="/login">
-                    <button class="mr-2 text-sm bg-violet-200 relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-semibold text-student transition duration-300 ease-out border rounded-3xl group border-b-4 border-r-4 border-stone-700">
-                        <span class="bg-violet-300 absolute inset-0 flex items-center justify-center w-full h-full text-student duration-300 -translate-x-full group-hover:translate-x-0 ease">
-                        <svg width="20px" height="20px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <rect width="16" height="16" id="icon-bound" fill="none" />
-                            <path d="M14,14l0,-12l-6,0l0,-2l8,0l0,16l-8,0l0,-2l6,0Zm-6.998,-0.998l4.998,-5.002l-5,-5l-1.416,1.416l2.588,2.584l-8.172,0l0,2l8.172,0l-2.586,2.586l1.416,1.416Z" />
-                        </svg>
+                    <button class="clashdisplaymedium mr-2 text-sm bg-violet-500 relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-semibold text-stone-50 transition duration-300 ease-out border rounded-2xl group border-b-4 border-r-4 border-stone-700">
+                        <span class="bg-violet-500 absolute inset-0 flex items-center justify-center w-full h-full text-stone-50 duration-300 -translate-x-full group-hover:translate-x-0 ease">
+                            <svg width="20px" height="20px" fill="currentColor" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <rect width="16" height="16" id="icon-bound" fill="none" />
+                                <path d="M14,14l0,-12l-6,0l0,-2l8,0l0,16l-8,0l0,-2l6,0Zm-6.998,-0.998l4.998,-5.002l-5,-5l-1.416,1.416l2.588,2.584l-8.172,0l0,2l8.172,0l-2.586,2.586l1.416,1.416Z" />
+                            </svg>
                         </span>
-                        <span class="absolute flex items-center justify-center w-full h-full text-student transition-all duration-300 transform group-hover:translate-x-full ease">Login</span>
+                        <span class="absolute flex items-center justify-center w-full h-full text-stone-50 transition-all duration-300 transform group-hover:translate-x-full ease">Login</span>
                         <span class="relative invisible">Login</span>
                     </button>
                 </a>

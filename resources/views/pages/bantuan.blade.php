@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="mt-20 max-w-6xl justify-center mx-auto px-5">
-    <div class="py-12 px-4 mx-auto text-center z-20 animate-up">
+    <div class="py-12 px-4 mx-auto text-center z-20">
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-stone-800 sm:text-4xl md:text-4xl lg:text-4xl xl:text-5xl">Pusat Bantuan</h1>
         <p class="mb-8 text-xl text-stone-800">Koleksi sumber bantuan</p>
     </div>
