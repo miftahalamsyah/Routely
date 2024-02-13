@@ -75,7 +75,7 @@
         </div>
 
         <div class="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
-            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/problem-posing">
+            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/problem-posing/#pengenalan">
                 <span class="inline-block rounded-lg bg-stone-50">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
@@ -89,7 +89,7 @@
                 </p>
             </a>
 
-            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/problem-posing">
+            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/problem-posing/#pemahaman">
                 <span class="inline-block rounded-lg bg-stone-50">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
@@ -103,7 +103,7 @@
                 </p>
             </a>
 
-            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/problem-posing">
+            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/problem-posing/#situasi-masalah">
                 <span class="inline-block rounded-lg bg-stone-50">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
@@ -117,7 +117,7 @@
                 </p>
             </a>
 
-            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/problem-posing">
+            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/problem-posing/#pengajuan-masalah">
                 <span class="inline-block rounded-lg bg-stone-50">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
@@ -131,7 +131,7 @@
                 </p>
             </a>
 
-            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/problem-posing">
+            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/problem-posing/#pemecahan-masalah">
                 <span class="inline-block rounded-lg bg-stone-50">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
@@ -145,7 +145,7 @@
                 </p>
             </a>
 
-            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/problem-posing">
+            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/problem-posing/#verifikasi">
                 <span class="inline-block rounded-lg bg-stone-50">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 14l9-5-9-5-9 5 9 5z"></path>

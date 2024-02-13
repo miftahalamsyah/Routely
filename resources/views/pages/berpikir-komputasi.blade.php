@@ -12,25 +12,28 @@
 <hr class="border-2 border-stone-800">
 
 <section class="py-1 justify-center mx-auto px-5 bg-stone-50">
-    <div class="w-full pt-12 max-w-5xl mx-auto bg-stone-50 grid grid-cols-4 text-center text-md text-stone-900 m-5">
-        <a href="#dekomposisi" class="border border-stone-700 p-2 hover:bg-stone-900 hover:text-stone-100 hover:underline">
-            Dekomposisi
-        </a>
-        <a href="#abstraksi" class="border border-stone-700 p-2 hover:bg-stone-900 hover:text-stone-100 hover:underline">
-            Abstraksi
-        </a>
-        <a href="#pengenalan-pola" class="border border-stone-700 p-2 hover:bg-stone-900 hover:text-stone-100 hover:underline">
-            Pengenalan Pola
-        </a>
-        <a href="#algoritma" class="border border-stone-700 p-2 hover:bg-stone-900 hover:text-stone-100 hover:underline">
-            Algoritma
-        </a>
+    <div class="overflow-x-auto w-full">
+        <div class="w-full pt-12 max-w-5xl mx-auto bg-stone-50 grid grid-cols-2 lg:grid-cols-4 text-center text-md text-stone-900 m-5">
+            <a href="#dekomposisi" class="border border-stone-700 p-2 hover:bg-stone-900 hover:text-stone-100 hover:underline">
+                Dekomposisi
+            </a>
+            <a href="#abstraksi" class="border border-stone-700 p-2 hover:bg-stone-900 hover:text-stone-100 hover:underline">
+                Abstraksi
+            </a>
+            <a href="#pengenalan-pola" class="border border-stone-700 p-2 hover:bg-stone-900 hover:text-stone-100 hover:underline">
+                Pengenalan Pola
+            </a>
+            <a href="#algoritma" class="border border-stone-700 p-2 hover:bg-stone-900 hover:text-stone-100 hover:underline">
+                Algoritma
+            </a>
+        </div>
     </div>
 
     <div class="max-w-5xl mx-auto justify-center">
         <div id="dekomposisi" class="w-full mx-auto p-5 pt-24">
             <div class="flex justify-between w-full">
-                <h2 class="clashdisplaymedium px-2 text-2xl sm:text-2xl md:text-2xl lg:text-4xl bg-violet-300">01 - Dekomposisi</h2>
+                {{-- rotate to the left 10 degrees --}}
+                <h2 class="clashdisplaymedium px-2 rotate-2 text-2xl sm:text-2xl md:text-2xl lg:text-4xl bg-violet-300">01 - Dekomposisi</h2>
                 <hr/>
             </div>
 
@@ -51,7 +54,7 @@
 
         <div id="abstraksi" class="w-full mx-auto p-5 pt-24">
             <div class="flex justify-between w-full">
-                <h2 class="clashdisplaymedium px-2 text-2xl sm:text-2xl md:text-2xl lg:text-4xl bg-violet-300">02 - Abstraksi</h2>
+                <h2 class="clashdisplaymedium px-2 -rotate-1 text-2xl sm:text-2xl md:text-2xl lg:text-4xl bg-violet-300">02 - Abstraksi</h2>
                 <hr/>
             </div>
 
@@ -71,7 +74,7 @@
 
         <div id="pengenalan-pola" class="w-full mx-auto p-5 pt-24">
             <div class="flex justify-between w-full">
-                <h2 class="clashdisplaymedium px-2 text-2xl sm:text-2xl md:text-2xl lg:text-4xl bg-violet-300">03 - Pengenalan Pola</h2>
+                <h2 class="clashdisplaymedium px-2 rotate-1 text-2xl sm:text-2xl md:text-2xl lg:text-4xl bg-violet-300">03 - Pengenalan Pola</h2>
                 <hr/>
             </div>
 
@@ -87,7 +90,7 @@
 
         <div id="algoritma" class="w-full mx-auto p-5 py-24">
             <div class="flex justify-between w-full">
-                <h2 class="clashdisplaymedium px-2 text-2xl sm:text-2xl md:text-2xl lg:text-4xl bg-violet-300">04 - Algoritma</h2>
+                <h2 class="clashdisplaymedium px-2 -rotate-2 text-2xl sm:text-2xl md:text-2xl lg:text-4xl bg-violet-300">04 - Algoritma</h2>
                 <hr/>
             </div>
 
@@ -104,7 +107,7 @@
 
 </section>
 
-<hr class="border-2 border-stone-800">
+<hr class="border-2 border-lime-300">
 
 <script>
     function toggleContent(sectionId) {

@@ -3,6 +3,12 @@
 @section('content')
 
 <section class="w-full justify-center mx-auto px-4 lg:px-12">
+    <a href="{{ url()->previous() }}" class="flex m-3 text-stone-700">
+        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="20px" height="25px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve">
+            <path d="M48.6,23H15.4c-0.9,0-1.3-1.1-0.7-1.7l9.6-9.6c0.6-0.6,0.6-1.5,0-2.1l-2.2-2.2c-0.6-0.6-1.5-0.6-2.1,0 L2.5,25c-0.6,0.6-0.6,1.5,0,2.1L20,44.6c0.6,0.6,1.5,0.6,2.1,0l2.1-2.1c0.6-0.6,0.6-1.5,0-2.1l-9.6-9.6C14,30.1,14.4,29,15.3,29 h33.2c0.8,0,1.5-0.6,1.5-1.4v-3C50,23.8,49.4,23,48.6,23z"/>
+        </svg>
+        <p class="ml-2 font-semibold text-md">Kembali</p>
+    </a>
     <div class="row col-md-12 rounded-2xl bg-stone-50 p-5 my-4 shadow-md">
         <form action="{{ route('student.pengajuan-masalah.store') }}" method="post" enctype="multipart/form-data">
             @csrf
@@ -101,7 +107,7 @@
                                         {{ $masalah->kelompok }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-center hover:bg-stone-100">
-                                        <a href="{{ asset('storage/pengajuan-masalah/' . $masalah->soal) }}" download="{{ $masalah->soal }}">
+                                        <a href="{{ asset('storage/pengajuan-masalah/' . $masalah->soal) }}" download="{{ $masalah->soal }}" title="Unduh">
                                             {{ $masalah->soal }}
                                         </a>
                                     </td>
@@ -109,15 +115,17 @@
                                         {{ $masalah->keterangan }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap justify-center text-sm font-medium flex text-center">
-                                        <a href="{{ asset('storage/pengajuan-masalah/' . $masalah->soal) }}" download="{{ $masalah->soal }}" class="mx-1 text-stone-700 hover:text-violet-500">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 1200 1200" xml:space="preserve"><path d="M600 0C268.63 0 0 268.63 0 600s268.63 600 600 600c331.369 0 600-268.631 600-600C1200 268.63 931.369 0 600 0zm0 1069.565c-259.37 0-469.565-210.261-469.565-469.565S340.63 130.435 600 130.435c259.369 0 469.565 210.261 469.565 469.565S859.369 1069.565 600 1069.565zm117.392-720.652H482.608v266.739H335.87L600 864.13l264.13-248.478H717.391l.001-266.739z"/></svg>
+                                        <a href="{{ asset('storage/pengajuan-masalah/' . $masalah->soal) }}" download="{{ $masalah->soal }}" class="mx-1 text-stone-700 hover:text-violet-500" title="Unduh">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 1200 1200" xml:space="preserve">
+                                                <path d="M600 0C268.63 0 0 268.63 0 600s268.63 600 600 600c331.369 0 600-268.631 600-600C1200 268.63 931.369 0 600 0zm0 1069.565c-259.37 0-469.565-210.261-469.565-469.565S340.63 130.435 600 130.435c259.369 0 469.565 210.261 469.565 469.565S859.369 1069.565 600 1069.565zm117.392-720.652H482.608v266.739H335.87L600 864.13l264.13-248.478H717.391l.001-266.739z"/>
+                                            </svg>
                                         </a>
                                         <div class="flex space-x-2 justify-end">
                                             @if ($masalah->user_id == auth()->user()->id)
                                                 <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('student.pengajuan-masalah.destroy', $masalah->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="mx-1 text-stone-700 hover:text-red-600">
+                                                    <button type="submit" class="mx-1 text-stone-700 hover:text-red-600" title="Hapus">
                                                         <svg width="20px" height="20px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M7 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2h4a1 1 0 1 1 0 2h-1.069l-.867 12.142A2 2 0 0 1 17.069 22H6.93a2 2 0 0 1-1.995-1.858L4.07 8H3a1 1 0 0 1 0-2h4V4zm2 2h6V4H9v2zM6.074 8l.857 12H17.07l.857-12H6.074zM10 10a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1z"/>
                                                         </svg>

@@ -10,6 +10,9 @@ class StudentKelompokController extends Controller
 {
     public function index()
     {
+
+        $kelompoks = Kelompok::orderBy('no_kelompok')->get();
+
         // Show auth user kelompok
         $kelompokBelajar = Kelompok::where('user_id', auth()->user()->id)->first();
 
@@ -29,6 +32,7 @@ class StudentKelompokController extends Controller
             'active' => 'kelompok',
             'kelompokBelajar' => $kelompokBelajar,
             'usersInSameKelompok' => $usersInSameKelompok,
+            'kelompoks' => $kelompoks,
         ]);
     }
 

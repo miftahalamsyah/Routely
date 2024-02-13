@@ -55,35 +55,35 @@
                 <ul class="bg-transparent flex flex-col p-4 md:p-0 mt-4 font-medium border border-stone-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
                     <li>
                         @active('pages.home')
-                            <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 active text-stone-900" href="/">Home<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
+                            <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 active text-stone-900" href="/">Home<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-500"></div></a>
                         @else
                             <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 text-stone-900" href="/">Home</a>
                         @endactive
                     </li>
                     <li>
                         @active('pages.berpikir-komputasi')
-                            <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 active text-stone-900" href="/berpikir-komputasi">Berpikir Komputasi<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
+                            <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 active text-stone-900" href="/berpikir-komputasi">Berpikir Komputasi<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-500"></div></a>
                         @else
                             <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 text-stone-900" href="/berpikir-komputasi">Berpikir Komputasi</a>
                         @endactive
                     </li>
                     <li>
                         @active('pages.problem-posing')
-                            <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 active text-stone-900" href="/problem-posing">Problem Posing<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
+                            <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 active text-stone-900" href="/problem-posing">Problem Posing<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-500"></div></a>
                         @else
                             <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 text-stone-900" href="/problem-posing">Problem Posing</a>
                         @endactive
                     </li>
                     <li>
                         @active('pages.routing')
-                            <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 active text-stone-900" href="/routing">Routing<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
+                            <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 active text-stone-900" href="/routing">Routing<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-500"></div></a>
                         @else
                             <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 text-stone-900" href="/routing">Routing</a>
                         @endactive
                     </li>
                     <li>
                         @active('pages.bantuan')
-                            <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 active text-stone-900" href="/bantuan">Bantuan<div class="absolute inset-x-0 bottom-0 h-1 bg-student"></div></a>
+                            <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 active text-stone-900" href="/bantuan">Bantuan<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-500"></div></a>
                         @else
                             <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 text-stone-900" href="/bantuan">Bantuan</a>
                         @endactive
