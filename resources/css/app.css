@@ -96,6 +96,10 @@
     -webkit-text-stroke: 2px #222222; /* Text outline color and width */
 }
 
+.bg-striped {
+    background-image: linear-gradient(45deg, #6740ea 25%, #8b5cf6 25%, #8b5cf6 50%, #6740ea 50%, #6740ea 75%, #8b5cf6 75%, #8b5cf6 100%);
+    background-size: 500px 500px;
+}
 
 /* ::-webkit-scrollbar {
     width: 0.4rem;
