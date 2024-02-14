@@ -5,6 +5,7 @@ use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GitHubController;
+use App\Http\Controllers\HasilApersepsiSiswaController;
 use App\Http\Controllers\HasilTesSiswaController;
 use App\Http\Controllers\HasilTugasSiswaController;
 use App\Http\Controllers\KelompokController;
@@ -114,6 +115,9 @@ Route::get('/student/search', [SearchController::class, 'search'])->name('studen
 
 Route::get('/student/problem-posing', [StudentDashboardController::class, 'problemPosing'])->name('student.problem-posing')->middleware('auth');
 Route::get('/student/berpikir-komputasi', [StudentDashboardController::class, 'berpikirKomputasi'])->name('student.berpikir-komputasi')->middleware('auth');
+
+Route::get('/student/pertemuan/pertemuan-ke-{pertemuan_id}/apersepsi', [HasilApersepsiSiswaController::class, 'create'])->name('student.apersepsi')->middleware('auth');
+Route::post('/student/hasil_apersepsi_siswa', [HasilApersepsiSiswaController::class, 'store'])->name('hasil_apersepsi_siswa.store')->middleware('auth');
 
 Route::get('/student/pengajuan-masalah', [StudentPengajuanMasalahController::class, 'index'])->name('student.pengajuan-masalah')->middleware('auth');
 Route::post('/student/pengajuan-masalah', [StudentPengajuanMasalahController::class, 'store'])->name('student.pengajuan-masalah.store')->middleware('auth');

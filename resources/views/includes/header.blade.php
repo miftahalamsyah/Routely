@@ -18,11 +18,11 @@
                     </div>
                     <div class="absolute clashdisplaymedium mt-6 right-0 w-56 origin-top-right rounded-xl bg-stone-50 shadow-lg focus:outline-none hidden border border-b-4 border-r-4 border-stone-700" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                         <div class="py-1" role="none">
-                            <a href="/student" class="text-stone-700 block px-4 py-2 text-sm hover:bg-stone-100" role="menuitem" tabindex="-1" id="menu-item-0">Dashboard</a>
-                            <a href="/student/profile" class="text-stone-700 block px-4 py-2 text-sm hover:bg-stone-100" role="menuitem" tabindex="-1" id="menu-item-0">Profil</a>
+                            <a href="/student" class="text-stone-700 block px-4 py-2 text-sm hover:bg-violet-100" role="menuitem" tabindex="-1" id="menu-item-0">Dashboard</a>
+                            <a href="/student/profile" class="text-stone-700 block px-4 py-2 text-sm hover:bg-violet-100" role="menuitem" tabindex="-1" id="menu-item-0">Profil</a>
                             <form action="/logout" method="post">
                                 @csrf
-                                <button type="submit" class="w-full text-left text-stone-700 block px-4 py-2 text-sm hover:bg-stone-100">Keluar</button>
+                                <button type="submit" class="w-full text-left text-stone-700 block px-4 py-2 text-sm hover:bg-violet-100">Keluar</button>
                             </form>
                         </div>
                     </div>

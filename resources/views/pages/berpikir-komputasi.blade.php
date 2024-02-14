@@ -9,7 +9,9 @@
     </div>
 </section>
 
-<hr class="border-2 border-stone-800">
+<section class="bg-stone-800 py-2">
+
+</section>
 
 <section class="py-1 justify-center mx-auto px-5 bg-stone-50">
     <div class="overflow-x-auto w-full">
