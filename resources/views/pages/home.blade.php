@@ -32,28 +32,28 @@
             </div>
 
             <div class="grid grid-cols-2 gap-4 sm:grid-cols-2">
-                <a class="block bg-lime-200 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/berpikir-komputasi/#dekomposisi">
+                <a class="block bg-lime-200 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700 transform hover:translate-y-[-25px] transition-transform duration-300 ease-in-out" href="/berpikir-komputasi/#dekomposisi">
                     <h2 class="clashdisplaymedium mt-2 text-lg">Dekomposisi</h2>
                     <p class="sm:mt-1 text-xs sm:text-xs md:text-sm sm:text-stone-600">
                         Pemecahan masalah menjadi bagian-bagian yang lebih kecil.
                     </p>
                 </a>
 
-                <a class="block bg-sky-200 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/berpikir-komputasi/#abstraksi">
+                <a class="block bg-sky-200 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700 transform hover:translate-y-[-25px] transition-transform duration-300 ease-in-out" href="/berpikir-komputasi/#abstraksi">
                     <h2 class="clashdisplaymedium mt-2 text-lg">Abstraksi</h2>
                     <p class="sm:mt-1 text-xs sm:text-xs md:text-sm sm:text-stone-600">
                         Menyederhanakan masalah dengan mengabaikan detail yang tidak relevan.
                     </p>
                 </a>
 
-                <a class="block bg-fuchsia-300 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/berpikir-komputasi/#pengenalan-pola">
+                <a class="block bg-fuchsia-300 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700 transform hover:translate-y-[25px] transition-transform duration-300 ease-in-out" href="/berpikir-komputasi/#pengenalan-pola">
                     <h2 class="clashdisplaymedium mt-2 text-lg">Pengenalan Pola</h2>
                     <p class="sm:mt-1 text-xs sm:text-xs md:text-sm sm:text-stone-600">
                         Menggunakan pola yang diidentifikasi untuk membuat prediksi
                     </p>
                 </a>
 
-                <a class="block bg-slate-300 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/berpikir-komputasi/#algoritma">
+                <a class="block bg-slate-300 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700 transform hover:translate-y-[25px] transition-transform duration-300 ease-in-out" href="/berpikir-komputasi/#algoritma">
                     <h2 class="clashdisplaymedium mt-2 text-lg">Algoritma</h2>
                     <p class="sm:mt-1 text-xs sm:text-xs md:text-sm sm:text-stone-600">
                         Merancang prosedur langkah demi langkah untuk menyelesaikan masalah.

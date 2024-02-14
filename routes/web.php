@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApersepsiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\DataController;
@@ -71,6 +72,8 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::resource('/dashboard/materis', \App\Http\Controllers\MateriController::class)->middleware('admin');
 Route::resource('/dashboard/siswa', \App\Http\Controllers\UserController::class)->middleware('admin');
 Route::resource('/dashboard/tugas', \App\Http\Controllers\TugasController::class)->middleware('admin');
+
+Route::resource('/dashboard/apersepsi', ApersepsiController::class)->middleware('admin');
 
 Route::resource('/dashboard/pertemuan', \App\Http\Controllers\PertemuanController::class)->middleware('admin');
 Route::resource('/dashboard/kelompok', \App\Http\Controllers\KelompokController::class)->middleware('admin');

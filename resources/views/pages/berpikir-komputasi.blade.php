@@ -35,7 +35,7 @@
         <div id="dekomposisi" class="w-full mx-auto p-5 pt-24">
             <div class="flex justify-between w-full">
                 {{-- rotate to the left 10 degrees --}}
-                <h2 class="clashdisplaymedium px-2 rotate-2 text-2xl sm:text-2xl md:text-2xl lg:text-4xl bg-violet-300">01 - Dekomposisi</h2>
+                <h2 class="clashdisplaymedium px-2 rotate-2 text-2xl sm:text-2xl md:text-2xl lg:text-4xl bg-violet-300 transform hover:translate-x-[-15px] transition-transform duration-300 ease-in-out">01 - Dekomposisi</h2>
                 <hr/>
             </div>
 
@@ -56,7 +56,7 @@
 
         <div id="abstraksi" class="w-full mx-auto p-5 pt-24">
             <div class="flex justify-between w-full">
-                <h2 class="clashdisplaymedium px-2 -rotate-1 text-2xl sm:text-2xl md:text-2xl lg:text-4xl bg-violet-300">02 - Abstraksi</h2>
+                <h2 class="clashdisplaymedium px-2 -rotate-1 text-2xl sm:text-2xl md:text-2xl lg:text-4xl bg-violet-300 transform hover:translate-x-[-15px] transition-transform duration-300 ease-in-out">02 - Abstraksi</h2>
                 <hr/>
             </div>
 
@@ -76,7 +76,7 @@
 
         <div id="pengenalan-pola" class="w-full mx-auto p-5 pt-24">
             <div class="flex justify-between w-full">
-                <h2 class="clashdisplaymedium px-2 rotate-1 text-2xl sm:text-2xl md:text-2xl lg:text-4xl bg-violet-300">03 - Pengenalan Pola</h2>
+                <h2 class="clashdisplaymedium px-2 rotate-1 text-2xl sm:text-2xl md:text-2xl lg:text-4xl bg-violet-300 transform hover:translate-x-[-15px] transition-transform duration-300 ease-in-out">03 - Pengenalan Pola</h2>
                 <hr/>
             </div>
 
@@ -92,7 +92,7 @@
 
         <div id="algoritma" class="w-full mx-auto p-5 py-24">
             <div class="flex justify-between w-full">
-                <h2 class="clashdisplaymedium px-2 -rotate-2 text-2xl sm:text-2xl md:text-2xl lg:text-4xl bg-violet-300">04 - Algoritma</h2>
+                <h2 class="clashdisplaymedium px-2 -rotate-2 text-2xl sm:text-2xl md:text-2xl lg:text-4xl bg-violet-300 transform hover:translate-x-[-15px] transition-transform duration-300 ease-in-out">04 - Algoritma</h2>
                 <hr/>
             </div>
 
