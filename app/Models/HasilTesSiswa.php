@@ -21,6 +21,4 @@ class HasilTesSiswa extends Model
     {
         return $this->hasOne(Nilai::class, 'user_id', 'user_id');
     }
-
-
 }

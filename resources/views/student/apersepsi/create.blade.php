@@ -50,6 +50,7 @@
                                     <button type="submit" class="bg-student hover:bg-student-dark text-stone-50 rounded-xl p-2 mr-2 font-semibold">Kirim</button>
                                 </div>
                             </form>
+                            <p class="italic text-xs text-right mt-4 text-stone-600">*Jawaban apersepsi yang telah dikirim tak dapat diubah kembali</p>
                         </div>
                     @endif
                 </div>

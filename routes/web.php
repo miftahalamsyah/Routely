@@ -19,16 +19,20 @@ use App\Http\Controllers\PertemuanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilPublikController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\SoalKuisController;
 use App\Http\Controllers\SoalTesController;
 use App\Http\Controllers\StudentChatController;
 use App\Http\Controllers\StudentDashboardController;
 use App\Http\Controllers\StudentKelompokController;
+use App\Http\Controllers\StudentKuisController;
 use App\Http\Controllers\StudentMateriController;
 use App\Http\Controllers\StudentPertemuanController;
 use App\Http\Controllers\StudentSimulasiController;
 use App\Http\Controllers\StudentTesController;
 use App\Http\Controllers\StudentTugasController;
 use App\Http\Controllers\TugasController;
+use App\Models\HasilKuisSiswa;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\View;
 
@@ -97,6 +101,14 @@ Route::get('/dashboard/refleksi',[\App\Http\Controllers\RefleksiController::clas
 Route::get('/dashboard/refleksi/export', [\App\Http\Controllers\RefleksiController::class, 'export'])->name('refleksi.export')->middleware('admin');
 Route::delete('/dashboard/refleksi/{id}', [\App\Http\Controllers\RefleksiController::class, 'destroy'])->name('refleksi.destroy')->middleware('admin');
 
+// Kuis
+Route::get('/dashboard/kuis', [SoalKuisController::class, 'index'])->name('kuis.index')->middleware('admin');
+Route::get('/dashboard/kuis/create', [SoalKuisController::class, 'create'])->name('kuis.create')->middleware('admin');
+Route::post('/dashboard/kuis/store', [SoalKuisController::class, 'store'])->name('kuis.store')->middleware('admin');
+Route::get('/dashboard/kuis/edit/{id}', [SoalKuisController::class, 'edit'])->name('kuis.edit')->middleware('admin');
+Route::match(['get', 'post'], '/dashboard/kuis/import', [SoalKuisController::class, 'import'])->name('kuis.import')->middleware('admin');
+Route::delete('/dashboard/kuis/{id}', [SoalKuisController::class, 'destroy'])->name('kuis.destroy')->middleware('admin');
+
 Route::get('/dashboard/pretest', [\App\Http\Controllers\SoalTesController::class, 'pretestindex'])->name('pretest.index')->middleware('admin');
 Route::get('/dashboard/pretest/create', [\App\Http\Controllers\SoalTesController::class, 'pretestcreate'])->name('pretest.create')->middleware('admin');
 Route::match(['get', 'post'], '/dashboard/pretest/import', [SoalTesController::class, 'pretestimport'])->name('pretest.import')->middleware('admin');
@@ -140,6 +152,9 @@ Route::get('/student/pertemuan/{pertemuan:slug}', [StudentPertemuanController::c
 Route::get('/student/materi', [StudentMateriController::class, 'index'])->name('student.materi')->middleware('auth');
 Route::get('/student/materi/{materi:slug}', [StudentMateriController::class, 'show'])->name('student.materi.show')->middleware('auth');
 Route::match(['get', 'post'], 'student/materi/{slug}', [StudentMateriController::class, 'show'])->name('student.materi.show');
+
+Route::get('/student/pertemuan/pertemuan-ke-{pertemuan_id}/kuis', [StudentKuisController::class, 'create'])->name('student.kuis')->middleware('auth');
+Route::post('/hasil_kuis_siswa', [StudentKuisController::class, 'store'])->name('hasil_kuis_siswa.store')->middleware('auth');
 
 Route::get('/student/simulasi', [StudentSimulasiController::class, 'index'])->name('student.simulasi')->middleware('auth');
 

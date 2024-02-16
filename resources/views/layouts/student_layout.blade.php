@@ -130,7 +130,7 @@
                 <nav class="flex basis-full items-center mx-auto px-4 lg:px-12 py-3" aria-label="Global">
                     <div class="flex">
                         <!-- Navigation Toggle -->
-                        <button id="sidebar-toggle" class="text-stone-900 hover:text-gray-800 focus:outline-none focus:text-stone-700 hidden" aria-label="Toggle sidebar">
+                        <button id="sidebar-toggle" class="text-stone-900 hover:text-stone-800 focus:outline-none focus:text-stone-700 hidden" aria-label="Toggle sidebar">
                             <span class="sr-only">Toggle Navigation</span>
                             <svg class="w-5 h-5" width="16" height="16" fill="#111111" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
@@ -160,38 +160,39 @@
                             </div>
 
                             {{-- <div x-data="{ isOpen: false }" class="dropdown inline-block relative">
-                                <button @click="isOpen = !isOpen" type="button" class="shadow inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-stone-50 text-gray-700 border-2 border-stone-100 align-middle hover:bg-stone-100 transition-all text-xs">
+                                <button @click="isOpen = !isOpen" type="button" class="shadow inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-stone-50 text-stone-700 border-2 border-stone-100 align-middle hover:bg-stone-100 transition-all text-xs">
                                     <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#currentColor" viewBox="0 0 16 16">
                                         <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
                                     </svg>
                                 </button>
-                                <ul x-show="isOpen" @click.away="isOpen = false" class="dropdown-menu absolute mr-40 mt-1 bg-stone-50 rounded-2xl hidden text-gray-700 pt-2 w-40 right-0 transform translate-x-full">
+                                <ul x-show="isOpen" @click.away="isOpen = false" class="dropdown-menu absolute mr-40 mt-1 bg-stone-50 rounded-2xl hidden text-stone-700 pt-2 w-40 right-0 transform translate-x-full">
                                     <li class="text-xs">
                                         <a class="rounded-2xl bg-stone-50 hover:bg-stone-100 p-2 block whitespace-no-wrap shadow-md" href="#">Lorem ipsum dolor amet mo di pam</a>
                                     </li>
                                 </ul>
                             </div> --}}
 
-                            <div x-data="{ open: false }" class="md:order-2 z-10 dropdown inline-block relative">
+                            <div x-data="{ open: false }" class="md:order-2 z-10 dropdown inline-block relative rounded-2xl hover:shadow-lg" title="Akun Saya">
                                 @auth
                                     <button @click="open = !open" type="button" class="shadow inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium align-middle transition-all text-xs">
                                         <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl text-stone-50 border-2 border-stone-100 text-md font-semibold">
                                             {{ substr(Auth::user()->name, 0, 1) }}{{ substr(strrchr(Auth::user()->name, ' '), 1, 1) }}
                                         </div>
                                     </button>
-                                    <ul x-show="open"@click.away="open = false" class="dropdown-menu absolute mr-40 bg-stone-50 mt-1 rounded-2xl hidden text-gray-700 w-40 right-0 transform translate-x-full">
+                                    <ul x-show="open"@click.away="open = false" class="dropdown-menu absolute mr-40 bg-stone-50 mt-1 rounded-2xl hidden text-stone-700 w-40 right-0 transform translate-x-full">
                                         <li class="text-xs rounded-2xl shadow-md">
-                                            <a href="/student" class="text-gray-700 block px-4 py-2 text-sm rounded-t-2xl hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-0">Dashboard</a>
-                                            <a href="/student/profile" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-0">Profil</a>
+                                            <a href="/student" class="text-stone-700 block px-4 py-2 text-sm rounded-t-2xl hover:bg-stone-100" role="menuitem" tabindex="-1" id="menu-item-0">Dashboard</a>
+                                            <a href="/student/profile" class="text-stone-700 block px-4 py-2 text-sm hover:bg-stone-100" role="menuitem" tabindex="-1" id="menu-item-0">Profil</a>
+                                            <a href="/bantuan" class="text-stone-700 block px-4 py-2 text-sm hover:bg-stone-100" role="menuitem" tabindex="-1" id="menu-item-0">Bantuan</a>
                                             <form action="/logout" method="post">
                                                 @csrf
-                                                <button type="submit" class="w-full text-left text-gray-700 rounded-b-2xl block px-4 py-2 text-sm hover:bg-gray-100">Keluar</button>
+                                                <button type="submit" class="w-full text-left text-stone-700 rounded-b-2xl block px-4 py-2 text-sm hover:bg-stone-100">Keluar</button>
                                             </form>
                                         </li>
                                     </ul>
                                 @else
                                     <a href="/login">
-                                        <button class="mr-2 text-sm bg-violet-200 relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-semibold text-student transition duration-300 ease-out border border-gray-150 rounded-3xl group">
+                                        <button class="mr-2 text-sm bg-violet-200 relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-semibold text-student transition duration-300 ease-out border border-stone-150 rounded-3xl group">
                                             <span class="bg-violet-300 absolute inset-0 flex items-center justify-center w-full h-full text-student duration-300 -translate-x-full group-hover:translate-x-0 ease">
                                                 <svg width="20px" height="20px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                                     <rect width="16" height="16" id="icon-bound" fill="none" />
@@ -219,7 +220,7 @@
                     <svg class="" width="20" height="20" fill="#5c578c" viewBox="0 0 512 512"><path d="M512 96c0 50.2-59.1 125.1-84.6 155c-3.8 4.4-9.4 6.1-14.5 5H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c53 0 96 43 96 96s-43 96-96 96H139.6c8.7-9.9 19.3-22.6 30-36.8c6.3-8.4 12.8-17.6 19-27.2H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320c-53 0-96-43-96-96s43-96 96-96h39.8c-21-31.5-39.8-67.7-39.8-96c0-53 43-96 96-96s96 43 96 96zM117.1 489.1c-3.8 4.3-7.2 8.1-10.1 11.3l-1.8 2-.2-.2c-6 4.6-14.6 4-20-1.8C59.8 473 0 402.5 0 352c0-53 43-96 96-96s96 43 96 96c0 30-21.1 67-43.5 97.9c-10.7 14.7-21.7 28-30.8 38.5l-.6 .7zM128 352a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM416 128a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
                     <span class="text-student px-2 text-xl font-extrabold whitespace-nowrap">Routely</span>
                 </a>
-                <span id="copyright" class="copyright block font-semibold text-student text-sm text-center"></span>
+                <span id="copyright" class="copyright block text-student text-sm text-center"></span>
             </footer>
         </main>
     </body>

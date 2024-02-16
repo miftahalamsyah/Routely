@@ -34,7 +34,7 @@
                                                 {{ Illuminate\Support\Str::words($materi->title, 5, '...') }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                {{ $materi->pdf_file }}
+                                                {{ Illuminate\Support\Str::words($materi->pdf_file, 5, '...') }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 {{ Illuminate\Support\Str::words($materi->description, 5, '...') }}

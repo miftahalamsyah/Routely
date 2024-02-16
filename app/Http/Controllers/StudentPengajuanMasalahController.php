@@ -14,7 +14,8 @@ class StudentPengajuanMasalahController extends Controller
     {
         $user = auth()->user();
         $pertemuans = Pertemuan::all();
-        $pengajuanMasalah = PengajuanMasalah::all()->sortByDesc('created_at');
+        $pengajuanMasalah = PengajuanMasalah::all()->sortByDesc('created_at')->sortBy('kelompok')->sortByDesc('pertemuan_id');
+
         $pengajuanMasalahUser = $user->pengajuanMasalahUser;
 
         $noKelompok = Kelompok::where('user_id', $user->id)->value('no_kelompok');
@@ -42,7 +43,8 @@ class StudentPengajuanMasalahController extends Controller
 
         $soalFileName = null;
         if ($request->hasFile('soal')) {
-            $soalFileName = "PM_P{$pertemuan_id}_K{$noKelompok}_" . time() . '.' . $request->soal->extension();
+            $timestamp = substr(time(), -4); // Extract the last 4 digits of the current timestamp
+            $soalFileName = "Soal PM_Pertemuan {$pertemuan_id}_Kelompok {$noKelompok}_{$timestamp}." . $request->soal->extension();
             $request->soal->storeAs('public/pengajuan-masalah', $soalFileName);
         }
 

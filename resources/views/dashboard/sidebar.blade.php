@@ -46,7 +46,7 @@
             </li>
 
             <details class="group [&_summary::-webkit-details-marker]:hidden">
-                <summary class="flex cursor-pointer items-center justify-between rounded-lg px-2.5 py-2 text-stone-100 hover:bg-stone-700 {{ in_array($title, ['Pertemuan', 'Tugas', 'Materi', 'Refleksi', 'Hasil Pengerjaan Tugas', 'Apersepsi']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
+                <summary class="flex cursor-pointer items-center justify-between rounded-lg px-2.5 py-2 text-stone-100 hover:bg-stone-700 {{ in_array($title, ['Pertemuan', 'Tugas', 'Materi', 'Refleksi', 'Hasil Pengerjaan Tugas', 'Apersepsi', 'Soal Kuis', 'Tambah Soal Kuis', 'Edit Soal Kuis', 'Impor Soal Kuis']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
                     <div class="flex gap-x-3.5">
                         <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z" />
@@ -68,6 +68,11 @@
                         </a>
                     </li>
                     <li>
+                        <a href="/dashboard/apersepsi" class="block rounded-lg px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ $title === 'Apersepsi' ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
+                        Apersepsi
+                        </a>
+                    </li>
+                    <li>
                         <a href="/dashboard/materis" class="block rounded-lg px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ $title === 'Materi' ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
                         Materi
                         </a>
@@ -78,8 +83,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard/apersepsi" class="block rounded-lg px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ $title === 'Apersepsi' ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
-                        Apersepsi
+                        <a href="/dashboard/kuis" class="block rounded-lg px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ in_array($title, ['Soal Kuis', 'Tambah Soal Kuis', 'Edit Soal Kuis', 'Impor Soal Kuis']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
+                        Kuis
                         </a>
                     </li>
                     <li>

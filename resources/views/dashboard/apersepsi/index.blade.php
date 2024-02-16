@@ -5,28 +5,56 @@
     <div class="my-8 text-center">
         <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-stone-50 md:tracking-tight">Daftar Hasil Apersepsi Siswa</h1>
     </div>
-    <div class="bg-stone-50 rounded-xl mx-3">
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 m-3">
+        @php
+            $uniquePertemuanIds = $apersepsis->unique('pertemuan_id')->pluck('pertemuan_id');
+        @endphp
+        @foreach ($uniquePertemuanIds as $pertemuan_id)
+            <a href="#{{ $pertemuan_id }}" class="text-xs h-30 bg-stone-700 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
+                Pertemuan {{ $pertemuan_id }}
+                @php
+                    $hasilApersepsiSiswaCount = $apersepsis->where('pertemuan_id', $pertemuan_id)->count();
+                @endphp
+                <p class="font-normal text-stone-300 text-sm py-2">{{ $hasilApersepsiSiswaCount }} dari {{ $userCount }} siswa telah mengerjakan</p>
+                <div class="w-full bg-stone-300 rounded-full">
+                    <div class="bg-violet-600 text-xs font-medium text-stone-300 text-center p-0.5 leading-none rounded-full"
+                        style="width: {{ ($hasilApersepsiSiswaCount / $userCount) * 100 }}%">
+                        {{ round(($hasilApersepsiSiswaCount / $userCount) * 100) }}%
+                    </div>
+                </div>
+            </a>
+        @endforeach
+    </div>
+
+    @foreach ($apersepsis->unique('pertemuan_id') as $uniqueApersepsi)
+    <div class="bg-stone-700 border-2 border-stone-600 rounded-xl m-3" id="{{ $loop->iteration }}">
         <div class="row">
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
                     <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-gray-200">
+                        <p class="p-3 font-semibold text-center text-stone-200">Pertemuan {{ $loop->iteration }}</p>
+                        <div class="text-xs bg-stone-700text-stone-400 p-2 block rounded-xl border-stone-600 border-2">
+                            <p class="font-semibold text-left text-stone-200">Apersepsi: </p>
+                            <p class="font-normal text-sm text-left text-stone-200">{{ \App\Models\Pertemuan::where('id', $uniqueApersepsi->pertemuan_id)->value('apersepsi') }}</p>
+                        </div>
+                        <table class="min-w-full divide-y divide-stone-600 text-stone-200">
                             <thead class="text-center">
                                 <tr>
-                                    <th scope="col" class="px-6 py-3 bg-stone-50 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium uppercase tracking-wider">
                                         Pertemuan
                                     </th>
-                                    <th scope="col" class="px-6 py-3 bg-stone-50 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium uppercase tracking-wider">
                                         Nama Siswa
                                     </th>
-                                    <th scope="col" class="px-6 py-3 bg-stone-50 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium uppercase tracking-wider">
                                         Jawaban
                                     </th>
                                     {{-- <th scope="col" class="px-6 py-3 bg-stone-50"></th> --}}
                                 </tr>
                             </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                @forelse ($apersepsis as $apersepsi)
+                            <tbody class="divide-y divide-stone-600">
+                                @forelse ($apersepsis->where('pertemuan_id', $uniqueApersepsi->pertemuan_id) as $apersepsi)
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap text-center">
                                             {{ $apersepsi->pertemuan_id }}
@@ -65,6 +93,21 @@
             </div>
         </div>
     </div>
-
+    @endforeach
 </section>
+
+<script>
+    function toggleContent(sectionId) {
+        const section = document.getElementById(sectionId);
+        const windowHeight = window.innerHeight;
+        const sectionHeight = section.clientHeight;
+        const offset = (windowHeight - sectionHeight) / 2;
+
+        window.scrollTo({
+            top: section.offsetTop - offset,
+            behavior: 'smooth',
+            inline: 'center',
+        });
+    }
+</script>
 @endsection

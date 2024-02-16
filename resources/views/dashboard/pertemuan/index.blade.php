@@ -24,6 +24,9 @@
                                         <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Tujuan Pembelajaran
                                         </th>
+                                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Apersepsi
+                                        </th>
                                         <th scope="col" class="px-6 py-3 bg-gray-50"></th>
                                     </tr>
                                 </thead>
@@ -37,7 +40,10 @@
                                                 {{ $pertemuan->tanggal }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                {{ $pertemuan->tujuan_pembelajaran }}
+                                                {{ Illuminate\Support\Str::words($pertemuan->tujuan_pembelajaran, 3, '...') }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                {{ Illuminate\Support\Str::words($pertemuan->apersepsi, 3, '...') }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                 <div class="flex space-x-2 justify-end"> <!-- Use justify-end to align content to the right -->

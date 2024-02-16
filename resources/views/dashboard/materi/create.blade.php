@@ -66,7 +66,6 @@
                             @error('description')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
-                            </input>
                         </div>
 
                         <div class="my-3">

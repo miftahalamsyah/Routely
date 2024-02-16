@@ -8,7 +8,7 @@
     <button class="bg-violet-400 p-2 m-3 rounded-xl hover:bg-violet-300"><a href="{{ route('kelompok.create') }}" class="text-md font-semibold p-2">Tambah Kelompok</a></button>
 
     @foreach ($kelompoks->unique('no_kelompok') as $uniqueKelompok)
-    <div class="bg-gray-50 rounded-xl m-5 text-lg text-stone-800 text-center p-2 font-semibold">
+    <div class="bg-gray-50 rounded-xl m-5 text-stone-800 text-center p-2">
         <p class="p-3">Kelompok {{ $loop->iteration }}</p>
         <div class="row">
             <div class="col-md-12">

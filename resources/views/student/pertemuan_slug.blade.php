@@ -20,7 +20,7 @@
                         <p class="text-md font-semibold">Tujuan Pembelajaran</p>
                         <span class="text-sm">{{ $pertemuan->tujuan_pembelajaran }}</span>
                     </div>
-                    <a href="/student/pertemuan/pertemuan-ke-{{ $pertemuan->id }}/apersepsi" class="p-4 my-2 bg-stone-100 border-2 rounded-2xl">
+                    <a href="/student/pertemuan/pertemuan-ke-{{ $pertemuan->id }}/apersepsi" class="p-4 my-2 bg-stone-100 border-2 rounded-2xl hover:shadow-md">
                         <p class="text-md font-semibold">Apersepsi</p>
                         <p class="text-sm py-1">{{ $pertemuan->apersepsi }}</p>
                         <button class="mr-2 text-sm text-student items-center justify-center px-4 py-2 overflow-hidden font-semibold transition duration-300 ease-out bg-violet-200 rounded-xl shadow-md hover:bg-violet-300">
@@ -142,9 +142,12 @@
                     </svg>
                 </button>
                 <div x-show="verifikasi" class="relative flex flex-col break-words">
-                    <div class="flex-auto p-4 my-2 bg-stone-100 border-2 rounded-2xl">
+                    <a href="/student/pertemuan/pertemuan-ke-{{ $pertemuan->id }}/kuis" class="p-4 my-2 bg-stone-100 border-2 rounded-2xl hover:shadow-md">
                         <p class="text-md font-semibold">Kuis - Pertemuan {{ $pertemuan_ke }}</p>
-                    </div>
+                        <button class="mr-2 text-sm text-student items-center justify-center px-4 py-2 overflow-hidden font-semibold transition duration-300 ease-out bg-violet-200 rounded-xl shadow-md hover:bg-violet-300">
+                            Mulai Kuis
+                        </button>
+                    </a>
                 </div>
             </div>
 
