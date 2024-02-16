@@ -16,4 +16,9 @@ class HasilKuisSiswa extends Model
     {
         return $this->belongsTo(Pertemuan::class, 'pertemuan_id');
     }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

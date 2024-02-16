@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Imports\SoalKuisImport;
 use App\Models\Pertemuan;
 use App\Models\SoalKuis;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -12,10 +13,13 @@ class SoalKuisController extends Controller
 {
     public function index()
     {
+        $userCount = User::where('is_admin', 0)->count();
         $soal_kuis = SoalKuis::all();
+
         return view('dashboard.kuis.index', [
             "title" => "Soal Kuis",
             "soal_kuis" => $soal_kuis,
+            "userCount" => $userCount,
         ]);
     }
 

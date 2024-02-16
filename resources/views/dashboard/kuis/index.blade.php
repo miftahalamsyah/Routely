@@ -5,60 +5,73 @@
     <div class="my-8 text-center">
         <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-stone-50 md:tracking-tight">Daftar Soal Kuis</h1>
     </div>
-    <div class="bg-stone-50 rounded-xl mx-3">
+
+    <div class="justify-end m-2">
+        <button class="bg-violet-400 m-2 p-2 rounded-xl hover:bg-violet-300"><a href="{{ route('kuis.create') }}" class="text-md font-semibold p-2">Tambah Soal kuis</a></button>
+        <button class="bg-student m-2 p-2 rounded-xl text-stone-50"><a href="{{ route('kuis.import') }}" class="text-md font-semibold p-2">Import Spreadsheets</a></button>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 m-3">
+        @php
+            $uniquePertemuanIds = $soal_kuis->unique('pertemuan_id')->pluck('pertemuan_id');
+        @endphp
+        @foreach ($uniquePertemuanIds as $pertemuan_id)
+            <a href="#{{ $pertemuan_id }}" class="text-xs h-30 bg-stone-700 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
+                Pertemuan {{ $pertemuan_id }}
+                @php
+                    $soalKuisCount = $soal_kuis->where('pertemuan_id', $pertemuan_id)->count();
+                @endphp
+                <p class="font-semibold text-stone-300 text-lg">{{ $soalKuisCount }} <span class="text-sm">soal<span></p>
+            </a>
+        @endforeach
+    </div>
+
+    @foreach ($soal_kuis->unique('pertemuan_id') as $uniqueKuis)
+    <div class="bg-stone-700 border-2 border-stone-600 rounded-xl mx-3 mb-8 text-stone-300" id="{{ $loop->iteration }}">
+        <p class="px-3 pt-3 text-center font-semibold text-lg">Kuis Pertemuan-{{ $loop->iteration }}</p>
         <div class="row">
-            <div class="col-md-12 p-5">
+            <div class="col-md-12 px-5">
                 <div class="border-0 shadow-sm">
                     <div class="">
-                        <div class="justify-between">
-                            <button class="bg-violet-400 my-2 p-2 rounded-xl hover:bg-violet-300"><a href="{{ route('kuis.create') }}" class="text-md font-semibold p-2">Tambah Soal kuis</a></button>
-                            <button class="bg-student my-2 p-2 rounded-xl text-stone-50"><a href="{{ route('kuis.import') }}" class="text-md font-semibold p-2">Import Spreadsheets</a></button>
-                        </div>
                         <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-stone-200">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
                                             No
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
-                                            Pertemuan
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
                                             Indikator
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
                                             Pertanyaan
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
                                             Pilihan A
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
                                             Pilihan B
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
                                             Pilihan C
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
                                             Pilihan D
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
                                             Pilihan E
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-stone-50 text-center text-xs font-medium text-stone-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
                                             Kunci Jawaban
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-stone-50"></th>
+                                        <th scope="col" class="px-6 py-3"></th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-white divide-y divide-stone-200">
-                                    @forelse ($soal_kuis as $index => $soal)
+                                <tbody class="divide-y divide-stone-600">
+                                    @forelse ($soal_kuis->where('pertemuan_id', $uniqueKuis->pertemuan_id) as $soal)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-center">
-                                                {{ $index + 1 }}
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-center">
-                                                {{ $soal->pertemuan_id }}
+                                                {{ $loop->iteration }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 {{ $soal->indikator }}
@@ -103,7 +116,7 @@
                                     @empty
                                         <tr>
                                             <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
-                                                <div class="bg-stone-100 text-stone-600 p-2 rounded-xl">
+                                                <div class="bg-stone-700 text-stone-300 p-2 rounded-xl">
                                                     Data soal kuis tidak tersedia.
                                                 </div>
                                             </td>
@@ -117,6 +130,7 @@
             </div>
         </div>
     </div>
+    @endforeach
 
 </section>
 @endsection

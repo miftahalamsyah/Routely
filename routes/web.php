@@ -7,6 +7,7 @@ use App\Http\Controllers\DataController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GitHubController;
 use App\Http\Controllers\HasilApersepsiSiswaController;
+use App\Http\Controllers\HasilKuisSiswaController;
 use App\Http\Controllers\HasilTesSiswaController;
 use App\Http\Controllers\HasilTugasSiswaController;
 use App\Http\Controllers\KelompokController;
@@ -93,6 +94,7 @@ Route::post('/dashboard/nilai/tugas/store', [NilaiTugasController::class, 'store
 Route::delete('/dashboard/nilai/tugas/destroy/{id}', [NilaiTugasController::class, 'destroy'])->name('nilai.tugas.destroy')->middleware('admin');
 Route::get('/dashboard/nilai/tugas/{hasil_tugas_siswas_id}/edit', [NilaiTugasController::class, 'edit'])->name('nilai.tugas.edit')->middleware('admin');
 Route::put('/dashboard/nilai/tugas/{id}', [NilaiTugasController::class, 'update'])->name('nilai.tugas.update')->middleware('admin');
+Route::get('/dashboard/nilai/kuis', [HasilKuisSiswaController::class, 'index'])->name('nilai.kuis')->middleware('admin');
 
 Route::resource('/dashboard/lencana', \App\Http\Controllers\LencanaController::class)->middleware('admin');
 Route::resource('/dashboard/absensi', \App\Http\Controllers\AbsensiController::class)->middleware('admin');

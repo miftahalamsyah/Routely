@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HasilKuisSiswa;
 use App\Models\HasilTugasSiswa;
 use App\Models\Pertemuan;
 use Illuminate\Http\Request;
@@ -34,6 +35,18 @@ class StudentPertemuanController extends Controller
      */
     public function show(Pertemuan $pertemuan)
     {
+        $user = auth()->user();
+        $pertemuan_id = $pertemuan->pertemuan_ke;
+
+        // Check if the user has already submitted the exam
+        $userHasSubmitted = HasilKuisSiswa::where('user_id', auth()->id())
+            ->where('pertemuan_id', $pertemuan_id)
+            ->exists();
+
+        $nilaiKuis = HasilKuisSiswa::where('user_id', $user->id)
+            ->where('pertemuan_id', $pertemuan_id)
+            ->value('total');
+
         // $pertemuan = Pertemuan::findOrFail($pertemuan);
         $materis = [];
         foreach ($pertemuan->materi as $materi) {
@@ -56,8 +69,6 @@ class StudentPertemuanController extends Controller
             ];
         }
 
-        $user = auth()->user();
-
         return view('student.pertemuan_slug',
         [
             "pertemuan" => $pertemuan,
@@ -66,6 +77,8 @@ class StudentPertemuanController extends Controller
             "tanggal" => $pertemuan->tanggal,
             "materi" => $materis,
             "tugas" => $tugass,
+            "nilaiKuis" => $nilaiKuis,
+            "userHasSubmitted" => $userHasSubmitted,
         ]);
     }
 

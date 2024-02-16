@@ -5,7 +5,7 @@
 
     <div class="grid grid-cols-2 gap-4 m-3">
         @foreach ($tugass as $tugas)
-            <div class="text-xs h-30 bg-stone-700 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
+            <a href="/dashboard/tugas/{{ $tugas->id }}" class="text-xs h-30 bg-stone-700 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
                 Tugas {{ $tugas->id }}
                 @php
                     $tugas_id = $tugas->id;
@@ -18,7 +18,7 @@
                         {{ round(($hasilTugasSiswaCount / $userCount) * 100) }}%
                     </div>
                 </div>
-            </div>
+            </a>
         @endforeach
     </div>
 

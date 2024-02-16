@@ -142,12 +142,22 @@
                     </svg>
                 </button>
                 <div x-show="verifikasi" class="relative flex flex-col break-words">
-                    <a href="/student/pertemuan/pertemuan-ke-{{ $pertemuan->id }}/kuis" class="p-4 my-2 bg-stone-100 border-2 rounded-2xl hover:shadow-md">
-                        <p class="text-md font-semibold">Kuis - Pertemuan {{ $pertemuan_ke }}</p>
-                        <button class="mr-2 text-sm text-student items-center justify-center px-4 py-2 overflow-hidden font-semibold transition duration-300 ease-out bg-violet-200 rounded-xl shadow-md hover:bg-violet-300">
-                            Mulai Kuis
-                        </button>
-                    </a>
+                    @if ($userHasSubmitted)
+                        <div class="p-4 my-2 bg-stone-100 border-2 rounded-2xl">
+                            <p class="text-md font-semibold">Kuis - Pertemuan {{ $pertemuan_ke }} Telah Dikerjakan ✅</p>
+                            <p class="text-sm">Nilai:</p>
+                            <p class="text-lg font-semibold">{{ $nilaiKuis }}</p>
+                        </div>
+                    @else
+                        <a href="/student/pertemuan/pertemuan-ke-{{ $pertemuan->id }}/kuis" class="p-4 my-2 bg-stone-100 border-2 rounded-2xl hover:shadow-md grid grid-cols-2 gap-4 justify-between">
+                            <div class="">
+                                <p class="text-md font-semibold">Kuis - Pertemuan {{ $pertemuan_ke }}</p>
+                                <button class="mr-2 text-sm text-student items-center justify-center px-4 py-2 overflow-hidden font-semibold transition duration-300 ease-out bg-violet-200 rounded-xl shadow-md hover:bg-violet-300">
+                                    Mulai Kuis
+                                </button>
+                            </div>
+                        </a>
+                    @endif
                 </div>
             </div>
 

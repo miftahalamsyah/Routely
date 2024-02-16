@@ -33,12 +33,12 @@
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
                     <div class="overflow-x-auto">
-                        <p class="p-3 font-semibold text-center text-stone-200">Pertemuan {{ $loop->iteration }}</p>
+                        <p class="p-3 font-semibold text-center text-stone-300">Pertemuan {{ $loop->iteration }}</p>
                         <div class="text-xs bg-stone-700text-stone-400 p-2 block rounded-xl border-stone-600 border-2">
-                            <p class="font-semibold text-left text-stone-200">Apersepsi: </p>
-                            <p class="font-normal text-sm text-left text-stone-200">{{ \App\Models\Pertemuan::where('id', $uniqueApersepsi->pertemuan_id)->value('apersepsi') }}</p>
+                            <p class="font-semibold text-left text-stone-300">Apersepsi: </p>
+                            <p class="font-normal text-sm text-left text-stone-300">{{ \App\Models\Pertemuan::where('id', $uniqueApersepsi->pertemuan_id)->value('apersepsi') }}</p>
                         </div>
-                        <table class="min-w-full divide-y divide-stone-600 text-stone-200">
+                        <table class="min-w-full divide-y divide-stone-600 text-stone-300">
                             <thead class="text-center">
                                 <tr>
                                     <th scope="col" class="px-6 py-3 text-xs font-medium uppercase tracking-wider">
@@ -71,7 +71,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="text-red-600 hover:text-red-900">
-                                                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2h4a1 1 0 1 1 0 2h-1.069l-.867 12.142A2 2 0 0 1 17.069 22H6.93a2 2 0 0 1-1.995-1.858L4.07 8H3a1 1 0 0 1 0-2h4V4zm2 2h6V4H9v2zM6.074 8l.857 12H17.07l.857-12H6.074zM10 10a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1z" fill="#0D0D0D"/></svg>
+                                                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/3000/svg"><path d="M7 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2h4a1 1 0 1 1 0 2h-1.069l-.867 12.142A2 2 0 0 1 17.069 22H6.93a2 2 0 0 1-1.995-1.858L4.07 8H3a1 1 0 0 1 0-2h4V4zm2 2h6V4H9v2zM6.074 8l.857 12H17.07l.857-12H6.074zM10 10a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1z" fill="#0D0D0D"/></svg>
                                                     </button>
                                                 </form>
                                             </div>
