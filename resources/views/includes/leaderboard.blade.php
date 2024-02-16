@@ -13,15 +13,20 @@
                     </tr>
                 </thead>
                 <tbody class="text-stone-700 text-left">
-                    @php $index = 0; @endphp
-                    @forelse ($users->sortByDesc(function($user) {
-                        return $user->nilai->sum('total_nilai');
-                    }) as $user)
-                        @php $index++; @endphp
+                    @forelse($totalScore as $userId => $totalNilai)
+                        @php
+                            $user = \App\Models\User::find($userId);
+                        @endphp
                         <tr class="border-y-2">
-                            <td class="py-2 px-4 text-center">{{ $index }}</td>
-                            <td class="py-2 px-4 text-center">{{ $user->name }}</td>
-                            <td class="py-2 px-4 font-semibold text-center">{{ $user->nilai->sum('total_nilai') * 69 }}</td>
+                            <td class="py-2 px-4 text-center">{{ $loop->iteration }}</td>
+                            <td class="py-2 px-4 text-center">
+                                @if ($user)
+                                    {{ $user->name }}
+                                @else
+                                    User Not Found
+                                @endif
+                            </td>
+                            <td class="py-2 px-4 font-semibold text-center">{{ $totalNilai * 69}}</td>
                         </tr>
                     @empty
                         <tr>
@@ -33,6 +38,7 @@
                         </tr>
                     @endforelse
                 </tbody>
+
             </table>
         </div>
     </div>

@@ -141,8 +141,12 @@ Route::post('/student/pengajuan-masalah', [StudentPengajuanMasalahController::cl
 Route::delete('/student/pengajuan-masalah/{id}', [StudentPengajuanMasalahController::class, 'destroy'])->name('student.pengajuan-masalah.destroy')->middleware('auth');
 
 Route::get('/student/kelompok', [StudentKelompokController::class, 'index'])->name('student.kelompok')->middleware('auth');
+
 Route::get('/student/profile', [ProfileController::class, 'index'])->name('student.profile.index')->middleware('auth');
 Route::put('/student/profile', [ProfileController::class, 'update'])->name('student.profile.update')->middleware('auth');
+
+Route::get('/student/leaderboard', [StudentDashboardController::class, 'leaderboard'])->name('student.leaderboard')->middleware('auth');
+
 Route::get('/student/refleksi', [\App\Http\Controllers\StudentRefleksiController::class, 'index'])->name('student.refleksi')->middleware('auth');
 Route::post('/student/refleksi', [\App\Http\Controllers\StudentRefleksiController::class, 'store'])->name('student.refleksi.store')->middleware('auth');
 

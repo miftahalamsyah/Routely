@@ -17,8 +17,14 @@
                 <tbody class="text-stone-700 text-left">
                     @forelse ($kelompoks->where('no_kelompok', $uniqueKelompok->no_kelompok) as $kelompok)
                         <tr class="border-y">
-                            <td class="py-2 px-4 text-center">{{ $loop->iteration }}</td>
-                            <td class="py-2 px-4 text-center">{{ \App\Models\User::where('id', $kelompok->user_id)->value('name') }}</td>
+                            @if (\App\Models\User::where('id', $kelompok->user_id)->value('id') == auth()->id())
+                                <td class="py-2 px-4 text-center bg-stone-100">{{ $loop->iteration }}</td>
+                                <td class="py-2 px-4 text-center bg-stone-100 font-bold">{{ \App\Models\User::where('id', $kelompok->user_id)->value('name') }}</td>
+                            @else
+                                <td class="py-2 px-4 text-center">{{ $loop->iteration }}</td>
+                                <td class="py-2 px-4 text-center">{{ \App\Models\User::where('id', $kelompok->user_id)->value('name') }}</td>
+                            @endif
+                            </td>
                         </tr>
                     @empty
                         <tr>

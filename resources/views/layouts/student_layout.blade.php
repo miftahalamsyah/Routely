@@ -110,6 +110,14 @@
                         </div>
                     </li>
                     <li class="relative group">
+                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 text-stone-400   {{ request()->routeIs('student.leaderboard') ? 'bg-student text-stone-50' : '' }}" href="/student/leaderboard">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 7h-5.667V4a1 1 0 0 0-1-1H8.667a1 1 0 0 0-1 1v7H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h20a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1ZM7.667 19H3v-6h4.667Zm6.666 0H9.667V5h4.666ZM21 19h-4.667V9H21Z"/></svg>
+                        </a>
+                        <div class="tooltip hidden group-hover:block absolute top-2 ml-12 bg-stone-600 shadow-md text-stone-50 p-1 text-xs rounded-md">
+                            Leaderboard
+                        </div>
+                    </li>
+                    <li class="relative group">
                         <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 text-stone-400   {{ request()->routeIs('chat.index') ? 'bg-student text-stone-50' : '' }}" href="/student/chat">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-5 h-5 icon line-color"><path d="M18.81 16.23 20 21l-4.95-2.48A9.84 9.84 0 0 1 12 19c-5 0-9-3.58-9-8s4-8 9-8 9 3.58 9 8a7.49 7.49 0 0 1-2.19 5.23Z" "/></svg>
                         </a>
