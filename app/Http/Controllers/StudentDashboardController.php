@@ -107,7 +107,7 @@ class StudentDashboardController extends Controller
             ->selectRaw('user_id, sum(total) as total_nilaiKuis')
             ->get()
             ->sortByDesc('total_nilaiKuis');
-
+            
         // Combine the totals for each user
         $totalScore = [];
 
@@ -126,17 +126,22 @@ class StudentDashboardController extends Controller
 
         // Iterate over all user IDs
         foreach ($userIds as $userId) {
-            // Get the values from each dataset, set to 0 if null
-            $nilaiTugas = $totalNilaiTugas->where('user_id', $userId)->first()->total_nilaiTugas ?? 0;
-            $nilaiPretestPosttest = $totalNilaiPretestPosttest->where('user_id', $userId)->first()->total_nilaiPretestPosttest ?? 0;
-            $nilaiKuis = $totalNilaiKuis->where('user_id', $userId)->first()->total ?? 0;
+            // Check if the user is not an admin
+            $user = \App\Models\User::find($userId);
+            if ($user && $user->is_admin != 1) {
+                // Get the values from each dataset, set to 0 if null
+                $nilaiTugas = $totalNilaiTugas->where('user_id', $userId)->first()->total_nilaiTugas ?? 0;
+                $nilaiPretestPosttest = $totalNilaiPretestPosttest->where('user_id', $userId)->first()->total_nilaiPretestPosttest ?? 0;
+                $nilaiKuis = $totalNilaiKuis->where('user_id', $userId)->first()->total ?? 0;
 
-            // Calculate total score for the user
-            $totalScore[$userId] = $nilaiTugas + $nilaiPretestPosttest + $nilaiKuis;
+                // Calculate total score for the user
+                $totalScore[$userId] = $nilaiTugas + $nilaiPretestPosttest + $nilaiKuis;
+            }
         }
 
         // Sort the total score
         arsort($totalScore);
+
 
         return view('student.leaderboard',[
             "title" => "Routely League Leaderboard",
