@@ -18,15 +18,27 @@
                             $user = \App\Models\User::find($userId);
                         @endphp
                         <tr class="border-y-2">
-                            <td class="py-2 px-4 text-center">{{ $loop->iteration }}</td>
-                            <td class="py-2 px-4 text-center">
-                                @if ($user)
-                                    {{ $user->name }}
-                                @else
-                                    User Not Found
-                                @endif
-                            </td>
-                            <td class="py-2 px-4 font-semibold text-center">{{ $totalNilai * 69}}</td>
+                            @if($userId == auth()->id())
+                                <td class="py-2 px-4 text-center bg-stone-100 font-bold">{{ $loop->iteration }}</td>
+                                <td class="py-2 px-4 text-center bg-stone-100 font-bold">
+                                    @if ($user)
+                                        {{ $user->name }}
+                                    @else
+                                        User Not Found
+                                    @endif
+                                </td>
+                                <td class="py-2 px-4 text-center bg-stone-100 font-bold">{{ $totalNilai * 69}}</td>
+                            @else
+                                <td class="py-2 px-4 text-center">{{ $loop->iteration }}</td>
+                                <td class="py-2 px-4 text-center">
+                                    @if ($user)
+                                        {{ $user->name }}
+                                    @else
+                                        User Not Found
+                                    @endif
+                                </td>
+                                <td class="py-2 px-4 font-semibold text-center">{{ $totalNilai * 69}}</td>
+                            @endif
                         </tr>
                     @empty
                         <tr>

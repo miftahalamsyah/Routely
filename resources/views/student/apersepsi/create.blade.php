@@ -37,7 +37,7 @@
                                 <input type="hidden" name="user_id" value="{{ auth()->id() }}">
                                 <input type="hidden" name="pertemuan_id" value="{{ $defaultPertemuanId }}">
 
-                                <div class="mb-4">
+                                <div class="my-2">
                                     <label for="jawaban" class="block text-md font-semibold text-stone-800">Jawaban: </label>
                                     <textarea type="text" id="jawaban" name="jawaban" rows="5"
                                         class="w-full px-4 py-2 text-stone-800 border-2 rounded-2xl focus:ring-violet-400 focus:border-violet-400 @error('jawaban') border-red-500 @enderror">{{ old('jawaban') }}</textarea>
@@ -46,11 +46,12 @@
                                     @enderror
                                 </div>
 
-                                <div class="my-3">
+                                <p class="italic text-xs text-right mt-2 text-stone-600">*Jawaban apersepsi yang telah dikirim tak dapat diubah kembali</p>
+
+                                <div class="mb-2">
                                     <button type="submit" class="bg-student hover:bg-student-dark text-stone-50 rounded-xl p-2 mr-2 font-semibold">Kirim</button>
                                 </div>
                             </form>
-                            <p class="italic text-xs text-right mt-4 text-stone-600">*Jawaban apersepsi yang telah dikirim tak dapat diubah kembali</p>
                         </div>
                     @endif
                 </div>

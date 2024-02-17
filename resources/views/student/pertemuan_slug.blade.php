@@ -146,7 +146,10 @@
                         <div class="p-4 my-2 bg-stone-100 border-2 rounded-2xl">
                             <p class="text-md font-semibold">Kuis - Pertemuan {{ $pertemuan_ke }} Telah Dikerjakan ✅</p>
                             <p class="text-sm">Nilai:</p>
-                            <p class="text-lg font-semibold">{{ $nilaiKuis }}</p>
+                            <p class="text-lg font-semibold mb-2">{{ $nilaiKuis }}</p>
+                            <a href="/student/pertemuan/pertemuan-ke-{{ $pertemuan->id }}/kuis/review" class="my-2 text-sm text-student items-center justify-center px-4 py-2 overflow-hidden font-semibold transition duration-300 ease-out bg-violet-200 rounded-xl shadow-md hover:bg-violet-300">
+                                Review Hasil Kuis
+                            </a>
                         </div>
                     @else
                         <a href="/student/pertemuan/pertemuan-ke-{{ $pertemuan->id }}/kuis" class="p-4 my-2 bg-stone-100 border-2 rounded-2xl hover:shadow-md grid grid-cols-2 gap-4 justify-between">

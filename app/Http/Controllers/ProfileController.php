@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HasilKuisSiswa;
+use App\Models\Kelompok;
 use App\Models\User;
 use App\Models\Nilai;
 use App\Models\NilaiTugas;
@@ -24,7 +25,22 @@ class ProfileController extends Controller
      */
     public function index(): View
     {
-        $lencanas = Lencana::all();
+        $kelompoks = Kelompok::orderBy('no_kelompok')->get();
+
+        // Show auth user kelompok
+        $kelompokBelajar = Kelompok::where('user_id', auth()->user()->id)->first();
+
+        // Get all user IDs with the same no_kelompok as the authenticated user
+        $userIdsInSameKelompok = [];
+
+        if ($kelompokBelajar) {
+            $userIdsInSameKelompok = Kelompok::where('no_kelompok', $kelompokBelajar->no_kelompok)
+                ->pluck('user_id');
+        }
+
+        // Fetch user data based on the retrieved user IDs
+        $usersInSameKelompok = User::whereIn('id', $userIdsInSameKelompok)->get();
+
         $profile = Auth::user();
         $users = User::where('is_admin', 0)
             ->orderBy('updated_at', 'asc')
@@ -83,7 +99,9 @@ class ProfileController extends Controller
             "name" => $profile->name,
             "slug" => $profile->slug,
             "email" => $profile->email,
-            "lencanas" => $lencanas,
+            'kelompokBelajar' => $kelompokBelajar,
+            'usersInSameKelompok' => $usersInSameKelompok,
+            'kelompoks' => $kelompoks,
         ], compact('users', 'totalNilaiTugas', 'totalNilaiPretestPosttest', 'totalNilaiKuis', 'totalScore'));
 
     }

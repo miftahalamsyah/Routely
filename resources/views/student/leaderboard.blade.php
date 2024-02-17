@@ -1,7 +1,7 @@
 @extends('layouts.student_layout')
 
 @section('content')
-<section class="max-w-6xl justify-center min-h-screen mx-auto mt-2 px-2 lg:px-12">
+<section class="w-full justify-center min-h-screen mx-auto mt-2 px-2 lg:px-12">
     <div id="leaderboardSection" class="bg-stone-50 overflow-y-auto mb-2 p-2 rounded-3xl shadow-md">
         <div class="py-12 px-4 mx-auto text-center z-20">
             <h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-stone-700 md:text-4xl lg:text-4xl"><span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline"> Routely </span>League</h1>
@@ -21,15 +21,27 @@
                                 $user = \App\Models\User::find($userId);
                             @endphp
                             <tr class="border-y-2">
-                                <td class="py-2 px-4 text-center">{{ $loop->iteration }}</td>
-                                <td class="py-2 px-4 text-center">
-                                    @if ($user)
-                                        {{ $user->name }}
-                                    @else
-                                        User Not Found
-                                    @endif
-                                </td>
-                                <td class="py-2 px-4 font-semibold text-center">{{ $totalNilai * 69}}</td>
+                                @if($userId == auth()->id())
+                                    <td class="py-2 px-4 text-center bg-stone-100 font-bold">{{ $loop->iteration }}</td>
+                                    <td class="py-2 px-4 text-center bg-stone-100 font-bold">
+                                        @if ($user)
+                                            {{ $user->name }}
+                                        @else
+                                            User Not Found
+                                        @endif
+                                    </td>
+                                    <td class="py-2 px-4 text-center bg-stone-100 font-bold">{{ $totalNilai * 69}}</td>
+                                @else
+                                    <td class="py-2 px-4 text-center">{{ $loop->iteration }}</td>
+                                    <td class="py-2 px-4 text-center">
+                                        @if ($user)
+                                            {{ $user->name }}
+                                        @else
+                                            User Not Found
+                                        @endif
+                                    </td>
+                                    <td class="py-2 px-4 font-semibold text-center">{{ $totalNilai * 69}}</td>
+                                @endif
                             </tr>
                         @empty
                             <tr>

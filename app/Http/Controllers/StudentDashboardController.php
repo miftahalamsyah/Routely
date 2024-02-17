@@ -107,7 +107,7 @@ class StudentDashboardController extends Controller
             ->selectRaw('user_id, sum(total) as total_nilaiKuis')
             ->get()
             ->sortByDesc('total_nilaiKuis');
-            
+
         // Combine the totals for each user
         $totalScore = [];
 
@@ -141,7 +141,6 @@ class StudentDashboardController extends Controller
 
         // Sort the total score
         arsort($totalScore);
-
 
         return view('student.leaderboard',[
             "title" => "Routely League Leaderboard",

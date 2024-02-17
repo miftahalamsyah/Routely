@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\HasilKuisSiswa;
 use App\Models\Pertemuan;
 use App\Models\SoalKuis;
+use App\Models\SoalTes;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -118,4 +119,52 @@ class StudentKuisController extends Controller
         Alert::success('Success', 'Anda telah menyelesaikan Tes.');
         return redirect('/student/pertemuan/pertemuan-ke-' . $request->pertemuan_id);
     }
+
+    public function show($pertemuan_id){
+        $answers = HasilKuisSiswa::where('user_id', auth()->id())
+            ->where('pertemuan_id', $pertemuan_id)
+            ->first();
+
+        // Retrieve correct answers for the pertemuan_id
+        $correctAnswers = SoalKuis::where('pertemuan_id', $pertemuan_id)
+            ->pluck('kunci_jawaban', 'id')
+            ->toArray();
+
+        // Check if the user has already submitted the exam
+        $userHasSubmitted = HasilKuisSiswa::where('user_id', auth()->id())
+            ->where('pertemuan_id', $pertemuan_id)
+            ->exists();
+
+        // Redirect to the index page with an alert if the user has already submitted
+        if (!$userHasSubmitted) {
+            Alert::error('Maaf', 'Kamu belum mengikuti kuis ini.');
+            return redirect('/student/pertemuan/pertemuan-ke-' . $pertemuan_id);
+        }
+
+        // Check if there are SoalKuis records for the given pertemuan_id
+        $soalKuisExist = SoalKuis::where('pertemuan_id', $pertemuan_id)->exists();
+
+        // Redirect back with an error alert if there are no SoalKuis records
+        if (!$soalKuisExist) {
+            Alert::error('Maaf', 'Kuis ini belum tersedia.');
+            return redirect()->back();
+        }
+
+        // Set the $answersSubmitted variable based on your logic
+        $answersSubmitted = true; // For example, set it to true if the form is submitted
+
+        $pertemuan = $pertemuan_id;
+        $user = auth()->user();
+
+        $soal_kuis = SoalKuis::where('pertemuan_id', $pertemuan_id)->get();
+
+        return view('student.kuis.review', [
+            "title" => "Review Kuis Pertemuan ke-$pertemuan_id",
+            "user" => $user,
+            "answers" => $answers, // Pass the $answers variable to the view
+            "answersSubmitted" => $answersSubmitted, // Pass the $answersSubmitted variable to the view
+            "correctAnswers" => $correctAnswers,
+        ], compact('pertemuan', 'soal_kuis', 'pertemuan', 'answers'));
+    }
+
 }

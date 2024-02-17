@@ -160,6 +160,7 @@ Route::get('/student/materi/{materi:slug}', [StudentMateriController::class, 'sh
 Route::match(['get', 'post'], 'student/materi/{slug}', [StudentMateriController::class, 'show'])->name('student.materi.show');
 
 Route::get('/student/pertemuan/pertemuan-ke-{pertemuan_id}/kuis', [StudentKuisController::class, 'create'])->name('student.kuis')->middleware('auth');
+Route::get('/student/pertemuan/pertemuan-ke-{pertemuan_id}/kuis/review', [StudentKuisController::class, 'show'])->name('student.kuis.review')->middleware('auth');
 Route::post('/hasil_kuis_siswa', [StudentKuisController::class, 'store'])->name('hasil_kuis_siswa.store')->middleware('auth');
 
 Route::get('/student/simulasi', [StudentSimulasiController::class, 'index'])->name('student.simulasi')->middleware('auth');
