@@ -94,7 +94,7 @@ class StudentDashboardController extends Controller
             ->orderBy('updated_at', 'asc')
             ->get();
 
-        $totalNilaiTugas = NilaiTugas::groupBy('user_id')
+            $totalNilaiTugas = NilaiTugas::groupBy('user_id')
             ->selectRaw('user_id, sum(nilai_tugas) as total_nilaiTugas')
             ->get()
             ->sortByDesc('total_nilaiTugas');
@@ -115,14 +115,13 @@ class StudentDashboardController extends Controller
         $userIds = [];
 
         // Collect user IDs from each dataset
-        $userIds = array_merge(
-            $totalNilaiTugas->pluck('user_id')->toArray(),
-            $totalNilaiPretestPosttest->pluck('user_id')->toArray(),
-            $totalNilaiKuis->pluck('user_id')->toArray()
+        $userIds = array_unique(
+            array_merge(
+                $totalNilaiTugas->pluck('user_id')->toArray(),
+                $totalNilaiPretestPosttest->pluck('user_id')->toArray(),
+                $totalNilaiKuis->pluck('user_id')->toArray()
+            )
         );
-
-        // Remove duplicate user IDs
-        $userIds = array_unique($userIds);
 
         // Iterate over all user IDs
         foreach ($userIds as $userId) {
@@ -132,7 +131,7 @@ class StudentDashboardController extends Controller
                 // Get the values from each dataset, set to 0 if null
                 $nilaiTugas = $totalNilaiTugas->where('user_id', $userId)->first()->total_nilaiTugas ?? 0;
                 $nilaiPretestPosttest = $totalNilaiPretestPosttest->where('user_id', $userId)->first()->total_nilaiPretestPosttest ?? 0;
-                $nilaiKuis = $totalNilaiKuis->where('user_id', $userId)->first()->total ?? 0;
+                $nilaiKuis = $totalNilaiKuis->where('user_id', $userId)->first()->total_nilaiKuis ?? 0;
 
                 // Calculate total score for the user
                 $totalScore[$userId] = $nilaiTugas + $nilaiPretestPosttest + $nilaiKuis;

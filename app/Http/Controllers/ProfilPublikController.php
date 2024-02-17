@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\HasilKuisSiswa;
 use App\Models\User;
 use App\Models\Lencana;
+use App\Models\Nilai;
+use App\Models\NilaiTugas;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -23,17 +27,22 @@ class ProfilPublikController extends Controller
         ], compact('users'));
     }
 
-    public function show (User $user)
+    public function show(User $user)
     {
-        $lencanas = Lencana::all();
+        // Calculate total score for the specific user
+        $totalNilaiTugas = NilaiTugas::where('user_id', $user->id)->sum('nilai_tugas');
+        $totalNilaiPretestPosttest = Nilai::where('user_id', $user->id)->sum('total_nilai');
+        $totalNilaiKuis = HasilKuisSiswa::where('user_id', $user->id)->sum('total');
+
+        $totalScore = $totalNilaiTugas + $totalNilaiPretestPosttest + $totalNilaiKuis;
 
         return view('pages.profil_publik', [
-            "title" => "$user->name",
-            "name" => "$user->name",
-            "slug" => "$user->slug",
-            "email" => "$user->email",
-            "is_admin" => "$user->is_admin",
-            "lencanas" => $lencanas,
+            "title" => $user->name,
+            "name" => $user->name,
+            "slug" => $user->slug,
+            "email" => $user->email,
+            "is_admin" => $user->is_admin,
+            "totalScore" => $totalScore,
         ]);
     }
 }

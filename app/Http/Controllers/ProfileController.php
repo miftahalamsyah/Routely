@@ -67,14 +67,13 @@ class ProfileController extends Controller
         $userIds = [];
 
         // Collect user IDs from each dataset
-        $userIds = array_merge(
-            $totalNilaiTugas->pluck('user_id')->toArray(),
-            $totalNilaiPretestPosttest->pluck('user_id')->toArray(),
-            $totalNilaiKuis->pluck('user_id')->toArray()
+        $userIds = array_unique(
+            array_merge(
+                $totalNilaiTugas->pluck('user_id')->toArray(),
+                $totalNilaiPretestPosttest->pluck('user_id')->toArray(),
+                $totalNilaiKuis->pluck('user_id')->toArray()
+            )
         );
-
-        // Remove duplicate user IDs
-        $userIds = array_unique($userIds);
 
         // Iterate over all user IDs
         foreach ($userIds as $userId) {
@@ -84,7 +83,7 @@ class ProfileController extends Controller
                 // Get the values from each dataset, set to 0 if null
                 $nilaiTugas = $totalNilaiTugas->where('user_id', $userId)->first()->total_nilaiTugas ?? 0;
                 $nilaiPretestPosttest = $totalNilaiPretestPosttest->where('user_id', $userId)->first()->total_nilaiPretestPosttest ?? 0;
-                $nilaiKuis = $totalNilaiKuis->where('user_id', $userId)->first()->total ?? 0;
+                $nilaiKuis = $totalNilaiKuis->where('user_id', $userId)->first()->total_nilaiKuis ?? 0;
 
                 // Calculate total score for the user
                 $totalScore[$userId] = $nilaiTugas + $nilaiPretestPosttest + $nilaiKuis;
@@ -93,7 +92,7 @@ class ProfileController extends Controller
 
         // Sort the total score
         arsort($totalScore);
-
+        
         return view('student.profile.index', [
             "title" => "Profil",
             "name" => $profile->name,
