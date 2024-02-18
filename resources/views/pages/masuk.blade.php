@@ -35,9 +35,14 @@
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
-                    <label for="Password" class="block text-sm font-medium text-stone-700">
-                        Kata Sandi
-                    </label>
+                    <div class="justify-between flex">
+                        <label for="Password" class="block text-sm font-medium text-stone-700">
+                            Kata Sandi
+                        </label>
+                        <p class="block text-sm font-medium sm:mt-0">
+                            <a href="/lupa-sandi" class="text-student clashdisplaymedium hover:underline">Lupa Sandi?</a>
+                        </p>
+                    </div>
                     <input type="password" id="input-password" name="password" class="border border-stone-700 my-2 p-2 rounded-lg w-full" required>
                     @error('password')
                         <div class="text-red-500">{{ $message }}</div>

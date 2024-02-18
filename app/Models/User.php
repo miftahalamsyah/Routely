@@ -97,6 +97,10 @@ class User extends Authenticatable
         return $this->hasMany(NilaiTugas::class, 'user_id');
     }
 
+    public function jawabanPertanyaanPemulihan()
+    {
+        return $this->hasMany(JawabanPertanyaanPemulihan::class, 'user_id');
+    }
 
     protected static function boot()
     {

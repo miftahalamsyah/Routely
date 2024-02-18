@@ -59,6 +59,9 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
+Route::get('/lupa-sandi', [LoginController::class, 'lupaSandi'])->name('lupa-sandi');
+Route::match(['put', 'post'], '/lupa-sandi/store', [LoginController::class, 'lupaSandiStore'])->name('lupa-sandi.store');
+
 Route::get('auth/github', [GitHubController::class, 'gitRedirect'])->name('auth.github');
 Route::get('auth/github/callback', [GitHubController::class, 'gitCallback']);
 //end login
@@ -77,6 +80,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::resource('/dashboard/materis', \App\Http\Controllers\MateriController::class)->middleware('admin');
 Route::resource('/dashboard/siswa', \App\Http\Controllers\UserController::class)->middleware('admin');
 Route::resource('/dashboard/tugas', \App\Http\Controllers\TugasController::class)->middleware('admin');
+Route::resource('/dashboard/pertanyaan-pemulihan', \App\Http\Controllers\PertanyaanPermulihanController::class)->middleware('admin');
 
 Route::resource('/dashboard/apersepsi', ApersepsiController::class)->middleware('admin');
 
@@ -144,6 +148,7 @@ Route::get('/student/kelompok', [StudentKelompokController::class, 'index'])->na
 
 Route::get('/student/profile', [ProfileController::class, 'index'])->name('student.profile.index')->middleware('auth');
 Route::put('/student/profile', [ProfileController::class, 'update'])->name('student.profile.update')->middleware('auth');
+Route::post('/student/profile/pertanyaan-pemulihan', [ProfileController::class, 'pertanyaanPemulihan'])->name('student.profile.pertanyaan-pemulihan');
 
 Route::get('/student/leaderboard', [StudentDashboardController::class, 'leaderboard'])->name('student.leaderboard')->middleware('auth');
 

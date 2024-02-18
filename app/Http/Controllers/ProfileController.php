@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\HasilKuisSiswa;
+use App\Models\JawabanPertanyaanPemulihan;
 use App\Models\Kelompok;
 use App\Models\User;
 use App\Models\Nilai;
 use App\Models\NilaiTugas;
 use App\Models\Lencana;
+use App\Models\PertanyaanPemulihan;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -92,7 +94,9 @@ class ProfileController extends Controller
 
         // Sort the total score
         arsort($totalScore);
-        
+
+        $pertanyaanPemulihan = PertanyaanPemulihan::all();
+
         return view('student.profile.index', [
             "title" => "Profil",
             "name" => $profile->name,
@@ -101,8 +105,28 @@ class ProfileController extends Controller
             'kelompokBelajar' => $kelompokBelajar,
             'usersInSameKelompok' => $usersInSameKelompok,
             'kelompoks' => $kelompoks,
+            'pertanyaanPemulihan' => $pertanyaanPemulihan,
         ], compact('users', 'totalNilaiTugas', 'totalNilaiPretestPosttest', 'totalNilaiKuis', 'totalScore'));
 
+    }
+
+    public function pertanyaanPemulihan(Request $request): RedirectResponse
+    {
+        $user_id = auth()->user()->id;
+
+        $this->validate($request, [
+            'pertanyaan_pemulihan_id' => 'required|string|max:255',
+            'jawaban' => 'required|string|max:255',
+        ]);
+
+        JawabanPertanyaanPemulihan::create([
+            'user_id' => $user_id,
+            'pertanyaan_pemulihan_id' => $request->pertanyaan_pemulihan_id,
+            'jawaban' => $request->jawaban,
+        ]);
+
+        Alert::success('Success', 'Pertanyaan pemulihan telah disimpan.');
+        return redirect()->back();
     }
 
     /**
