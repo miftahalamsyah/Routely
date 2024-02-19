@@ -22,6 +22,7 @@
     <title>{{ $title }} | Routely</title>
 </head>
 <body class="justify-center mx-auto bg-stone-100 ">
+    @include('sweetalert::alert')
     <header>
         @include('includes.header')
     </header>

@@ -26,7 +26,7 @@
             <form method="POST" action="{{ route('lupa-sandi.store') }}">
                 @csrf
                 @method('PUT')
-                
+
                 <div class="col-span-6">
                     <label for="Email" class="block text-sm font-medium text-stone-700">
                         Email
@@ -57,10 +57,10 @@
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
-                    <label for="Password" class="block text-sm font-medium text-stone-700">
-                        Kata Sandi Baru
+                    <label for="password" class="block text-sm font-medium text-stone-700">
+                        Password
                     </label>
-                    <input type="password" id="input-password" name="password" class="border border-stone-700 my-2 p-2 rounded-lg w-full" required>
+                    <input type="password" id="password" name="password" class="border border-stone-700 my-2 p-2 rounded-lg w-full" required>
                     @error('password')
                         <div class="text-red-500">{{ $message }}</div>
                     @enderror
