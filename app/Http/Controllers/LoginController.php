@@ -8,6 +8,7 @@ use App\Models\User;
 use AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class LoginController extends Controller
@@ -101,10 +102,17 @@ class LoginController extends Controller
         // Check if the provided answer matches
         $matchingAnswer = $userPertanyaanPemulihan
             ->where('pertanyaan_pemulihan_id', $request->pertanyaan_pemulihan_id)
-            ->where('jawaban', $request->jawaban)
             ->first();
 
         if (!$matchingAnswer) {
+            Alert::error('Error', 'Data yang input tidak benar.')->persistent(true);
+            return back()->withErrors(['jawaban' => 'Data yang input tidak benar.']);
+        }
+
+        // Decrypt the stored answer for comparison
+        $decryptedAnswer = Crypt::decryptString($matchingAnswer->jawaban);
+
+        if ($decryptedAnswer !== $request->jawaban) {
             Alert::error('Error', 'Data yang input tidak benar.')->persistent(true);
             return back()->withErrors(['jawaban' => 'Data yang input tidak benar.']);
         }

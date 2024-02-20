@@ -49,7 +49,7 @@
             <ul class="text-sm p-3">
                 <li><strong>Sumber: </strong></li>
                 <li><strong> - Computational Thinking: A Literature Review</strong>&nbsp;by A.&nbsp;A.&nbsp;Diwan,&nbsp;2017.</li>
-                <li><strong> - Teaching Computational Thinking: A Review of the Literature</strong>&nbsp;by J.&nbsp;C.&nbsp;Wing,&nbsp;2010.</li>
+                <li><strong> - Computational Thinking: A Ten-Year View</strong>&nbsp;by J.&nbsp;C.&nbsp;Wing,&nbsp;2010.</li>
                 <li><strong> - Dekomposisi: Prinsip Dasar Computational Thinking</strong>&nbsp;by Dicoding,&nbsp;2023.</li>
             </ul>
         </div>
@@ -68,7 +68,7 @@
             <ul class="text-sm p-3">
                 <li><strong>Sumber: </strong></li>
                 <li><strong> - Computational Thinking: A Literature Review</strong>&nbsp;by A.&nbsp;A.&nbsp;Diwan,&nbsp;2017.</li>
-                <li><strong> - Teaching Computational Thinking: A Review of the Literature</strong>&nbsp;by J.&nbsp;C.&nbsp;Wing,&nbsp;2010.</li>
+                <li><strong> - Computational Thinking: A Ten-Year View</strong>&nbsp;by J.&nbsp;C.&nbsp;Wing,&nbsp;2010.</li>
                 <li><strong> - Abstraction in Computational Thinking</strong>&nbsp;by DThe International Society for the Learning Sciences,&nbsp;2018.</li>
                 <li><strong> - Abstraksi: Membangun Fondasi Computational Thinking</strong>&nbsp;by DQLab, &nbsp;2023.</li>
             </ul>
@@ -81,12 +81,14 @@
             </div>
 
             <div class="text-md sm:text-md md:text-md lg:text-lg">
-                <p class="p-3">Pengenalan pola, atau <em>pattern recognition</em>, merupakan salah satu pilar penting dalam computational thinking. Kemampuan ini memungkinkan kita untuk mengidentifikasi persamaan dan perbedaan pola dalam berbagai situasi. </p>
+                <p class="p-3">Pengenalan pola, atau <em>pattern recognition</em>, melibatkan kemampuan untuk mengenali struktur atau aturan yang mendasari suatu masalah atau data. Ini melibatkan analisis pola yang muncul dalam konteks permasalahan untuk mengembangkan solusi yang efektif. </p>
+                    <p class="pl-12 p-3">1. <strong>Peningkatan Prediksi:</strong> Pemahaman terhadap pola dalam data memungkinkan pengembangan model prediktif yang lebih akurat, mendukung pengambilan keputusan yang lebih baik.</p>
+                    <p class="pl-12 p-3">2. <strong>Meningkatkan Efisiensi Pemecahan Masalah:</strong> Pengenalan pola memungkinkan pemahaman yang lebih baik terhadap struktur masalah, membantu dalam mengidentifikasi solusi yang lebih efisien.</p>
             </div>
             <ul class="text-sm p-3">
                 <li><strong>Sumber: </strong></li>
                 <li><strong> - Computational Thinking: A Literature Review</strong>&nbsp;by A.&nbsp;A.&nbsp;Diwan,&nbsp;2017.</li>
-                <li><strong> - Teaching Computational Thinking: A Review of the Literature</strong>&nbsp;by J.&nbsp;C.&nbsp;Wing,&nbsp;2010.</li>
+                <li><strong> - Computational Thinking: A Ten-Year View</strong>&nbsp;by J.&nbsp;C.&nbsp;Wing,&nbsp;2010.</li>
             </ul>
         </div>
 
@@ -97,12 +99,14 @@
             </div>
 
             <div class="text-md sm:text-md md:text-md lg:text-lg">
-                <p class="p-3">Algoritma adalah serangkaian langkah-langkah logis dan terstruktur yang digunakan untuk menyelesaikan suatu masalah</p>
+                <p class="p-3">Algoritma merupakan kemampuan dalam menyusun serangkaian langkah-langkah logis dan terstruktur yang diterapkan secara kritis dan sistematis dalam menyelesaikan permasalahan. Dalam konteks computational thinking, algoritma menjadi landasan utama untuk merancang solusi yang efektif dan efisien terhadap masalah-masalah yang kompleks. Algoritma dalam Berpikir Komputasi dapat membantu:</p>
+                    <p class="pl-12 p-3">1. <strong>Pemecahan Masalah yang Terstruktur:</strong> Algoritma membantu dalam menyusun langkah-langkah terstruktur untuk memecahkan masalah secara sistematis dan logis.</p>
+                    <p class="pl-12 p-3">2. <strong>Efisiensi dalam Penyelesaian Masalah:</strong> Dengan adanya algoritma, penyelesaian masalah menjadi lebih efisien dan dapat dilakukan dengan mengikuti urutan langkah-langkah yang telah dirancang.</p>
             </div>
             <ul class="text-sm p-3">
                 <li><strong>Sumber: </strong></li>
                 <li><strong> - Computational Thinking: A Literature Review</strong>&nbsp;by A.&nbsp;A.&nbsp;Diwan,&nbsp;2017.</li>
-                <li><strong> - Teaching Computational Thinking: A Review of the Literature</strong>&nbsp;by J.&nbsp;C.&nbsp;Wing,&nbsp;2010.</li>
+                <li><strong> - Computational Thinking: A Ten-Year View</strong>&nbsp;by J.&nbsp;C.&nbsp;Wing,&nbsp;2010.</li>
             </ul>
         </div>
     </div>

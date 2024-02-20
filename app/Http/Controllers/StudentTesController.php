@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HasilTesSiswa;
 use App\Models\KategoriTes;
+use App\Models\Nilai;
 use App\Models\SoalTes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,12 +17,14 @@ class StudentTesController extends Controller
     public function index(): View
     {
         $kategori_tes = KategoriTes::all();
+
         return view('student.tes.index',
         [
             "title" => "Tes",
             "kategori_tes" => $kategori_tes,
         ]);
     }
+
 
     public function confirm(Request $request, $slug)
     {

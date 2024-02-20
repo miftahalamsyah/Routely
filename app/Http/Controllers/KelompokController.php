@@ -57,7 +57,7 @@ class KelompokController extends Controller
                     return $a['pretest'] - $b['pretest'];
                 });
             } else {
-                usort($cluster, function ($a, $b) {
+                usort($cluster, function ($b, $a) {
                     return $b['pretest'] - $a['pretest'];
                 });
             }

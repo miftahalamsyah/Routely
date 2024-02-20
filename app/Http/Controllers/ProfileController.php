@@ -14,6 +14,7 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -119,15 +120,18 @@ class ProfileController extends Controller
             'jawaban' => 'required|string|max:255',
         ]);
 
+        $encryptedJawaban = Crypt::encryptString($request->jawaban);
+
         JawabanPertanyaanPemulihan::create([
             'user_id' => $user_id,
             'pertanyaan_pemulihan_id' => $request->pertanyaan_pemulihan_id,
-            'jawaban' => $request->jawaban,
+            'jawaban' => $encryptedJawaban,
         ]);
 
         Alert::success('Success', 'Pertanyaan pemulihan telah disimpan.');
         return redirect()->back();
     }
+
 
     /**
      * Update the user's profile information.

@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DaftarController extends Controller
 {
@@ -50,6 +51,7 @@ class DaftarController extends Controller
             'slug' => $slug, // Assign the generated slug
         ]);
 
+        Alert::success('Success', 'Registrasi Berhasil. Silahkan Masuk')->persistent(true);
         return redirect('/login')->with('success', 'Registrasi Berhasil, Silahkan Masuk');
     }
 }

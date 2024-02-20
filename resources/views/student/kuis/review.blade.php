@@ -74,6 +74,11 @@
                                     @endif
                                 @endif
                             </div>
+                            @if ($soal->pembahasan)
+                                <div class="bg-stone-100 rounded-2xl px-4 py-2 border-2">
+                                    {{ $soal->pembahasan }}
+                                </div>
+                            @endif
 
                         </div>
                         <!-- Add these buttons within your form -->
