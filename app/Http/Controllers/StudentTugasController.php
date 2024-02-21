@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HasilTugasSiswa;
+use App\Models\Kelompok;
 use App\Models\NilaiTugas;
 use App\Models\Tugas;
 use Illuminate\Http\Request;
@@ -62,7 +63,7 @@ class StudentTugasController extends Controller
             "submission" => $submission,
             "nilaiTugas" => $nilaiTugas,
             "tugas" => $tugas,
-            "hasilTugasSiswas" => $hasilTugasSiswas
+            "hasilTugasSiswas" => $hasilTugasSiswas,
         ],compact('tugas'));
     }
 

@@ -155,6 +155,19 @@
                                                         <a href="{{ asset('storage/powerpoint/' . $hasilTugas->powerpoint) }}" download="{{ $hasilTugas->powerpoint }}" class="py-0 text-stone-700 hover:text-violet-500" title="Unduh">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 1200 1200" xml:space="preserve"><path d="M600 0C268.63 0 0 268.63 0 600s268.63 600 600 600c331.369 0 600-268.631 600-600C1200 268.63 931.369 0 600 0zm0 1069.565c-259.37 0-469.565-210.261-469.565-469.565S340.63 130.435 600 130.435c259.369 0 469.565 210.261 469.565 469.565S859.369 1069.565 600 1069.565zm117.392-720.652H482.608v266.739H335.87L600 864.13l264.13-248.478H717.391l.001-266.739z"/></svg>
                                                         </a>
+                                                        <div class="flex space-x-2 justify-end">
+                                                            @if ($hasilTugas->user_id == auth()->user()->id)
+                                                                <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('student.hasil_tugas_siswa.destroy', $hasilTugas->id) }}" method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit" class="mx-1 text-stone-700 hover:text-red-600" title="Hapus">
+                                                                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M7 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2h4a1 1 0 1 1 0 2h-1.069l-.867 12.142A2 2 0 0 1 17.069 22H6.93a2 2 0 0 1-1.995-1.858L4.07 8H3a1 1 0 0 1 0-2h4V4zm2 2h6V4H9v2zM6.074 8l.857 12H17.07l.857-12H6.074zM10 10a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1z"/>
+                                                                        </svg>
+                                                                    </button>
+                                                                </form>
+                                                            @endif
+                                                        </div>
                                                     </td>
                                                 </tr>
                                         @php

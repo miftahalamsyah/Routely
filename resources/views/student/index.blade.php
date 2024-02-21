@@ -169,7 +169,7 @@
                 <div class="flex-auto px-1 pt-6">
                     <p class="mb-6 px-2 leading-normal text-xl font-bold overflow-hidden h-8 ...">Problem Posing</p>
                     <div class="flex items-center justify-between px-2 pb-4">
-                        <a href="/student/problem-posing">
+                        <a href="/problem-posing">
                             <button class="mr-2 text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border bg-violet-200 rounded-xl shadow-md hover:bg-violet-300 ">
                                 Pelajari
                             </button>
@@ -181,7 +181,7 @@
                 <div class="flex-auto px-1 pt-6">
                     <p class="mb-6 px-2 leading-normal text-xl font-bold overflow-hidden h-8 ...">Berpikir Komputasi</p>
                     <div class="flex items-center justify-between px-2 pb-4">
-                        <a href="/student/berpikir-komputasi">
+                        <a href="/berpikir-komputasi">
                             <button class="mr-2 text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border bg-violet-200 rounded-xl shadow-md hover:bg-violet-300 ">
                                 Pelajari
                             </button>

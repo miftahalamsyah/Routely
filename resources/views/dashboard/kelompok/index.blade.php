@@ -67,10 +67,10 @@
                                         {{ \App\Models\User::where('id', $kelompok->user_id)->value('name') }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-center">
-                                        {{ \App\Models\Nilai::where('id', $kelompok->user_id)->value('pretest') }}
+                                        {{ \App\Models\Nilai::where('user_id', $kelompok->user_id)->value('pretest') }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-center">
-                                        {{ \App\Models\Nilai::where('id', $kelompok->user_id)->value('posttest') }}
+                                        {{ \App\Models\Nilai::where('user_id', $kelompok->user_id)->value('posttest') }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                         <div class="flex space-x-2 justify-end">

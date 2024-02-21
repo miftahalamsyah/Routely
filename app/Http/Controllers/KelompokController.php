@@ -74,7 +74,7 @@ class KelompokController extends Controller
 
     public function index(): View
     {
-        $kelompoks = Kelompok::orderBy('no_kelompok')->paginate(10);
+        $kelompoks = Kelompok::orderBy('no_kelompok')->get();
 
         // Ambil data nilai siswa dari model (sesuaikan dengan model Anda)
         $data = Nilai::with('user')->get(['pretest', 'user_id']);

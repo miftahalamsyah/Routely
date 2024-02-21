@@ -121,7 +121,7 @@
                             </a>
                             <div class="flex items-center justify-between mt-2">
                                 <a href="/student/tugas/{{ $tugass['slug'] }}">
-                                    <button class="mr-2 text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-semibold transition duration-300 ease-out bg-violet-200 rounded-xl shadow-md hover:bg-violet-300">
+                                    <button class="mr-2 text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-semibold transition duration-300 ease-out bg-violet-200 rounded-xl shadow-md hover:bg-violet-300" title="Lihat Tugas">
                                         Lihat Tugas
                                     </button>
                                 </a>

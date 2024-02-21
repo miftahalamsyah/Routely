@@ -172,6 +172,7 @@ Route::get('/student/simulasi', [StudentSimulasiController::class, 'index'])->na
 
 Route::get('/student/tugas/{tugas:slug}', [StudentTugasController::class, 'show'])->name('student.tugas.show')->middleware('auth');
 Route::post('/hasil_tugas_siswa', [HasilTugasSiswaController::class, 'store'])->name('hasil_tugas_siswa.store');
+Route::delete('/student/tugas/{hasil_tugas_siswa_id}', [HasilTugasSiswaController::class, 'destroy'])->name('student.hasil_tugas_siswa.destroy')->middleware('auth');
 
 Route::get('/student/tes', [StudentTesController::class, 'index'])->name('student.tes.index')->middleware('auth');
 Route::get('/student/tes/{slug}', [StudentTesController::class, 'show'])->name('student.tes.show')->middleware('auth');

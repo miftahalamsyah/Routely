@@ -52,7 +52,7 @@
         </div>
     </div>
 
-    <div x-data="{ bantuan3: false }" class="max-w-4xl mx-auto bg-stone-50 p-5 rounded-lg hover:shadow-md border border-r-4 border-b-4 border-stone-700 my-4">
+    {{-- <div x-data="{ bantuan3: false }" class="max-w-4xl mx-auto bg-stone-50 p-5 rounded-lg hover:shadow-md border border-r-4 border-b-4 border-stone-700 my-4">
         <button @click="bantuan3 = !bantuan3" class="flex justify-between w-full">
             <h2 class="text-lg clashdisplaymedium">Mengakses Pertemuan</h2>
             <svg x-bind:class="{ 'rotate-180': bantuan3 }" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 justify-end transition-transform transform" viewBox="0 0 20 20" fill="currentColor" >
@@ -61,9 +61,8 @@
         </button>
         <div x-show="bantuan3" class="text-stone-800 mt-4 text-md">
             <p>This is some additional information that can be toggled on and off.</p>
-            <!-- Add more content as needed -->
         </div>
-    </div>
+    </div> --}}
 
     <div x-data="{ bantuan4: false }" class="max-w-4xl mx-auto bg-stone-50 p-5 rounded-lg hover:shadow-md border border-r-4 border-b-4 border-stone-700 my-4">
         <button @click="bantuan4 = !bantuan4" class="flex justify-between w-full transition duration-300 group">
@@ -73,7 +72,7 @@
             </svg>
         </button>
         <div x-show="bantuan4" class="text-stone-800 mt-4 text-md">
-            <p>1. Pada laman pertemuan klik Pengenalan untuk menemukan bagian "Tujuan Pembelajaran dan Lembar Apersepsi"</p>
+            <p>1. Pada laman pertemuan klik Persiapan untuk menemukan bagian "Tujuan Pembelajaran dan Lembar Apersepsi"</p>
             <img src="https://routely-image-storage.vercel.app/images/Apersepsi-1.png" title="Mengisi Lembar Apersepsi 1" class="max-w-md rounded-lg border border-r-4 border-b-4 border-stone-800 my-2" loading="lazy"/>
             <p>2. Isi lembar apersepsi sesuai dengan pertanyaan yang diberikan. Perlu diingat bahwa pada lembar apersepsi anda tidak dapat mengubah jawaban lembar apersepsi.</p>
             <img src="https://routely-image-storage.vercel.app/images/Apersepsi-2.png" title="Mengisi Lembar Apersepsi 2" class="max-w-md rounded-lg border border-r-4 border-b-4 border-stone-800 my-2" loading="lazy"/>
@@ -82,7 +81,7 @@
         </div>
     </div>
 
-    <div x-data="{ bantuan5: false }" class="max-w-4xl mx-auto bg-stone-50 p-5 rounded-lg hover:shadow-md border border-r-4 border-b-4 border-stone-700 my-4">
+    {{-- <div x-data="{ bantuan5: false }" class="max-w-4xl mx-auto bg-stone-50 p-5 rounded-lg hover:shadow-md border border-r-4 border-b-4 border-stone-700 my-4">
         <button @click="bantuan5 = !bantuan5" class="flex justify-between w-full transition duration-300 group">
             <h2 class="text-lg clashdisplaymedium">Mengakses Materi (Pemahaman)</h2>
             <svg x-bind:class="{ 'rotate-180': bantuan5 }" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 justify-end transition-transform transform" viewBox="0 0 20 20" fill="currentColor" >
@@ -91,9 +90,8 @@
         </button>
         <div x-show="bantuan5" class="text-stone-800 mt-4 text-md">
             <p>This is some additional information that can be toggled on and off.</p>
-            <!-- Add more content as needed -->
         </div>
-    </div>
+    </div> --}}
 
     <div x-data="{ bantuan6: false }" class="max-w-4xl mx-auto bg-stone-50 p-5 rounded-lg hover:shadow-md border border-r-4 border-b-4 border-stone-700 my-4">
         <button @click="bantuan6 = !bantuan6" class="flex justify-between w-full transition duration-300 group">
@@ -103,8 +101,14 @@
             </svg>
         </button>
         <div x-show="bantuan6" class="text-stone-800 mt-4 text-md">
-            <p>This is some additional information that can be toggled on and off.</p>
-            <!-- Add more content as needed -->
+            <h3 class="font-semibold">Mengirim Soal (Pengajuan Masalah)</h3>
+            <p>1. Pada laman pertemuan scroll ke bawah untuk menemukan bagian "Pengajuan Masalah (Soal)"</p>
+            <img src="https://routely-image-storage.vercel.app/images/Pengajuan-Masalah-1.png" title="Pengajuan Masalah (Soal) 1" class="max-w-md rounded-lg border border-r-4 border-b-4 border-stone-800 my-2" loading="lazy"/>
+            <p>2. Isi semua kolom, setelah itu klik "Kirim Soal" untuk mengirimkan soal yang ingin diajukan</p>
+            <img src="https://routely-image-storage.vercel.app/images/Pengajuan-Masalah-2.png" title="Pengajuan Masalah (Soal) 2" class="max-w-md rounded-lg border border-r-4 border-b-4 border-stone-800 my-2" loading="lazy"/>
+            <h3 class="font-semibold">Mengunduh soal dari kelompok lain</h3>
+            <p>1. Setelah mengirim soal, anda dapat melihat hasilnya dan mengunduh soal dari kelompok lain. *Setiap kelompok akan menampilkan satu file terbaru.</p>
+            <img src="https://routely-image-storage.vercel.app/images/Pengajuan-Masalah-3.png" title="Pengajuan Masalah (Soal) 3" class="max-w-md rounded-lg border border-r-4 border-b-4 border-stone-800 my-2" loading="lazy"/>
         </div>
     </div>
 
@@ -116,8 +120,14 @@
             </svg>
         </button>
         <div x-show="bantuan7" class="text-stone-800 mt-4 text-md">
-            <p>This is some additional information that can be toggled on and off.</p>
-            <!-- Add more content as needed -->
+            <h3 class="font-semibold">Mengumpulkan Tugas (pemecahan masalah)</h3>
+            <p>1. Pada laman pertemuan scroll ke bawah untuk menemukan bagian "Pemecahan Masalah (Pengumpulan Tugas)".</p>
+            <img src="https://routely-image-storage.vercel.app/images/Pemecahan-Masalah-1.png" title="Pemecahan Masalah (Pengumpulan Tugas) 1" class="max-w-md rounded-lg border border-r-4 border-b-4 border-stone-800 my-2" loading="lazy"/>
+            <p>2. Klik "Kirim Tugas" untuk mengunggah tugas yang telah dikerjakan.</p>
+            <img src="https://routely-image-storage.vercel.app/images/Pemecahan-Masalah-2.png" title="Pemecahan Masalah (Pengumpulan Tugas) 2" class="max-w-md rounded-lg border border-r-4 border-b-4 border-stone-800 my-2" loading="lazy"/>
+            <p>3. Selesai, tugas telah diunggah dan dapat dilihat oleh kelompok lain jika akan mengunduhnya saat presentasi di kelas.</p>
+            <img src="https://routely-image-storage.vercel.app/images/Pemecahan-Masalah-3.png" title="Pemecahan Masalah (Pengumpulan Tugas) 3" class="max-w-md rounded-lg border border-r-4 border-b-4 border-stone-800 my-2" loading="lazy"/>
+            <p>4. Nilai akan diberikan setelah pertemuan selesai.
         </div>
     </div>
 
