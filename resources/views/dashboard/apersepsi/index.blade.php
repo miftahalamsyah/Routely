@@ -42,9 +42,6 @@
                             <thead class="text-center">
                                 <tr>
                                     <th scope="col" class="px-6 py-3 text-xs font-medium uppercase tracking-wider">
-                                        Pertemuan
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-xs font-medium uppercase tracking-wider">
                                         Nama Siswa
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-xs font-medium uppercase tracking-wider">
@@ -56,9 +53,6 @@
                             <tbody class="divide-y divide-stone-600">
                                 @forelse ($apersepsis->where('pertemuan_id', $uniqueApersepsi->pertemuan_id) as $apersepsi)
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-center">
-                                            {{ $apersepsi->pertemuan_id }}
-                                        </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             {{ $apersepsi->user->name }}
                                         </td>

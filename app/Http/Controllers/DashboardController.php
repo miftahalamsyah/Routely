@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HasilKuisSiswa;
 use App\Models\HasilTesSiswa;
 use App\Models\Kelompok;
 use App\Models\Materi;
@@ -26,20 +27,27 @@ class DashboardController extends Controller
         $tugasCount = Tugas::count();
         $pertemuanCount = Pertemuan::count();
         $userCount = User::where('is_admin', 0)->count();
+
         $CountPretest = HasilTesSiswa::where('kategori_tes_id', 1)->count();
         $meanPretest = HasilTesSiswa::where('kategori_tes_id', 1)->avg('total');
         $CountPosttest = HasilTesSiswa::where('kategori_tes_id', 2)->count();
         $meanPosttest = HasilTesSiswa::where('kategori_tes_id', 2)->avg('total');
+
         $averagePretest = (int) $meanPretest;
         $averagePosttest = (int) $meanPosttest;
 
+        $tugass = Tugas::all();
         $users = User::where('is_admin', 0)
                     ->orderBy('updated_at', 'asc')
                     ->get();
         $nilais = Nilai::whereHas('user', function ($query) {
             $query->where('is_admin', 0);
         })->get();
-
+        $hasilKuisSiswa = HasilKuisSiswa::all()
+            ->sortBy(function ($result) {
+                // Assuming there's a 'user' relationship in HasilKuisSiswa
+                return optional($result->user)->name;
+            });
         $kelompoks = Kelompok::all();
 
         if (Auth::check()) {
@@ -61,6 +69,8 @@ class DashboardController extends Controller
                 'users' => $users,
                 'nilais' => $nilais,
                 'kelompoks' => $kelompoks,
+                'tugass' => $tugass,
+                'hasilKuisSiswa' => $hasilKuisSiswa,
             ]);
         } else {
             return view('pages.home', [

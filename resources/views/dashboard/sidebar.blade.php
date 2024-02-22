@@ -127,11 +127,6 @@
                         PostTest
                         </a>
                     </li>
-                    <li>
-                        <a href="/dashboard/#" class="block rounded-lg px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700">
-                        Harian
-                        </a>
-                    </li>
                 </ul>
             </details>
 

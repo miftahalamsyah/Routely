@@ -12,7 +12,7 @@
         </a>
         <button class="bg-student p-2 rounded-xl text-stone-300"><a href="{{ route('nilai.posttest.export') }}" class="text-md font-semibold p-2">Ekspor ke Spreadsheets</a></button>
     </div>
-    <div class="bg-stone-700 rounded-xl mx-3 border border-stone-600">
+    <div class="bg-stone-700 border-2 border-stone-600 rounded-xl mx-3 border border-stone-600">
         <div class="row">
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
@@ -54,7 +54,7 @@
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 {{ \App\Models\User::where('id', $nilai->user_id)->value('name') }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                            <td class="px-6 py-4 whitespace-nowrap text-center bg-stone-600">
                                                 {{ $nilai->total }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-center">

@@ -3,7 +3,7 @@
 @section('content')
 <section class="row z-0 p-4 max-w-6xl align-center mx-auto min-h-screen">
     <div class="my-8 text-center">
-        <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-stone-50 md:tracking-tight">Daftar Soal Kuis</h1>
+        <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-stone-50 md:tracking-tight">Daftar Soal Kuis (Verifikasi)</h1>
     </div>
 
     <div class="justify-end m-2">

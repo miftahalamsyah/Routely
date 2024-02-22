@@ -13,10 +13,30 @@
         {{-- <button class="bg-student p-2 rounded-xl text-stone-300"><a href="{{ route('nilai.kuis.export') }}" class="text-md font-semibold p-2">Ekspor ke Spreadsheets</a></button> --}}
     </div>
 
+    <div class="grid grid-cols-2 mx-3 my-5 gap-4 text-stone-300">
+        @foreach ($hasilKuisSiswa->unique('pertemuan_id') as $uniqueHasilKuisSiswa)
+            @php
+                $pertemuan_id = $uniqueHasilKuisSiswa->pertemuan_id;
+                $hasilKuisSiswaCount = \App\Models\HasilKuisSiswa::where('pertemuan_id', $pertemuan_id)->count();
+            @endphp
+            <a href="#{{ $loop->iteration }}" class="text-xs h-30 bg-stone-700 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
+                Kuis Pertemuan {{ $loop->iteration }}
+                <p class="font-normal text-stone-300 text-sm py-2">{{ $hasilKuisSiswaCount }} dari {{ $siswaCount }} siswa telah mengerjakan</p>
+                <div class="w-full bg-stone-300 rounded-full">
+                    <div class="bg-violet-600 text-xs font-medium text-stone-300 text-center p-0.5 leading-none rounded-full"
+                        style="width: {{ ($hasilKuisSiswaCount / $siswaCount) * 100 }}%">
+                        {{ round(($hasilKuisSiswaCount / $siswaCount) * 100) }}%
+                    </div>
+                </div>
+            </a>
+        @endforeach
+    </div>
+
     @foreach ($hasilKuisSiswa->unique('pertemuan_id') as $uniqueHasilKuisSiswa)
-    <div class="bg-stone-700 text-stone-300 rounded-xl mx-3 my-5 border-2 border-stone-600">
+    <div class="bg-stone-700 text-stone-300 rounded-xl mx-3 my-5 border-2 border-stone-600" id="{{ $loop->iteration }}">
         <div class="row">
             <div class="col-md-12 p-5">
+                <h2 class="text-stone-300 text-center p-2 font-semibold"> Kuis Pertemuan ke-{{ $loop->iteration }} </h2>
                 <div class="border-0 shadow-sm">
                     <div class="">
                         <div class="overflow-x-auto">

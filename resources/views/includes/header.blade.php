@@ -10,10 +10,10 @@
             @auth
                 <div class="relative inline-block text-left">
                     <div class="mr-2">
-                        <button type="button" class="inline-flex w-full justify-center" id="menu-button" aria-expanded="true" aria-haspopup="true">
-                                <div class="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl text-stone-50 text-xs font-semibold hover:shadow-md  border border-b-4 border-r-4 border-stone-700">
-                                    {{ substr(Auth::user()->name, 0, 1) }}{{ substr(strrchr(Auth::user()->name, ' '), 1, 1) }}
-                                </div>
+                        <button type="button" class="inline-flex w-full justify-center" id="menu-button" aria-expanded="true" aria-haspopup="true" title="Klik untuk Navigasi">
+                            <div class="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl text-stone-50 text-xs font-semibold hover:shadow-md  border border-b-4 border-r-4 border-stone-700">
+                                {{ substr(Auth::user()->name, 0, 1) }}{{ substr(strrchr(Auth::user()->name, ' '), 1, 1) }}
+                            </div>
                         </button>
                     </div>
                     <div class="absolute clashdisplaymedium mt-6 right-0 w-56 origin-top-right rounded-xl bg-stone-50 shadow-lg focus:outline-none hidden border border-b-4 border-r-4 border-stone-700" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">

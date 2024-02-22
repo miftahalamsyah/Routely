@@ -6,7 +6,7 @@
         <h1 class="mb-6 text-xl font-extrabold leading-none max-w-5xl mx-auto tracking-normal text-stone-300 sm:text-3xl md:text-2xl lg:text-3xl md:tracking-tight"><span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline">Routely</span>&nbsp;Dashboard Guru</h1>
     </div>
 
-    <div class="mx-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 my-5">
+    <div class="mx-2 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-2 my-5">
         <a href="/dashboard/siswa">
             <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
                 Siswa
@@ -78,9 +78,61 @@
         </a>
     </div>
 
+    {{-- Pengerjaan tugas --}}
+    <div class="my-5 mx-2 block rounded-xl border-stone-600 border p-8 bg-stone-700">
+        <h2 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Pengerjaan Tugas</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            @forelse ($tugass as $tugas)
+                <a href="/dashboard/tugas/{{ $tugas->id }}" class="text-xs h-30 bg-stone-700 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
+                    Tugas {{ $tugas->id }}
+                    @php
+                        $tugas_id = $tugas->id;
+                        $hasilTugasSiswaCount = \App\Models\HasilTugasSiswa::where('tugas_id', $tugas_id)->count();
+                    @endphp
+                    <p class="font-normal text-stone-300 text-sm py-2">{{ $hasilTugasSiswaCount }} dari {{ $userCount }} siswa telah mengerjakan</p>
+                    <div class="w-full bg-stone-300 rounded-full">
+                        <div class="bg-violet-600 text-xs font-medium text-stone-300 text-center p-0.5 leading-none rounded-full"
+                            style="width: {{ ($hasilTugasSiswaCount / $userCount) * 100 }}%">
+                            {{ round(($hasilTugasSiswaCount / $userCount) * 100) }}%
+                        </div>
+                    </div>
+                </a>
+            @empty
+                <div class="text-center">
+                    <div class="mx-auto bg-stone-700 text-stone-300 p-2 rounded-xl">
+                        Data tugas tidak tersedia.
+                    </div>
+                </div>
+            @endforelse
+        </div>
+    </div>
+
+    {{-- Pengerjaan kuis --}}
+    <div class="my-5 mx-2 block rounded-xl border-stone-600 border p-8 bg-stone-700">
+        <h2 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Pengerjaan Kuis</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-stone-300">
+            @foreach ($hasilKuisSiswa->unique('pertemuan_id') as $uniqueHasilKuisSiswa)
+                @php
+                    $pertemuan_id = $uniqueHasilKuisSiswa->pertemuan_id;
+                    $hasilKuisSiswaCount = \App\Models\HasilKuisSiswa::where('pertemuan_id', $pertemuan_id)->count();
+                @endphp
+                <a href="/dashboard/nilai/kuis#{{ $loop->iteration }}" class="text-xs h-30 bg-stone-700 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
+                    Kuis Pertemuan {{ $loop->iteration }}
+                    <p class="font-normal text-stone-300 text-sm py-2">{{ $hasilKuisSiswaCount }} dari {{ $userCount }} siswa telah mengerjakan</p>
+                    <div class="w-full bg-stone-300 rounded-full">
+                        <div class="bg-violet-600 text-xs font-medium text-stone-300 text-center p-0.5 leading-none rounded-full"
+                            style="width: {{ ($hasilKuisSiswaCount / $userCount) * 100 }}%">
+                            {{ round(($hasilKuisSiswaCount / $userCount) * 100) }}%
+                        </div>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+    </div>
+
     <!-- Daftar Pertemuan -->
     <div class="my-5 mx-2 block rounded-xl border-stone-600 border p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">
-        <h1 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Pertemuan</h1>
+        <h2 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Pertemuan</h2>
         <table class="min-w-full divide-y divide-stone-500 text-stone-300">
             <thead>
                 <tr>
@@ -141,7 +193,7 @@
 
     <!-- Daftar Tugas -->
     <div class="my-5 mx-2 block rounded-xl border-stone-600 border p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">
-        <h1 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Tugas</h1>
+        <h2 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Tugas</h2>
         <table class="min-w-full divide-y divide-stone-500 text-stone-300">
             <thead>
                 <tr>
@@ -190,7 +242,7 @@
 
     <!-- Daftar Materi -->
     <div class="my-5 mx-2 block rounded-xl border border-stone-600 p-8 bg-stone-700 overflow-x-auto">
-        <h1 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Materi</h1>
+        <h2 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Materi</h2>
         <table class="min-w-full divide-y divide-stone-500 text-stone-300 my-4">
             <thead>
                 <tr>
@@ -239,7 +291,7 @@
 
     {{-- Daftar Siswa --}}
     <div class="my-5 mx-2 block rounded-xl border border-stone-600 p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">
-        <h1 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Siswa</h1>
+        <h2 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Siswa</h2>
         <table class="min-w-full divide-y divide-stone-500 text-stone-300">
             <thead>
                 <tr>
@@ -283,7 +335,7 @@
     {{-- Leaderboard --}}
     <div class="my-5 mx-2 block rounded-xl border border-stone-600 p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">
         <div class="p-4 mx-auto text-center">
-            <h1 class="text-2xl font-extrabold tracking-tight leading-none text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl"><span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline"> Routely </span>League</h1>
+            <h2 class="text-2xl font-extrabold tracking-tight leading-none text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl"><span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline"> Routely </span>League</h2>
             {{-- table user leaderboard --}}
             <div class="overflow-x-auto">
                 <table class="w-full mt-8">

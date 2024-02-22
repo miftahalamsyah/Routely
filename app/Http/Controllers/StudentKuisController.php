@@ -116,7 +116,7 @@ class StudentKuisController extends Controller
             'pertemuan_id' => $request->pertemuan_id,
         ]);
 
-        Alert::success('Success', 'Anda telah menyelesaikan Tes.');
+        Alert::success('Success', 'Anda telah menyelesaikan Kuis.');
         return redirect('/student/pertemuan/pertemuan-ke-' . $request->pertemuan_id);
     }
 

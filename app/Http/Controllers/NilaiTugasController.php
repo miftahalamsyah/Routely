@@ -16,13 +16,17 @@ class NilaiTugasController extends Controller
     {
         $tugass = Tugas::all();
         $hasilTugasSiswas = HasilTugasSiswa::all();
+
         $users = User::where('is_admin', 0);
-        $nilaiTugas = NilaiTugas::all()->sortBy('tugas_id');
+        $userCount = User::where('is_admin', 0)->count();
+        $nilaiTugas = NilaiTugas::join('users', 'nilai_tugas.user_id', '=', 'users.id')
+            ->orderBy('users.name')
+            ->get(['nilai_tugas.*']);
 
         return view('dashboard.nilai.tugas.index',
         [
             "title" => "Nilai Tugas",
-        ], compact('tugass', 'users', 'hasilTugasSiswas', 'nilaiTugas'));
+        ], compact('tugass', 'users', 'hasilTugasSiswas', 'nilaiTugas', 'userCount'));
     }
 
     public function create($tugas_id, $user_id, $hasil_tugas_siswas_id)

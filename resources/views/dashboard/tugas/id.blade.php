@@ -24,7 +24,7 @@
         <p class="ml-2 font-semibold text-md text-stone-50">Back</p>
     </a>
 
-    <div class="bg-stone-700 rounded-xl mx-3">
+    <div class="bg-stone-700 rounded-xl mx-3 border-2 border-stone-600">
         <div class="row">
             <div class="col-md-12 p-2">
                 <div class="border-0 shadow-sm">
@@ -116,7 +116,7 @@
                                     @empty
                                         <tr>
                                             <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
-                                                <div class="mx-auto bg-stone-100 text-gray-600 p-2 rounded-xl">
+                                                <div class="mx-auto bg-stone-700 text-stone-300 p-2 rounded-xl">
                                                     Data nilai tidak tersedia.
                                                 </div>
                                             </td>
@@ -129,6 +129,42 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="bg-stone-700 rounded-xl mx-3 border-2 border-stone-600 mt-12 text-stone-300 p-5">
+        <h2 class="font-semibold text-lg text-center">Siswa yang Belum Mengerjakan Tugas {{ $tugas_id }}</h2>
+        <table class="mt-5 min-w-full divide-y divide-stone-500 overflow-x-auto">
+            <thead>
+                <tr>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                        Nama Siswa
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                        Kelompok
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-500">
+                @forelse ($usersNotSubmitted as $user)
+                    <tr class="whitespace-nowrap">
+                        <td class="px-4 py-2">
+                            {{ $user->name }}
+                        </td>
+                        <td class="px-4 py-2 text-center">
+                            {{ \App\Models\Kelompok::where('user_id', $user->id)->value('no_kelompok') }}
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
+                            <div class="mx-auto bg-stone-700 text-stone-300 p-2 rounded-xl">
+                                Semua siswa telah mengumpulkan tugas {{ $tugas_id }}.
+                            </div>
+                        </td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
     </div>
 </section>
 @endsection

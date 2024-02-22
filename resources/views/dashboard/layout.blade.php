@@ -69,7 +69,7 @@
         </header>
         @include('dashboard.sidebar')
         <div id="loading-bar" class="loading-bar bg-gradient-to-r from-orange-500 via-purple-500 to-violet-700 z-30"></div>
-        <div class="content-container ml-0 md:ml-64 z-0">
+        <div class="content-container ml-0 lg:ml-64 z-0">
             @yield('content')
         </div>
 
@@ -101,6 +101,39 @@
     .dropdown:hover .dropdown-menu {
     display: block;
     }
+
+     ::-webkit-scrollbar {
+    width: 0.4rem;
+    background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #5c578c;
+        border-radius: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    * {
+        scrollbar-width: thin;
+    }
+
+    *::-webkit-scrollbar {
+        width: 0.4rem;
+        background-color: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: #5c578c;
+        border-radius: 12px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
 </style>
 
 <script>

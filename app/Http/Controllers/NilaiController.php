@@ -21,8 +21,10 @@ class NilaiController extends Controller
             $query->where('is_admin', 0);
         })->get();
 
-        //get all HasilTesSiswa where kategori_tes_id = 1
-        $nilaiPretestPosttest = HasilTesSiswa::all();
+        $nilaiPretestPosttest = HasilTesSiswa::join('users', 'hasil_tes_siswas.user_id', '=', 'users.id')
+            ->orderBy('users.name')
+            ->select('hasil_tes_siswas.*', 'users.name as user_name')
+            ->get();
 
         $CountPretest = HasilTesSiswa::where('kategori_tes_id', 1)->count();
         $CountPosttest = HasilTesSiswa::where('kategori_tes_id', 2)->count();
@@ -43,7 +45,11 @@ class NilaiController extends Controller
 
     public function pretest(): View
     {
-        $nilaiPretest = HasilTesSiswa::where('kategori_tes_id', 1)->get();
+        $nilaiPretest = HasilTesSiswa::where('kategori_tes_id', 1)
+            ->join('users', 'hasil_tes_siswas.user_id', '=', 'users.id')
+            ->orderBy('users.name')
+            ->select('hasil_tes_siswas.*', 'users.name as user_name')
+            ->get();
 
         return view('dashboard.nilai.pretest',
         [
@@ -63,7 +69,11 @@ class NilaiController extends Controller
 
     public function posttest(): View
     {
-        $nilaiPosttest = HasilTesSiswa::where('kategori_tes_id', 2)->get();
+        $nilaiPosttest = HasilTesSiswa::where('kategori_tes_id', 2)
+            ->join('users', 'hasil_tes_siswas.user_id', '=', 'users.id')
+            ->orderBy('users.name')
+            ->select('hasil_tes_siswas.*', 'users.name as user_name')
+            ->get();
 
         return view('dashboard.nilai.posttest',
         [
