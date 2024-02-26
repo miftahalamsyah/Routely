@@ -49,7 +49,7 @@ class StudentDashboardController extends Controller
             $StudentTugasCount = HasilTugasSiswa::where('user_id', $user->id)->count();
             $tugasCount = Tugas::count();
 
-            $nilaiTugasRecords = NilaiTugas::where('user_id', $user->id)->get();
+            $nilaiKuisRecords = HasilKuisSiswa::where('user_id', $user->id)->get();
 
             return view('student.index', [
                 'title' => 'Student Dashboard',
@@ -61,7 +61,7 @@ class StudentDashboardController extends Controller
                 'kelompokBelajar' => $kelompokBelajar,
                 'usersInSameKelompok' => $usersInSameKelompok,
                 "submissions" => $submissions,
-                'nilaiTugasRecords' => $nilaiTugasRecords,
+                'nilaiTugasRecords' => $nilaiKuisRecords,
                 'tugasCount' => $tugasCount,
                 'StudentTugasCount' => $StudentTugasCount,
             ]);

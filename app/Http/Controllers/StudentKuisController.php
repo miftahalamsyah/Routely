@@ -39,7 +39,7 @@ class StudentKuisController extends Controller
         $soal_kuis = SoalKuis::where('pertemuan_id', $pertemuan_id)->get();
 
         return view('student.kuis.index', [
-            "title" => "Kuis",
+            "title" => "6. Verifikasi - Kuis",
             "user" => $user,
         ], compact('pertemuan', 'soal_kuis', 'pertemuan'));
     }

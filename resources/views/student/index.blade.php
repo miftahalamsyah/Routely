@@ -82,7 +82,7 @@
             <div x-data="{ isOpenTugas: false }" class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-student-dark rounded-2xl score-card">
                 <div class="max-w-full h-16 px-3">
                     <div class="flex items-center justify-between">
-                        <p class="mb-0 text-stone-50 font-semibold leading-normal text-sm">Nilai Tugas</p>
+                        <p class="mb-0 text-stone-50 font-semibold leading-normal text-sm">Nilai Kuis</p>
                         <!-- Button to toggle score visibility -->
                         <div class="relative group">
                             <button @click="isOpenTugas = !isOpenTugas" class="toggle-score-button" aria-label="Toggle Score Visibility">
@@ -98,8 +98,8 @@
                         <div class="grid grid-cols-4 w-full mb-0 text-stone-50 font-extrabold text-3xl actual-score flex-shrink-0 overflow-x-auto">
                             @foreach($nilaiTugasRecords as $record)
                             <div class="flex flex-col">
-                                <p class="mb-0 text-stone-50 font-extrabold text-3xl actual-score mr-2">{{ $record->nilai_tugas }}</p>
-                                <p class="mb-0 text-stone-50 font-thin text-xs actual-score mr-2">Tugas {{ $record->tugas_id }}</p>
+                                <p class="mb-0 text-stone-50 font-extrabold text-3xl actual-score mr-2">{{ $record->total }}</p>
+                                <p class="mb-0 text-stone-50 font-thin text-xs actual-score mr-2">Kuis {{ $record->kuis_id }}</p>
                             </div>
                             @endforeach
                         </div>

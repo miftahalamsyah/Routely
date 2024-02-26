@@ -21,7 +21,7 @@ class StudentPengajuanMasalahController extends Controller
         $noKelompok = Kelompok::where('user_id', $user->id)->value('no_kelompok');
 
         return view('student.pengajuan-masalah.index', [
-            'title' => 'Pengajuan Masalah',
+            'title' => '4. Pengajuan Masalah',
             'user' => $user,
             'noKelompok' => $noKelompok,
             'pertemuans' => $pertemuans,

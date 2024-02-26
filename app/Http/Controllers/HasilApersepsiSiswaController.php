@@ -22,7 +22,7 @@ class HasilApersepsiSiswaController extends Controller
 
         return view('student.apersepsi.create',
         [
-            "title" => "Apersepsi Siswa",
+            "title" => "1. Persiapan - Apersepsi Siswa",
             "defaultPertemuanId" => $pertemuan_id,
             "pertemuan" => $pertemuan,
             "submission" => $submission,
