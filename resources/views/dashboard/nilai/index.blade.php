@@ -98,7 +98,13 @@
                                                 </td>
                                             @endforeach
                                             <td class="px-6 py-4 whitespace-nowrap text-center">
-                                                <span class="text-sm text-student italic">Tidak ada keterangan</span>
+                                                <span class="text-sm text-violet-400 font-semibold">
+                                                    @if($groupedNilai->where('kategori_tes_id', 1)->first() && $groupedNilai->where('kategori_tes_id', 2)->first() && $groupedNilai->where('kategori_tes_id', 1)->first()->total > $groupedNilai->where('kategori_tes_id', 2)->first()->total)
+                                                        Tidak Naik
+                                                    @elseif($groupedNilai->where('kategori_tes_id', 1)->first() && $groupedNilai->where('kategori_tes_id', 2)->first() && $groupedNilai->where('kategori_tes_id', 1)->first()->total < $groupedNilai->where('kategori_tes_id', 2)->first()->total)
+                                                        Naik
+                                                    @endif
+                                                </span>
                                             </td>
                                         </tr>
                                     @empty

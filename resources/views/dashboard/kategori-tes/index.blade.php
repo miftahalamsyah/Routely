@@ -40,7 +40,8 @@
                                                 {{ $kategoriTest->waktu_tes }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                {{ $kategoriTest->status_tes }}
+                                                {{-- if {{ $kategoriTest->status_tes }} = 1 then "Dibuka" else "Belum Dibuka" --}}
+                                                
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 {{ $kategoriTest->passcode }}

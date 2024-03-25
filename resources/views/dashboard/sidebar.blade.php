@@ -130,14 +130,14 @@
                 </ul>
             </details>
 
-            <li>
+            <!--<li>
                 <a class="rounded-xl flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-stone-100 hover:bg-stone-700 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300" href="javascript:;">
                     <svg class="flex-shrink-0 w-3.5 h-3.5 transition duration-75" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M15 6H9a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1Zm-1 4h-4V8h4Zm3-8H5a1 1 0 0 0-1 1v18a1 1 0 0 0 1 1h12a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3Zm1 17a1 1 0 0 1-1 1H6V4h11a1 1 0 0 1 1 1Z"/>
                     </svg>
                     Simulasi
                 </a>
-            </li>
+            </li>-->
 
             <hr class="border-y border-stone-600 flex-grow">
 
@@ -170,7 +170,7 @@
                 </a>
             </li>
 
-            <li>
+            <!--<li>
                 <a class="rounded-xl flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-stone-100 hover:bg-stone-700 {{ in_array($title, ['Lencana', 'Tambah Lencana', 'Edit Lencana']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}" href="/dashboard/lencana">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M18.5 8.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -178,7 +178,7 @@
                     </svg>
                     Lencana
                 </a>
-            </li>
+            </li>-->
 
             <form action="/logout" method="post">
                 @csrf

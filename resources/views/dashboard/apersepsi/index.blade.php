@@ -3,7 +3,7 @@
 @section('content')
 <section class="row z-0 p-4 max-w-6xl align-center mx-auto min-h-screen">
     <div class="my-8 text-center">
-        <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-stone-50 md:tracking-tight">Daftar Hasil Apersepsi Siswa</h1>
+        <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-stone-300 md:tracking-tight">Daftar Hasil Apersepsi Siswa</h1>
     </div>
 
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 m-3">

@@ -21,7 +21,7 @@
         <meta property="twitter:title" content="Routely - Pengalaman Belajar yang Baru*">
         <meta property="twitter:description" content="Gunakan Routely untuk pengalaman belajar yang baru* Dengan Routely, Anda dapat memahami routing dalam perspektif Computational Thinking, membuka peluang baru untuk pengalaman lebih pada materi routing.">
         <meta property="twitter:image" content="https://routely.me/storage/routely.png">
-        
+
         <meta name="csrf-token" content="{{ csrf_token() }}">
         @vite('resources/css/app.css')
         <link rel="manifest" href="{{ asset('manifest.json') }}">
@@ -97,7 +97,7 @@
                             Tes
                         </div>
                     </li>
-                    <li class="relative group">
+                    {{-- <li class="relative group">
                         <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 text-stone-400   {{ request()->routeIs('student.simulasi') ? 'bg-student text-stone-50' : '' }}" href="/student/simulasi">
                             <svg class="mx-auto w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M15 6H9a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1Zm-1 4h-4V8h4Zm3-8H5a1 1 0 0 0-1 1v18a1 1 0 0 0 1 1h12a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3Zm1 17a1 1 0 0 1-1 1H6V4h11a1 1 0 0 1 1 1Z"/>
@@ -106,7 +106,7 @@
                         <div class="tooltip hidden group-hover:block absolute top-2 ml-12 bg-stone-600 shadow-md text-stone-50 p-1 text-xs rounded-md">
                             Simulasi
                         </div>
-                    </li>
+                    </li> --}}
                     <li class="relative group">
                         <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 text-stone-400   {{ $title === "Profil" ? 'bg-student text-stone-50' : '' }}" href="/student/profile">
                             <svg width="16" height="16" fill="currentColor" class="mx-auto w-5 h-5" viewBox="0 0 35 35" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg"><path d="M17.5 16.383a8.067 8.067 0 1 1 8.067-8.067 8.076 8.076 0 0 1-8.067 8.067Zm0-13.633a5.567 5.567 0 1 0 5.567 5.566A5.573 5.573 0 0 0 17.5 2.75Zm13.977 32a1.25 1.25 0 0 1-1.23-1.037A12.663 12.663 0 0 0 17.5 22.852 12.663 12.663 0 0 0 4.753 33.713a1.25 1.25 0 0 1-2.464-.426A15.1 15.1 0 0 1 17.5 20.352a15.1 15.1 0 0 1 15.211 12.935 1.25 1.25 0 0 1-1.02 1.444 1.2 1.2 0 0 1-.214.019Z"/></svg>
@@ -133,14 +133,14 @@
                             Leaderboard
                         </div>
                     </li>
-                    <li class="relative group">
+                    <!--<li class="relative group">
                         <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 text-stone-400   {{ request()->routeIs('chat.index') ? 'bg-student text-stone-50' : '' }}" href="/student/chat">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-5 h-5 icon line-color"><path d="M18.81 16.23 20 21l-4.95-2.48A9.84 9.84 0 0 1 12 19c-5 0-9-3.58-9-8s4-8 9-8 9 3.58 9 8a7.49 7.49 0 0 1-2.19 5.23Z" "/></svg>
                         </a>
                         <div class="tooltip hidden group-hover:block absolute top-2 ml-12 bg-stone-600 shadow-md text-stone-50 p-1 text-xs rounded-md">
                             Chat
                         </div>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
             {{-- end navigation icon --}}
@@ -203,7 +203,7 @@
                                             {{ substr(Auth::user()->name, 0, 1) }}{{ substr(strrchr(Auth::user()->name, ' '), 1, 1) }}
                                         </div>
                                     </button>
-                                    <ul x-show="open"@click.away="open = false" class="dropdown-menu absolute mr-40 bg-stone-50 mt-1 rounded-2xl hidden text-stone-700 w-40 right-0 transform translate-x-full">
+                                    <ul x-show="open"@click.away="open = false" class="dropdown-menu absolute mr-40 bg-stone-50 rounded-2xl hidden text-stone-700 w-40 right-0 transform translate-x-full">
                                         <li class="text-xs rounded-2xl shadow-md">
                                             <a href="/student" class="text-stone-700 block px-4 py-2 text-sm rounded-t-2xl hover:bg-stone-100" role="menuitem" tabindex="-1" id="menu-item-0">Dashboard</a>
                                             <a href="/student/profile" class="text-stone-700 block px-4 py-2 text-sm hover:bg-stone-100" role="menuitem" tabindex="-1" id="menu-item-0">Profil</a>
