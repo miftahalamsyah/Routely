@@ -48,7 +48,6 @@
             </div>
             <ul class="text-sm p-3">
                 <li><strong>Sumber: </strong></li>
-                <li><strong> - Computational Thinking: A Literature Review</strong>&nbsp;by A.&nbsp;A.&nbsp;Diwan,&nbsp;2017.</li>
                 <li><strong> - Computational Thinking: A Ten-Year View</strong>&nbsp;by J.&nbsp;C.&nbsp;Wing,&nbsp;2010.</li>
                 <li><strong> - Dekomposisi: Prinsip Dasar Computational Thinking</strong>&nbsp;by Dicoding,&nbsp;2023.</li>
             </ul>
@@ -67,7 +66,6 @@
             </div>
             <ul class="text-sm p-3">
                 <li><strong>Sumber: </strong></li>
-                <li><strong> - Computational Thinking: A Literature Review</strong>&nbsp;by A.&nbsp;A.&nbsp;Diwan,&nbsp;2017.</li>
                 <li><strong> - Computational Thinking: A Ten-Year View</strong>&nbsp;by J.&nbsp;C.&nbsp;Wing,&nbsp;2010.</li>
                 <li><strong> - Abstraction in Computational Thinking</strong>&nbsp;by DThe International Society for the Learning Sciences,&nbsp;2018.</li>
                 <li><strong> - Abstraksi: Membangun Fondasi Computational Thinking</strong>&nbsp;by DQLab, &nbsp;2023.</li>
@@ -87,7 +85,6 @@
             </div>
             <ul class="text-sm p-3">
                 <li><strong>Sumber: </strong></li>
-                <li><strong> - Computational Thinking: A Literature Review</strong>&nbsp;by A.&nbsp;A.&nbsp;Diwan,&nbsp;2017.</li>
                 <li><strong> - Computational Thinking: A Ten-Year View</strong>&nbsp;by J.&nbsp;C.&nbsp;Wing,&nbsp;2010.</li>
             </ul>
         </div>
@@ -105,7 +102,6 @@
             </div>
             <ul class="text-sm p-3">
                 <li><strong>Sumber: </strong></li>
-                <li><strong> - Computational Thinking: A Literature Review</strong>&nbsp;by A.&nbsp;A.&nbsp;Diwan,&nbsp;2017.</li>
                 <li><strong> - Computational Thinking: A Ten-Year View</strong>&nbsp;by J.&nbsp;C.&nbsp;Wing,&nbsp;2010.</li>
             </ul>
         </div>

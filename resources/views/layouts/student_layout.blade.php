@@ -8,20 +8,6 @@
         <meta name="keywords" content="Routely, berpikir komputasi, computational thinking, pengajuan masalah, problem posing, LMS, routing, network, SMK, Learning Management System, Media Pembelajaran, Learning System, Abad 21, Pengetahuan, Kemampuan, Kemampuan Abad 21">
         <meta name="theme-color" content="#f2f1f4">
 
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://routely.me">
-        <meta property="og:title" content="Routely - Pengalaman Belajar yang Baru*">
-        <meta property="og:description" content="Gunakan Routely untuk pengalaman belajar yang baru* Dengan Routely, Anda dapat memahami routing dalam perspektif Computational Thinking, membuka peluang baru untuk pengalaman lebih pada materi routing.">
-        <meta property="og:image" content="https://routely.me/storage/routely.png">
-
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image">
-        <meta property="twitter:url" content="https://routely.me">
-        <meta property="twitter:title" content="Routely - Pengalaman Belajar yang Baru*">
-        <meta property="twitter:description" content="Gunakan Routely untuk pengalaman belajar yang baru* Dengan Routely, Anda dapat memahami routing dalam perspektif Computational Thinking, membuka peluang baru untuk pengalaman lebih pada materi routing.">
-        <meta property="twitter:image" content="https://routely.me/storage/routely.png">
-
         <meta name="csrf-token" content="{{ csrf_token() }}">
         @vite('resources/css/app.css')
         <link rel="manifest" href="{{ asset('manifest.json') }}">
@@ -252,11 +238,10 @@
 
 <style>
 body {
-    background-color: rgba(240, 235, 245, 0.90);
+    background-color: rgba(240, 230, 250, 0.90);
 }
 
 :root {
-    /* background-image: url('/bg.jpg'); */
     background-size: 100% auto;
 }
 

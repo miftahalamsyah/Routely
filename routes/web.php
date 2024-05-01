@@ -70,9 +70,9 @@ Route::get('/daftar', [DaftarController::class, 'index'])->name('daftar');
 Route::post('/daftar', [DaftarController::class, 'store']);
 
 Route::view('/bantuan', 'pages.bantuan', ['title' => 'Bantuan'])->name('pages.bantuan');
-Route::view('/berpikir-komputasi', 'pages.berpikir-komputasi', ['title' => 'Berpikir Komputasi'])->name('pages.berpikir-komputasi');
-Route::view('/problem-posing', 'pages.problem-posing', ['title' => 'Problem Posing'])->name('pages.problem-posing');
-Route::view('/routing', 'pages.routing', ['title' => 'Routing'])->name('pages.routing');
+// Route::view('/berpikir-komputasi', 'pages.berpikir-komputasi', ['title' => 'Berpikir Komputasi'])->name('pages.berpikir-komputasi');
+// Route::view('/problem-posing', 'pages.problem-posing', ['title' => 'Problem Posing'])->name('pages.problem-posing');
+// Route::view('/routing', 'pages.routing', ['title' => 'Routing'])->name('pages.routing');
 
 //admin dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('admin');

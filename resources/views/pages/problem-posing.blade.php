@@ -21,7 +21,7 @@
             </div>
 
             <div class="text-md sm:text-md md:text-md lg:text-lg">
-                <p class="p-3">Menyampaikan tujuan pembelajaran dan menggali pengetahuan awal siswa adalah dua langkah penting dalam proses pembelajaran. Dengan melakukan dua langkah ini, guru dapat memastikan bahwa semua siswa dapat mencapai tujuan pembelajaran yang telah ditetapkan.</p>
+                <p class="p-3">Mengungkap tujuan belajar dan memahami pengetahuan awal siswa adalah kunci penting dalam belajar. Dengan langkah-langkah ini, guru bisa memastikan semua siswa mencapai tujuan pembelajaran.</p>
             </div>
         </div>
 
@@ -40,7 +40,7 @@
             </div>
 
             <div class="text-md sm:text-md md:text-md lg:text-lg">
-                <p class="p-3">Pada tahap ini guru memberikan penjelasan singkat tentang materi yang akan dipelajari oleh siswa. Penjelasan ini bertujuan untuk membantu siswa memahami konsep-konsep dasar materi, membangkitkan rasa ingin tahu mereka, dan mempersiapkan mereka untuk mempelajari materi lebih lanjut.</p>
+                <p class="p-3">Guru menjelaskan materi secara singkat untuk membantu siswa memahami dasar-dasar konsep, membangkitkan minat belajar, dan menyiapkan mereka untuk belajar lebih lanjut.</p>
             </div>
         </div>
 
@@ -51,7 +51,7 @@
             </div>
 
             <div class="text-md sm:text-md md:text-md lg:text-lg">
-                <p class="p-3">Situasi masalah dapat berupa studi kasus yang memerlukan analisis mendalam atau informasi terbuka dalam bentuk teks dan gambar. Dengan cara ini, siswa didorong untuk mengembangkan kemampuan problem posing mereka, mengonstruksi penafsiran terhadap informasi yang diberikan, dan merumuskan pertanyaan atau masalah yang relevan. </p>
+                <p class="p-3">Situasi masalah bisa berupa studi kasus atau informasi terbuka dalam bentuk teks dan gambar. Ini mendorong siswa untuk meningkatkan kemampuan memecahkan masalah, memahami informasi, dan membuat pertanyaan atau masalah yang sesuai.</p>
             </div>
         </div>
 
@@ -70,7 +70,7 @@
             </div>
 
             <div class="text-md sm:text-md md:text-md lg:text-lg">
-                <p class="p-3">Proses ini mendorong siswa untuk aktif terlibat dalam pembelajaran, mengeksplorasi berbagai aspek dari materi, dan mengembangkan keterampilan problem posing. Dengan berperan sebagai inisiator pertanyaan, siswa dapat memperdalam pemahaman mereka terhadap konten pembelajaran dan mengasah kemampuan kritis serta kreatif dalam menanggapi tantangan pembelajaran.</p>
+                <p class="p-3">Siswa diajak untuk aktif belajar, mengeksplorasi berbagai aspek materi, dan meningkatkan keterampilan bertanya. Dengan mengajukan pertanyaan, mereka dapat memperdalam pemahaman materi dan meningkatkan kemampuan berpikir kritis serta kreatif dalam menghadapi tantangan pembelajaran.</p>
             </div>
         </div>
 
@@ -81,7 +81,7 @@
             </div>
 
             <div class="text-md sm:text-md md:text-md lg:text-lg">
-                <p class="p-3">Siswa berperan aktif dalam memberikan jawaban atau penyelesaian terhadap pertanyaan yang diajukan oleh siswa lainnya. Proses ini menciptakan dinamika kolaboratif di antara siswa, memungkinkan mereka saling berbagi pengetahuan dan keterampilan. Selain itu dapat memperkuat pemahaman mereka melalui penyajian konsep atau solusi. </p>
+                <p class="p-3">Siswa aktif menjawab pertanyaan dari teman sekelas, menciptakan kerja sama, dan memperkuat pemahaman melalui diskusi dan presentasi.</p>
             </div>
         </div>
 
@@ -100,7 +100,7 @@
             </div>
 
             <div class="text-md sm:text-md md:text-md lg:text-lg">
-                <p class="p-3">Proses ini melibatkan evaluasi terhadap pemahaman konsep, kemampuan menerapkan pengetahuan, dan keterampilan yang diperoleh oleh siswa selama pembelajaran. Verifikasi bertujuan untuk memastikan bahwa siswa telah memahami dengan baik materi tersebut dan dapat mengaplikasikannya dengan tepat.</p>
+                <p class="p-3">Verifikasi melibatkan penilaian pemahaman, penerapan pengetahuan, dan keterampilan siswa. Tujuannya adalah memastikan pemahaman materi dan kemampuan aplikasinya.</p>
             </div>
         </div>
     </div>
@@ -139,11 +139,11 @@
         <div class="text-stone-700 rotate-1">
             <div>
                 <h3 class="clashdisplaymedium text-lg sm:text-lg lg:text-xl"><em>Pre-solution Posing</em></h3>
-                <p class="py-5 text-sm">(Pengajuan pre-solusi). Siswa diminta untuk membuat pertanyaan atau masalah dari suatu situasi atau informasi yang disediakan, dengan harapan dapat mengaitkan pertanyaan yang mereka buat dengan pertanyaan sebelumnya.</p>
+                <p class="py-5 text-sm">(Pengajuan pre-solusi). Siswa diminta membuat pertanyaan dari situasi atau informasi yang diberikan, dengan tujuan menghubungkan pertanyaan mereka dengan yang sebelumnya.</p>
             </div>
             <div>
                 <h3 class="clashdisplaymedium text-lg sm:text-lg lg:text-xl"><em>Within-solution Posing</em></h3>
-                <p class="py-5 text-sm">(Pengajuan dalam solusi). Siswa diminta untuk merumuskan kembali suatu pertanyaan atau masalah yang sedang diselesaikan menjadi sub-sub pertanyaan baru, mengikuti urutan penyelesaian seperti yang telah dilakukan sebelumnya. Siswa diharapkan dapat membuat sub-sub pertanyaan baru berdasarkan pertanyaan yang sudah ada.</p>
+                <p class="py-5 text-sm">(Pengajuan dalam solusi). Siswa diminta untuk merumuskan kembali pertanyaan atau masalah yang sedang dipecahkan menjadi sub-pertanyaan baru, mengikuti urutan penyelesaian sebelumnya. Mereka diharapkan mampu membuat sub-pertanyaan baru berdasarkan pertanyaan yang telah ada sebelumnya.</p>
             </div>
             <div>
                 <h3 class="clashdisplaymedium text-lg sm:text-lg lg:text-xl"><em>Post-solution Posing</h3>

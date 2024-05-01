@@ -16,7 +16,7 @@
 </section>
 
 {{-- Computational Thinking --}}
-<section class="mb-20 bg-violet-600 mx-0 sm:mx-0 md:mx-0 lg:mx-5 border-2 border-stone-700">
+<section id="berpikir-komputasi" class="mb-20 bg-violet-600 mx-0 sm:mx-0 md:mx-0 lg:mx-5 border-2 border-stone-700">
     <div class="max-w-6xl justify-center mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
         <div class="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-16">
             <div class="mx-auto py-12 max-w-lg text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right lg:border-r-2 border-stone-700">
@@ -65,7 +65,7 @@
 </section>
 
 {{-- Problem Posing --}}
-<section class="mb-20">
+<section id="problem-posing" class="mb-20">
     <div class="max-w-6xl justify-center mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
         <div class="mx-auto max-w-3xl text-left lg:mx-0 my-4">
             <h1 class="clashdisplaymedium text-stone-700 text-3xl sm:text-3xl md:text-4xl lg:text-4xl">Dengan Menerapkan Problem Posing</h1>
@@ -161,4 +161,19 @@
         </div>
     </div>
 </section>
+
+<script>
+    function toggleContent(sectionId) {
+        const section = document.getElementById(sectionId);
+        const windowHeight = window.innerHeight;
+        const sectionHeight = section.clientHeight;
+        const offset = (windowHeight - sectionHeight) / 2;
+
+        window.scrollTo({
+            top: section.offsetTop - offset,
+            behavior: 'smooth',
+            inline: 'center',
+        });
+    }
+</script>
 @endsection
