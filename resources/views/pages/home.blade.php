@@ -26,34 +26,34 @@
                     Memahami, merumuskan, dan menyelesaikan masalah dengan pendekatan komputasional.
                 </p>
 
-                <a href="/berpikir-komputasi" class="clashdisplaymedium inline-block border border-r-4 border-b-4 border-stone-700 shadow bg-orange-300 px-12 py-3 text-sm font-medium transition hover:border-1 hover:translate-x-1 hover:translate-y-1">
+                <a href="#" class="clashdisplaymedium inline-block border border-r-4 border-b-4 border-stone-700 shadow bg-orange-300 px-12 py-3 text-sm font-medium transition hover:border-1 hover:translate-x-1 hover:translate-y-1">
                     Selengkapnya
                 </a>
             </div>
 
             <div class="grid grid-cols-2 gap-4 sm:grid-cols-2">
-                <a class="block bg-lime-200 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700 transform hover:translate-y-[-25px] transition-transform duration-300 ease-in-out" href="/berpikir-komputasi/#dekomposisi">
+                <a class="block bg-lime-200 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700 transform hover:translate-y-[-25px] transition-transform duration-300 ease-in-out" href="#">
                     <h2 class="clashdisplaymedium mt-2 text-lg">Dekomposisi</h2>
                     <p class="sm:mt-1 text-xs sm:text-xs md:text-sm sm:text-stone-600">
                         Pemecahan masalah menjadi bagian-bagian yang lebih kecil.
                     </p>
                 </a>
 
-                <a class="block bg-sky-200 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700 transform hover:translate-y-[-25px] transition-transform duration-300 ease-in-out" href="/berpikir-komputasi/#abstraksi">
+                <a class="block bg-sky-200 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700 transform hover:translate-y-[-25px] transition-transform duration-300 ease-in-out" href="#">
                     <h2 class="clashdisplaymedium mt-2 text-lg">Abstraksi</h2>
                     <p class="sm:mt-1 text-xs sm:text-xs md:text-sm sm:text-stone-600">
                         Menyederhanakan masalah dengan mengabaikan detail yang tidak relevan.
                     </p>
                 </a>
 
-                <a class="block bg-fuchsia-300 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700 transform hover:translate-y-[25px] transition-transform duration-300 ease-in-out" href="/berpikir-komputasi/#pengenalan-pola">
+                <a class="block bg-fuchsia-300 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700 transform hover:translate-y-[25px] transition-transform duration-300 ease-in-out" href="#">
                     <h2 class="clashdisplaymedium mt-2 text-lg">Pengenalan Pola</h2>
                     <p class="sm:mt-1 text-xs sm:text-xs md:text-sm sm:text-stone-600">
                         Menggunakan pola yang diidentifikasi untuk membuat prediksi
                     </p>
                 </a>
 
-                <a class="block bg-slate-300 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700 transform hover:translate-y-[25px] transition-transform duration-300 ease-in-out" href="/berpikir-komputasi/#algoritma">
+                <a class="block bg-slate-300 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700 transform hover:translate-y-[25px] transition-transform duration-300 ease-in-out" href="#">
                     <h2 class="clashdisplaymedium mt-2 text-lg">Algoritma</h2>
                     <p class="sm:mt-1 text-xs sm:text-xs md:text-sm sm:text-stone-600">
                         Merancang prosedur langkah demi langkah untuk menyelesaikan masalah.
@@ -75,7 +75,7 @@
         </div>
 
         <div class="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
-            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/problem-posing/#pengenalan">
+            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="#">
                 <span class="inline-block rounded-lg bg-stone-50">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
@@ -89,7 +89,7 @@
                 </p>
             </a>
 
-            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/problem-posing/#pemahaman">
+            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="#">
                 <span class="inline-block rounded-lg bg-stone-50">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
@@ -103,7 +103,7 @@
                 </p>
             </a>
 
-            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/problem-posing/#situasi-masalah">
+            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="#">
                 <span class="inline-block rounded-lg bg-stone-50">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
@@ -117,7 +117,7 @@
                 </p>
             </a>
 
-            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/problem-posing/#pengajuan-masalah">
+            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="#">
                 <span class="inline-block rounded-lg bg-stone-50">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
@@ -131,7 +131,7 @@
                 </p>
             </a>
 
-            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/problem-posing/#pemecahan-masalah">
+            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="#">
                 <span class="inline-block rounded-lg bg-stone-50">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
@@ -145,7 +145,7 @@
                 </p>
             </a>
 
-            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="/problem-posing/#verifikasi">
+            <a class="block bg-stone-50 p-4 shadow hover:shadow-lg border border-r-4 border-b-4 border-stone-700" href="#">
                 <span class="inline-block rounded-lg bg-stone-50">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
