@@ -76,7 +76,8 @@
                             </div>
                             @if ($soal->pembahasan)
                                 <div class="bg-stone-100 rounded-2xl px-4 py-2 border-2">
-                                    {{ $soal->pembahasan }}
+                                    <p class="font-bold text-sm">Pembahasan</p>
+                                    <p class="text-sm">{{ $soal->pembahasan }}</p>
                                 </div>
                             @endif
 
