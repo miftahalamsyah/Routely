@@ -1,8 +1,8 @@
 <!-- badges -->
 <div id="badgesSection" class="grid grid-cols-1 lg:grid-cols-3 gap-4">
     @foreach ($kelompoks->unique('no_kelompok') as $uniqueKelompok)
-        <div class="bg-stone-50 rounded-xl mt-4 p-2 shadow-md">
-            <h1 class="my-2 text-md text-center font-extrabold tracking-tight leading-none text-student-dark">
+        <div class="bg-stone-50 rounded-md mt-4 p-2 shadow-md border border-r-4 border-b-4 border-stone-700 ">
+            <h1 class="clashdisplaymedium my-2 text-md text-center tracking-tight leading-none text-student-dark">
                 Kelompok {{ $loop->iteration }}
             </h1>
             <table class="min-w-full mt-2">
@@ -10,7 +10,7 @@
                     @forelse ($kelompoks->where('no_kelompok', $uniqueKelompok->no_kelompok) as $kelompok)
                         <tr class="border-y">
                             @if (\App\Models\User::where('id', $kelompok->user_id)->value('id') == auth()->id())
-                                <td class="py-2 px-4 text-center bg-stone-100 font-bold">{{ \App\Models\User::where('id', $kelompok->user_id)->value('name') }}</td>
+                                <td class="py-2 px-4 text-center bg-violet-100 font-bold">{{ \App\Models\User::where('id', $kelompok->user_id)->value('name') }}</td>
                             @else
                                 <td class="py-2 px-4 text-center">{{ \App\Models\User::where('id', $kelompok->user_id)->value('name') }}</td>
                             @endif

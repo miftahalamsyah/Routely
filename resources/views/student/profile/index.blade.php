@@ -7,7 +7,7 @@
             <p class="text-stone-50 text-5xl font-semibold">{{ substr($name, 0, 1) }}{{ substr(strrchr($name, ' '), 1, 1) }}</p>
         </div>
         <div class="my-auto mt-4 lg:mt-0">
-            <h1 class="text-4xl text-stone-700 mx-5">{{ $name }}</h1>
+            <h1 class="clashdisplaymedium text-4xl text-stone-700 mx-5">{{ $name }}</h1>
             <h2 class="text-md text-stone-700 mx-5">{{ $email }}</h2>
             <p class="pt-2 text-md text-stone-700 mx-5">Profil Publik Anda dapat diakses melalui</p>
             <a href="https://routely.me/profil_publik/{{ $slug }}" class="mx-5 text-md text-student">https://routely.me/profil_publik/{{ $slug }}</a>
@@ -15,7 +15,7 @@
     </div>
 
     <div class="flex items-center justify-center">
-        <span class="inline-flex w-full items-center justify-center -space-x-px overflow-hidden rounded-2xl border shadow-md my-5 bg-stone-50 ">
+        <span class="inline-flex w-full items-center justify-center -space-x-px overflow-hidden rounded-md border shadow-md my-5 bg-stone-50 border border-r-4 border-b-4 border-stone-700">
             <button id="editButton" class="border-r w-full inline-block px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-100 focus:relative">
                 <svg class="mx-auto" fill="currentColor" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 12a1 1 0 0 0-1 1v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6a1 1 0 0 0 0-2H5a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-6a1 1 0 0 0-1-1Zm-15 .76V17a1 1 0 0 0 1 1h4.24a1 1 0 0 0 .71-.29l6.92-6.93L21.71 8a1 1 0 0 0 0-1.42l-4.24-4.29a1 1 0 0 0-1.42 0l-2.82 2.83-6.94 6.93a1 1 0 0 0-.29.71Zm10.76-8.35 2.83 2.83-1.42 1.42-2.83-2.83ZM8 13.17l5.93-5.93 2.83 2.83L10.83 16H8Z"/></svg>
                 Edit
@@ -36,7 +36,7 @@
     <!-- Edit -->
     <div id="editSection">
         {{-- Edit profile form --}}
-        <div class="w-full p-5 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl">
+        <div class="w-full p-5 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-md border border-r-4 border-b-4 border-stone-700">
             <form action="{{ route('student.profile.update') }}" method="POST">
                 @csrf
                 @method('PUT')
@@ -69,7 +69,7 @@
                     @enderror
                 </div>
                 <div class="flex justify-end">
-                    <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-student rounded-xl hover:bg-violet-900 focus:outline-none focus:bg-violet-900">Simpan Perubahan</button>
+                    <button type="submit" class="px-4 py-2 text-sm font-medium text-stone-800 bg-orange-400 rounded-md border border-r-4 border-b-4 border-stone-700 hover:bg-orange-500 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out focus:outline-none focus:bg-violet-900">Simpan Perubahan</button>
                 </div>
                 @if (session('status'))
                     <div id="successMessage" class="fixed items-center top-5 left-0 right-0 flex flex-col sm:flex-row justify-center bg-stone-50 max-w-sm shadow rounded-2xl mx-auto py-5 pl-6 pr-8 sm:pr-6 z-50">
@@ -98,7 +98,7 @@
             </form>
         </div>
 
-        <div class="w-full p-5 my-5 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl">
+        <div class="w-full p-5 my-5 sm:mb-0 sm:mr-4 bg-stone-50 border border-r-4 border-b-4 border-stone-700 rounded-md">
             <form method="POST" action="{{ route('student.profile.pertanyaan-pemulihan') }}">
                 @csrf
 
@@ -123,7 +123,7 @@
                 </div>
 
                 <div class="flex justify-end">
-                    <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-student rounded-xl hover:bg-violet-900 focus:outline-none focus:bg-violet-900">Simpan Perubahan</button>
+                    <button type="submit" class="px-4 py-2 text-sm font-medium text-stone-800 bg-orange-400 rounded-md border border-r-4 border-b-4 border-stone-700 hover:bg-orange-500 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out focus:outline-none focus:bg-violet-900">Simpan Perubahan</button>
                 </div>
             </form>
         </div>
@@ -170,7 +170,7 @@
     const leaderboardSection = document.getElementById('leaderboardSection');
 
     // Set the default view to Edit
-    editButton.classList.add('text-student', 'bg-stone-100');
+    editButton.classList.add('text-violet-500', 'bg-stone-100');
     editSection.style.display = 'block';
     leaderboardSection.style.display = 'none';
     badgesSection.style.display = 'none';
@@ -181,9 +181,9 @@
         badgesSection.style.display = 'none';
 
         // Change button colors
-        editButton.classList.add('text-student', 'bg-stone-100');
-        leaderboardButton.classList.remove('text-student', 'bg-stone-100');
-        badgesButton.classList.remove('text-student', 'bg-stone-100')
+        editButton.classList.add('text-violet-500', 'bg-stone-100');
+        leaderboardButton.classList.remove('text-violet-500', 'bg-stone-100');
+        badgesButton.classList.remove('text-violet-500', 'bg-stone-100');
     });
 
     leaderboardButton.addEventListener('click', () => {
@@ -192,9 +192,9 @@
         badgesSection.style.display = 'none';
 
         // Change button colors
-        leaderboardButton.classList.add('text-student', 'bg-stone-100');
-        editButton.classList.remove('text-student', 'bg-stone-100');
-        badgesButton.classList.remove('text-student', 'bg-stone-100');
+        leaderboardButton.classList.add('text-violet-500', 'bg-stone-100');
+        editButton.classList.remove('text-violet-500', 'bg-stone-100');
+        badgesButton.classList.remove('text-violet-500', 'bg-stone-100');
     });
 
     badgesButton.addEventListener('click', () => {
@@ -203,9 +203,9 @@
         leaderboardSection.style.display = 'none';
 
         // Change button colors
-        badgesButton.classList.add('text-student', 'bg-stone-100');
-        editButton.classList.remove('text-student', 'bg-stone-100');
-        leaderboardButton.classList.remove('text-student', 'bg-stone-100');
+        badgesButton.classList.add('text-violet-500', 'bg-stone-100');
+        editButton.classList.remove('text-violet-500', 'bg-stone-100');
+        leaderboardButton.classList.remove('text-violet-500', 'bg-stone-100');
     });
 </script>
 

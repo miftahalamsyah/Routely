@@ -1,6 +1,6 @@
-<div id="leaderboardSection" class="w-full p-5 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl flex justify-center items-center">
+<div id="leaderboardSection" class="w-full p-5 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-md flex justify-center items-center border border-r-4 border-b-4 border-stone-700 ">
     <div class="py-12 mb-12 px-4 mx-auto text-center z-20 animate-up">
-        <h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-4xl"><span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline"> Routely </span>League</h1>
+        <h1 class="clashdisplaymedium mb-4 text-3xl tracking-tight leading-none text-gray-900 md:text-4xl lg:text-4xl"><span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline"> Routely </span>League</h1>
 
         {{-- table user leaderboard --}}
         <div class="overflow-x-auto">
@@ -19,15 +19,15 @@
                         @endphp
                         <tr class="border-y-2">
                             @if($userId == auth()->id())
-                                <td class="py-2 px-4 text-center bg-stone-100 font-bold">{{ $loop->iteration }}</td>
-                                <td class="py-2 px-4 text-center bg-stone-100 font-bold">
+                                <td class="py-2 px-4 text-center bg-violet-100 font-bold">{{ $loop->iteration }}</td>
+                                <td class="py-2 px-4 text-center bg-violet-100 font-bold">
                                     @if ($user)
                                         {{ $user->name }}
                                     @else
                                         User Not Found
                                     @endif
                                 </td>
-                                <td class="py-2 px-4 text-center bg-stone-100 font-bold">{{ $totalNilai * 69}}</td>
+                                <td class="py-2 px-4 text-center bg-violet-100 font-bold">{{ $totalNilai * 69}}</td>
                             @else
                                 <td class="py-2 px-4 text-center">{{ $loop->iteration }}</td>
                                 <td class="py-2 px-4 text-center">

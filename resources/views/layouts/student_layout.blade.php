@@ -28,7 +28,7 @@
         @include('sweetalert::alert')
         <div id="sidebar-grey" class="hidden transition-all duration-300 transform fixed top-0 left-0 right-0 bottom-0 bg-stone-700 opacity-50 z-40 pointer-events-none"></div>
         {{-- Sidebar --}}
-        <div id="logo-sidebar" class="transition-all duration-300 transform fixed top-5 left-5 bottom-5 z-40 w-24 bg-stone-50 border-r pt-7 pb-10 rounded-3xl shadow-md hidden md:block">
+        <div id="logo-sidebar" class="transition-all duration-300 transform fixed top-5 left-5 bottom-5 z-40 w-24 bg-stone-50 border-r pt-7 pb-10 rounded-3xl border border-r-4 border-b-4 border-stone-700 shadow-md hidden md:block">
             {{-- logo --}}
             <div class="text-center relative group">
                 <a class="flex-none text-xl font-extrabold" href="/" aria-label="Brand">
@@ -42,7 +42,7 @@
             <div class="flex flex-col justify-center items-center h-full">
                 <ul class="space-y-1.5">
                     <li class="relative group">
-                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 text-stone-400   {{ request()->routeIs('student.index', 'student.berpikir-komputasi', 'student.problem-posing') ? 'bg-student text-stone-50' : '' }}" href="/student">
+                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 hover:bg-violet-100 text-stone-400   {{ request()->routeIs('student.index', 'student.berpikir-komputasi', 'student.problem-posing') ? 'bg-violet-500 text-stone-50 hover:bg-violet-600' : '' }}" href="/student">
                             <svg class="mx-auto w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5.5h1a.5.5 0 0 1 .5.5z" />
                                 <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
@@ -53,7 +53,7 @@
                         </div>
                     </li>
                     <li class="relative group">
-                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 text-stone-400   {{ request()->routeIs('student.materi', 'student.materi.show', 'student.tugas.index', 'student.pertemuan', 'student.pertemuan.show', 'student.tugas.show', 'student.pengajuan-masalah', 'student.apersepsi', 'student.apersepsi.edit', 'student.kuis', 'student.kuis.review') ? 'bg-student text-stone-50' : '' }}" href="/student/pertemuan">
+                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 hover:bg-violet-100 text-stone-400   {{ request()->routeIs('student.materi', 'student.materi.show', 'student.tugas.index', 'student.pertemuan', 'student.pertemuan.show', 'student.tugas.show', 'student.pengajuan-masalah', 'student.apersepsi', 'student.apersepsi.edit', 'student.kuis', 'student.kuis.review') ? 'bg-violet-500 text-stone-50 hover:bg-violet-600' : '' }}" href="/student/pertemuan">
                             <svg class="mx-auto w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z" />
                                 <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
@@ -64,7 +64,7 @@
                         </div>
                     </li>
                     <li class="relative group">
-                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 text-stone-400   {{ request()->routeIs('student.refleksi') ? 'bg-student text-stone-50' : '' }}" href="/student/refleksi">
+                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 hover:bg-violet-100 text-stone-400   {{ request()->routeIs('student.refleksi') ? 'bg-violet-500 text-stone-50 hover:bg-violet-600' : '' }}" href="/student/refleksi">
                             <svg width="20" height="20" fill="currentColor" viewBox="0 0 76 76" xmlns="http://www.w3.org/2000/svg" baseProfile="full" xml:space="preserve">
                                 <path d="m21.537 46.008-2.408 10.435L17.5 54H6.863a34.963 34.963 0 0 0 1.738 3H19l.433-.1 9.96-2.298c-1.316-3.96-3.523-7.512-7.856-8.594ZM39 53l30.426-30.426a35.14 35.14 0 0 0-9.859-12.141L31 39v6h8v8ZM29 38 57.839 9.162a34.97 34.97 0 0 0-4.413-2.588L24 36v2h5Z"/>
                             </svg>
@@ -74,7 +74,7 @@
                         </div>
                     </li>
                     <li class="relative group">
-                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 text-stone-400   {{ request()->routeIs('student.tes.index', 'student.tes.show', 'student.tes.confirm') ? 'bg-student text-stone-50' : '' }}" href="/student/tes">
+                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 hover:bg-violet-100 text-stone-400   {{ request()->routeIs('student.tes.index', 'student.tes.show', 'student.tes.confirm') ? 'bg-violet-500 text-stone-50 hover:bg-violet-600' : '' }}" href="/student/tes">
                             <svg class="mx-auto w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 490 490">
                                 <path d="M447.5 205h-55V95h-.024c-.001-2.601-.993-5.159-2.905-7.071l-85-85c-1.913-1.912-4.47-2.904-7.071-2.905V0h-255c-5.523 0-10 4.477-10 10v470c0 5.523 4.477 10 10 10h340c5.523 0 10-4.477 10-10V285h55c5.523 0 10-4.477 10-10v-60c0-5.523-4.477-10-10-10zm-140-170.858L358.358 85H307.5V34.142zM372.501 470H52.5V20h235v75c0 5.523 4.477 10 10 10h75v100h-210v.018a9.967 9.967 0 0 0-4.472 1.038l-60 30a10 10 0 0 0 0 17.888l60 30A9.99 9.99 0 0 0 162.5 285h210.001v185zM152.5 231.18v27.64L124.861 245l27.639-13.82zm240 33.82h-220v-10h220v10zm0-30h-220v-10h220v10zm45 30h-25v-40h25v40z"/><path d="M82.5 55h60v20h-60zm0 40h130v20h-130z"/>
                             </svg>
@@ -84,7 +84,7 @@
                         </div>
                     </li>
                     {{-- <li class="relative group">
-                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 text-stone-400   {{ request()->routeIs('student.simulasi') ? 'bg-student text-stone-50' : '' }}" href="/student/simulasi">
+                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 hover:bg-violet-100 text-stone-400   {{ request()->routeIs('student.simulasi') ? 'bg-violet-500 text-stone-50 hover:bg-violet-600' : '' }}" href="/student/simulasi">
                             <svg class="mx-auto w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M15 6H9a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1Zm-1 4h-4V8h4Zm3-8H5a1 1 0 0 0-1 1v18a1 1 0 0 0 1 1h12a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3Zm1 17a1 1 0 0 1-1 1H6V4h11a1 1 0 0 1 1 1Z"/>
                             </svg>
@@ -94,7 +94,7 @@
                         </div>
                     </li> --}}
                     <li class="relative group">
-                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 text-stone-400   {{ $title === "Profil" ? 'bg-student text-stone-50' : '' }}" href="/student/profile">
+                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 hover:bg-violet-100 text-stone-400   {{ $title === "Profil" ? 'bg-violet-500 text-stone-50 hover:bg-violet-600' : '' }}" href="/student/profile">
                             <svg width="16" height="16" fill="currentColor" class="mx-auto w-5 h-5" viewBox="0 0 35 35" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg"><path d="M17.5 16.383a8.067 8.067 0 1 1 8.067-8.067 8.076 8.076 0 0 1-8.067 8.067Zm0-13.633a5.567 5.567 0 1 0 5.567 5.566A5.573 5.573 0 0 0 17.5 2.75Zm13.977 32a1.25 1.25 0 0 1-1.23-1.037A12.663 12.663 0 0 0 17.5 22.852 12.663 12.663 0 0 0 4.753 33.713a1.25 1.25 0 0 1-2.464-.426A15.1 15.1 0 0 1 17.5 20.352a15.1 15.1 0 0 1 15.211 12.935 1.25 1.25 0 0 1-1.02 1.444 1.2 1.2 0 0 1-.214.019Z"/></svg>
                         </a>
                         <div class="tooltip hidden group-hover:block absolute top-2 ml-12 bg-stone-600 shadow-md text-stone-50 p-1 text-xs rounded-md">
@@ -102,7 +102,7 @@
                         </div>
                     </li>
                     <li class="relative group">
-                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 text-stone-400   {{ $title === "Kelompok" ? 'bg-student text-stone-50' : '' }}" href="/student/kelompok">
+                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 hover:bg-violet-100 text-stone-400   {{ $title === "Kelompok" ? 'bg-violet-500 text-stone-50 hover:bg-violet-600' : '' }}" href="/student/kelompok">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto w-5 h-5" width="16" height="16" viewBox="0 0 1200 1200" fill="currentColor" xml:space="preserve">
                                 <path d="M596.847 188.488c-103.344 0-187.12 97.81-187.12 218.465 0 83.678 40.296 156.352 99.468 193.047l-68.617 31.801-182.599 84.688c-17.64 8.821-26.444 23.778-26.444 44.947v201.102c1.451 25.143 16.537 48.577 40.996 48.974h649.62c27.924-2.428 42.05-24.92 42.325-48.974V761.436c0-21.169-8.804-36.126-26.443-44.947l-175.988-84.688-73.138-34.65c56.744-37.521 95.061-108.624 95.061-190.197-.001-120.656-83.778-218.466-187.121-218.466zm-301.824 76.824c-44.473 1.689-79.719 20.933-106.497 51.596-29.62 36.918-44.06 80.75-44.339 124.354 1.819 64.478 30.669 125.518 82.029 157.446L21.163 693.997C7.05 699.289 0 711.636 0 731.041v161.398c1.102 21.405 12.216 39.395 33.055 39.703h136.284V761.436c2.255-45.639 23.687-82.529 62.196-100.531l136.247-64.817c10.584-6.175 20.731-14.568 30.433-25.152-56.176-86.676-63.977-190.491-27.773-281.801-23.547-14.411-50.01-23.672-75.419-23.823zm608.586 0c-29.083.609-55.96 11.319-78.039 26.444 35.217 92.137 25.503 196.016-26.482 276.52 11.467 13.23 23.404 23.377 35.753 30.434l130.965 62.195c39.897 21.881 60.47 59.098 60.866 100.532v170.707h140.235c23.063-1.991 32.893-20.387 33.093-39.704V731.042c0-17.641-7.05-29.987-21.163-37.045l-202.431-96.618c52.498-38.708 78.859-96.72 79.369-156.117-1.396-47.012-15.757-90.664-44.339-124.354-29.866-32.399-66.91-51.253-107.827-51.596z"/>
                             </svg>
@@ -112,7 +112,7 @@
                         </div>
                     </li>
                     <li class="relative group">
-                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 text-stone-400   {{ request()->routeIs('student.leaderboard') ? 'bg-student text-stone-50' : '' }}" href="/student/leaderboard">
+                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 hover:bg-violet-100 text-stone-400   {{ request()->routeIs('student.leaderboard') ? 'bg-violet-500 text-stone-50 hover:bg-violet-600' : '' }}" href="/student/leaderboard">
                             <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 7h-5.667V4a1 1 0 0 0-1-1H8.667a1 1 0 0 0-1 1v7H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h20a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1ZM7.667 19H3v-6h4.667Zm6.666 0H9.667V5h4.666ZM21 19h-4.667V9H21Z"/></svg>
                         </a>
                         <div class="tooltip hidden group-hover:block absolute top-2 ml-12 bg-stone-600 shadow-md text-stone-50 p-1 text-xs rounded-md">
@@ -120,7 +120,7 @@
                         </div>
                     </li>
                     <!--<li class="relative group">
-                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 text-stone-400   {{ request()->routeIs('chat.index') ? 'bg-student text-stone-50' : '' }}" href="/student/chat">
+                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 hover:bg-violet-100 text-stone-400   {{ request()->routeIs('chat.index') ? 'bg-violet-500 text-stone-50 hover:bg-violet-600' : '' }}" href="/student/chat">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-5 h-5 icon line-color"><path d="M18.81 16.23 20 21l-4.95-2.48A9.84 9.84 0 0 1 12 19c-5 0-9-3.58-9-8s4-8 9-8 9 3.58 9 8a7.49 7.49 0 0 1-2.19 5.23Z" "/></svg>
                         </a>
                         <div class="tooltip hidden group-hover:block absolute top-2 ml-12 bg-stone-600 shadow-md text-stone-50 p-1 text-xs rounded-md">
@@ -149,7 +149,7 @@
                         <!-- End Navigation Toggle -->
 
 
-                        <span class="self-center text-student text-xl font-extrabold whitespace-nowrap hidden lg:block">{{ $title }}</span>
+                        <span class="self-center text-violet-700 text-xl clashdisplaymedium whitespace-nowrap hidden lg:block">{{ $title }}</span>
                     </div>
 
 
@@ -158,7 +158,7 @@
                         </div>
 
                         <div class="flex flex-row items-center justify-end gap-2">
-                            <div class="flex w-full p-2 bg-stone-50 text-stone-900 shadow rounded-full text-xs">
+                            <div class="flex w-full p-2 bg-stone-50 text-stone-900 shadow rounded-full text-xs border border-r-4 border-b-4 border-stone-700 ">
                                 <form action="{{ route('student.search') }}" method="GET" class="flex">
                                     <input type="search" id="search" name="query" class="px-2 w-full bg-stone-50 border-none outline-none" placeholder="Telusuri..." required>
                                     <button type="submit">
@@ -185,7 +185,7 @@
                             <div x-data="{ open: false }" class="md:order-2 z-10 dropdown inline-block relative rounded-2xl hover:shadow-lg" title="Akun Saya">
                                 @auth
                                     <button @click="open = !open" type="button" class="shadow inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium align-middle transition-all text-xs">
-                                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl text-stone-50 border-2 border-stone-100 text-md font-semibold">
+                                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl text-stone-50 border-2 border-stone-100 text-md font-semibold border border-r-4 border-b-4 border-stone-700 ">
                                             {{ substr(Auth::user()->name, 0, 1) }}{{ substr(strrchr(Auth::user()->name, ' '), 1, 1) }}
                                         </div>
                                     </button>

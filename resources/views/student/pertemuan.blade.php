@@ -5,9 +5,9 @@
     <div class="grid grid-cols-1 gap-2">
     @forelse ($pertemuans as $pertemuan)
         <!-- individual card -->
-        <div class="relative flex flex-col break-words bg-stone-50 border shadow-lg rounded-2xl my-2">
+        <div class="relative flex flex-col break-words bg-stone-50 border border-r-4 border-b-4 border-stone-700 shadow-lg rounded-md my-2">
             <div class="flex-auto px-1 pt-6">
-                <p class="px-4 leading-normal text-xl text-student font-bold overflow-hidden ...">Pertemuan {{ $pertemuan->pertemuan_ke }}</p>
+                <p class="clashdisplaymedium px-4 leading-normal text-xl text-student overflow-hidden ...">Pertemuan {{ $pertemuan->pertemuan_ke }}</p>
                 <p class="px-4 leading-normal text-xs text-stone-400 overflow-hidden">
                     {{ Carbon\Carbon::parse($pertemuan->tanggal)->format('l, j F Y') }}
                 </p>

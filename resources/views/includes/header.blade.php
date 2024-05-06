@@ -64,14 +64,14 @@
                         @active('pages.berpikir-komputasi')
                             <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 active text-stone-900" href="#berpikir-komputasi">Berpikir Komputasi<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-500"></div></a>
                         @else
-                            <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 text-stone-900" href="#berpikir-komputasi">Berpikir Komputasi</a>
+                            <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 text-stone-900" href="/#berpikir-komputasi">Berpikir Komputasi</a>
                         @endactive
                     </li>
                     <li>
                         @active('pages.problem-posing')
                             <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 active text-stone-900" href="#problem-posing">Problem Posing<div class="absolute inset-x-0 bottom-0 h-1 bg-violet-500"></div></a>
                         @else
-                            <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 text-stone-900" href="#problem-posing">Problem Posing</a>
+                            <a class="nav block relative py-2 pl-3 pr-4 rounded md:p-0 text-stone-900" href="/#problem-posing">Problem Posing</a>
                         @endactive
                     </li>
                     {{-- <li>

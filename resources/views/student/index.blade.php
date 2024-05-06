@@ -2,13 +2,13 @@
 
 @section('content')
 <section class="w-full justify-center mx-auto px-4 lg:px-12">
-    <div class="mt-12 flex justify-center text-center">
-        <p id="greeting" class="mb-4 text-2xl font-extrabold tracking-tight leading-none text-student-dark md:text-3xl">Selamat Datang</p>
-        <p class="mb-4 text-2xl font-extrabold tracking-tight leading-none text-student-dark md:text-3xl">, {{ explode(' ', Auth::user()->name)[0] }}!</p>
+    <div class="mt-12 flex justify-center text-center text-stone-700 clashdisplaymedium">
+        <p id="greeting" class="mb-4 text-2xl tracking-tight leading-none md:text-3xl">Selamat Datang</p>
+        <p class="mb-4 text-2xl tracking-tight leading-none md:text-3xl">, {{ explode(' ', Auth::user()->name)[0] }}!</p>
     </div>
     <div class="flex flex-col sm:flex-row">
     {{-- siswa card --}}
-        <div class="flex w-full p-4 mb-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-2xl justify-between">
+        <div class="flex w-full p-4 mb-4 sm:mb-0 sm:mr-4 bg-stone-50 shadow-md rounded-md justify-between border border-r-4 border-b-4 border-stone-700 ">
             {{-- siswa photo --}}
             <div class="flex">
                 <div class="px-2">
@@ -39,7 +39,7 @@
             </div>
         </div>
         {{-- clock card --}}
-        <div class="flex w-full p-4 sm:mb-0 bg-stone-50 shadow-md rounded-2xl">
+        <div class="flex w-full p-4 sm:mb-0 bg-stone-50 shadow-md rounded-md border border-r-4 border-b-4 border-stone-700 ">
             <div class="flex items-center justify-center">
                 <div class="w-16 h-16 bg-gradient-to-tl from-violet-500 to-orange-500 rounded-full flex items-center justify-center">
                     <p class="text-stone-50 text-3xl font-semibold" id="clockIcon">
@@ -55,17 +55,17 @@
     </div>
 
     {{-- score section --}}
-    <div class="p-4 mt-4  bg-student shadow-md rounded-2xl score-card">
-        <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-stone-50 md:text-2xl">🏆 Nilai</p>
+    <div class="p-4 mt-4 bg-violet-600 shadow-md border border-r-4 border-b-4 border-stone-700 score-card">
+        <p class="clashdisplaymedium my-4 text-xl tracking-tight leading-none text-stone-50 md:text-2xl">🏆 Nilai</p>
         <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 w-full mb-6">
-            <div x-data="{ isOpenPretest: false }" class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-student-dark rounded-2xl score-card">
+            <div x-data="{ isOpenPretest: false }" class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-lime-200 text-stone-700 border border-r-4 border-b-4 border-stone-700 score-card">
                 <div class="max-w-full h-16 px-3">
                     <div class="flex items-center justify-between">
-                        <p class="mb-0 text-stone-50 font-semibold leading-normal text-sm">Nilai Pre-Test</p>
+                        <p class="mb-0 font-semibold leading-normal text-sm">Nilai Pre-Test</p>
                         <!-- Button to toggle score visibility -->
                         <div class="relative group">
                             <button @click="isOpenPretest = !isOpenPretest" class="toggle-score-button" aria-label="Toggle Score Visibility">
-                                <p class="text-stone-50 leading-normal text-xs hover:underline">Lihat</p>
+                                <p class="leading-normal text-xs hover:underline">Lihat</p>
                             </button>
                             <div class="tooltip hidden group-hover:block absolute bg-stone-600 text-stone-50 p-1 text-xs rounded-md shadow-md">
                                 Lihat dan sembunyikan nilai
@@ -74,19 +74,19 @@
                     </div>
                     <!-- Score container initially hidden -->
                     <div x-show="isOpenPretest">
-                        <p class="mb-0 text-stone-50 font-extrabold text-3xl">{{ is_null($nilaiPretest) ? '-' : $nilaiPretest }}</p>
+                        <p class="mb-0 font-extrabold text-3xl">{{ is_null($nilaiPretest) ? '-' : $nilaiPretest }}</p>
                     </div>
                 </div>
             </div>
 
-            <div x-data="{ isOpenTugas: false }" class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-student-dark rounded-2xl score-card">
+            <div x-data="{ isOpenTugas: false }" class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-sky-200 text-stone-700 border border-r-4 border-b-4 border-stone-700 score-card">
                 <div class="max-w-full h-16 px-3">
                     <div class="flex items-center justify-between">
-                        <p class="mb-0 text-stone-50 font-semibold leading-normal text-sm">Nilai Kuis</p>
+                        <p class="mb-0 font-semibold leading-normal text-sm">Nilai Kuis</p>
                         <!-- Button to toggle score visibility -->
                         <div class="relative group">
                             <button @click="isOpenTugas = !isOpenTugas" class="toggle-score-button" aria-label="Toggle Score Visibility">
-                                <p class="text-stone-50 leading-normal text-xs hover:underline">Lihat</p>
+                                <p class="leading-normal text-xs hover:underline">Lihat</p>
                             </button>
                             <div class="tooltip hidden group-hover:block absolute bg-stone-600 text-stone-50 p-1 text-xs rounded-md shadow-md">
                                 Lihat dan sembunyikan nilai
@@ -95,11 +95,11 @@
                     </div>
                     <!-- Score container initially hidden -->
                     <div x-show="isOpenTugas">
-                        <div class="grid grid-cols-4 w-full mb-0 text-stone-50 font-extrabold text-3xl actual-score flex-shrink-0 overflow-x-auto">
+                        <div class="grid grid-cols-4 w-full mb-0 font-extrabold text-3xl actual-score flex-shrink-0 overflow-x-auto">
                             @foreach($nilaiTugasRecords as $record)
                             <div class="flex flex-col">
-                                <p class="mb-0 text-stone-50 font-extrabold text-3xl actual-score mr-2">{{ $record->total }}</p>
-                                <p class="mb-0 text-stone-50 font-thin text-xs actual-score mr-2">Kuis {{ $record->kuis_id }}</p>
+                                <p class="mb-0 font-extrabold text-3xl actual-score mr-2">{{ $record->total }}</p>
+                                <p class="mb-0 font-thin text-xs actual-score mr-2">Kuis {{ $record->kuis_id }}</p>
                             </div>
                             @endforeach
                         </div>
@@ -107,14 +107,14 @@
                 </div>
             </div>
 
-            <div x-data="{ isOpenPosttest: false }" class="flex-auto p-4 bg-student-dark rounded-2xl score-card">
+            <div x-data="{ isOpenPosttest: false }" class="flex-auto p-4 bg-fuchsia-300 text-stone-700 border border-r-4 border-b-4 border-stone-700 score-card">
                 <div class="max-w-full h-16 gap-4">
                     <div class="flex items-center justify-between">
-                        <p class="mb-0 text-stone-50 font-semibold leading-normal text-sm">Nilai Post-Test</p>
+                        <p class="mb-0 font-semibold leading-normal text-sm">Nilai Post-Test</p>
                         <!-- Button to toggle score visibility -->
                         <div class="relative group">
                             <button @click="isOpenPosttest = !isOpenPosttest" class="toggle-score-button" aria-label="Toggle Score Visibility">
-                                <p class="text-stone-50 leading-normal text-xs hover:underline">Lihat</p>
+                                <p class="leading-normal text-xs hover:underline">Lihat</p>
                             </button>
                             <div class="tooltip hidden group-hover:block absolute bg-stone-600 text-stone-50 p-1 text-xs rounded-md shadow-md">
                                 Lihat dan sembunyikan nilai
@@ -123,15 +123,15 @@
                     </div>
                     <!-- Score container initially hidden -->
                     <div x-show="isOpenPosttest">
-                        <p class="mb-0 text-stone-50 font-extrabold text-3xl actual-score">{{ is_null($nilaiPosttest) ? '-' : $nilaiPosttest }}</p>
+                        <p class="mb-0 font-extrabold text-3xl actual-score">{{ is_null($nilaiPosttest) ? '-' : $nilaiPosttest }}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="bg-gray-50 rounded-xl mt-4 p-4 shadow-md">
-        <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">
+    <div class="bg-stone-50 rounded-md border border-r-4 border-b-4 border-stone-700 mt-4 p-4 shadow-md">
+        <p class="my-4 text-xl clashdisplaymedium tracking-tight leading-none text-student-dark md:text-2xl">
             👥 Kelompok {{ $kelompokBelajar->no_kelompok ?? 'Belum Tersedia' }}
         </p>
         <table class="min-w-full mt-2">
@@ -160,16 +160,16 @@
         </table>
     </div>
 
-    <div class="p-4 mt-4  bg-stone-50 shadow-md rounded-2xl score-card">
+    <div class="p-4 mt-4 bg-stone-50 shadow-md rounded-md border border-r-4 border-b-4 border-stone-700 score-card">
         <div class="justify-between flex">
-            <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">✍🏻 Model Pembelajaran</p>
+            <p class="my-4 text-xl clashdisplaymedium tracking-tight leading-none text-student-dark md:text-2xl">✍🏻 Model Pembelajaran</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
             <div class="relative flex flex-col break-words bg-stone-100 border-2 hover:shadow-md rounded-2xl lg:mb-4 mb-0">
                 <div class="flex-auto px-1 pt-6">
                     <p class="mb-6 px-2 leading-normal text-xl font-bold overflow-hidden h-8 ...">Problem Posing</p>
                     <div class="flex items-center justify-between px-2 pb-4">
-                        <a href="/problem-posing">
+                        <a href="/#problem-posing">
                             <button class="mr-2 text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border bg-violet-200 rounded-xl shadow-md hover:bg-violet-300 ">
                                 Pelajari
                             </button>
@@ -181,7 +181,7 @@
                 <div class="flex-auto px-1 pt-6">
                     <p class="mb-6 px-2 leading-normal text-xl font-bold overflow-hidden h-8 ...">Berpikir Komputasi</p>
                     <div class="flex items-center justify-between px-2 pb-4">
-                        <a href="/berpikir-komputasi">
+                        <a href="/#berpikir-komputasi">
                             <button class="mr-2 text-sm text-student relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-900 transition duration-300 ease-out border bg-violet-200 rounded-xl shadow-md hover:bg-violet-300 ">
                                 Pelajari
                             </button>
@@ -193,9 +193,9 @@
     </div>
 
     {{-- pertemuan --}}
-    <div class="p-4 mt-4  bg-stone-50 shadow-md rounded-2xl score-card">
+    <div class="p-4 mt-4  bg-stone-50 shadow-md rounded-md border border-r-4 border-b-4 border-stone-700 score-card">
         <div class="justify-between flex">
-            <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">👨‍🏫 Pertemuan</p>
+            <p class="my-4 text-xl clashdisplaymedium tracking-tight leading-none text-student-dark md:text-2xl">👨‍🏫 Pertemuan</p>
             <a href="/student/pertemuan"><p class="my-4 text-xs py-1 px-2 font-extrabold tracking-tight leading-none bg-violet-200 hover:bg-violet-300 rounded-lg shadow-md text-student-dark md:text-sm">Lihat Semua</p></a>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
@@ -225,9 +225,9 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4">
     {{-- tugas --}}
-    <div class="p-4 mt-4 bg-stone-50 shadow-md rounded-2xl score-card overflow-x-auto">
-        <div class="flex justify-between my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">
-            <p class="">📝 Tugas</p>
+    <div class="p-4 mt-4 bg-stone-50 shadow-md rounded-md border border-r-4 border-b-4 border-stone-700 score-card overflow-x-auto">
+        <div class="flex justify-between my-4 text-xl tracking-tight leading-none text-student-dark md:text-2xl">
+            <p class="clashdisplaymedium">📝 Tugas</p>
             <p class="text-xs md:text-md tracking-tight my-auto border border-violet-300 bg-violet-200 rounded-lg text-student-dark py-1 px-2">{{ $StudentTugasCount }} /  {{ $tugasCount }} tugas dikerjakan</p>
         </div>
         <div class="flex gap-4 w-full overflow-x-auto">
@@ -269,9 +269,9 @@
         </div>
     </div>
 
-    <div class="p-4 mt-4 bg-stone-50 shadow-md rounded-2xl score-card overflow-x-auto">
+    <div class="p-4 mt-4 bg-stone-50 shadow-md rounded-md border border-r-4 border-b-4 border-stone-700 score-card overflow-x-auto">
         <div class="justify-between flex">
-            <p class="my-4 text-xl font-extrabold tracking-tight leading-none text-student-dark md:text-2xl">📖 Materi</p>
+            <p class="my-4 text-xl clashdisplaymedium tracking-tight leading-none text-student-dark md:text-2xl">📖 Materi</p>
             <a href="/student/materi">
                 <p class="my-4 text-xs py-1 px-2 font-extrabold tracking-tight leading-none border border-violet-300 hover:bg-violet-300 bg-violet-200 rounded-lg shadow-md text-student-dark md:text-sm">Lihat Semua</p>
             </a>
