@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12 py-5">
                 <div class="border-0">
-                    <div class="overflow-x-auto bg-stone-50 shadow-md rounded-2xl mb-12">
+                    <div class="overflow-x-auto bg-stone-50 border border-b-8 border-r-8 border-stone-700 mb-12">
                         <table class="min-w-full my-4">
                             <thead class="text-xs font-medium uppercase tracking-wider">
                                 <tr>
@@ -33,10 +33,10 @@
                         </table>
                     </div>
 
-                    <p class="bg-stone-50 rounded-2xl py-2 px-5 shadow-md my-2">Jumlah jawaban benar: {{ $answers->benar }}, Jumlah jawaban salah: {{ $answers->salah }}</p>
+                    <p class="bg-stone-50 rounded-sm border border-b-4 border-r-4 border-stone-700 py-2 px-5 shadow-md my-2">Jumlah jawaban benar: {{ $answers->benar }}, Jumlah jawaban salah: {{ $answers->salah }}</p>
 
                     @foreach ($soal_kuis as $index => $soal)
-                        <div class="my-2 bg-gray-50 rounded-2xl w-full p-5 border-2 border-gray-200 question">
+                        <div class="my-2 bg-stone-50 rounded-sm border border-b-4 border-r-4 border-stone-700 w-full p-5 question">
                             <div class="flex">
                                 <p class="font-semibold text-md text-student mr-2">No. {{ $index + 1 }}</p>
                                 <p class="font-semibold text-md text-gray-400">- {{ $soal->indikator }}</p>
@@ -65,7 +65,7 @@
                                 @if ($answersSubmitted)
                                     @if ($answers['jawaban'][$index] === $correctAnswers[$soal->id])
                                         <span class="ml-2 text-green-500 font-bold">
-                                            Jawaban benar
+                                            Jawaban benar ✅
                                         </span>
                                     @else
                                         <span class="ml-2 text-red-500 font-bold">
@@ -75,7 +75,7 @@
                                 @endif
                             </div>
                             @if ($soal->pembahasan)
-                                <div class="bg-stone-100 rounded-2xl px-4 py-2 border-2">
+                                <div class="bg-stone-100 rounded-sm rounded-sm border border-b-4 border-r-4 border-stone-300 px-4 py-2 border-2">
                                     <p class="font-bold text-sm">Pembahasan</p>
                                     <p class="text-sm">{{ $soal->pembahasan }}</p>
                                 </div>

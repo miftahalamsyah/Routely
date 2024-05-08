@@ -14,18 +14,18 @@
                         <input type="hidden" name="kategori_tes_id" value="{{ $kategori_tes->id }}">
                         <div class="flex justify-between">
                             <p></p>
-                            <button type="submit" id="submitBtn" class="bg-student py-2 px-5 font-semibold text-gray-50 rounded-full hover:bg-student-dark shadow-md">Selesaikan Tes</button>
+                            <button type="submit" id="submitBtn" class="px-4 py-2 text-sm text-stone-800 bg-orange-400 rounded-sm border border-r-4 border-b-4 border-stone-700 hover:bg-orange-500 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out focus:outline-none focus:bg-orange-600 font-extrabold">Selesaikan Tes</button>
                         </div>
 
-                        <div id="questionNumbers" class="flex my-4 space-x-2 justify-center">
+                        <div id="questionNumbers" class="flex my-4 space-x-2 justify-center overflow-x-auto">
                             @foreach ($soal_tes as $index => $soal)
-                                <div class="question-number bg-stone-50 rounded-2xl py-1 px-3 text-center" data-index="{{ $index }}">{{ $index + 1 }}</div>
+                                <div class="question-number bg-stone-50  border border-b-4 border-r-4 border-stone-700 py-1 px-3 text-center" data-index="{{ $index }}">{{ $index + 1 }}</div>
                             @endforeach
                         </div>
 
 
                         @foreach ($soal_tes as $index => $soal)
-                            <div class="my-2 bg-gray-50 rounded-2xl w-full p-5 border-2 border-gray-200 question">
+                            <div class="my-2 bg-stone-50 rounded-sm w-full p-5 border border-b-4 border-r-4 border-stone-700 question">
                                 <div class="flex">
                                     <p class="font-semibold text-md text-student mr-2">No. {{ $index + 1 }}</p>
                                     <p class="font-semibold text-md text-gray-400">- {{ $soal->indikator }}</p>
@@ -49,9 +49,9 @@
                             </div>
                             <!-- Add these buttons within your form -->
                         @endforeach
-                        <div class="my-2 justify-center flex">
-                            <button type="button" id="previousBtn" class="bg-stone-50 py-2 px-4 rounded-2xl border-2 hover:bg-stone-100">Kembali</button>
-                            <button type="button" id="nextBtn" class="bg-stone-50 py-2 px-4 rounded-2xl border-2 hover:bg-stone-100">Lanjut</button>
+                        <div class="my-2 justify-center flex gap-4">
+                            <button type="button" id="previousBtn" class="bg-stone-50 py-2 px-4 rounded-sm border border-b-4 border-r-4 border-stone-700 hover:bg-stone-100">Kembali</button>
+                            <button type="button" id="nextBtn" class="bg-stone-50 py-2 px-4 rounded-sm border border-b-4 border-r-4 border-stone-700 hover:bg-stone-100">Lanjut</button>
                         </div>
                     </form>
                 </div>

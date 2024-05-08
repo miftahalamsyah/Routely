@@ -10,7 +10,7 @@
             <h1 class="clashdisplaymedium text-4xl text-stone-700 mx-5">{{ $name }}</h1>
             <h2 class="text-md text-stone-700 mx-5">{{ $email }}</h2>
             <p class="pt-2 text-md text-stone-700 mx-5">Profil Publik Anda dapat diakses melalui</p>
-            <a href="https://routely.me/profil_publik/{{ $slug }}" class="mx-5 text-md text-student">https://routely.me/profil_publik/{{ $slug }}</a>
+            <a href="/profil_publik/{{ $slug }}" class="mx-5 text-md text-student">https://routely.me/profil_publik/{{ $slug }}</a>
         </div>
     </div>
 
@@ -42,34 +42,34 @@
                 @method('PUT')
                 <div class="mb-4">
                     <label for="name" class="block mb-2 font-semibold text-sm text-stone-700 dark:text-stone-400">Nama</label>
-                    <input type="text" name="name" id="name" value="{{ old('name', Auth::user()->name) }}" class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border-2 rounded-xl shadow appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300">
+                    <input type="text" name="name" id="name" value="{{ old('name', Auth::user()->name) }}" class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300">
                     @error('name')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-4">
                     <label for="email" class="block mb-2 font-semibold text-sm text-stone-700 dark:text-stone-400">Email</label>
-                    <input type="email" name="email" id="email" value="{{ old('email', Auth::user()->email) }}" class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border-2 rounded-xl shadow appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300">
+                    <input type="email" name="email" id="email" value="{{ old('email', Auth::user()->email) }}" class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300">
                     @error('email')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-4">
                     <label for="password" class="block mb-2 font-semibold text-sm text-stone-700 dark:text-stone-400">Password</label>
-                    <input type="password" name="password" id="password" class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border-2 rounded-xl shadow appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300">
+                    <input type="password" name="password" id="password" class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300">
                     @error('password')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-4">
                     <label for="password_confirmation" class="block mb-2 font-semibold text-sm text-stone-700 dark:text-stone-400">Konfirmasi Password</label>
-                    <input type="password" name="password_confirmation" id="password_confirmation" class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border-2 rounded-xl shadow appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300">
+                    <input type="password" name="password_confirmation" id="password_confirmation" class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300">
                     @error('password_confirmation')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="flex justify-end">
-                    <button type="submit" class="px-4 py-2 text-sm font-medium text-stone-800 bg-orange-400 rounded-md border border-r-4 border-b-4 border-stone-700 hover:bg-orange-500 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out focus:outline-none focus:bg-violet-900">Simpan Perubahan</button>
+                    <button type="submit" class="px-4 py-2 text-sm font-medium text-stone-800 bg-orange-400 rounded-md border border-r-4 border-b-4 border-stone-700 hover:bg-orange-500 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out focus:outline-none focus:bg-orange-600">Simpan Perubahan</button>
                 </div>
                 @if (session('status'))
                     <div id="successMessage" class="fixed items-center top-5 left-0 right-0 flex flex-col sm:flex-row justify-center bg-stone-50 max-w-sm shadow rounded-2xl mx-auto py-5 pl-6 pr-8 sm:pr-6 z-50">
@@ -103,8 +103,9 @@
                 @csrf
 
                 <div class="mb-4">
-                    <label class="block font-semibold text-sm text-stone-700 dark:text-stone-400">Pertanyaan Pemulihan Kata Sandi</label>
-                    <select id="pertanyaan_pemulihan_id" name="pertanyaan_pemulihan_id" class="w-full p-2 my-2 bg-stone-50 rounded-lg border-2 leading-tight shadow appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300 @error('pertanyaan_pemulihan_id') border-red-500 @enderror">
+                    <label class="block font-semibold text-sm text-stone-700 ">Pertanyaan Pemulihan Kata Sandi</label>
+                    <p class="text-xs italic text-stone-500 mt-1 mb-2">*Klik pada kolom dibawah untuk memilih pertanyaan pemulihan</p>
+                    <select id="pertanyaan_pemulihan_id" name="pertanyaan_pemulihan_id" class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300 @error('pertanyaan_pemulihan_id') border-red-500 @enderror">
                         @foreach($pertanyaanPemulihan as $pertanyaan)
                             <option value="{{ $pertanyaan->id }}">{{ $pertanyaan->pertanyaan }}</option>
                         @endforeach
@@ -115,15 +116,15 @@
                 </div>
 
                 <div class="mb-4">
-                    <label class="block font-semibold text-sm text-stone-700 dark:text-stone-400">Jawaban</label>
-                    <input type="text" id="jawaban" name="jawaban" placeholder="Jawaban pertanyaan pemulihan (*case sensitive)" class="w-full p-2 my-2 bg-stone-50 rounded-lg border-2 leading-tight shadow appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300 @error('jawaban') border-red-500 @enderror">
+                    <label class="block mb-2 font-semibold text-sm text-stone-700 ">Jawaban</label>
+                    <input type="text" id="jawaban" name="jawaban" placeholder="Jawaban pertanyaan pemulihan (*case sensitive)" class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300 @error('jawaban') border-red-500 @enderror">
                     @error('jawaban')
                         <div class="text-red-500">{{ $message }}</div>
                     @enderror
                 </div>
 
                 <div class="flex justify-end">
-                    <button type="submit" class="px-4 py-2 text-sm font-medium text-stone-800 bg-orange-400 rounded-md border border-r-4 border-b-4 border-stone-700 hover:bg-orange-500 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out focus:outline-none focus:bg-violet-900">Simpan Perubahan</button>
+                    <button type="submit" class="px-4 py-2 text-sm font-medium text-stone-800 bg-orange-400 rounded-md border border-r-4 border-b-4 border-stone-700 hover:bg-orange-500 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out focus:outline-none focus:bg-orange-600">Simpan Perubahan</button>
                 </div>
             </form>
         </div>

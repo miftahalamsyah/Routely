@@ -15,7 +15,7 @@
     </div>
 
     <div class="my-8">
-        <p class="text-2xl tracking-tight leading-none text-stone-700"><span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-800 via-violet-600 to-violet-400 lg:inline"> Routely </span>League</p>
+        <p class="clashdisplaymedium text-2xl tracking-tight leading-none text-stone-700"><span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-800 via-violet-600 to-violet-400 lg:inline"> Routely </span>League</p>
         <p class="text-md font-semibold text-stone-700">{{ $totalScore * 69 }} points</p>
     </div>
 </section>
