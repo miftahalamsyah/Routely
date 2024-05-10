@@ -8,7 +8,7 @@
     <button class="bg-violet-400 p-2 mx-5 rounded-xl hover:bg-violet-300"><a href="{{ route('kelompok.create') }}" class="text-md font-semibold p-2">Tambah Kelompok</a></button>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 m-5 text-stone-300">
-        @foreach ($clusters as $key => $cluster)
+       @foreach ($clusters as $key => $cluster)
             <div class="bg-stone-700 border-2 border-stone-600 rounded-2xl shadow-md px-6 py-3">
                 <table class="w-full">
                     <thead>
@@ -21,11 +21,22 @@
                             <th class="font-semibold">Nilai Pretest</th>
                             <th class="font-semibold">Nama</th>
                         </tr>
-                        @foreach ($cluster as $item)
-                        <tr class="border-y border-stone-600">
-                            <td class="text-center">{{ $item->pretest }}</td>
-                            <td class="text-center">{{ $item->user->name }} </td>
-                        </tr>
+                        @php
+                            $clusterCollection = collect($cluster); // Convert to collection
+                            if ($key == 0) {
+                                $clusterSorted = $clusterCollection->sortByDesc('total');
+                            } else {
+                                $clusterSorted = $clusterCollection->sortBy('total');
+                            }
+                        @endphp
+                        @foreach ($clusterSorted as $item)
+                            @php
+                                $isInKelompok = \App\Models\Kelompok::where('user_id', $item->user->id)->exists();
+                            @endphp
+                            <tr class="border-y border-stone-600 {{ $isInKelompok ? ' bg-stone-600 text-green-500' : '' }}">
+                                <td class="text-center">{{ $item->total }}</td>
+                                <td class="text-center">{{ $item->user->name }}</td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -33,7 +44,7 @@
         @endforeach
     </div>
 
-    @foreach ($kelompoks->unique('no_kelompok') as $uniqueKelompok)
+    @forelse ($kelompoks->unique('no_kelompok') as $uniqueKelompok)
     <div class="bg-stone-700 border-2 border-stone-600 rounded-xl m-5 text-stone-300 text-center p-2">
         <p class="p-3 font-semibold">Kelompok {{ $loop->iteration }}</p>
         <div class="row">
@@ -103,7 +114,11 @@
             </div>
         </div>
     </div>
-    @endforeach
+    @empty
+        <div class="bg-stone-700 border-2 border-stone-600 rounded-xl m-5 text-stone-300 text-center p-2">
+            Data Kelompok Belum Dibuat.
+        </div>
+    @endforelse
 
 </section>
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HasilTesSiswa;
 use App\Models\Kelompok;
 use App\Models\Nilai;
 use App\Models\User;
@@ -14,7 +15,8 @@ class KelompokController extends Controller
 {
     private function initializeCenters($data, $k)
     {
-        $data = Nilai::all(['pretest']);
+        $data = HasilTesSiswa::where('kategori_tes_id', 1)->get(['total']);
+
         $k = 2;
 
         return $data->random($k)->toArray();
@@ -30,7 +32,7 @@ class KelompokController extends Controller
 
             foreach ($centers as $key => $center) {
                 // Hitung jarak (gunakan Euclidean distance sebagai contoh)
-                $distance = sqrt(pow($item['pretest'] - $center['pretest'], 2));
+                $distance = sqrt(pow($item['total'] - $center['total'], 2));
 
                 // Pilih kluster dengan jarak terkecil
                 if ($distance < $minDistance) {
@@ -54,18 +56,18 @@ class KelompokController extends Controller
             // Sort cluster 1 in ascending order, and cluster 2 in descending order
             if ($key == 0) {
                 usort($cluster, function ($a, $b) {
-                    return $a['pretest'] - $b['pretest'];
+                    return $a['total'] - $b['total'];
                 });
             } else {
                 usort($cluster, function ($b, $a) {
-                    return $b['pretest'] - $a['pretest'];
+                    return $b['total'] - $a['total'];
                 });
             }
 
             // Take the median value as the new center
             $medianIndex = floor(count($cluster) / 2);
             $newCenters[] = [
-                'pretest' => $cluster[$medianIndex]['pretest'],
+                'total' => $cluster[$medianIndex]['total'],
             ];
         }
 
@@ -77,7 +79,9 @@ class KelompokController extends Controller
         $kelompoks = Kelompok::orderBy('no_kelompok')->get();
 
         // Ambil data nilai siswa dari model (sesuaikan dengan model Anda)
-        $data = Nilai::with('user')->get(['pretest', 'user_id']);
+        $data = HasilTesSiswa::with('user')
+        ->where('kategori_tes_id', 1)
+        ->get(['total', 'user_id']);
 
         // Proses normalisasi data jika diperlukan
 
@@ -119,30 +123,66 @@ class KelompokController extends Controller
             })
             ->get();
 
+        $kelompoks = Kelompok::orderBy('no_kelompok')->get();
+
+        // Ambil data nilai siswa dari model (sesuaikan dengan model Anda)
+        $data = HasilTesSiswa::with('user')
+        ->where('kategori_tes_id', 1)
+        ->get(['total', 'user_id']);
+
+        // Proses normalisasi data jika diperlukan
+
+        // Pilih jumlah kluster (K)
+        $k = 2;
+
+        // Inisialisasi pusat kluster secara acak
+        $centers = $this->initializeCenters($data, $k);
+
+        // Lakukan iterasi hingga konvergensi
+        $maxIterations = 100;
+        for ($i = 0; $i < $maxIterations; $i++) {
+            // Hitung jarak dan assign siswa ke kluster
+            $clusters = $this->assignToClusters($data, $centers);
+
+            // Hitung ulang pusat kluster
+            $newCenters = $this->updateCenters($data, $clusters);
+
+            // Cek konvergensi
+            if ($newCenters == $centers) {
+                break;
+            }
+
+            $centers = $newCenters;
+        }
+
         return view('dashboard.kelompok.create', [
             'title' => 'Tambah Kelompok',
             'siswaUsers' => $siswaUsers,
-        ]);
+        ],compact('kelompoks', 'clusters'));
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
-            'user_id' => 'required|exists:users,id',
+            'user_id' => 'required|array',
+            'user_id.*' => 'exists:users,id',
             'no_kelompok' => 'required',
             'name' => 'nullable',
             'description' => 'nullable',
         ]);
 
-        $kelompok = Kelompok::create([
-            'user_id' => $request->input('user_id'),
-            'no_kelompok' => $request->input('no_kelompok'),
-            'name' => $request->input('name'),
-            'description' => $request->input('description'),
-        ]);
+        foreach ($request->input('user_id') as $userId) {
+            Kelompok::create([
+                'user_id' => $userId,
+                'no_kelompok' => $request->input('no_kelompok'),
+                'name' => $request->input('name'),
+                'description' => $request->input('description'),
+            ]);
+        }
 
-        return redirect()->route('kelompok.index')->with('status', 'Kelompok created successfully!');
+        return redirect()->route('kelompok.index')->with('status', 'Kelompok(s) created successfully!');
     }
+
 
     public function edit(string $id): View
     {

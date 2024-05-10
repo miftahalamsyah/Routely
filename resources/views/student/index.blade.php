@@ -196,7 +196,9 @@
     <div class="p-4 mt-4  bg-stone-50 shadow-md rounded-md border border-r-4 border-b-4 border-stone-700 score-card">
         <div class="justify-between flex">
             <p class="my-4 text-xl clashdisplaymedium tracking-tight leading-none text-student-dark md:text-2xl">👨‍🏫 Pertemuan</p>
-            <a href="/student/pertemuan"><p class="my-4 text-xs py-1 px-2 font-extrabold tracking-tight leading-none bg-violet-200 hover:bg-violet-300 rounded-lg shadow-md text-student-dark md:text-sm">Lihat Semua</p></a>
+            <a href="/student/pertemuan">
+                <p class="my-4 text-xs py-1 px-2 font-bold tracking-tight leading-none bg-violet-200 hover:bg-violet-300 rounded-sm shadow-md text-violet-900 md:text-sm border border-b-4 border-r-4 border-stone-700 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">Lihat Semua</p>
+            </a>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
             @forelse ($pertemuans as $pertemuan)

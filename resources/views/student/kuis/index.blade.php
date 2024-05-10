@@ -15,12 +15,12 @@
 
                         <div class="flex justify-between">
                             <p></p>
-                            <button type="submit" id="submitBtn" class="px-4 py-2 text-sm text-stone-800 bg-orange-400 rounded-sm border border-r-4 border-b-4 border-stone-700 hover:bg-orange-500 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out focus:outline-none focus:bg-orange-600 font-extrabold">Selesaikan Kuis</button>
+                            <button type="submit" id="submitBtn" class="mb-4 px-4 py-2 text-sm text-stone-800 bg-orange-400 rounded-sm border border-r-4 border-b-4 border-stone-700 hover:bg-orange-500 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out focus:outline-none focus:bg-orange-600 font-extrabold">Selesaikan Kuis</button>
                         </div>
 
-                        <div id="questionNumbers" class="flex my-4 space-x-2 justify-center overflow-x-auto">
+                        <div id="questionNumbers" class="flex flex-wrap my-2 space-x-2 justify-center">
                             @foreach ($soal_kuis as $index => $soal)
-                                <div class="question-number bg-stone-50  border border-b-4 border-r-4 border-stone-700 py-1 px-3 text-center" data-index="{{ $index }}">{{ $index + 1 }}</div>
+                                <div class="question-number bg-stone-50 border border-b-4 border-r-4 mb-2 border-stone-700 py-1 px-3 text-center" data-index="{{ $index }}" title="Soal Nomor {{ $index +1 }}">{{ $index + 1 }}</div>
                             @endforeach
                         </div>
 
@@ -32,7 +32,7 @@
                                 </div>
                                 <p class="text-gray-800 text-md my-2">{{ $soal->pertanyaan }}</p>
                                 @if ($soal->gambar)
-                                <div class="my-4 rounded-2xl overflow-hidden" style="max-width: 400px; max-height: 300px;">
+                                <div class="my-4 rounded-sm border border-r-4 border-b-4 border-stone-700 overflow-hidden" style="max-width: 400px; max-height: 300px;">
                                     <img src="{{ asset('storage/gambar/' . $soal->gambar) }}" alt="Gambar Soal" class="w-full h-full object-cover">
                                 </div>
                                 @endif
@@ -151,7 +151,7 @@
                 let option = this.value;
                 if (option) {
                     document.querySelector(`.question-number:nth-child(${currentQuestion + 1})`).classList.remove('bg-stone-50');
-                    document.querySelector(`.question-number:nth-child(${currentQuestion + 1})`).classList.add('bg-student', 'text-stone-50');
+                    document.querySelector(`.question-number:nth-child(${currentQuestion + 1})`).classList.add('bg-violet-500', 'text-stone-50');
                 }
                 const value = this.value;
                 localStorage.setItem('selectedOption', value);

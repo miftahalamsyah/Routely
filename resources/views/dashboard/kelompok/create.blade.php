@@ -8,10 +8,48 @@
         </svg>
         <p class="ml-2 font-semibold text-md text-gray-50">Back</p>
     </a>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 m-5 text-stone-300">
+       @foreach ($clusters as $key => $cluster)
+            <div class="bg-stone-700 border-2 border-stone-600 rounded-2xl shadow-md px-6 py-3">
+                <table class="w-full">
+                    <thead>
+                        <tr>
+                            <th class="font-semibold" colspan="2">Kluster {{ $key + 1 }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th class="font-semibold">Nilai Pretest</th>
+                            <th class="font-semibold">Nama</th>
+                        </tr>
+                        @php
+                            $clusterCollection = collect($cluster); // Convert to collection
+                            if ($key == 0) {
+                                $clusterSorted = $clusterCollection->sortByDesc('total');
+                            } else {
+                                $clusterSorted = $clusterCollection->sortBy('total');
+                            }
+                        @endphp
+                        @foreach ($clusterSorted as $item)
+                            @php
+                                $isInKelompok = \App\Models\Kelompok::where('user_id', $item->user->id)->exists();
+                            @endphp
+                            <tr class="border-y border-stone-600 {{ $isInKelompok ? ' bg-stone-600 text-green-500' : '' }}">
+                                <td class="text-center">{{ $item->total }}</td>
+                                <td class="text-center">{{ $item->user->name }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        @endforeach
+    </div>
+
     <div class="bg-gray-50 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">
-                <h1 class="font-semibold text-4xl text-center my-8  ">Tambah Kelompok</h1>
+                <h1 class="font-semibold text-stone-700 text-4xl text-center my-8  ">Tambah Kelompok</h1>
                 <div class="border-0 shadow-sm">
 
                     <form action="{{ route('kelompok.store') }}" method="POST" enctype="multipart/form-data">
@@ -47,17 +85,27 @@
                             </input>
                         </div>
 
+                        @php
+                            // Sort the $siswaUsers collection by name in ascending order
+                            $sortedUsers = $siswaUsers->sortBy('name');
+                        @endphp
                         <div class="mb-4">
                             <label class="block text-md font-semibold text-gray-800">Pilih Anggota Kelompok</label>
-                            <select id="user_id" name="user_id" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 @error('pertemuan_id') border-red-500 @enderror">
-                                @foreach($siswaUsers as $user)
-                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-2 border rounded-lg px-4 py-2">
+                                @foreach($sortedUsers as $user)
+                                    <label class="inline-flex items-center">
+                                        <input type="checkbox" name="user_id[]" value="{{ $user->id }}" class="form-checkbox h-5 w-5 text-violet-600">
+                                        <span class="ml-2">{{ $user->name }}</span>
+                                    </label>
                                 @endforeach
-                            </select>
+                            </div>
+
                             @error('user_id')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
                         </div>
+
+
 
                         <div class="my-3">
                             <button type="submit" class="bg-violet-400 hover:bg-violet-300 rounded-xl p-2 mr-2 font-semibold">Simpan</button>

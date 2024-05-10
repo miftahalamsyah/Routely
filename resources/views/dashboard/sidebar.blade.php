@@ -36,7 +36,7 @@
     <nav class="hs-accordion-group p-6 w-full flex flex-col flex-wrap">
         <ul class="space-y-1.5">
             <li>
-                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-md text-stone-100 hover:bg-stone-700 {{ request()->routeIs('dashboard.index') ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}" href="/dashboard">
+                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-sm text-stone-100 hover:bg-stone-700 {{ request()->routeIs('dashboard.index') ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}" href="/dashboard">
                     <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
                     <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
@@ -46,7 +46,7 @@
             </li>
 
             <details class="group [&_summary::-webkit-details-marker]:hidden">
-                <summary class="flex cursor-pointer items-center justify-between rounded-lg px-2.5 py-2 text-stone-100 hover:bg-stone-700 {{ in_array($title, ['Pertemuan', 'Tugas', 'Materi', 'Refleksi', 'Hasil Pengerjaan Tugas', 'Apersepsi', 'Soal Kuis', 'Tambah Soal Kuis', 'Edit Soal Kuis', 'Impor Soal Kuis']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
+                <summary class="flex cursor-pointer items-center justify-between rounded-sm px-2.5 py-2 text-stone-100 hover:bg-stone-700 {{ in_array($title, ['Pertemuan', 'Tugas', 'Materi', 'Refleksi', 'Hasil Pengerjaan Tugas', 'Apersepsi', 'Soal Kuis', 'Tambah Soal Kuis', 'Edit Soal Kuis', 'Impor Soal Kuis']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
                     <div class="flex gap-x-3.5">
                         <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z" />
@@ -63,32 +63,32 @@
 
                 <ul class="mt-2 space-y-1 px-4">
                     <li>
-                        <a href="/dashboard/pertemuan" class="block rounded-lg px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ $title === 'Pertemuan' ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
+                        <a href="/dashboard/pertemuan" class="block rounded-sm px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ $title === 'Pertemuan' ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
                         Pertemuan
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard/apersepsi" class="block rounded-lg px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ $title === 'Apersepsi' ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
+                        <a href="/dashboard/apersepsi" class="block rounded-sm px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ $title === 'Apersepsi' ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
                         Apersepsi
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard/materis" class="block rounded-lg px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ $title === 'Materi' ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
+                        <a href="/dashboard/materis" class="block rounded-sm px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ $title === 'Materi' ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
                         Materi
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard/tugas" class="block rounded-lg px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ in_array($title, ['Tugas', 'Hasil Pengerjaan Tugas', 'Tambah Tugas']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
+                        <a href="/dashboard/tugas" class="block rounded-sm px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ in_array($title, ['Tugas', 'Hasil Pengerjaan Tugas', 'Tambah Tugas']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
                         Tugas
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard/kuis" class="block rounded-lg px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ in_array($title, ['Soal Kuis', 'Tambah Soal Kuis', 'Edit Soal Kuis', 'Impor Soal Kuis']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
+                        <a href="/dashboard/kuis" class="block rounded-sm px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ in_array($title, ['Soal Kuis', 'Tambah Soal Kuis', 'Edit Soal Kuis', 'Impor Soal Kuis']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
                         Kuis
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard/refleksi" class="block rounded-lg px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ $title === 'Refleksi' ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
+                        <a href="/dashboard/refleksi" class="block rounded-sm px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ $title === 'Refleksi' ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
                         Refleksi
                         </a>
                     </li>
@@ -97,7 +97,7 @@
 
 
             <details class="group [&_summary::-webkit-details-marker]:hidden">
-                <summary class="flex cursor-pointer items-center justify-between rounded-lg px-2.5 py-2 text-stone-100 hover:bg-stone-700 {{ in_array($title, ['Kategori Tes', 'Tambah Kategori Tes', 'PreTest', 'Tambah Soal Pretest', 'Tambah Soal Posttest', 'Tes Harian', 'PostTest', 'Edit Soal Pretest', 'Edit Soal Posttest', 'Import Soal Pretest', 'Import Soal Posttest']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
+                <summary class="flex cursor-pointer items-center justify-between rounded-sm px-2.5 py-2 text-stone-100 hover:bg-stone-700 {{ in_array($title, ['Kategori Tes', 'Tambah Kategori Tes', 'PreTest', 'Tambah Soal Pretest', 'Tambah Soal Posttest', 'Tes Harian', 'PostTest', 'Edit Soal Pretest', 'Edit Soal Posttest', 'Import Soal Pretest', 'Import Soal Posttest']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
                     <div class="flex gap-x-3.5">
                         <svg class="flex-shrink-0 w-3.5 h-3.5 transition duration-75" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 490 490">
                         <path d="M447.5 205h-55V95h-.024c-.001-2.601-.993-5.159-2.905-7.071l-85-85c-1.913-1.912-4.47-2.904-7.071-2.905V0h-255c-5.523 0-10 4.477-10 10v470c0 5.523 4.477 10 10 10h340c5.523 0 10-4.477 10-10V285h55c5.523 0 10-4.477 10-10v-60c0-5.523-4.477-10-10-10zm-140-170.858L358.358 85H307.5V34.142zM372.501 470H52.5V20h235v75c0 5.523 4.477 10 10 10h75v100h-210v.018a9.967 9.967 0 0 0-4.472 1.038l-60 30a10 10 0 0 0 0 17.888l60 30A9.99 9.99 0 0 0 162.5 285h210.001v185zM152.5 231.18v27.64L124.861 245l27.639-13.82zm240 33.82h-220v-10h220v10zm0-30h-220v-10h220v10zm45 30h-25v-40h25v40z"/><path d="M82.5 55h60v20h-60zm0 40h130v20h-130z"/>
@@ -113,17 +113,17 @@
 
                 <ul class="mt-2 space-y-1 px-4">
                     <li>
-                        <a href="/dashboard/kategori-tes" class="block rounded-lg px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ in_array($title, ['Kategori Tes', 'Tambah Kategori Tes', 'Edit Kategori Tes']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
+                        <a href="/dashboard/kategori-tes" class="block rounded-sm px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ in_array($title, ['Kategori Tes', 'Tambah Kategori Tes', 'Edit Kategori Tes']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
                         Kategori Tes
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard/pretest" class="block rounded-lg px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700  {{ in_array($title, ['PreTest', 'Tambah Soal Pretest', 'Edit Soal Pretest', 'Import Soal Pretest']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
+                        <a href="/dashboard/pretest" class="block rounded-sm px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700  {{ in_array($title, ['PreTest', 'Tambah Soal Pretest', 'Edit Soal Pretest', 'Import Soal Pretest']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
                         PreTest
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard/posttest" class="block rounded-lg px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ in_array($title, ['PostTest', 'Tambah Soal Posttest', 'Edit Soal Posttest']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
+                        <a href="/dashboard/posttest" class="block rounded-sm px-6 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 {{ in_array($title, ['PostTest', 'Tambah Soal Posttest', 'Edit Soal Posttest']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}">
                         PostTest
                         </a>
                     </li>
@@ -151,7 +151,7 @@
             </li>
 
             <li>
-                <a class="rounded-xl flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-stone-100 hover:bg-stone-700 {{ $title === 'Kelompok' ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}" href="/dashboard/kelompok">
+                <a class="rounded-xl flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-stone-100 hover:bg-stone-700 {{ in_array($title, ['Kelompok', 'Tambah Kelompok', 'Edit Kelompok']) ? 'bg-violet-700 text-stone-100 hover:bg-violet-700' : '' }}" href="/dashboard/kelompok">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 1200 1200" fill="currentColor" xml:space="preserve" class="">
                         <path d="M596.847 188.488c-103.344 0-187.12 97.81-187.12 218.465 0 83.678 40.296 156.352 99.468 193.047l-68.617 31.801-182.599 84.688c-17.64 8.821-26.444 23.778-26.444 44.947v201.102c1.451 25.143 16.537 48.577 40.996 48.974h649.62c27.924-2.428 42.05-24.92 42.325-48.974V761.436c0-21.169-8.804-36.126-26.443-44.947l-175.988-84.688-73.138-34.65c56.744-37.521 95.061-108.624 95.061-190.197-.001-120.656-83.778-218.466-187.121-218.466zm-301.824 76.824c-44.473 1.689-79.719 20.933-106.497 51.596-29.62 36.918-44.06 80.75-44.339 124.354 1.819 64.478 30.669 125.518 82.029 157.446L21.163 693.997C7.05 699.289 0 711.636 0 731.041v161.398c1.102 21.405 12.216 39.395 33.055 39.703h136.284V761.436c2.255-45.639 23.687-82.529 62.196-100.531l136.247-64.817c10.584-6.175 20.731-14.568 30.433-25.152-56.176-86.676-63.977-190.491-27.773-281.801-23.547-14.411-50.01-23.672-75.419-23.823zm608.586 0c-29.083.609-55.96 11.319-78.039 26.444 35.217 92.137 25.503 196.016-26.482 276.52 11.467 13.23 23.404 23.377 35.753 30.434l130.965 62.195c39.897 21.881 60.47 59.098 60.866 100.532v170.707h140.235c23.063-1.991 32.893-20.387 33.093-39.704V731.042c0-17.641-7.05-29.987-21.163-37.045l-202.431-96.618c52.498-38.708 78.859-96.72 79.369-156.117-1.396-47.012-15.757-90.664-44.339-124.354-29.866-32.399-66.91-51.253-107.827-51.596z"/>
                     </svg>
