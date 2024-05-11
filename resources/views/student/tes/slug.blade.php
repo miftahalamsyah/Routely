@@ -17,41 +17,47 @@
                             <button type="submit" id="submitBtn" class="px-4 py-2 text-sm text-stone-800 bg-orange-400 rounded-sm border border-r-4 border-b-4 border-stone-700 hover:bg-orange-500 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out focus:outline-none focus:bg-orange-600 font-extrabold">Selesaikan Tes</button>
                         </div>
 
-                        <div id="questionNumbers" class="flex my-4 space-x-2 justify-center overflow-x-auto">
-                            @foreach ($soal_tes as $index => $soal)
-                                <div class="question-number bg-stone-50  border border-b-4 border-r-4 border-stone-700 py-1 px-3 text-center" data-index="{{ $index }}">{{ $index + 1 }}</div>
-                            @endforeach
-                        </div>
-
-
-                        @foreach ($soal_tes as $index => $soal)
-                            <div class="my-2 bg-stone-50 rounded-sm w-full p-5 border border-b-4 border-r-4 border-stone-700 question">
-                                <div class="flex">
-                                    <p class="font-semibold text-md text-student mr-2">No. {{ $index + 1 }}</p>
-                                    <p class="font-semibold text-md text-gray-400">- {{ $soal->indikator }}</p>
-                                </div>
-                                <p class="text-gray-800 text-md my-2">{{ $soal->pertanyaan }}</p>
-                                @if ($soal->gambar)
-                                <div class="my-4 rounded-2xl overflow-hidden" style="max-width: 400px; max-height: 300px;">
-                                    <img src="{{ asset('storage/gambar/' . $soal->gambar) }}" alt="Gambar Soal" class="w-full h-full object-cover">
-                                </div>
-                                @endif
-
-                                {{-- Opsi jawaban a, b, c, d, e --}}
-                                <div class="grid grid-cols-1 gap-4">
-                                    @foreach(['a', 'b', 'c', 'd', 'e'] as $option)
-                                        <div class="flex items-center text-sm">
-                                            <input type="radio" id="{{ $index }}_{{ $option }}" name="jawaban[{{ $index }}]" value="{{ $option }}">
-                                            <label for="{{ $index }}_{{ $option }}" class="ml-2">{{ $soal['jawaban_' . $option] }}</label>
+                        <div class="w-full flex gap-4">
+                            <div class="w-full sm:w-full lg:w-3/4">
+                                @foreach ($soal_tes as $index => $soal)
+                                    <div class="my-2 bg-stone-50 rounded-sm w-full p-5 border border-b-4 border-r-4 border-stone-700 question">
+                                        <div class="flex">
+                                            <p class="font-semibold text-md text-student mr-2">No. {{ $index + 1 }}</p>
+                                            <p class="font-semibold text-md text-gray-400">- {{ $soal->indikator }}</p>
                                         </div>
+                                        <p class="text-gray-800 text-md my-2">{{ $soal->pertanyaan }}</p>
+                                        @if ($soal->gambar)
+                                        <div class="my-4 rounded-2xl overflow-hidden" style="max-width: 400px; max-height: 300px;">
+                                            <img src="{{ asset('storage/gambar/' . $soal->gambar) }}" alt="Gambar Soal" class="w-full h-full object-cover">
+                                        </div>
+                                        @endif
+
+                                        {{-- Opsi jawaban a, b, c, d, e --}}
+                                        <div class="grid grid-cols-1 gap-4">
+                                            @foreach(['a', 'b', 'c', 'd', 'e'] as $option)
+                                                <div class="flex items-center text-sm">
+                                                    <input type="radio" id="{{ $index }}_{{ $option }}" name="jawaban[{{ $index }}]" value="{{ $option }}">
+                                                    <label for="{{ $index }}_{{ $option }}" class="ml-2">{{ $soal['jawaban_' . $option] }}</label>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                    <!-- Add these buttons within your form -->
+                                @endforeach
+                                <div class="my-2 justify-center flex gap-4">
+                                    <button type="button" id="previousBtn" class="bg-stone-50 py-2 px-4 rounded-sm border border-b-4 border-r-4 border-stone-700 hover:bg-stone-100">Kembali</button>
+                                    <button type="button" id="nextBtn" class="bg-stone-50 py-2 px-4 rounded-sm border border-b-4 border-r-4 border-stone-700 hover:bg-stone-100">Lanjut</button>
+                                </div>
+                            </div>
+                            <div class="w-1/4 sm:hidden lg:block p-2 my-2 bg-stone-50 border border-b-4 border-r-4 border-stone-700 h-full">
+                                <p class="font-semibold text-md text-student mr-2">Soal</p>
+                                <div id="questionNumbers" class="grid grid-cols-5 my-2 gap-2 justify-center">
+
+                                    @foreach ($soal_tes as $index => $soal)
+                                        <div class="question-number bg-stone-50 border border-b-4 border-r-4 mb-2 border-stone-700 py-1 px-3 text-center" data-index="{{ $index }}" title="Soal Nomor {{ $index +1 }}">{{ $index + 1 }}</div>
                                     @endforeach
                                 </div>
                             </div>
-                            <!-- Add these buttons within your form -->
-                        @endforeach
-                        <div class="my-2 justify-center flex gap-4">
-                            <button type="button" id="previousBtn" class="bg-stone-50 py-2 px-4 rounded-sm border border-b-4 border-r-4 border-stone-700 hover:bg-stone-100">Kembali</button>
-                            <button type="button" id="nextBtn" class="bg-stone-50 py-2 px-4 rounded-sm border border-b-4 border-r-4 border-stone-700 hover:bg-stone-100">Lanjut</button>
                         </div>
                     </form>
                 </div>
