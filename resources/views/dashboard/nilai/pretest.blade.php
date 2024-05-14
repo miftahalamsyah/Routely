@@ -3,6 +3,7 @@
 @section('content')
 <section class="row z-0 p-4 max-w-6xl align-center mx-auto">
     <h1 class="my-8 text-center text-3xl font-extrabold leading-none tracking-normal text-stone-300 md:tracking-tight">Nilai Pretest</h1>
+
     <div class="flex justify-between m-3">
         <a href="/dashboard/nilai" class="flex text-stone-300">
             <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="20px" height="25px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve">
@@ -82,6 +83,32 @@
                                             </td>
                                         </tr>
                                     @endforelse
+
+                                        {{--Rata rata--}}
+                                        <tr class="divide-y divide-stone-500">
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right">
+                                                Rata-rata
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                {{ number_format($averagePretest, 2) }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                {{ number_format($averageDekomposisi, 2) }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                {{ number_format($averageAbstraksi, 2) }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                {{ number_format($averagePengenalanPola, 2) }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                {{ number_format($averageAlgoritma, 2) }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                            </td>
+                                        </tr>
                                 </tbody>
                             </table>
                         </div>

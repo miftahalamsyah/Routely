@@ -82,6 +82,32 @@
                                             </td>
                                         </tr>
                                     @endforelse
+
+                                    {{--Rata rata--}}
+                                        <tr class="divide-y divide-stone-500">
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right">
+                                                Rata-rata
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                {{ number_format($averagePosttest, 2) }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                {{ number_format($averageDekomposisi, 2) }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                {{ number_format($averageAbstraksi, 2) }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                {{ number_format($averagePengenalanPola, 2) }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                {{ number_format($averageAlgoritma, 2) }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                            </td>
+                                        </tr>
                                 </tbody>
                             </table>
                         </div>

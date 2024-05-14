@@ -18,7 +18,7 @@ class StudentMateriController extends Controller
      */
     public function index(): View
     {
-        $materis = Materi::latest()->paginate(10);
+        $materis = Materi::orderBy('materis.id')->paginate(10);
 
         return view('student.materi',
         [

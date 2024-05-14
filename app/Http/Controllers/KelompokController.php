@@ -52,27 +52,75 @@ class KelompokController extends Controller
     {
         $newCenters = [];
 
+        // Calculate the average total for each cluster
+        $clusterAverages = [];
         foreach ($clusters as $key => $cluster) {
-            // Sort cluster 1 in ascending order, and cluster 2 in descending order
-            if ($key == 0) {
-                usort($cluster, function ($a, $b) {
-                    return $a['total'] - $b['total'];
-                });
-            } else {
-                usort($cluster, function ($b, $a) {
-                    return $b['total'] - $a['total'];
-                });
+            $total = 0;
+            foreach ($cluster as $item) {
+                $total += $item['total'];
+            }
+            $average = count($cluster) > 0 ? $total / count($cluster) : 0;
+            $clusterAverages[$key] = $average;
+        }
+
+        // Sort the cluster averages in ascending order
+        asort($clusterAverages);
+
+        // Calculate the target number of students per cluster
+        $numClusters = count($clusters);
+        $totalStudents = count($data);
+        $targetStudents = floor($totalStudents / $numClusters);
+        $remainder = $totalStudents % $numClusters;
+
+        // Assign the new centers based on the sorted averages and target students
+        $averageKeys = array_keys($clusterAverages);
+        foreach ($averageKeys as $i => $clusterIndex) {
+            $numStudents = $targetStudents;
+            // Adjust the number of students for the first few clusters
+            if ($i < $remainder) {
+                $numStudents++;
             }
 
-            // Take the median value as the new center
-            $medianIndex = floor(count($cluster) / 2);
+            // Find the nearest total to the average within the cluster
+            $nearestTotal = null;
+            $minDistance = PHP_INT_MAX;
+            foreach ($clusters[$clusterIndex] as $item) {
+                $distance = abs($item['total'] - $clusterAverages[$clusterIndex]);
+                if ($distance < $minDistance) {
+                    $minDistance = $distance;
+                    $nearestTotal = $item['total'];
+                }
+            }
+
+            // Assign the nearest total as the new center for this cluster
             $newCenters[] = [
-                'total' => $cluster[$medianIndex]['total'],
+                'total' => $nearestTotal,
             ];
+
+            // Check if the cluster has more students than the target
+            $currentClusterSize = count($clusters[$clusterIndex]);
+            if ($currentClusterSize > $numStudents + 1) {
+                // Move some students to other clusters
+                $numToMove = $currentClusterSize - $numStudents;
+                while ($numToMove > 0) {
+                    $overloadClusterIndex = $averageKeys[$i];
+                    $underloadClusterIndex = $averageKeys[$i + 1];
+                    if ($numToMove > 0 && $currentClusterSize > $numStudents + 1) {
+                        // Move one student from the overload cluster to the underload cluster
+                        $movedStudent = array_pop($clusters[$overloadClusterIndex]);
+                        $clusters[$underloadClusterIndex][] = $movedStudent;
+                        $numToMove--;
+                        $currentClusterSize--;
+                    } else {
+                        break;
+                    }
+                }
+            }
         }
 
         return $newCenters;
     }
+
 
     public function index(): View
     {

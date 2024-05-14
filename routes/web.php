@@ -129,6 +129,9 @@ Route::post('/dashboard/posttest', [\App\Http\Controllers\SoalTesController::cla
 Route::get('/dashboard/posttest/edit', [\App\Http\Controllers\SoalTesController::class, 'posttestedit'])->name('posttest.edit')->middleware('admin');
 Route::delete('/dashboard/posttest/{id}', [\App\Http\Controllers\SoalTesController::class, 'posttestdestroy'])->name('posttest.destroy')->middleware('admin');
 
+Route::get('/dashboard/nilai/{id}', [NilaiController::class, 'show'])->name('nilai.show')->middleware('admin');
+Route::get('/dashboard/nilai/kuis/siswa_{id}', [HasilKuisSiswaController::class, 'show'])->name('hasilkuissiswa.show')->middleware('admin');
+
 Route::get('/fetch-data', [DataController::class, 'index']);
 
 Route::get('/student', [StudentDashboardController::class, 'index'])->name('student.index')->middleware('auth');
@@ -168,7 +171,7 @@ Route::get('/student/pertemuan/pertemuan-ke-{pertemuan_id}/kuis', [StudentKuisCo
 Route::get('/student/pertemuan/pertemuan-ke-{pertemuan_id}/kuis/review', [StudentKuisController::class, 'show'])->name('student.kuis.review')->middleware('auth');
 Route::post('/hasil_kuis_siswa', [StudentKuisController::class, 'store'])->name('hasil_kuis_siswa.store')->middleware('auth');
 
-Route::get('/student/simulasi', [StudentSimulasiController::class, 'index'])->name('student.simulasi')->middleware('auth');
+// Route::get('/student/simulasi', [StudentSimulasiController::class, 'index'])->name('student.simulasi')->middleware('auth');
 
 Route::get('/student/tugas/{tugas:slug}', [StudentTugasController::class, 'show'])->name('student.tugas.show')->middleware('auth');
 Route::post('/hasil_tugas_siswa', [HasilTugasSiswaController::class, 'store'])->name('hasil_tugas_siswa.store');
@@ -184,5 +187,5 @@ Route::post('/student/tes/{slug}/confirm', [StudentTesController::class, 'valida
     ->middleware('auth');
 Route::post('/hasil_tes_siswa', [HasilTesSiswaController::class, 'store'])->name('hasil_tes_siswa.store');
 
-Route::get('/student/chat', [StudentChatController::class, 'index'])->name('student.chat')->middleware('auth');
-Route::resource('/student/chat', \App\Http\Controllers\StudentChatController::class)->middleware('auth');
+// Route::get('/student/chat', [StudentChatController::class, 'index'])->name('student.chat')->middleware('auth');
+// Route::resource('/student/chat', \App\Http\Controllers\StudentChatController::class)->middleware('auth');

@@ -15,7 +15,7 @@
         <a href="/dashboard/nilai/kuis" class="text-sm">
             <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
                 Nilai Kuis
-                <p class="font-bold text-2xl py-2">{{ $CountNilaiTugas }}/{{ $CountHasilTugasSiswa }}</p>
+                {{--<p class="font-bold text-2xl py-2">{{ $CountNilaiTugas }}/{{ $CountHasilTugasSiswa }}</p>--}}
             </div>
         </a>
     </div>
@@ -87,8 +87,10 @@
                                             <td class="px-6 py-4 whitespace-nowrap text-center">
                                                 {{ $loop->iteration }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                {{ \App\Models\User::where('id', $user_id)->value('name') }}
+                                            <td class="px-6 py-4 whitespace-nowrap hover:bg-stone-600 hover:underline">
+                                                <a href="/dashboard/nilai/{{ \App\Models\User::where('id', $user_id)->value('id') }}">
+                                                    {{ \App\Models\User::where('id', $user_id)->value('name') }}
+                                                </a>
                                             </td>
                                             @foreach([1, 2] as $kategori_tes_id)
                                                 <td class="px-6 py-4 text-center">

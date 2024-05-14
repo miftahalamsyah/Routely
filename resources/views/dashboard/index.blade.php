@@ -41,7 +41,7 @@
 
     <div class="mx-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 my-5">
         <a href="/dashboard/nilai/pretest" class="text-sm">
-            <div class="w-full h-30 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-full bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
                 Pretest
                 <p class="font-bold text-2xl py-2">{{ $CountPretest }}/{{ $userCount }}</p>
                 <div class="w-full bg-stone-300 rounded-full">
@@ -53,13 +53,13 @@
             </div>
         </a>
         <a href="/dashboard/nilai/pretest" class="text-sm">
-            <div class="w-full h-30 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-full bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
                 Rata-rata Pretest
                 <p class="font-bold text-2xl py-2">{{ $averagePretest }}</p>
             </div>
         </a>
         <a href="/dashboard/nilai/posttest" class="text-sm">
-            <div class="w-full h-30 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-full bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
                 Posttest
                 <p class="font-bold text-2xl py-2">{{ $CountPosttest }}/{{ $userCount }}</p>
                 <div class="w-full bg-stone-300 rounded-full">
@@ -71,7 +71,7 @@
             </div>
         </a>
         <a href="/dashboard/nilai/posttest" class="text-sm">
-            <div class="w-full h-30 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-full bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
                 Rata-rata Posttest
                 <p class="font-bold text-2xl py-2">{{ $averagePosttest }}</p>
             </div>

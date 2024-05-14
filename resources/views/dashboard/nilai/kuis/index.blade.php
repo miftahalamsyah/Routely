@@ -72,8 +72,10 @@
                                             <td class="px-6 py-4 whitespace-nowrap text-center">
                                                 {{ $loop->iteration }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                {{ \App\Models\User::where('id', $nilai->user_id)->value('name') }}
+                                            <td class="px-6 py-4 whitespace-nowrap hover:bg-stone-600">
+                                                <a href="/dashboard/nilai/kuis/siswa_{{ \App\Models\User::where('id', $nilai->user_id)->value('id') }}" class="hover:underline">
+                                                    {{ \App\Models\User::where('id', $nilai->user_id)->value('name') }}
+                                                </a>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-center font-bold">
                                                 {{ $nilai->total }}
