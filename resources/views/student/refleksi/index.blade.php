@@ -94,7 +94,7 @@
 
                         <div class="mb-4">
                             <label for="pertemuan_id" class="block text-md font-semibold text-gray-800">Pertemuan ke berapa</label>
-                            <select id="pertemuan_id" name="pertemuan_id" class="w-full px-4 py-2 border border-stone-300 rounded-sm focus:ring-violet-400 focus:border-violet-400 @error('pertemuan_id') border-red-500 @enderror">
+                            <select id="pertemuan_id" name="pertemuan_id" class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300  @error('pertemuan_id') border-red-500 @enderror">
                                 @foreach ($pertemuans as $pertemuan)
                                     @if (!$user->refleksis || !$user->refleksis->contains('pertemuan_id', $pertemuan->id))
                                         <option value="{{ $pertemuan->id }}">Pertemuan ke-{{ $pertemuan->pertemuan_ke }}</option>
@@ -109,7 +109,7 @@
                         <div class="mb-4">
                             <label for="seberapa_paham" class="block text-md font-semibold text-gray-800">Apakah Anda merasa paham dengan materi yang telah diajarkan?</label>
                             <input type="text" id="seberapa_paham" name="seberapa_paham" rows="5"
-                                class="w-full px-4 py-2 border border-stone-300 rounded-sm focus:ring-violet-400 focus:border-violet-400 @error('seberapa_paham') border-red-500 @enderror">{{ old('seberapa_paham') }}</input>
+                                class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300  @error('seberapa_paham') border-red-500 @enderror">{{ old('seberapa_paham') }}</input>
                             @error('seberapa_paham')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -118,7 +118,7 @@
                         <div class="mb-4">
                             <label for="seberapa_baik" class="block text-md font-semibold text-gray-800">Bagaimana penilaian Anda terhadap kualitas pembelajaran ini?</label>
                             <input type="text" id="seberapa_baik" name="seberapa_baik" rows="5"
-                                class="w-full px-4 py-2 border border-stone-300 rounded-sm focus:ring-violet-400 focus:border-violet-400 @error('seberapa_baik') border-red-500 @enderror">{{ old('seberapa_baik') }}</input>
+                                class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300  @error('seberapa_baik') border-red-500 @enderror">{{ old('seberapa_baik') }}</input>
                             @error('seberapa_baik')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -127,7 +127,7 @@
                         <div class="mb-4">
                             <label for="seberapa_sulit" class="block text-md font-semibold text-gray-800">Adakah bagian tertentu yang menurut Anda sulit diatasi?</label>
                             <input type="text" id="seberapa_sulit" name="seberapa_sulit" rows="5"
-                                class="w-full px-4 py-2 border border-stone-300 rounded-sm focus:ring-violet-400 focus:border-violet-400 @error('seberapa_sulit') border-red-500 @enderror">{{ old('seberapa_sulit') }}</input>
+                                class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300  @error('seberapa_sulit') border-red-500 @enderror">{{ old('seberapa_sulit') }}</input>
                             @error('seberapa_sulit')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -136,7 +136,7 @@
                         <div class="mb-4">
                             <label for="hambatan" class="block text-md font-semibold text-gray-800">Apakah ada hambatan atau kesulitan yang Anda alami selama pembelajaran?</label>
                             <input type="text" id="hambatan" name="hambatan" rows="5"
-                                class="w-full px-4 py-2 border border-stone-300 rounded-sm focus:ring-violet-400 focus:border-violet-400 @error('hambatan') border-red-500 @enderror">{{ old('hambatan') }}</input>
+                                class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300  @error('hambatan') border-red-500 @enderror">{{ old('hambatan') }}</input>
                             @error('hambatan')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -145,7 +145,7 @@
                         <div class="mb-4">
                             <label for="saran" class="block text-md font-semibold text-gray-800">Apakah ada saran yang dapat Anda berikan untuk meningkatkan cara pembelajaran?</label>
                             <input type="text" id="saran" name="saran" rows="5"
-                                class="w-full px-4 py-2 border border-stone-300 rounded-sm focus:ring-violet-400 focus:border-violet-400 @error('saran') border-red-500 @enderror">{{ old('saran') }}</input>
+                                class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300  @error('saran') border-red-500 @enderror">{{ old('saran') }}</input>
                             @error('saran')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror

@@ -8,10 +8,11 @@
         </svg>
         <p class="ml-2 font-semibold text-md text-gray-50">Back</p>
     </a>
+
     <div class="bg-gray-50 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">
-                <h1 class="font-semibold text-4xl text-center my-8 ">Edit Kelompok</h1>
+                <h1 class="font-semibold text-stone-700 text-4xl text-center my-8  ">Edit Kelompok</h1>
                 <div class="border-0 shadow-sm">
 
                     <form action="{{ route('kelompok.update', $kelompok->id) }}" method="POST" enctype="multipart/form-data">
@@ -48,20 +49,8 @@
                             </input>
                         </div>
 
-                        <div class="mb-4">
-                            <label class="block text-md font-semibold text-gray-800">Pilih Anggota Kelompok</label>
-                            <select id="user_id" name="user_id" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400 @error('pertemuan_id') border-red-500 @enderror">
-                                @foreach($siswaUsers as $user)
-                                    <option value="{{ $user->id }}" {{ $user->id == $kelompok->user_id ? 'selected' : '' }}>{{ $user->name }}</option>
-                                @endforeach
-                            </select>
-                            @error('user_id')
-                                <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
-                            @enderror
-                        </div>
-
                         <div class="my-3">
-                            <button type="submit" class="bg-violet-400 hover:bg-violet-300 rounded-xl p-2 mr-2 font-semibold">Simpan</button>
+                            <button type="submit" class="bg-violet-400 hover:bg-violet-300 rounded-xl p-2 mr-2 font-semibold">Update</button>
                             <button type="reset" class="bg-gray-50 hover:bg-gray-100 border border-gray-350 rounded-xl p-2 font-semibold">Reset</button>
                         </div>
                     </form>

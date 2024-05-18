@@ -13,7 +13,7 @@
                 <table class="w-full">
                     <thead>
                         <tr>
-                            <th class="font-semibold" colspan="2">Kluster {{ $key + 1 }}</th>
+                            <th class="font-semibold" colspan="2">Kluster {{ $loop->iteration }} </th>
                         </tr>
                     </thead>
                     <tbody>

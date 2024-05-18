@@ -15,7 +15,7 @@ class HasilTesSiswaController extends Controller
         $request->validate([
             'user_id' => 'required|exists:users,id',
             'jawaban' => 'required|array',
-            'jawaban.*' => 'in:a,b,c,d,e',
+            'jawaban.*' => 'in:a,b,c,d,e,N',
             'kategori_tes_id' => 'required|exists:kategori_tes,id',
         ]);
 
@@ -35,9 +35,9 @@ class HasilTesSiswaController extends Controller
 
         foreach ($soal_tes as $index => $soal) {
             $kunci_jawaban = $soal->kunci_jawaban;
-            $jawaban_user = $request->input('jawaban.' . $index);
+            $jawaban_user = $request->input('jawaban.' . $index, 'N');
 
-            if ($jawaban_user === null) {
+            if ($jawaban_user === 'N') {
                 $kosong++;
             } elseif ($jawaban_user === $kunci_jawaban) {
                 $benar++;

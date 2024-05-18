@@ -82,7 +82,9 @@ Route::resource('/dashboard/siswa', \App\Http\Controllers\UserController::class)
 Route::resource('/dashboard/tugas', \App\Http\Controllers\TugasController::class)->middleware('admin');
 Route::resource('/dashboard/pertanyaan-pemulihan', \App\Http\Controllers\PertanyaanPermulihanController::class)->middleware('admin');
 
-Route::resource('/dashboard/apersepsi', ApersepsiController::class)->middleware('admin');
+Route::get('/dashboard/apersepsi', [ApersepsiController::class, 'index'])->name('apersepsi.index')->middleware('admin');
+Route::get('/dashboard/apersepsi/pertemuan_ke_{id}', [ApersepsiController::class, 'show'])->name('apersepsi.show')->middleware('admin');
+Route::get('/dashboard/apersepsi/siswa_{id}', [ApersepsiController::class, 'siswa'])->name('apersepsi.siswa')->middleware('admin');
 
 Route::resource('/dashboard/pertemuan', \App\Http\Controllers\PertemuanController::class)->middleware('admin');
 Route::resource('/dashboard/kelompok', \App\Http\Controllers\KelompokController::class)->middleware('admin');
@@ -103,6 +105,7 @@ Route::get('/dashboard/nilai/kuis', [HasilKuisSiswaController::class, 'index'])-
 Route::resource('/dashboard/lencana', \App\Http\Controllers\LencanaController::class)->middleware('admin');
 Route::resource('/dashboard/absensi', \App\Http\Controllers\AbsensiController::class)->middleware('admin');
 Route::resource('/dashboard/kategori-tes', \App\Http\Controllers\KategoriTesController::class)->middleware('admin');
+
 Route::get('/dashboard/refleksi',[\App\Http\Controllers\RefleksiController::class, 'index'])->name('refleksi')->middleware('admin');
 Route::get('/dashboard/refleksi/export', [\App\Http\Controllers\RefleksiController::class, 'export'])->name('refleksi.export')->middleware('admin');
 Route::delete('/dashboard/refleksi/{id}', [\App\Http\Controllers\RefleksiController::class, 'destroy'])->name('refleksi.destroy')->middleware('admin');

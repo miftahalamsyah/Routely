@@ -15,7 +15,7 @@
                     </a>
                     <div class="bg-stone-50 rounded-sm border border-r-4 border-b-4 border-stone-700 shadow-md p-5">
                         <p class="font-bold text-lg text-center">Lembar Apersepsi Pertemuan ke-{{ $defaultPertemuanId }}</p>
-                        <div class="bg-stone-100 py-2 px-4 my-4 rounded-sm border border-b-4 border-r-4 border-stone-300 hover:shadow">
+                        <div class="bg-stone-100 py-2 px-4 my-4 rounded-sm border border-stone-700 hover:shadow">
                             <p class="font-bold text-md">Pertanyaan Apersepsi</p>
                             <p class="text-md">{{ $pertemuan->apersepsi }}</p>
                         </div>
@@ -40,7 +40,7 @@
                                 <div class="my-2">
                                     <label for="jawaban" class="block text-md font-semibold text-stone-800">Jawaban: </label>
                                     <textarea type="text" id="jawaban" name="jawaban" rows="5"
-                                        class="w-full px-4 py-2 text-stone-800 border border-b-4 border-r-4 border-stone-300 rounded-sm focus:ring-violet-400 focus:border-violet-400 @error('jawaban') border-red-500 @enderror">{{ old('jawaban') }}</textarea>
+                                        class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300 @error('jawaban') border-red-500 @enderror">{{ old('jawaban') }}</textarea>
                                     @error('jawaban')
                                         <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                                     @enderror

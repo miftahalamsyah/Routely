@@ -16,11 +16,11 @@
                     </svg>
                 </button>
                 <div x-show="persiapan" class="relative flex flex-col break-words">
-                    <div class="flex-auto p-4 my-2 bg-stone-100 border border-r-4 border-b-4 border-stone-300 rounded-sm">
+                    <div class="flex-auto p-4 my-2 bg-stone-100 border border-stone-700 rounded-sm">
                         <p class="text-md font-semibold">Tujuan Pembelajaran</p>
                         <span class="text-sm">{{ $pertemuan->tujuan_pembelajaran }}</span>
                     </div>
-                    <a href="/student/pertemuan/pertemuan-ke-{{ $pertemuan->id }}/apersepsi" class="p-4 my-2 bg-stone-100 border border-r-4 border-b-4 border-stone-300 rounded-sm">
+                    <a href="/student/pertemuan/pertemuan-ke-{{ $pertemuan->id }}/apersepsi" class="p-4 my-2 bg-stone-100 border border-stone-700 rounded-sm">
                         <p class="text-md font-semibold hover:underline">Apersepsi</p>
                         <p class="text-sm py-1 hover:underline">{{ $pertemuan->apersepsi }}</p>
                         <button class="mr-2 text-sm relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-50 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out shadow-md bg-violet-500 hover:bg-violet-600 border border-r-4 border-b-4 border-stone-700">
@@ -40,7 +40,7 @@
                 </button>
                 <div x-show="pemahaman" class="relative flex flex-col break-words">
                     @forelse ($materi as $materis)
-                        <div class="flex-auto p-4 my-2 bg-stone-100 border border-r-4 border-b-4 border-stone-300 rounded-sm">
+                        <div class="flex-auto p-4 my-2 bg-stone-100 border border-stone-700 rounded-sm">
                             <a href="/student/materi/{{ $materis['slug'] }}">
                                 <h2 class="text-md font-semibold hover:underline">Materi - {{ $materis['title'] }}</h2>
                             </a>
@@ -71,7 +71,7 @@
                     </svg>
                 </button>
                 <div x-show="situasiMasalah" class="relative flex flex-col break-words">
-                    <div class="flex-auto p-4 my-2 bg-stone-100 border border-b-4 border-r-4 rounded-sm border-stone-300">
+                    <div class="flex-auto p-4 my-2 bg-stone-100 border border-stone-700 rounded-sm">
                         <p class="text-md font-semibold">Lembar Kerja Peserta Didik (LKPD)</p>
                         @forelse ($tugas as $tugasItem)
                             <a href="{{ asset('storage/tugas/' . $tugasItem['tugas_file']) }}" target="_blank" class="mr-2 text-sm relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-50 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out shadow-md bg-violet-500 hover:bg-violet-600 border border-r-4 border-b-4 border-stone-700 my-2">
@@ -93,7 +93,7 @@
                     </svg>
                 </button>
                 <div x-show="pengajuanMasalah" class="relative flex flex-col break-words">
-                    <div class="flex-auto p-4 my-2 bg-stone-100 border border-b-4 border-r-4 border-stone-300 rounded-sm">
+                    <div class="flex-auto p-4 my-2 bg-stone-100 border border-stone-700 rounded-sm">
                         <p class="text-md font-semibold">Ajukan Masalah</p>
                         <p class="text-sm font-normal">Ajukan masalah berupa soal (topologi) yang telah dibuat berdasarkan Lembar Kerja Peserta Didik (LKPD). File (.pkt atau .json) dikumpulkan pada form topologi berikut untuk dibagikan dengan kelompok lain.</p>
                         <a href="/student/pengajuan-masalah">
@@ -115,7 +115,7 @@
                 </button>
                 <div x-show="pemecahanMasalah" class="relative flex flex-col break-words">
                     @forelse ($tugas as $tugass)
-                        <div class="flex-auto p-4 my-2 bg-stone-100 border border-b-4 border-r-4 border-stone-300 rounded-sm ">
+                        <div class="flex-auto p-4 my-2 bg-stone-100 border border-stone-700 rounded-sm ">
                             <a href="/student/tugas/{{ $tugass['slug'] }}">
                                 <h2 class="text-md font-semibold">Tugas - {{ $tugass['name'] }}</h2>
                             </a>
@@ -143,7 +143,7 @@
                 </button>
                 <div x-show="verifikasi" class="relative flex flex-col break-words">
                     @if ($userHasSubmitted)
-                        <div class="p-4 my-2 bg-stone-100 border border-b-4 border-r-4 border-stone-300 rounded-sm">
+                        <div class="p-4 my-2 bg-stone-100 border border-stone-700 rounded-sm">
                             <p class="text-md font-semibold">Kuis - Pertemuan {{ $pertemuan_ke }} Telah Dikerjakan ✅</p>
                             <p class="text-sm">Nilai:</p>
                             <p class="text-lg font-semibold mb-2">{{ $nilaiKuis }}</p>
@@ -152,7 +152,7 @@
                             </a>
                         </div>
                     @else
-                        <a href="/student/pertemuan/pertemuan-ke-{{ $pertemuan->id }}/kuis" class="flex-auto p-4 my-2 bg-stone-100 border border-b-4 border-r-4 border-stone-300 rounded-sm ">
+                        <a href="/student/pertemuan/pertemuan-ke-{{ $pertemuan->id }}/kuis" class="flex-auto p-4 my-2 bg-stone-100 border border-stone-700 rounded-sm ">
                             <div class="">
                                 <p class="text-md font-semibold">Kuis - Pertemuan {{ $pertemuan_ke }}</p>
                                 <button class="mr-2 text-sm relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-50 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out shadow-md bg-violet-500 hover:bg-violet-600 border border-r-4 border-b-4 border-stone-700">

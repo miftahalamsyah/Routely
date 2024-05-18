@@ -40,7 +40,9 @@
                                                     <label for="{{ $index }}_{{ $option }}" class="ml-2">{{ $soal['jawaban_' . $option] }}</label>
                                                 </div>
                                             @endforeach
+                                            <input type="radio" id="{{ $index }}_N" name="jawaban[{{ $index }}]" value="N" checked style="display:none;">
                                         </div>
+
                                     </div>
                                     <!-- Add these buttons within your form -->
                                 @endforeach

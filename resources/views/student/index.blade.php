@@ -151,7 +151,7 @@
                     <tr>
                         <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
                             <div class="mx-auto bg-gray-100 text-gray-600 p-2 rounded-xl">
-                                Data kelompok belum tersedia.
+                                Anda belum memiliki kelompok
                             </div>
                         </td>
                     </tr>

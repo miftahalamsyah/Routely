@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HasilTesSiswa;
 use App\Models\KategoriTes;
+use App\Models\SoalTes;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -112,4 +114,22 @@ class KategoriTesController extends Controller
         return redirect()->route('kategori-tes.index')
             ->with('success', 'Kategori Tes deleted successfully.');
     }
+
+
+    public function show($id)
+    {
+        $kategoriTes = KategoriTes::findOrFail($id);
+        $soalTes = SoalTes::where('kategori_tes_id', $id)->get();
+        $soalTesCount = $soalTes->count();
+        $hasilTes = HasilTesSiswa::where('kategori_tes_id', $id)->get();
+
+        return view('dashboard.kategori-tes.show', [
+            "title" => "Kategori Tes",
+            'hasilTes' => $hasilTes,
+            'kategoriTes' => $kategoriTes,
+            'soalTes' => $soalTes,
+            'soalTesCount' => $soalTesCount,
+        ]);
+    }
+
 }

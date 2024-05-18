@@ -9,7 +9,7 @@
         <a href="/dashboard/nilai/tugas" class="text-sm">
             <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
                 Nilai Tugas
-                <p class="font-bold text-2xl py-2">{{ $CountNilaiTugas }}/{{ $CountHasilTugasSiswa }}</p>
+                <p class="font-bold text-2xl py-2">{{ $CountNilaiTugas }}/{{ $CountHasilTugasSiswa }} <span class="font-normal text-sm">telah dinilai</span></p>
             </div>
         </a>
         <a href="/dashboard/nilai/kuis" class="text-sm">

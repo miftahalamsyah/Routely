@@ -52,8 +52,10 @@
                                             <td class="px-6 py-4 whitespace-nowrap text-center">
                                                 {{ $index + 1 }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                {{ \App\Models\User::where('id', $nilai->user_id)->value('name') }}
+                                            <td class="px-6 py-4 whitespace-nowrap hover:bg-stone-600 hover:underline">
+                                                <a href="/dashboard/nilai/{{ $nilai->user_id }}">
+                                                    {{ $nilai->user->name }}
+                                                </a>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-center bg-stone-600">
                                                 {{ $nilai->total }}

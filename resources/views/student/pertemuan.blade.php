@@ -11,7 +11,7 @@
                 <p class="px-4 leading-normal text-xs text-stone-400 overflow-hidden">
                     {{ Carbon\Carbon::parse($pertemuan->tanggal)->format('l, j F Y') }}
                 </p>
-                <div class="relative flex flex-col min-w-0 break-words bg-stone-100 mx-4 border border-b-4 border-r-4 border-stone-300 my-4">
+                <div class="relative flex flex-col min-w-0 break-words bg-stone-100 mx-4 bg-stone-100 border border-stone-700 my-4">
                     <div class="flex-auto p-4">
                         <h2 class="text-md font-bold">Tujuan Pembelajaran</h2>
                         <span class="text-sm">{{ $pertemuan->tujuan_pembelajaran }}</span>

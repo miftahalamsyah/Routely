@@ -8,6 +8,7 @@ use App\Models\Nilai;
 use App\Models\HasilTesSiswa;
 use App\Models\HasilTugasSiswa;
 use App\Models\NilaiTugas;
+use App\Models\SoalTes;
 use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -153,20 +154,34 @@ class NilaiController extends Controller
 
     public function show($id)
     {
+        $soalPretest = SoalTes::where('kategori_tes_id', 1)->get();
+        $soalPosttest = SoalTes::where('kategori_tes_id', 2)->get();
+        $soalPretestCount = $soalPretest->count();
+        $soalPosttestCount = $soalPosttest->count();
+
+        $hasilPretest = HasilTesSiswa::where('kategori_tes_id', 1)
+            ->where('user_id', $id)->get();
+        $hasilPosttest = HasilTesSiswa::where('kategori_tes_id', 2)
+            ->where('user_id', $id)->get();
+
         $user = User::findOrFail($id);
         $nilaiPretest = HasilTesSiswa::where('user_id', $id)
-            ->where('kategori_tes_id', 1)
-            ->get();
+            ->where('kategori_tes_id', 1)->get();
 
         $nilaiPosttest = HasilTesSiswa::where('user_id', $id)
-            ->where('kategori_tes_id', 2)
-            ->get();
+            ->where('kategori_tes_id', 2)->get();
 
         return view('dashboard.nilai.show', [
             'title' => 'Nilai Siswa',
             'user' => $user,
             'nilaiPretest' => $nilaiPretest,
             'nilaiPosttest' => $nilaiPosttest,
+            'soalPretest' => $soalPretest,
+            'soalPosttest' => $soalPosttest,
+            'soalPretestCount' => $soalPretestCount,
+            'soalPosttestCount' => $soalPosttestCount,
+            'hasilPretest' => $hasilPretest,
+            'hasilPosttest' => $hasilPosttest,
         ]);
     }
 }
