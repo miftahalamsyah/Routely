@@ -26,16 +26,35 @@ class HasilTesSiswaController extends Controller
         $benar = 0;
         $salah = 0;
         $kosong = 0;
+
+        // Initialize category counters
         $dekomposisi = 0;
         $abstraksi = 0;
         $pengenalan_pola = 0;
         $algoritma = 0;
+
+        // Initialize category question counts
+        $totalDekomposisi = 0;
+        $totalAbstraksi = 0;
+        $totalPengenalanPola = 0;
+        $totalAlgoritma = 0;
 
         $soal_tes = SoalTes::where('kategori_tes_id', $request->kategori_tes_id)->get();
 
         foreach ($soal_tes as $index => $soal) {
             $kunci_jawaban = $soal->kunci_jawaban;
             $jawaban_user = $request->input('jawaban.' . $index, 'N');
+
+            // Increment category question counts based on the indikator
+            if ($soal->indikator === 'Dekomposisi') {
+                $totalDekomposisi++;
+            } elseif ($soal->indikator === 'Abstraksi') {
+                $totalAbstraksi++;
+            } elseif ($soal->indikator === 'Pengenalan Pola') {
+                $totalPengenalanPola++;
+            } elseif ($soal->indikator === 'Algoritma') {
+                $totalAlgoritma++;
+            }
 
             if ($jawaban_user === 'N') {
                 $kosong++;
@@ -62,10 +81,10 @@ class HasilTesSiswaController extends Controller
         $totalScore = ($benar / $totalQuestions) * 100;
 
         // Calculate percentages for each category
-        $dekomposisiPercentage = ($dekomposisi / max(1, $benar + $salah)) * 100;
-        $abstraksiPercentage = ($abstraksi / max(1, $benar + $salah)) * 100;
-        $pengenalanPolaPercentage = ($pengenalan_pola / max(1, $benar + $salah)) * 100;
-        $algoritmaPercentage = ($algoritma / max(1, $benar + $salah)) * 100;
+        $dekomposisiPercentage = ($dekomposisi / max(1, $totalDekomposisi)) * 100;
+        $abstraksiPercentage = ($abstraksi / max(1, $totalAbstraksi)) * 100;
+        $pengenalanPolaPercentage = ($pengenalan_pola / max(1, $totalPengenalanPola)) * 100;
+        $algoritmaPercentage = ($algoritma / max(1, $totalAlgoritma)) * 100;
 
         // Store the result in the database
         HasilTesSiswa::create([

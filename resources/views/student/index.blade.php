@@ -56,9 +56,14 @@
 
     {{-- score section --}}
     <div class="p-4 mt-4 bg-violet-600 shadow-md rounded-md border border-stone-700 score-card ">
-        <p class="clashdisplaymedium my-4 text-xl tracking-tight leading-none text-stone-50 md:text-2xl">🏆 Nilai</p>
+        <div class="justify-between flex">
+            <p class="my-4 text-xl clashdisplaymedium tracking-tight leading-none text-stone-50 md:text-2xl">🏆 Nilai</p>
+            <a href="/student/rapor">
+                <p class="my-4 text-xs py-1 px-2 font-bold tracking-tight leading-none bg-violet-200 hover:bg-violet-300 rounded-sm shadow-md text-violet-900 md:text-sm border border-b-4 border-r-4 border-stone-700 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">Lihat Semua</p>
+            </a>
+        </div>
         <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 w-full mb-6">
-            <div x-data="{ isOpenPretest: false }" class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-lime-200 text-stone-700 border border-r-4 border-b-4 border-stone-700 score-card">
+            <div x-data="{ isOpenPretest: false }" class="flex-auto p-4 mb-4 sm:mb-0 bg-lime-200 text-stone-700 border border-r-4 border-b-4 border-stone-700 score-card">
                 <div class="max-w-full h-16 px-3">
                     <div class="flex items-center justify-between">
                         <p class="mb-0 font-semibold leading-normal text-sm">Nilai Pre-Test</p>
@@ -79,7 +84,7 @@
                 </div>
             </div>
 
-            <div x-data="{ isOpenTugas: false }" class="flex-auto p-4 mb-4 sm:mb-0 sm:mr-4 bg-sky-200 text-stone-700 border border-r-4 border-b-4 border-stone-700 score-card">
+            <div x-data="{ isOpenTugas: false }" class="flex-auto p-4 mb-4 sm:mb-0 bg-sky-200 text-stone-700 border border-r-4 border-b-4 border-stone-700 score-card">
                 <div class="max-w-full h-16 px-3">
                     <div class="flex items-center justify-between">
                         <p class="mb-0 font-semibold leading-normal text-sm">Nilai Kuis</p>
@@ -162,7 +167,7 @@
 
     <div class="p-4 mt-4 bg-stone-50 shadow-md rounded-md border border-r-4 border-b-4 border-stone-700 score-card">
         <div class="justify-between flex">
-            <p class="my-4 text-xl clashdisplaymedium tracking-tight leading-none text-student-dark md:text-2xl">✍🏻 Model Pembelajaran</p>
+            <p class="my-4 text-xl clashdisplaymedium tracking-tight leading-none text-student-dark md:text-2xl">✍🏻 Pelajari</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
             <div class="relative flex flex-col break-words bg-stone-100 border border-stone-700 lg:mb-4 mb-0">
@@ -226,88 +231,86 @@
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4">
-    {{-- tugas --}}
-    <div class="p-4 mt-4 bg-stone-50 shadow-md rounded-md border border-r-4 border-b-4 border-stone-700 score-card overflow-x-auto">
-        <div class="flex justify-between my-4 text-xl tracking-tight leading-none text-student-dark md:text-2xl">
-            <p class="clashdisplaymedium">📝 Tugas</p>
-            <p class="text-xs md:text-md tracking-tight my-auto border border-stone-700 border border-b-4 border-r-4 bg-violet-200 rounded-sm text-student-dark py-1 px-2">{{ $StudentTugasCount }} /  {{ $tugasCount }} tugas dikerjakan</p>
-        </div>
-        <div class="flex gap-4 w-full overflow-x-auto">
-            @forelse ($tugass as $tugas)
-                <!-- individual card -->
-                <div class="relative grid break-words bg-stone-100 border border-stone-700 hover:shadow-lg w-64 h-64 flex-shrink-0">
-                    <div class="flex-auto px-1 pt-6">
-                        <div class="mx-2">
-                            @php
-                                $submission = $submissions[$tugas->id] ?? null;
-                            @endphp
+        {{-- tugas --}}
+        <div class="p-4 mt-4 bg-stone-50 shadow-md rounded-md border border-r-4 border-b-4 border-stone-700 score-card overflow-x-auto">
+            <div class="flex justify-between my-4 text-xl tracking-tight leading-none text-student-dark md:text-2xl">
+                <p class="clashdisplaymedium">📝 Tugas</p>
+                <p class="text-xs md:text-md tracking-tight my-auto border border-stone-700 border border-b-4 border-r-4 bg-violet-200 rounded-sm text-student-dark py-1 px-2">{{ $StudentTugasCount }} /  {{ $tugasCount }} tugas dikerjakan</p>
+            </div>
+            <div class="flex gap-4 w-full overflow-x-auto">
+                @forelse ($tugass as $tugas)
+                    <!-- individual card -->
+                    <div class="relative grid break-words bg-stone-100 border border-stone-700 hover:shadow-lg w-64 h-64 flex-shrink-0">
+                        <div class="flex-auto px-1 pt-6">
+                            <div class="mx-2">
+                                @php
+                                    $submission = $submissions[$tugas->id] ?? null;
+                                @endphp
 
-                            @if($submission)
-                                <span class="text-green-500 text-right text-xs font-semibold">✅ Sudah Dikerjakan</span>
-                            @else
-                                <span class="text-red-500 text-right text-xs font-semibold">❌ Belum Dikerjakan</span>
-                            @endif
-                            <p class="pt-2 text-xs text-stone-500">Pertemuan ke-{{$tugas->pertemuan_id}}</p>
-                            <a href="/student/tugas/{{ $tugas->slug }}">
-                                <h2 class="hover:underline leading-normal text-lg font-bold h-12">{{ $tugas->name }}</h2>
-                            </a>
-                        </div>
-                        <div class="absolute bottom-0 left-0 my-4 px-2">
-                            <a href="/student/tugas/{{ $tugas->slug }}">
-                                <button class="mr-2 text-sm relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-50 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out shadow-md bg-violet-500 hover:bg-violet-600 border border-r-4 border-b-4 border-stone-700">
-                                    Lihat Tugas
-                                </button>
-                            </a>
+                                @if($submission)
+                                    <span class="text-green-500 text-right text-xs font-semibold">✅ Sudah Dikerjakan</span>
+                                @else
+                                    <span class="text-red-500 text-right text-xs font-semibold">❌ Belum Dikerjakan</span>
+                                @endif
+                                <p class="pt-2 text-xs text-stone-500">Pertemuan ke-{{$tugas->pertemuan_id}}</p>
+                                <a href="/student/tugas/{{ $tugas->slug }}">
+                                    <h2 class="hover:underline leading-normal text-lg font-bold h-12">{{ $tugas->name }}</h2>
+                                </a>
+                            </div>
+                            <div class="absolute bottom-0 left-0 my-4 px-2">
+                                <a href="/student/tugas/{{ $tugas->slug }}">
+                                    <button class="mr-2 text-sm relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-50 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out shadow-md bg-violet-500 hover:bg-violet-600 border border-r-4 border-b-4 border-stone-700">
+                                        Lihat Tugas
+                                    </button>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @empty
-                <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-100 border-2 shadow-md rounded-2xl score-card">
-                    <div class="max-w-full px-3 mx-auto text-center">
-                        <span class="text-stone-700 text-md tracking-tight leading-none">Tidak ada Tugas</span>
+                @empty
+                    <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-100 border-2 shadow-md rounded-2xl score-card">
+                        <div class="max-w-full px-3 mx-auto text-center">
+                            <span class="text-stone-700 text-md tracking-tight leading-none">Tidak ada Tugas</span>
+                        </div>
                     </div>
-                </div>
-            @endforelse
+                @endforelse
+            </div>
         </div>
-    </div>
 
-    <div class="p-4 mt-4 bg-stone-50 shadow-md rounded-md border border-r-4 border-b-4 border-stone-700 score-card overflow-x-auto">
-        <div class="justify-between flex">
-            <p class="my-4 text-xl clashdisplaymedium tracking-tight leading-none text-student-dark md:text-2xl">📖 Materi</p>
-            <a href="/student/materi">
-                <p class="my-4 text-xs py-1 px-2 font-bold tracking-tight leading-none bg-violet-200 hover:bg-violet-300 rounded-sm shadow-md text-violet-900 md:text-sm border border-b-4 border-r-4 border-stone-700 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">Lihat Semua</p>
-            </a>
-        </div>
-        <div class="flex gap-4 w-full overflow-x-auto">
-            @forelse ($materis as $materi)
-                <!-- individual card -->
-                <div class="relative grid break-words bg-stone-100 border border-stone-700 hover:shadow-lg w-64 h-64 flex-shrink-0">
-                    <div class="flex-auto px-2 pt-6">
-                        <p class="pt-2 text-xs text-stone-500">Pertemuan ke-{{$materi->pertemuan_id}}</p>
-                        <a href="/student/materi/{{ $materi->slug }}">
-                            <h2 class="hover:underline leading-normal text-lg font-bold">{{ $materi->title }}</h2>
-                        </a>
-                        <p class="mb-6 leading-normal text-sm overflow-hidden h-24 ...">{{ $materi->description }}</p>
-                        <div class="absolute bottom-0 left-0 my-4 px-2">
+        <div class="p-4 mt-4 bg-stone-50 shadow-md rounded-md border border-r-4 border-b-4 border-stone-700 score-card overflow-x-auto">
+            <div class="justify-between flex">
+                <p class="my-4 text-xl clashdisplaymedium tracking-tight leading-none text-student-dark md:text-2xl">📖 Materi</p>
+                <a href="/student/materi">
+                    <p class="my-4 text-xs py-1 px-2 font-bold tracking-tight leading-none bg-violet-200 hover:bg-violet-300 rounded-sm shadow-md text-violet-900 md:text-sm border border-b-4 border-r-4 border-stone-700 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">Lihat Semua</p>
+                </a>
+            </div>
+            <div class="flex gap-4 w-full overflow-x-auto">
+                @forelse ($materis as $materi)
+                    <!-- individual card -->
+                    <div class="relative grid break-words bg-stone-100 border border-stone-700 hover:shadow-lg w-64 h-64 flex-shrink-0">
+                        <div class="flex-auto px-2 pt-6">
+                            <p class="pt-2 text-xs text-stone-500">Pertemuan ke-{{$materi->pertemuan_id}}</p>
                             <a href="/student/materi/{{ $materi->slug }}">
-                                <button class="mr-2 text-sm relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-50 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out shadow-md bg-violet-500 hover:bg-violet-600 border border-r-4 border-b-4 border-stone-700">
-                                    Lihat Materi
-                                </button>
+                                <h2 class="hover:underline leading-normal text-lg font-bold">{{ $materi->title }}</h2>
                             </a>
+                            <p class="mb-6 leading-normal text-sm overflow-hidden h-24 ...">{{ $materi->description }}</p>
+                            <div class="absolute bottom-0 left-0 my-4 px-2">
+                                <a href="/student/materi/{{ $materi->slug }}">
+                                    <button class="mr-2 text-sm relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-50 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out shadow-md bg-violet-500 hover:bg-violet-600 border border-r-4 border-b-4 border-stone-700">
+                                        Lihat Materi
+                                    </button>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @empty
-                <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-100 border-2 shadow-md rounded-2xl score-card">
-                    <div class="max-w-full px-3 mx-auto text-center">
-                        <span class="text-stone-700 text-md tracking-tight leading-none">Tidak ada materi</span>
+                @empty
+                    <div class="flex w-full p-4 sm:mb-0 sm:mr-4 bg-stone-100 border-2 shadow-md rounded-2xl score-card">
+                        <div class="max-w-full px-3 mx-auto text-center">
+                            <span class="text-stone-700 text-md tracking-tight leading-none">Tidak ada materi</span>
+                        </div>
                     </div>
-                </div>
-            @endforelse
+                @endforelse
+            </div>
         </div>
-    </div>
-
-
     </div>
 </section>
 <script>

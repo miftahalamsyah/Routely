@@ -12,7 +12,6 @@
 
                         <input type="hidden" name="user_id" value="{{ auth()->id() }}">
                         <input type="hidden" name="pertemuan_id" value="{{ $pertemuan }}">
-
                         <div class="flex justify-between">
                             <p></p>
                             <button type="submit" id="submitBtn" class="mb-4 px-4 py-2 text-sm text-stone-800 bg-orange-400 rounded-sm border border-r-4 border-b-4 border-stone-700 hover:bg-orange-500 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out focus:outline-none focus:bg-orange-600 font-extrabold">Selesaikan Kuis</button>
@@ -26,7 +25,6 @@
                                             <p class="font-semibold text-md text-student mr-2">No. {{ $index + 1 }}</p>
                                             <p class="font-semibold text-md text-gray-400">- {{ $soal->indikator }}</p>
                                         </div>
-                                        <p class="text-gray-800 text-md my-2">{{ $soal->pertanyaan }}</p>
                                         @if ($soal->gambar)
                                         <a href="{{ asset('storage/gambar/' . $soal->gambar) }}" target="_blank" >
                                             <div class="my-4 rounded-sm border border-r-4 border-b-4 border-stone-700 overflow-hidden" style="max-width: 400px; max-height: 300px;">
@@ -34,6 +32,7 @@
                                             </div>
                                         </a>
                                         @endif
+                                        <p class="text-gray-800 text-md my-2">{{ $soal->pertanyaan }}</p>
 
                                         {{-- Opsi jawaban a, b, c, d, e --}}
                                         <div class="grid grid-cols-1 gap-4">
@@ -43,7 +42,9 @@
                                                     <label for="{{ $index }}_{{ $option }}" class="ml-2">{{ $soal['jawaban_' . $option] }}</label>
                                                 </div>
                                             @endforeach
+                                            <input type="radio" id="{{ $index }}_N" name="jawaban[{{ $index }}]" value="N" checked style="display:none;">
                                         </div>
+
                                     </div>
                                     <!-- Add these buttons within your form -->
                                 @endforeach

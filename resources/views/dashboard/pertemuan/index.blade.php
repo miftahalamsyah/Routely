@@ -33,7 +33,7 @@
                                 <tbody class="divide-y divide-stone-600">
                                     @forelse ($pertemuans as $pertemuan)
                                         <tr>
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
                                                 {{ $pertemuan->pertemuan_ke }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">

@@ -81,6 +81,9 @@ class TugasController extends Controller
         $userCount = User::where('is_admin', 0)->count();
         $hasilTugasSiswaCount = HasilTugasSiswa::where('tugas_id', $tugas_id)->count();
 
+        // Get the count of HasilTugasSiswa that have corresponding entries in NilaiTugas
+        $nilaiTugasCount = NilaiTugas::whereIn('hasil_tugas_siswa_id', $hasilTugasSiswa->pluck('id'))->count();
+
         //show users who havent submitted the task
         $users = User::where('is_admin', 0)->get();
 
@@ -100,7 +103,7 @@ class TugasController extends Controller
         return view('dashboard.tugas.id',
         [
             "title" => "Hasil Pengerjaan Tugas",
-        ],compact('hasilTugasSiswa', 'tugas_id', 'nilaiTugas', 'userCount', 'hasilTugasSiswaCount', 'usersNotSubmitted'));
+        ],compact('hasilTugasSiswa', 'tugas_id', 'nilaiTugas', 'userCount', 'hasilTugasSiswaCount', 'usersNotSubmitted', 'nilaiTugasCount'));
     }
 
     public function nilai($hasilTugasSiswa_id)

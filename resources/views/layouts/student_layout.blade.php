@@ -83,16 +83,6 @@
                             Tes
                         </div>
                     </li>
-                    {{-- <li class="relative group">
-                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 hover:bg-violet-100 text-stone-400   {{ request()->routeIs('student.simulasi') ? 'bg-violet-500 text-stone-50 hover:bg-violet-600' : '' }}" href="/student/simulasi">
-                            <svg class="mx-auto w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M15 6H9a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1Zm-1 4h-4V8h4Zm3-8H5a1 1 0 0 0-1 1v18a1 1 0 0 0 1 1h12a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3Zm1 17a1 1 0 0 1-1 1H6V4h11a1 1 0 0 1 1 1Z"/>
-                            </svg>
-                        </a>
-                        <div class="tooltip hidden group-hover:block absolute top-2 ml-12 bg-stone-600 shadow-md text-stone-50 p-1 text-xs rounded-md">
-                            Simulasi
-                        </div>
-                    </li> --}}
                     <li class="relative group">
                         <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-full border bg-stone-100 hover:bg-violet-100 text-stone-400   {{ $title === "Profil" ? 'bg-violet-500 text-stone-50 hover:bg-violet-600' : '' }}" href="/student/profile">
                             <svg width="16" height="16" fill="currentColor" class="mx-auto w-5 h-5" viewBox="0 0 35 35" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg"><path d="M17.5 16.383a8.067 8.067 0 1 1 8.067-8.067 8.076 8.076 0 0 1-8.067 8.067Zm0-13.633a5.567 5.567 0 1 0 5.567 5.566A5.573 5.573 0 0 0 17.5 2.75Zm13.977 32a1.25 1.25 0 0 1-1.23-1.037A12.663 12.663 0 0 0 17.5 22.852 12.663 12.663 0 0 0 4.753 33.713a1.25 1.25 0 0 1-2.464-.426A15.1 15.1 0 0 1 17.5 20.352a15.1 15.1 0 0 1 15.211 12.935 1.25 1.25 0 0 1-1.02 1.444 1.2 1.2 0 0 1-.214.019Z"/></svg>

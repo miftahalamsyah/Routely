@@ -8,7 +8,7 @@
     <button class="bg-violet-400 p-2 mx-5 rounded-xl hover:bg-violet-300"><a href="{{ route('kelompok.create') }}" class="text-md font-semibold p-2">Tambah Kelompok</a></button>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 m-5 text-stone-300">
-       @foreach ($clusters as $key => $cluster)
+        @foreach ($clusters as $key => $cluster)
             <div class="bg-stone-700 border-2 border-stone-600 rounded-2xl shadow-md px-6 py-3">
                 <table class="w-full">
                     <thead>

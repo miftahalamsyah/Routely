@@ -41,12 +41,14 @@
                                 <p class="font-semibold text-md text-student mr-2">No. {{ $index + 1 }}</p>
                                 <p class="font-semibold text-md text-gray-400">- {{ $soal->indikator }}</p>
                             </div>
-                            <p class="text-gray-800 text-md my-2">{{ $soal->pertanyaan }}</p>
                             @if ($soal->gambar)
-                            <div class="my-4 rounded-2xl overflow-hidden" style="max-width: 400px; max-height: 300px;">
-                                <img src="{{ asset('storage/gambar/' . $soal->gambar) }}" alt="Gambar Soal" class="w-full h-full object-cover">
-                            </div>
+                            <a href="{{ asset('storage/gambar/' . $soal->gambar) }}" target="_blank" >
+                                <div class="my-4 rounded-sm border border-r-4 border-b-4 border-stone-700 overflow-hidden" style="max-width: 400px; max-height: 300px;">
+                                    <img src="{{ asset('storage/gambar/' . $soal->gambar) }}" alt="Gambar Soal" class="w-full h-full object-cover">
+                                </div>
+                            </a>
                             @endif
+                            <p class="text-gray-800 text-md my-2">{{ $soal->pertanyaan }}</p>
 
                             {{-- Opsi jawaban a, b, c, d, e --}}
                             <div class="grid grid-cols-1 gap-4">

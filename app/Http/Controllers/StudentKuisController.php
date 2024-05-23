@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HasilKuisSiswa;
+use App\Models\HasilTesSiswa;
 use App\Models\Pertemuan;
 use App\Models\SoalKuis;
 use App\Models\SoalTes;
@@ -33,6 +34,15 @@ class StudentKuisController extends Controller
             return redirect()->back();
         }
 
+        $userHasPretest = HasilTesSiswa::where('user_id', auth()->id())
+            ->where('kategori_tes_id', 1)
+            ->exists();
+
+        if (!$userHasPretest) {
+            Alert::error('Maaf', 'Anda harus mengerjakan Pretest terlebih dahulu.');
+            return redirect()->back();
+        }
+
         $pertemuan = $pertemuan_id;
         $user = auth()->user();
 
@@ -49,7 +59,7 @@ class StudentKuisController extends Controller
         $request->validate([
             'user_id' => 'required|exists:users,id',
             'jawaban' => 'required|array',
-            'jawaban.*' => 'in:a,b,c,d,e',
+            'jawaban.*' => 'in:a,b,c,d,e,N',
             'pertemuan_id' => 'required|exists:pertemuans,id',
         ]);
 
@@ -60,18 +70,37 @@ class StudentKuisController extends Controller
         $benar = 0;
         $salah = 0;
         $kosong = 0;
+
+        // Initialize category counters
         $dekomposisi = 0;
         $abstraksi = 0;
         $pengenalan_pola = 0;
         $algoritma = 0;
 
+        // Initialize category question counts
+        $totalDekomposisi = 0;
+        $totalAbstraksi = 0;
+        $totalPengenalanPola = 0;
+        $totalAlgoritma = 0;
+
         $soal_tes = SoalKuis::where('pertemuan_id', $request->pertemuan_id)->get();
 
         foreach ($soal_tes as $index => $soal) {
             $kunci_jawaban = $soal->kunci_jawaban;
-            $jawaban_user = $request->input('jawaban.' . $index);
+            $jawaban_user = $request->input('jawaban.' . $index, 'N');
 
-            if ($jawaban_user === null) {
+            // Increment category question counts based on the indikator
+            if ($soal->indikator === 'Dekomposisi') {
+                $totalDekomposisi++;
+            } elseif ($soal->indikator === 'Abstraksi') {
+                $totalAbstraksi++;
+            } elseif ($soal->indikator === 'Pengenalan Pola') {
+                $totalPengenalanPola++;
+            } elseif ($soal->indikator === 'Algoritma') {
+                $totalAlgoritma++;
+            }
+
+            if ($jawaban_user === 'N') {
                 $kosong++;
             } elseif ($jawaban_user === $kunci_jawaban) {
                 $benar++;
@@ -96,10 +125,10 @@ class StudentKuisController extends Controller
         $totalScore = ($benar / $totalQuestions) * 100;
 
         // Calculate percentages for each category
-        $dekomposisiPercentage = ($dekomposisi / max(1, $benar + $salah)) * 100;
-        $abstraksiPercentage = ($abstraksi / max(1, $benar + $salah)) * 100;
-        $pengenalanPolaPercentage = ($pengenalan_pola / max(1, $benar + $salah)) * 100;
-        $algoritmaPercentage = ($algoritma / max(1, $benar + $salah)) * 100;
+        $dekomposisiPercentage = ($dekomposisi / max(1, $totalDekomposisi)) * 100;
+        $abstraksiPercentage = ($abstraksi / max(1, $totalAbstraksi)) * 100;
+        $pengenalanPolaPercentage = ($pengenalan_pola / max(1, $totalPengenalanPola)) * 100;
+        $algoritmaPercentage = ($algoritma / max(1, $totalAlgoritma)) * 100;
 
         // Store the result in the database
         HasilKuisSiswa::create([
@@ -129,6 +158,16 @@ class StudentKuisController extends Controller
         $correctAnswers = SoalKuis::where('pertemuan_id', $pertemuan_id)
             ->pluck('kunci_jawaban', 'id')
             ->toArray();
+
+        // Check if the user has already submitted the pretest
+        $userHasPretest = HasilTesSiswa::where('user_id', auth()->id())
+            ->where('kategori_tes_id', 1)
+            ->exists();
+
+        if (!$userHasPretest) {
+            Alert::error('Maaf', 'Anda harus mengerjakan Pretest terlebih dahulu.');
+            return redirect()->back();
+        }
 
         // Check if the user has already submitted the exam
         $userHasSubmitted = HasilKuisSiswa::where('user_id', auth()->id())

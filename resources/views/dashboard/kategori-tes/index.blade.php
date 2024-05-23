@@ -10,7 +10,7 @@
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
                     <div class="">
-                        <button class="bg-violet-400 my-2 p-2 rounded-xl hover:bg-violet-300"><a href="{{ route('kategori-tes.create') }}" class="text-md font-semibold p-2">Tambah Kategori Tes</a></button>
+                        <button class="bg-violet-700 my-2 p-2 rounded-xl hover:bg-violet-600"><a href="{{ route('kategori-tes.create') }}" class="text-md text-stone-100 font-semibold p-2">Tambah Kategori Tes</a></button>
                         <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-stone-600 text-stone-300">
                                 <thead>

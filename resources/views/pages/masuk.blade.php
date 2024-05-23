@@ -68,7 +68,7 @@
 
                 <p class="mt-4 text-sm text-stone-500 sm:mt-0">
                     Belum punya akun?
-                    <a href="/daftar" class="text-stone-700 clashdisplaymedium hover:underline">Daftar dengan email</a>.
+                    <a href="/daftar" class="text-student clashdisplaymedium hover:underline">Daftar dengan email</a>.
                 </p>
 
             {{-- Github create not working --}}

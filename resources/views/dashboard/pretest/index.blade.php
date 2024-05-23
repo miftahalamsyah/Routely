@@ -10,7 +10,7 @@
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
                     <div class="">
-                        <div class="justify-between">
+                        <div class="justify-between text-stone-800">
                             <button class="bg-violet-400 my-2 p-2 rounded-xl hover:bg-violet-300"><a href="{{ route('pretest.create') }}" class="text-md font-semibold p-2">Tambah Soal Pretest</a></button>
                             <button class="bg-student my-2 p-2 rounded-xl text-stone-300"><a href="{{ route('pretest.import') }}" class="text-md font-semibold p-2">Import Spreadsheets</a></button>
                         </div>

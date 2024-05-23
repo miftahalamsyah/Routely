@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\NilaiPretestExport;
 use App\Models\HasilTesSiswa;
 use App\Models\KategoriTes;
 use App\Models\SoalTes;
@@ -9,6 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KategoriTesController extends Controller
 {
@@ -121,7 +123,11 @@ class KategoriTesController extends Controller
         $kategoriTes = KategoriTes::findOrFail($id);
         $soalTes = SoalTes::where('kategori_tes_id', $id)->get();
         $soalTesCount = $soalTes->count();
-        $hasilTes = HasilTesSiswa::where('kategori_tes_id', $id)->get();
+        $hasilTes = HasilTesSiswa::where('kategori_tes_id', $id)
+            ->join('users', 'hasil_tes_siswas.user_id', '=', 'users.id')
+            ->orderBy('users.name')
+            ->get();
+
 
         return view('dashboard.kategori-tes.show', [
             "title" => "Kategori Tes",
@@ -130,6 +136,12 @@ class KategoriTesController extends Controller
             'soalTes' => $soalTes,
             'soalTesCount' => $soalTesCount,
         ]);
+    }
+
+    public function exportPretest($id)
+    {
+        $kategoriTes = KategoriTes::findOrFail($id);
+        return Excel::download(new NilaiPretestExport($id), "Nilai Persoal {$kategoriTes->kategori_tes}.xlsx");
     }
 
 }

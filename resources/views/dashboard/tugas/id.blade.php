@@ -6,23 +6,35 @@
         <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-stone-300 md:tracking-tight">Hasil Pengerjaan Tugas {{ $tugas_id }}</h1>
     </div>
 
-    <div class="mx-3 text-xs h-30 bg-stone-700 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
-        Tugas {{ $tugas_id }}
-        <p class="font-normal text-stone-300 text-sm py-2">{{ $hasilTugasSiswaCount }} dari {{ $userCount }} siswa telah mengerjakan</p>
-        <div class="w-full bg-stone-300 rounded-full">
-            <div class="bg-violet-600 text-xs font-medium text-stone-300 text-center p-0.5 leading-none rounded-full"
-                style="width: {{ ($hasilTugasSiswaCount / $userCount) * 100 }}%">
-                {{ round(($hasilTugasSiswaCount / $userCount) * 100) }}%
+    <a href="/dashboard/tugas" class="flex m-3 text-stone-300">
+        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="20px" height="25px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve">
+            <path d="M48.6,23H15.4c-0.9,0-1.3-1.1-0.7-1.7l9.6-9.6c0.6-0.6,0.6-1.5,0-2.1l-2.2-2.2c-0.6-0.6-1.5-0.6-2.1,0 L2.5,25c-0.6,0.6-0.6,1.5,0,2.1L20,44.6c0.6,0.6,1.5,0.6,2.1,0l2.1-2.1c0.6-0.6,0.6-1.5,0-2.1l-9.6-9.6C14,30.1,14.4,29,15.3,29 h33.2c0.8,0,1.5-0.6,1.5-1.4v-3C50,23.8,49.4,23,48.6,23z"/>
+        </svg>
+        <p class="ml-2 font-semibold text-md text-stone-300">Back</p>
+    </a>
+
+    <div class="justify-between grid grid-cols-2 gap-4 m-3">
+        <div class="text-xs h-full bg-stone-700 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
+            <p class="text-stone-300 text-xl md:text-2xl font-bold">{{ $hasilTugasSiswaCount }}/{{ $userCount }}</p>
+            <p class="font-normal text-stone-300 text-sm pb-1">siswa telah <b>mengerjakan</b></p>
+            <div class="w-full bg-stone-300 rounded-full">
+                <div class="bg-violet-600 text-xs font-medium text-stone-300 text-center p-0.5 leading-none rounded-full"
+                    style="width: {{ ($hasilTugasSiswaCount / $userCount) * 100 }}%">
+                    {{ round(($hasilTugasSiswaCount / $userCount) * 100) }}%
+                </div>
+            </div>
+        </div>
+        <div class="text-xs h-full bg-stone-700 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
+            <p class="text-stone-300 text-xl md:text-2xl font-bold">{{ $nilaiTugasCount }}/{{ $hasilTugasSiswaCount }}</p>
+            <p class="font-normal text-stone-300 text-sm pb-1">tugas telah <b>dinilai</b></p>
+            <div class="w-full bg-stone-300 rounded-full">
+                <div class="bg-violet-600 text-xs font-medium text-stone-300 text-center p-0.5 leading-none rounded-full"
+                    style="width: {{ ($nilaiTugasCount / $hasilTugasSiswaCount) * 100 }}%">
+                    {{ round(($nilaiTugasCount / $hasilTugasSiswaCount) * 100) }}%
+                </div>
             </div>
         </div>
     </div>
-
-    <a href="/dashboard/tugas" class="flex m-3">
-        <svg fill="#fafafa" xmlns="http://www.w3.org/2000/svg" width="20px" height="25px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve">
-            <path d="M48.6,23H15.4c-0.9,0-1.3-1.1-0.7-1.7l9.6-9.6c0.6-0.6,0.6-1.5,0-2.1l-2.2-2.2c-0.6-0.6-1.5-0.6-2.1,0 L2.5,25c-0.6,0.6-0.6,1.5,0,2.1L20,44.6c0.6,0.6,1.5,0.6,2.1,0l2.1-2.1c0.6-0.6,0.6-1.5,0-2.1l-9.6-9.6C14,30.1,14.4,29,15.3,29 h33.2c0.8,0,1.5-0.6,1.5-1.4v-3C50,23.8,49.4,23,48.6,23z"/>
-        </svg>
-        <p class="ml-2 font-semibold text-md text-stone-50">Back</p>
-    </a>
 
     <div class="bg-stone-700 rounded-xl mx-3 border-2 border-stone-600">
         <div class="row">
@@ -147,7 +159,7 @@
             <tbody class="divide-y divide-stone-500">
                 @forelse ($usersNotSubmitted as $user)
                     <tr class="whitespace-nowrap">
-                        <td class="px-4 py-2">
+                        <td class="px-4 py-2 text-center">
                             {{ $user->name }}
                         </td>
                         <td class="px-4 py-2 text-center">

@@ -28,6 +28,7 @@ use App\Http\Controllers\StudentKelompokController;
 use App\Http\Controllers\StudentKuisController;
 use App\Http\Controllers\StudentMateriController;
 use App\Http\Controllers\StudentPertemuanController;
+use App\Http\Controllers\StudentRaporController;
 use App\Http\Controllers\StudentSimulasiController;
 use App\Http\Controllers\StudentTesController;
 use App\Http\Controllers\StudentTugasController;
@@ -105,6 +106,7 @@ Route::get('/dashboard/nilai/kuis', [HasilKuisSiswaController::class, 'index'])-
 Route::resource('/dashboard/lencana', \App\Http\Controllers\LencanaController::class)->middleware('admin');
 Route::resource('/dashboard/absensi', \App\Http\Controllers\AbsensiController::class)->middleware('admin');
 Route::resource('/dashboard/kategori-tes', \App\Http\Controllers\KategoriTesController::class)->middleware('admin');
+Route::get('/dashboard/kategori-tes/export/{id}', [\App\Http\Controllers\KategoriTesController::class, 'exportPretest'])->name('kategori-tes.exportPretest')->middleware('admin');
 
 Route::get('/dashboard/refleksi',[\App\Http\Controllers\RefleksiController::class, 'index'])->name('refleksi')->middleware('admin');
 Route::get('/dashboard/refleksi/export', [\App\Http\Controllers\RefleksiController::class, 'export'])->name('refleksi.export')->middleware('admin');
@@ -149,6 +151,8 @@ Route::post('/student/hasil_apersepsi_siswa', [HasilApersepsiSiswaController::cl
 Route::get('/student/pengajuan-masalah', [StudentPengajuanMasalahController::class, 'index'])->name('student.pengajuan-masalah')->middleware('auth');
 Route::post('/student/pengajuan-masalah', [StudentPengajuanMasalahController::class, 'store'])->name('student.pengajuan-masalah.store')->middleware('auth');
 Route::delete('/student/pengajuan-masalah/{id}', [StudentPengajuanMasalahController::class, 'destroy'])->name('student.pengajuan-masalah.destroy')->middleware('auth');
+
+Route::get('/student/rapor', [StudentRaporController::class, 'index'])->name('student.rapor')->middleware('auth');
 
 Route::get('/student/kelompok', [StudentKelompokController::class, 'index'])->name('student.kelompok')->middleware('auth');
 
