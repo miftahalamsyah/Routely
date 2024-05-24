@@ -16,7 +16,7 @@
             $uniquePertemuanIds = $soal_kuis->unique('pertemuan_id')->pluck('pertemuan_id');
         @endphp
         @foreach ($uniquePertemuanIds as $pertemuan_id)
-            <a href="#{{ $pertemuan_id }}" class="text-xs h-30 bg-stone-700 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
+            <a href="#{{ $pertemuan_id }}" class="text-xs h-30 bg-stone-800 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border">
                 Pertemuan {{ $pertemuan_id }}
                 @php
                     $soalKuisCount = $soal_kuis->where('pertemuan_id', $pertemuan_id)->count();
@@ -27,14 +27,14 @@
     </div>
 
     @foreach ($soal_kuis->unique('pertemuan_id') as $uniqueKuis)
-    <div class="bg-stone-700 border-2 border-stone-600 rounded-xl mx-3 mb-8 text-stone-300" id="{{ $loop->iteration }}">
+    <div class="bg-stone-800 border border-stone-600 rounded-xl mx-3 mb-8 text-stone-300" id="{{ $loop->iteration }}">
         <p class="px-3 pt-3 text-center font-semibold text-lg">Kuis Pertemuan-{{ $loop->iteration }}</p>
         <div class="row">
             <div class="col-md-12 px-5">
                 <div class="border-0 shadow-sm">
                     <div class="">
                         <div class="overflow-x-auto">
-                            <table class="min-w-full divide-y divide-stone-200">
+                            <table class="min-w-full divide-y divide-stone-600">
                                 <thead>
                                     <tr>
                                         <th scope="col" class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
@@ -105,8 +105,8 @@
                                                     <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('kuis.destroy', $soal->id) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="text-red-600 hover:text-red-900">
-                                                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2h4a1 1 0 1 1 0 2h-1.069l-.867 12.142A2 2 0 0 1 17.069 22H6.93a2 2 0 0 1-1.995-1.858L4.07 8H3a1 1 0 0 1 0-2h4V4zm2 2h6V4H9v2zM6.074 8l.857 12H17.07l.857-12H6.074zM10 10a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1z" fill="#0D0D0D"/></svg>
+                                                        <button type="submit" class="text-stone-300 hover:text-red-500">
+                                                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2h4a1 1 0 1 1 0 2h-1.069l-.867 12.142A2 2 0 0 1 17.069 22H6.93a2 2 0 0 1-1.995-1.858L4.07 8H3a1 1 0 0 1 0-2h4V4zm2 2h6V4H9v2zM6.074 8l.857 12H17.07l.857-12H6.074zM10 10a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1z" fill="currentColor"/></svg>
                                                         </button>
                                                     </form>
                                                 </div>
@@ -116,7 +116,7 @@
                                     @empty
                                         <tr>
                                             <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
-                                                <div class="bg-stone-700 text-stone-300 p-2 rounded-xl">
+                                                <div class="bg-stone-800 text-stone-300 p-2 rounded-xl">
                                                     Data soal kuis tidak tersedia.
                                                 </div>
                                             </td>

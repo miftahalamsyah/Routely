@@ -14,7 +14,7 @@
 
     <div class="grid grid-cols-2 gap-4 m-3">
         @foreach ($tugass as $tugas)
-            <a href="/dashboard/tugas/{{ $tugas->id }}" class="text-xs h-30 bg-stone-700 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
+            <a href="/dashboard/tugas/{{ $tugas->id }}" class="text-xs h-30 bg-stone-800 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border">
                 Tugas {{ $tugas->id }}
                 @php
                     $tugas_id = $tugas->id;
@@ -32,9 +32,9 @@
     </div>
 
     @foreach ($nilaiTugas->unique('tugas_id') as $uniqueTugas)
-    <div class="bg-stone-700 rounded-xl m-5 text-stone-300 text-center p-2 border-2 border-stone-600">
+    <div class="bg-stone-800 rounded-xl m-3 text-stone-300 text-center p-2 border border-stone-600">
         <a href="{{ route('tugas.show', $loop->iteration) }}">
-            <p class="font-semibold p-3">Tugas {{ $loop->iteration }}</p>
+            <p class="font-semibold p-3">Tugas Pertemuan {{ $loop->iteration }}</p>
         </a>
         <div class="row">
             <div class="col-md-12">
@@ -47,9 +47,9 @@
                                         <th scope="col" class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
                                             No.
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                        <!--<th scope="col" class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
                                             Tugas ID
-                                        </th>
+                                        </th>-->
                                         <th scope="col" class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
                                             Siswa
                                         </th>
@@ -59,17 +59,17 @@
                                         <th scope="col" class="px-6 py-3"></th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-stone-700 divide-y divide-stone-600">
+                                <tbody class="bg-stone-800 divide-y divide-stone-600">
                                     @forelse ($nilaiTugas->where('tugas_id', $uniqueTugas->tugas_id) as $nilai)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-center">
                                                 {{ $loop->iteration }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                            <!--<td class="px-6 py-4 whitespace-nowrap text-center">
                                                 <a href="{{ route('tugas.show', $nilai->tugas_id) }}">
                                                     {{ $nilai->tugas->name }}
                                                 </a>
-                                            </td>
+                                            </td>-->
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 {{ $nilai->user->name }}
                                             </td>

@@ -8,31 +8,31 @@
 
     <div class="mx-2 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-2 my-5">
         <a href="/dashboard/siswa">
-            <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
                 Siswa
                 <p class="font-bold text-3xl py-2">{{ $userCount }}</p>
             </div>
         </a>
         <a href="/dashboard/kelompok">
-            <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
                 Kelompok
                 <p class="font-bold text-3xl py-2">{{ $kelompokCount }}</p>
             </div>
         </a>
         <a href="/dashboard/pertemuan">
-            <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
                 Pertemuan
                 <p class="font-bold text-3xl py-2">{{ $pertemuanCount }}</p>
             </div>
         </a>
         <a href="/dashboard/materi">
-            <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
                 Materi
                 <p class="font-bold text-3xl py-2">{{ $materiCount }}</p>
             </div>
         </a>
         <a href="/dashboard/tugas">
-            <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
                 Tugas
                 <p class="font-bold text-3xl py-2">{{ $tugasCount }}</p>
             </div>
@@ -41,7 +41,7 @@
 
     <div class="mx-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 my-5">
         <a href="/dashboard/nilai/pretest" class="text-sm">
-            <div class="w-full h-full bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-full bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
                 Pretest
                 <p class="font-bold text-2xl py-2">{{ $CountPretest }}/{{ $userCount }}</p>
                 <div class="w-full bg-stone-300 rounded-full">
@@ -53,13 +53,13 @@
             </div>
         </a>
         <a href="/dashboard/nilai/pretest" class="text-sm">
-            <div class="w-full h-full bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-full bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
                 Rata-rata Pretest
                 <p class="font-bold text-2xl py-2">{{ $averagePretest }}</p>
             </div>
         </a>
         <a href="/dashboard/nilai/posttest" class="text-sm">
-            <div class="w-full h-full bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-full bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
                 Posttest
                 <p class="font-bold text-2xl py-2">{{ $CountPosttest }}/{{ $userCount }}</p>
                 <div class="w-full bg-stone-300 rounded-full">
@@ -71,7 +71,7 @@
             </div>
         </a>
         <a href="/dashboard/nilai/posttest" class="text-sm">
-            <div class="w-full h-full bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-full bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
                 Rata-rata Posttest
                 <p class="font-bold text-2xl py-2">{{ $averagePosttest }}</p>
             </div>
@@ -79,11 +79,11 @@
     </div>
 
     {{-- Pengerjaan tugas --}}
-    <div class="my-5 mx-2 block rounded-xl border-stone-600 border p-8 bg-stone-700">
+    <div class="my-5 mx-2 block rounded-xl border-stone-600 border p-8 bg-stone-800">
         <h2 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Pengerjaan Tugas</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             @forelse ($tugass as $tugas)
-                <a href="/dashboard/tugas/{{ $tugas->id }}" class="text-xs h-30 bg-stone-700 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
+                <a href="/dashboard/tugas/{{ $tugas->id }}" class="text-xs h-30 bg-stone-800 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border">
                     Tugas {{ $tugas->id }}
                     @php
                         $tugas_id = $tugas->id;
@@ -99,7 +99,7 @@
                 </a>
             @empty
                 <div class="text-center">
-                    <div class="mx-auto bg-stone-700 text-stone-300 p-2 rounded-xl">
+                    <div class="mx-auto bg-stone-800 text-stone-300 p-2 rounded-xl">
                         Data tugas tidak tersedia.
                     </div>
                 </div>
@@ -108,7 +108,7 @@
     </div>
 
     {{-- Pengerjaan kuis --}}
-    <div class="my-5 mx-2 block rounded-xl border-stone-600 border p-8 bg-stone-700">
+    <div class="my-5 mx-2 block rounded-xl border-stone-600 border p-8 bg-stone-800">
         <h2 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Pengerjaan Kuis</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-stone-300">
             @foreach ($hasilKuisSiswa->unique('pertemuan_id') as $uniqueHasilKuisSiswa)
@@ -116,7 +116,7 @@
                     $pertemuan_id = $uniqueHasilKuisSiswa->pertemuan_id;
                     $hasilKuisSiswaCount = \App\Models\HasilKuisSiswa::where('pertemuan_id', $pertemuan_id)->count();
                 @endphp
-                <a href="/dashboard/nilai/kuis#{{ $loop->iteration }}" class="text-xs h-30 bg-stone-700 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
+                <a href="/dashboard/nilai/kuis#{{ $loop->iteration }}" class="text-xs h-30 bg-stone-800 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border">
                     Kuis Pertemuan {{ $loop->iteration }}
                     <p class="font-normal text-stone-300 text-sm py-2">{{ $hasilKuisSiswaCount }} dari {{ $userCount }} siswa telah mengerjakan</p>
                     <div class="w-full bg-stone-300 rounded-full">
@@ -131,7 +131,7 @@
     </div>
 
     <!-- Daftar Pertemuan -->
-    <div class="my-5 mx-2 block rounded-xl border-stone-600 border p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">
+    <div class="my-5 mx-2 block rounded-xl border-stone-600 border p-8 bg-stone-800" style="max-height: 400px; overflow-y: auto;">
         <h2 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Pertemuan</h2>
         <table class="min-w-full divide-y divide-stone-500 text-stone-300">
             <thead>
@@ -192,7 +192,7 @@
     </div>
 
     <!-- Daftar Tugas -->
-    <div class="my-5 mx-2 block rounded-xl border-stone-600 border p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">
+    <div class="my-5 mx-2 block rounded-xl border-stone-600 border p-8 bg-stone-800" style="max-height: 400px; overflow-y: auto;">
         <h2 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Tugas</h2>
         <table class="min-w-full divide-y divide-stone-500 text-stone-300">
             <thead>
@@ -241,7 +241,7 @@
     </div>
 
     <!-- Daftar Materi -->
-    <div class="my-5 mx-2 block rounded-xl border border-stone-600 p-8 bg-stone-700 overflow-x-auto">
+    <div class="my-5 mx-2 block rounded-xl border border-stone-600 p-8 bg-stone-800 overflow-x-auto">
         <h2 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Materi</h2>
         <table class="min-w-full divide-y divide-stone-500 text-stone-300 my-4">
             <thead>
@@ -290,7 +290,7 @@
     </div>
 
     {{-- Daftar Siswa --}}
-    <div class="my-5 mx-2 block rounded-xl border border-stone-600 p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">
+    <div class="my-5 mx-2 block rounded-xl border border-stone-600 p-8 bg-stone-800" style="max-height: 400px; overflow-y: auto;">
         <h2 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Daftar Siswa</h2>
         <table class="min-w-full divide-y divide-stone-500 text-stone-300">
             <thead>
@@ -333,7 +333,7 @@
     </div>
 
     {{-- Leaderboard --}}
-    <div class="my-5 mx-2 block rounded-xl border border-stone-600 p-8 bg-stone-700" style="max-height: 400px; overflow-y: auto;">
+    <div class="my-5 mx-2 block rounded-xl border border-stone-600 p-8 bg-stone-800" style="max-height: 400px; overflow-y: auto;">
         <div class="p-4 mx-auto text-center">
             <h2 class="text-2xl font-extrabold tracking-tight leading-none text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl"><span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-purple-500 to-violet-300 lg:inline"> Routely </span>League</h2>
             {{-- table user leaderboard --}}

@@ -11,7 +11,7 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 m-5 text-stone-300">
        @foreach ($clusters as $key => $cluster)
-            <div class="bg-stone-700 border-2 border-stone-600 rounded-2xl shadow-md px-6 py-3">
+            <div class="bg-stone-800 border border-stone-600 rounded-2xl shadow-md px-6 py-3">
                 <table class="w-full">
                     <thead>
                         <tr>
@@ -49,7 +49,7 @@
     <div class="bg-gray-50 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">
-                <h1 class="font-semibold text-stone-700 text-4xl text-center my-8  ">Tambah Kelompok</h1>
+                <h1 class="font-semibold text-stone-800 text-4xl text-center my-8  ">Tambah Kelompok</h1>
                 <div class="border-0 shadow-sm">
 
                     <form action="{{ route('kelompok.store') }}" method="POST" enctype="multipart/form-data">

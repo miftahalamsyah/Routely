@@ -3,7 +3,7 @@
 @section('content')
 <section class="justify-center px-5 text-center min-h-screen my-24">
     <div class="">
-        <div class="mx-auto flex items-center justify-center w-32 h-32 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl">
+        <div class="mx-auto flex items-center justify-center w-32 h-32 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl border border-b-4 border-r-4 border-stone-700">
             <h1 class="text-stone-50 text-5xl font-semibold">{{ substr($name, 0, 1) }}{{ substr(strrchr($name, ' '), 1, 1) }}</h1>
         </div>
         <h1 class="clashdisplaymedium mt-8 text-4xl text-stone-700">{{ $name }}</h1>

@@ -13,7 +13,7 @@
         </a>
         <button class="bg-student p-2 rounded-xl text-stone-300"><a href="{{ route('nilai.pretest.export') }}" class="text-md font-semibold p-2">Ekspor ke Spreadsheets</a></button>
     </div>
-    <div class="bg-stone-700 border-2 border-stone-600 text-stone-300 rounded-xl mx-3">
+    <div class="bg-stone-800 border border-stone-600 text-stone-300 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">

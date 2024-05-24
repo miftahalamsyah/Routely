@@ -6,39 +6,39 @@
         <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-stone-50 md:tracking-tight">Daftar Hasil Refleksi Siswa</h1>
     </div>
     <button class="bg-student m-3 p-2 rounded-xl text-stone-50"><a href="{{ route('refleksi.export') }}" class="text-md font-semibold p-2">Ekspor ke Spreadsheets</a></button>
-    <div class="bg-stone-50 rounded-xl mx-3">
+    <div class="bg-stone-800 rounded-xl mx-3 border border-stone-600 text-stone-300">
         <div class="row">
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
                     <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-gray-200">
+                        <table class="min-w-full divide-y divide-stone-500">
                             <thead class="text-left">
                                 <tr>
-                                    <th scope="col" class="px-6 py-3 bg-stone-50 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium uppercase tracking-wider">
                                         Pertemuan
                                     </th>
-                                    <th scope="col" class="px-6 py-3 bg-stone-50 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium uppercase tracking-wider">
                                         Nama Siswa
                                     </th>
-                                    <th scope="col" class="px-6 py-3 bg-stone-50 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium uppercase tracking-wider">
                                         Seberapa Paham
                                     </th>
-                                    <th scope="col" class="px-6 py-3 bg-stone-50 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium uppercase tracking-wider">
                                         Seberapa Baik
                                     </th>
-                                    <th scope="col" class="px-6 py-3 bg-stone-50 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium uppercase tracking-wider">
                                         Seberapa Sulit
                                     </th>
-                                    <th scope="col" class="px-6 py-3 bg-stone-50 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium uppercase tracking-wider">
                                         Hambatan
                                     </th>
-                                    <th scope="col" class="px-6 py-3 bg-stone-50 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium uppercase tracking-wider">
                                         Saran
                                     </th>
-                                    <th scope="col" class="px-6 py-3 bg-stone-50"></th>
+                                    <th scope="col" class="px-6 py-3 "></th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
+                            <tbody class="divide-y divide-stone-500">
                                 @forelse ($refleksis as $refleksi)
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap text-center">
@@ -67,8 +67,8 @@
                                                 <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('refleksi.destroy', $refleksi->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="text-red-600 hover:text-red-900">
-                                                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2h4a1 1 0 1 1 0 2h-1.069l-.867 12.142A2 2 0 0 1 17.069 22H6.93a2 2 0 0 1-1.995-1.858L4.07 8H3a1 1 0 0 1 0-2h4V4zm2 2h6V4H9v2zM6.074 8l.857 12H17.07l.857-12H6.074zM10 10a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1z" fill="#0D0D0D"/></svg>
+                                                    <button type="submit" class="text-stone-300 hover:text-red-500">
+                                                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M7 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2h4a1 1 0 1 1 0 2h-1.069l-.867 12.142A2 2 0 0 1 17.069 22H6.93a2 2 0 0 1-1.995-1.858L4.07 8H3a1 1 0 0 1 0-2h4V4zm2 2h6V4H9v2zM6.074 8l.857 12H17.07l.857-12H6.074zM10 10a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1z"/></svg>
                                                     </button>
                                                 </form>
                                             </div>

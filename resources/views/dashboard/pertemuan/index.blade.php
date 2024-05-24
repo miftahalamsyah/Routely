@@ -5,7 +5,7 @@
     <div class="my-8 text-center">
         <h1 class="mb-6 text-5xl font-extrabold leading-none tracking-normal text-stone-300 md:tracking-tight">Daftar Pertemuan</h1>
     </div>
-    <div class="bg-stone-700 border-2 border-stone-600 rounded-xl mx-3">
+    <div class="bg-stone-800 border border-stone-600 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
@@ -64,7 +64,7 @@
                                     @empty
                                         <tr>
                                             <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
-                                                <div class="mx-auto bg-stone-700 text-stone-300 p-2 rounded-xl">
+                                                <div class="mx-auto bg-stone-800 text-stone-300 p-2 rounded-xl">
                                                     Data pertemuan tidak tersedia.
                                                 </div>
                                             </td>

@@ -38,10 +38,14 @@ class NilaiController extends Controller
         $CountNilaiTugas = NilaiTugas::count();
         $CountHasilTugasSiswa = HasilTugasSiswa::count();
 
+        $siswa = User::where('is_admin', 0)->get();
+        $nilaiPretest = HasilTesSiswa::where('kategori_tes_id', 1)->get();
+        $nilaiPosttest = HasilTesSiswa::where('kategori_tes_id', 2)->get();
+
         return view('dashboard.nilai.index',
         [
             "title" => "Nilai",
-        ],compact('nilais','nilaiPretestPosttest', 'CountPretest', 'CountPosttest', 'CountStudent', 'averagePosttest', 'averagePretest', 'CountNilaiTugas', 'CountHasilTugasSiswa'));
+        ],compact('nilais','nilaiPretestPosttest', 'CountPretest', 'CountPosttest', 'CountStudent', 'averagePosttest', 'averagePretest', 'CountNilaiTugas', 'CountHasilTugasSiswa', 'siswa','nilaiPretest', 'nilaiPosttest'));
     }
 
     public function pretest(): View

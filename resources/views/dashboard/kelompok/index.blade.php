@@ -9,7 +9,7 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 m-5 text-stone-300">
         @foreach ($clusters as $key => $cluster)
-            <div class="bg-stone-700 border-2 border-stone-600 rounded-2xl shadow-md px-6 py-3">
+            <div class="bg-stone-800 border border-stone-600 rounded-2xl shadow-md px-6 py-3">
                 <table class="w-full">
                     <thead>
                         <tr>
@@ -45,7 +45,7 @@
     </div>
 
     @forelse ($kelompoks->unique('no_kelompok') as $uniqueKelompok)
-    <div class="bg-stone-700 border-2 border-stone-600 rounded-xl m-5 text-stone-300 text-center p-2">
+    <div class="bg-stone-800 border border-stone-600 rounded-xl m-5 text-stone-300 text-center p-2">
         <p class="p-3 font-semibold">Kelompok {{ $loop->iteration }}</p>
         <div class="row">
             <div class="col-md-12">
@@ -53,19 +53,19 @@
                     <table class="min-w-full divide-y divide-stone-600">
                         <thead class="text-center text-xs font-medium text-stone-300 uppercase tracking-wider">
                             <tr>
-                                <th scope="col" class="px-6 py-3 bg-stone-700">
+                                <th scope="col" class="px-6 py-3 bg-stone-800">
                                     No.
                                 </th>
-                                <th scope="col" class="px-6 py-3 bg-stone-700">
+                                <th scope="col" class="px-6 py-3 bg-stone-800">
                                     Nama Anggota
                                 </th>
-                                <th scope="col" class="px-6 py-3 bg-stone-700">
+                                <th scope="col" class="px-6 py-3 bg-stone-800">
                                     Nilai Pretest
                                 </th>
-                                <th scope="col" class="px-6 py-3 bg-stone-700">
+                                <th scope="col" class="px-6 py-3 bg-stone-800">
                                     Nilai Posttest
                                 </th>
-                                <th scope="col" class="px-6 py-3 bg-stone-700"></th>
+                                <th scope="col" class="px-6 py-3 bg-stone-800"></th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-stone-600">
@@ -115,7 +115,7 @@
         </div>
     </div>
     @empty
-        <div class="bg-stone-700 border-2 border-stone-600 rounded-xl m-5 text-stone-300 text-center p-2">
+        <div class="bg-stone-800 border border-stone-600 rounded-xl m-5 text-stone-300 text-center p-2">
             Data Kelompok Belum Dibuat.
         </div>
     @endforelse

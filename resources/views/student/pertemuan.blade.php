@@ -7,10 +7,25 @@
         <!-- individual card -->
         <div class="relative flex flex-col break-words bg-stone-50 border border-r-4 border-b-4 border-stone-700 shadow-lg rounded-md my-2">
             <div class="flex-auto px-1 pt-6">
-                <p class="clashdisplaymedium px-4 leading-normal text-xl text-student overflow-hidden ...">Pertemuan {{ $pertemuan->pertemuan_ke }}</p>
-                <p class="px-4 leading-normal text-xs text-stone-400 overflow-hidden">
-                    {{ Carbon\Carbon::parse($pertemuan->tanggal)->format('l, j F Y') }}
-                </p>
+                <div class="flex justify-between gap-1">
+                    <div>
+                        <p class="clashdisplaymedium px-4 leading-normal text-xl text-student overflow-hidden ...">Pertemuan {{ $pertemuan->pertemuan_ke }}</p>
+                        <p class="px-4 leading-normal text-xs text-stone-400 overflow-hidden">
+                            {{ Carbon\Carbon::parse($pertemuan->tanggal)->format('l, j F Y') }}
+                        </p>
+                    </div>
+                    <!--<div class="px-4">
+                        <p class="clashdisplaymedium leading-normal text-lg text-right text-student overflow-hidden ...">Progres: {{ $pertemuan->pertemuan_ke }} / 5</p>
+                        <p class="px-4 leading-normal text-xs text-stone-400 overflow-hidden text-right">
+                            <div class="w-[11em] bg-stone-200 rounded-xs">
+                                <div class="bg-orange-600 text-xs font-medium text-stone-50 text-center p-0.5 leading-none rounded-xs border border-b-4 border-r-4 border-stone-700"
+                                    style="width: {{ ($pertemuan->pertemuan_ke / 5) * 100 }}%">
+                                    {{ round(($pertemuan->pertemuan_ke / 5) * 100) }}%
+                                </div>
+                            </div>
+                        </p>
+                    </div>-->
+                </div>
                 <div class="relative flex flex-col min-w-0 break-words bg-stone-100 mx-4 bg-stone-100 border border-stone-700 my-4">
                     <div class="flex-auto p-4">
                         <h2 class="text-md font-bold">Tujuan Pembelajaran</h2>

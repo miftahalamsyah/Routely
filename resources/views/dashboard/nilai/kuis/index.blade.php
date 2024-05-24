@@ -19,7 +19,7 @@
                 $pertemuan_id = $uniqueHasilKuisSiswa->pertemuan_id;
                 $hasilKuisSiswaCount = \App\Models\HasilKuisSiswa::where('pertemuan_id', $pertemuan_id)->count();
             @endphp
-            <a href="#{{ $loop->iteration }}" class="text-xs h-30 bg-stone-700 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
+            <a href="#{{ $loop->iteration }}" class="text-xs h-30 bg-stone-800 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
                 Kuis Pertemuan {{ $loop->iteration }}
                 <p class="font-normal text-stone-300 text-sm py-2">{{ $hasilKuisSiswaCount }} dari {{ $siswaCount }} siswa telah mengerjakan</p>
                 <div class="w-full bg-stone-300 rounded-full">
@@ -33,7 +33,7 @@
     </div>
 
     @foreach ($hasilKuisSiswa->unique('pertemuan_id') as $uniqueHasilKuisSiswa)
-    <div class="bg-stone-700 text-stone-300 rounded-xl mx-3 my-5 border-2 border-stone-600" id="{{ $loop->iteration }}">
+    <div class="bg-stone-800 text-stone-300 rounded-xl mx-3 my-5 border-2 border-stone-600" id="{{ $loop->iteration }}">
         <div class="row">
             <div class="col-md-12 p-5">
                 <h2 class="text-stone-300 text-center p-2 font-semibold"> Kuis Pertemuan ke-{{ $loop->iteration }} </h2>

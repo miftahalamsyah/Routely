@@ -127,7 +127,7 @@ class TugasController extends Controller
 
         return view('dashboard.tugas.edit',
         [
-            "title" => "Edit Tugas $tugass->name",
+            "title" => "Edit Tugas",
         ], compact('tugass', 'pertemuans'));
     }
 

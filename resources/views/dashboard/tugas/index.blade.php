@@ -5,7 +5,7 @@
 
     <div class="grid grid-cols-2 gap-4 m-3">
         @foreach ($tugass as $tugas)
-            <a href="/dashboard/tugas/{{ $tugas->id }}" class="text-xs h-30 bg-stone-700 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
+            <a href="/dashboard/tugas/{{ $tugas->id }}" class="text-xs h-30 bg-stone-800 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border">
                 Tugas {{ $tugas->id }}
                 @php
                     $tugas_id = $tugas->id;
@@ -22,7 +22,7 @@
         @endforeach
     </div>
 
-    <div class="bg-stone-700 rounded-xl mx-3 border-2 border-stone-600">
+    <div class="bg-stone-800 rounded-xl mx-3 border border-stone-600">
         <div class="row">
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
@@ -33,22 +33,22 @@
                             <table class="min-w-full divide-y divide-stone-500">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="px-6 py-3 bg-stone-700 text-left text-xs font-medium text-stone-300 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 bg-stone-800 text-left text-xs font-medium text-stone-300 uppercase tracking-wider">
                                             No
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-stone-700 text-left text-xs font-medium text-stone-300 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 bg-stone-800 text-left text-xs font-medium text-stone-300 uppercase tracking-wider">
                                             Pertemuan Ke
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-stone-700 text-left text-xs font-medium text-stone-300 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 bg-stone-800 text-left text-xs font-medium text-stone-300 uppercase tracking-wider">
                                             Nama Tugas
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-stone-700 text-left text-xs font-medium text-stone-300 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 bg-stone-800 text-left text-xs font-medium text-stone-300 uppercase tracking-wider">
                                             Batas Pengumpulan
                                         </th>
-                                        <th scope="col" class="px-6 py-3 bg-stone-700"></th>
+                                        <th scope="col" class="px-6 py-3 bg-stone-800"></th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-stone-700 text-stone-300 divide-y divide-stone-500">
+                                <tbody class="bg-stone-800 text-stone-300 divide-y divide-stone-500">
                                     @forelse ($tugass as $index => $tugas)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap">

@@ -8,7 +8,7 @@
         </svg>
         <p class="ml-2 font-semibold text-md text-gray-50">Back</p>
     </a>
-    <div class="bg-gray-50 rounded-xl mx-3">
+    <div class="bg-stone-50 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">
                 <h1 class="font-semibold text-4xl text-center my-8">Hasil Tugas</h1>

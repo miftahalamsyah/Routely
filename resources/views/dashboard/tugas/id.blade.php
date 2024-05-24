@@ -14,7 +14,7 @@
     </a>
 
     <div class="justify-between grid grid-cols-2 gap-4 m-3">
-        <div class="text-xs h-full bg-stone-700 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
+        <div class="text-xs h-full bg-stone-800 text-stone-400 p-4 block rounded-xl border-stone-600 border">
             <p class="text-stone-300 text-xl md:text-2xl font-bold">{{ $hasilTugasSiswaCount }}/{{ $userCount }}</p>
             <p class="font-normal text-stone-300 text-sm pb-1">siswa telah <b>mengerjakan</b></p>
             <div class="w-full bg-stone-300 rounded-full">
@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <div class="text-xs h-full bg-stone-700 text-stone-400 p-4 block rounded-xl border-stone-600 border-2">
+        <div class="text-xs h-full bg-stone-800 text-stone-400 p-4 block rounded-xl border-stone-600 border">
             <p class="text-stone-300 text-xl md:text-2xl font-bold">{{ $nilaiTugasCount }}/{{ $hasilTugasSiswaCount }}</p>
             <p class="font-normal text-stone-300 text-sm pb-1">tugas telah <b>dinilai</b></p>
             <div class="w-full bg-stone-300 rounded-full">
@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    <div class="bg-stone-700 rounded-xl mx-3 border-2 border-stone-600">
+    <div class="bg-stone-800 rounded-xl mx-3 border border-stone-600">
         <div class="row">
             <div class="col-md-12 p-2">
                 <div class="border-0 shadow-sm">
@@ -71,7 +71,7 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-stone-700 divide-y divide-stone-500">
+                                <tbody class="bg-stone-800 divide-y divide-stone-500">
                                     @forelse ($hasilTugasSiswa as $item)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-center">
@@ -128,7 +128,7 @@
                                     @empty
                                         <tr>
                                             <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
-                                                <div class="mx-auto bg-stone-700 text-stone-300 p-2 rounded-xl">
+                                                <div class="mx-auto bg-stone-800 text-stone-300 p-2 rounded-xl">
                                                     Data nilai tidak tersedia.
                                                 </div>
                                             </td>
@@ -143,7 +143,7 @@
         </div>
     </div>
 
-    <div class="bg-stone-700 rounded-xl mx-3 border-2 border-stone-600 mt-12 text-stone-300 p-5">
+    <div class="bg-stone-800 rounded-xl mx-3 border border-stone-600 mt-12 text-stone-300 p-5">
         <h2 class="font-semibold text-lg text-center">Siswa yang Belum Mengerjakan Tugas {{ $tugas_id }}</h2>
         <table class="mt-5 min-w-full divide-y divide-stone-500 overflow-x-auto">
             <thead>
@@ -169,7 +169,7 @@
                 @empty
                     <tr>
                         <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
-                            <div class="mx-auto bg-stone-700 text-stone-300 p-2 rounded-xl">
+                            <div class="mx-auto bg-stone-800 text-stone-300 p-2 rounded-xl">
                                 Semua siswa telah mengumpulkan tugas {{ $tugas_id }}.
                             </div>
                         </td>

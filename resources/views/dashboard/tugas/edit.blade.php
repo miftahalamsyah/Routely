@@ -11,7 +11,7 @@
     <div class="bg-stone-50 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">
-                <h1 class="font-semibold text-4xl text-center my-8  ">Tambah Tugas</h1>
+                <h1 class="font-semibold text-4xl text-center my-8  ">Edit Tugas</h1>
                 <div class="border-0 shadow-sm">
 
                     <form action="{{ route('tugas.update', $tugass->id) }}" method="POST" enctype="multipart/form-data">

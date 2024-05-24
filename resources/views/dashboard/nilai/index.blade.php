@@ -7,13 +7,13 @@
     </div>
     <div class="m-3 mb-8 grid grid-cols-2 gap-4">
         <a href="/dashboard/nilai/tugas" class="text-sm">
-            <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
                 Nilai Tugas
                 <p class="font-bold text-2xl py-2">{{ $CountNilaiTugas }}/{{ $CountHasilTugasSiswa }} <span class="font-normal text-sm">telah dinilai</span></p>
             </div>
         </a>
         <a href="/dashboard/nilai/kuis" class="text-sm">
-            <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
                 Nilai Kuis
                 {{--<p class="font-bold text-2xl py-2">{{ $CountNilaiTugas }}/{{ $CountHasilTugasSiswa }}</p>--}}
             </div>
@@ -27,32 +27,32 @@
     </div>
     <div class="m-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <a href="/dashboard/nilai/pretest" class="text-sm">
-            <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
                 Pretest
                 <p class="font-bold text-2xl py-2">{{ $CountPretest }}/{{ $CountStudent }}</p>
             </div>
         </a>
         <a href="/dashboard/nilai/pretest" class="text-sm">
-            <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
                 Rata-rata Pretest
                 <p class="font-bold text-2xl py-2">{{ $averagePretest }}</p>
             </div>
         </a>
         <a href="/dashboard/nilai/posttest" class="text-sm">
-            <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
                 Posttest
                 <p class="font-bold text-2xl py-2">{{ $CountPosttest }}/{{ $CountStudent }}</p>
             </div>
         </a>
         <a href="/dashboard/nilai/posttest" class="text-sm">
-            <div class="w-full h-24 bg-stone-700 text-stone-300 p-4 block rounded-xl border-stone-600 border-2 hover:bg-stone-600">
+            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
                 Rata-rata Posttest
                 <p class="font-bold text-2xl py-2">{{ $averagePosttest }}</p>
             </div>
         </a>
     </div>
 
-    <div class="bg-stone-700 rounded-xl mx-3 border border-stone-600">
+    <div class="bg-stone-800 rounded-xl mx-3 border border-stone-600">
         <div class="row">
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">

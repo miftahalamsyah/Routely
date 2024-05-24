@@ -5,12 +5,12 @@
     <div class="my-8 text-center">
         <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-stone-50 md:tracking-tight">Daftar Siswa</h1>
     </div>
-    <div class="bg-stone-700 border-2 border-stone-600 rounded-xl mx-3 text-stone-300">
+    <div class="bg-stone-800 border border-stone-600 rounded-xl mx-3 text-stone-300">
         <div class="row">
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
                     <div class="">
-                        <button class="bg-violet-400 my-2 p-2 rounded-xl text-stone-700 hover:bg-violet-300"><a href="{{ route('siswa.create') }}" class="text-md font-semibold p-2">Tambah Siswa</a></button>
+                        <button class="bg-violet-400 my-2 p-2 rounded-xl text-stone-800 hover:bg-violet-300"><a href="{{ route('siswa.create') }}" class="text-md font-semibold p-2">Tambah Siswa</a></button>
                         <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-stone-600">
                                 <thead>
@@ -58,7 +58,7 @@
                                     @empty
                                         <tr>
                                             <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
-                                                <div class="mx-auto bg-stone-700 text-stone-300 p-2 rounded-xl">
+                                                <div class="mx-auto bg-stone-800 text-stone-300 p-2 rounded-xl">
                                                     Data siswa tidak tersedia.
                                                 </div>
                                             </td>

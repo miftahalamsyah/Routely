@@ -8,21 +8,21 @@
         </svg>
         <p class="ml-2 font-semibold text-md">Back</p>
     </a>
-    <div class="bg-stone-700 rounded-xl mx-3 text-stone-200 border-2 border-stone-600">
+    <div class="bg-stone-50 rounded-xl mx-3 text-stone-200 border-2 border-stone-600">
         <div class="row">
             <div class="col-md-12 p-5">
-                <h1 class="font-semibold text-4xl text-center my-8  ">Impor Soal Kuis</h1>
+                <h1 class="font-semibold text-4xl text-stone-800 text-center my-8  ">Impor Soal Kuis</h1>
                 <div class="border-0 shadow-sm">
                     <form method="POST" action="{{ route('kuis.import') }}" enctype="multipart/form-data">
                         @csrf
 
-                        <div class="my-4 bg-stone-700 rounded-2xl border-2 border-stone-600 p-3">
+                        <div class="my-4 rounded-2xl border border-stone-200 p-3 text-stone-800">
                             <input type="file" name="file" accept=".xls, .xlsx, .csv">
                         </div>
 
                         <div class="flex justify-end">
                             <button type="submit"
-                                class="bg-violet-500 text-white px-4 py-2 rounded-md hover:bg-violet-600 focus:outline-none focus:bg-violet-600">
+                                class="bg-violet-500 text-stone-50 px-4 py-2 rounded-md hover:bg-violet-600 focus:outline-none focus:bg-violet-600">
                                 Import
                             </button>
                         </div>

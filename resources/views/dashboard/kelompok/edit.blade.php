@@ -12,7 +12,7 @@
     <div class="bg-gray-50 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">
-                <h1 class="font-semibold text-stone-700 text-4xl text-center my-8  ">Edit Kelompok</h1>
+                <h1 class="font-semibold text-stone-800 text-4xl text-center my-8  ">Edit Kelompok</h1>
                 <div class="border-0 shadow-sm">
 
                     <form action="{{ route('kelompok.update', $kelompok->id) }}" method="POST" enctype="multipart/form-data">

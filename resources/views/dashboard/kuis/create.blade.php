@@ -11,7 +11,7 @@
     <div class="bg-stone-50 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">
-                <h1 class="font-semibold text-4xl text-center my-8  ">Tambah Soal Kuis</h1>
+                <h1 class="font-semibold text-stone-800 text-4xl text-center my-8">Tambah Soal Kuis</h1>
                 <div class="border-0 shadow-sm">
 
                     <form action="{{ route('kuis.store') }}" method="POST" enctype="multipart/form-data">

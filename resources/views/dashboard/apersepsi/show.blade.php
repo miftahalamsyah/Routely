@@ -16,7 +16,7 @@
         </a>
     </div>
 
-    <div class="bg-stone-700 rounded-xl m-3 border border-stone-600 row col-md-12 p-5 border-0 shadow-sm overflow-x-auto text-stone-300">
+    <div class="bg-stone-800 rounded-xl m-3 border border-stone-600 row col-md-12 p-5 shadow-sm overflow-x-auto text-stone-300">
         <p class="px-6 pt-3 text-center text-xs font-medium uppercase tracking-wider">Pertemuan ke-{{$pertemuan->pertemuan_ke}}</p>
         <p class="px-6 pt-2 pb-3 text-center text-xs font-medium">{{$pertemuan->apersepsi}}</p>
         <table class="min-w-full divide-y divide-stone-400 text-stone-300">

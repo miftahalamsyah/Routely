@@ -11,7 +11,7 @@
             $uniquePertemuanIds = $apersepsis->unique('pertemuan_id')->pluck('pertemuan_id');
         @endphp
         @foreach ($uniquePertemuanIds as $pertemuan_id)
-            <a href="/dashboard/apersepsi/pertemuan_ke_{{ $pertemuan_id }}" class="text-xs h-30 bg-stone-700 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border-2" title="Klik untuk lebih lanjut">
+            <a href="/dashboard/apersepsi/pertemuan_ke_{{ $pertemuan_id }}" class="text-xs h-30 bg-stone-800 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border" title="Klik untuk lebih lanjut">
                 Pertemuan {{ $pertemuan_id }}
                 @php
                     $hasilApersepsiSiswaCount = $apersepsis->where('pertemuan_id', $pertemuan_id)->count();
@@ -27,7 +27,7 @@
         @endforeach
     </div>
 
-    <div class="bg-stone-700 border-2 border-stone-600 rounded-xl m-3">
+    <div class="bg-stone-800 border border-stone-600 rounded-xl m-3">
         <div class="row">
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">

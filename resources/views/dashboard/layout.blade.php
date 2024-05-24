@@ -13,7 +13,7 @@
         <title>{{ $title }} | Routely</title>
     </head>
 
-    <body class="bg-stone-800">
+    <body class="bg-stone-900">
         <header>
             <nav class="flex basis-full items-center w-full mx-auto px-4 sm:px-6 md:px-8 py-3" aria-label="Global">
                 <div class="mr-5 lg:mr-0 lg:hidden">
@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="flex flex-row items-center justify-end gap-2">
-                        {{-- <button type="button" class="inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-stone-700 text-gray-700 border-2 border-stone-600 align-middle hover:bg-stone-600 focus:outline-none focus:ring-2 transition-all text-xs">
+                        {{-- <button type="button" class="inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-stone-800 text-gray-700 border-2 border-stone-600 align-middle hover:bg-stone-600 focus:outline-none focus:ring-2 transition-all text-xs">
                             <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fafafa" viewBox="0 0 16 16">
                             <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
                             </svg>
@@ -34,11 +34,11 @@
                         <div x-data="{ open: false }" class="md:order-2 z-10 dropdown inline-block relative">
                             @auth
                                 <button @click="open = !open" type="button" class="shadow inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium align-middle transition-all text-xs" aria-expanded="true" aria-haspopup="true">
-                                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl text-stone-50 text-md font-semibold border">
+                                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tl from-violet-500 to-orange-500 shadow-soft-2xl text-stone-50 text-md font-semibold border border-stone-500">
                                         {{ substr(Auth::user()->name, 0, 1) }}{{ substr(strrchr(Auth::user()->name, ' '), 1, 1) }}
                                     </div>
                                 </button>
-                                <ul x-show="open" @click.away="open = false" class="dropdown-menu absolute mr-40 bg-stone-700 border border-stone-600 rounded-2xl hidden text-gray-700 w-40 right-0 transform translate-x-full">
+                                <ul x-show="open" @click.away="open = false" class="dropdown-menu absolute mr-40 bg-stone-800 border border-stone-600 rounded-2xl hidden text-gray-700 w-40 right-0 transform translate-x-full">
                                     <li class="text-xs rounded-2xl shadow-md">
                                         <a href="/student" class="text-gray-50 block px-4 py-2 text-sm rounded-t-2xl hover:bg-stone-500" role="menuitem" tabindex="-1" id="menu-item-0">Dashboard</a>
                                         <a href="/student/profile" class="text-gray-50 block px-4 py-2 text-sm hover:bg-stone-500" role="menuitem" tabindex="-1" id="menu-item-0">Profil</a>

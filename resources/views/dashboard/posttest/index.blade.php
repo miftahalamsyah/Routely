@@ -5,7 +5,7 @@
     <div class="my-8 text-center">
         <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-stone-300 md:tracking-tight">Daftar Soal Posttest</h1>
     </div>
-    <div class="bg-stone-700 border-2 border-stone-600 text-stone-300 rounded-xl mx-3">
+    <div class="bg-stone-800 border border-stone-600 text-stone-300 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">
                 <div class="border-0 shadow-sm">
@@ -97,7 +97,7 @@
                                     @empty
                                         <tr>
                                             <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
-                                                <div class="bg-stone-700 text-stone-300 p-2 rounded-xl">
+                                                <div class="bg-stone-800 text-stone-300 p-2 rounded-xl">
                                                     Data soal posttest tidak tersedia.
                                                 </div>
                                             </td>
