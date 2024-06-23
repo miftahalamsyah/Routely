@@ -178,7 +178,7 @@ Route::get('/student/pertemuan/pertemuan-ke-{pertemuan_id}/kuis', [StudentKuisCo
 Route::get('/student/pertemuan/pertemuan-ke-{pertemuan_id}/kuis/review', [StudentKuisController::class, 'show'])->name('student.kuis.review')->middleware('auth');
 Route::post('/hasil_kuis_siswa', [StudentKuisController::class, 'store'])->name('hasil_kuis_siswa.store')->middleware('auth');
 
-// Route::get('/student/simulasi', [StudentSimulasiController::class, 'index'])->name('student.simulasi')->middleware('auth');
+Route::get('/student/simulasi', [StudentSimulasiController::class, 'index'])->name('student.simulasi')->middleware('auth');
 
 Route::get('/student/tugas/{tugas:slug}', [StudentTugasController::class, 'show'])->name('student.tugas.show')->middleware('auth');
 Route::post('/hasil_tugas_siswa', [HasilTugasSiswaController::class, 'store'])->name('hasil_tugas_siswa.store');

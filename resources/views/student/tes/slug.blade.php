@@ -51,7 +51,8 @@
                                     <button type="button" id="nextBtn" class="bg-stone-50 py-2 px-4 rounded-sm border border-b-4 border-r-4 border-stone-700 hover:bg-stone-100">Lanjut</button>
                                 </div>
                             </div>
-                            <div class="w-1/4 sm:hidden lg:block p-2 my-2 bg-stone-50 border border-b-4 border-r-4 border-stone-700 h-full">
+
+                            <div class="w-1/4 hidden lg:block p-2 my-2 bg-stone-50 border border-b-4 border-r-4 border-stone-700 h-full">
                                 <p class="font-semibold text-md text-student mr-2">Soal</p>
                                 <div id="questionNumbers" class="grid grid-cols-5 my-2 gap-2 justify-center">
 

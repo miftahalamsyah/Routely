@@ -4,8 +4,8 @@
 <section class="w-full justify-center mx-auto px-4 lg:px-12 min-h-screen">
 
     {{-- Berbagi Soal --}}
-    <div class="rounded-2xl bg-stone-50 p-5 my-4 shadow-md">
-    </div>
+    <!--<div class="rounded-2xl bg-stone-50 p-5 my-4 shadow-md">
+    </div>-->
 
     <!-- Content -->
     <div class="py-12 mb-12 px-4 mx-auto text-right z-20 animate-up w-full">

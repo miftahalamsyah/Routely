@@ -100,11 +100,11 @@
                     </div>
                     <!-- Score container initially hidden -->
                     <div x-show="isOpenTugas">
-                        <div class="grid grid-cols-4 w-full mb-0 font-extrabold text-3xl actual-score flex-shrink-0 overflow-x-auto">
+                        <div class="grid grid-cols-3 w-full mb-0 font-extrabold text-3xl actual-score flex-shrink-0 overflow-x-auto">
                             @foreach($nilaiTugasRecords as $record)
                             <div class="flex flex-col">
                                 <p class="mb-0 font-extrabold text-3xl actual-score mr-2">{{ $record->total }}</p>
-                                <p class="mb-0 font-thin text-xs actual-score mr-2">Kuis {{ $record->kuis_id }}</p>
+                                <p class="mb-0 font-thin text-xs actual-score mr-2">Kuis {{ $record->pertemuan_id }}</p>
                             </div>
                             @endforeach
                         </div>
@@ -205,7 +205,7 @@
                 <p class="my-4 text-xs py-1 px-2 font-bold tracking-tight leading-none bg-violet-200 hover:bg-violet-300 rounded-sm shadow-md text-violet-900 md:text-sm border border-b-4 border-r-4 border-stone-700 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">Lihat Semua</p>
             </a>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             @forelse ($pertemuans as $pertemuan)
             <!-- individual card -->
             <div class="relative flex flex-col break-words bg-stone-100 border border-stone-700 hover:shadow-md lg:mb-4 mb-0">

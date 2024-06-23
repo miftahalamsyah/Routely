@@ -26,7 +26,7 @@
         <h1 class="mb-6 text-2xl font-extrabold leading-none tracking-normal text-stone-300 md:tracking-tight">Nilai Pretest dan Posttest</h1>
     </div>
     <div class="m-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <a href="/dashboard/nilai/pretest" class="text-sm">
+        <a href="/dashboard/kategori-tes/1" class="text-sm">
             <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
                 Pretest
                 <p class="font-bold text-2xl py-2">{{ $CountPretest }}/{{ $CountStudent }}</p>
@@ -38,7 +38,7 @@
                 <p class="font-bold text-2xl py-2">{{ $averagePretest }}</p>
             </div>
         </a>
-        <a href="/dashboard/nilai/posttest" class="text-sm">
+        <a href="/dashboard/kategori-tes/2" class="text-sm">
             <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
                 Posttest
                 <p class="font-bold text-2xl py-2">{{ $CountPosttest }}/{{ $CountStudent }}</p>

@@ -6,7 +6,7 @@
         <h1 class="mb-6 text-3xl font-extrabold leading-none tracking-normal text-stone-300 md:tracking-tight">Daftar Hasil Apersepsi Siswa</h1>
     </div>
 
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 m-3">
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 m-3">
         @php
             $uniquePertemuanIds = $apersepsis->unique('pertemuan_id')->pluck('pertemuan_id');
         @endphp

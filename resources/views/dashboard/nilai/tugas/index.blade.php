@@ -12,7 +12,7 @@
         <p class="ml-2 font-semibold text-md ">Kembali</p>
     </a>
 
-    <div class="grid grid-cols-2 gap-4 m-3">
+    <div class="grid grid-cols-3 gap-4 m-3">
         @foreach ($tugass as $tugas)
             <a href="/dashboard/tugas/{{ $tugas->id }}" class="text-xs h-30 bg-stone-800 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border">
                 Tugas {{ $tugas->id }}

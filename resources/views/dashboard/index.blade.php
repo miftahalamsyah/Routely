@@ -8,31 +8,31 @@
 
     <div class="mx-2 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-2 my-5">
         <a href="/dashboard/siswa">
-            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
+            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-700">
                 Siswa
                 <p class="font-bold text-3xl py-2">{{ $userCount }}</p>
             </div>
         </a>
         <a href="/dashboard/kelompok">
-            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
+            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-700">
                 Kelompok
                 <p class="font-bold text-3xl py-2">{{ $kelompokCount }}</p>
             </div>
         </a>
         <a href="/dashboard/pertemuan">
-            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
+            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-700">
                 Pertemuan
                 <p class="font-bold text-3xl py-2">{{ $pertemuanCount }}</p>
             </div>
         </a>
         <a href="/dashboard/materi">
-            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
+            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-700">
                 Materi
                 <p class="font-bold text-3xl py-2">{{ $materiCount }}</p>
             </div>
         </a>
         <a href="/dashboard/tugas">
-            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
+            <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-700">
                 Tugas
                 <p class="font-bold text-3xl py-2">{{ $tugasCount }}</p>
             </div>
@@ -41,7 +41,7 @@
 
     <div class="mx-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 my-5">
         <a href="/dashboard/nilai/pretest" class="text-sm">
-            <div class="w-full h-full bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
+            <div class="w-full h-full bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-700">
                 Pretest
                 <p class="font-bold text-2xl py-2">{{ $CountPretest }}/{{ $userCount }}</p>
                 <div class="w-full bg-stone-300 rounded-full">
@@ -53,13 +53,13 @@
             </div>
         </a>
         <a href="/dashboard/nilai/pretest" class="text-sm">
-            <div class="w-full h-full bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
+            <div class="w-full h-full bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-700">
                 Rata-rata Pretest
                 <p class="font-bold text-2xl py-2">{{ $averagePretest }}</p>
             </div>
         </a>
         <a href="/dashboard/nilai/posttest" class="text-sm">
-            <div class="w-full h-full bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
+            <div class="w-full h-full bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-700">
                 Posttest
                 <p class="font-bold text-2xl py-2">{{ $CountPosttest }}/{{ $userCount }}</p>
                 <div class="w-full bg-stone-300 rounded-full">
@@ -71,7 +71,7 @@
             </div>
         </a>
         <a href="/dashboard/nilai/posttest" class="text-sm">
-            <div class="w-full h-full bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
+            <div class="w-full h-full bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-700">
                 Rata-rata Posttest
                 <p class="font-bold text-2xl py-2">{{ $averagePosttest }}</p>
             </div>
@@ -81,9 +81,9 @@
     {{-- Pengerjaan tugas --}}
     <div class="my-5 mx-2 block rounded-xl border-stone-600 border p-8 bg-stone-800">
         <h2 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Pengerjaan Tugas</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             @forelse ($tugass as $tugas)
-                <a href="/dashboard/tugas/{{ $tugas->id }}" class="text-xs h-30 bg-stone-800 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border">
+                <a href="/dashboard/tugas/{{ $tugas->id }}" class="text-xs h-30 bg-stone-800 hover:bg-stone-700 text-stone-400 p-4 block rounded-xl border-stone-600 border">
                     Tugas {{ $tugas->id }}
                     @php
                         $tugas_id = $tugas->id;
@@ -110,13 +110,13 @@
     {{-- Pengerjaan kuis --}}
     <div class="my-5 mx-2 block rounded-xl border-stone-600 border p-8 bg-stone-800">
         <h2 class="mb-6 text-2xl font-extrabold leading-none max-w-5xl tracking-normal text-stone-300 sm:text-2xl md:text-3xl lg:text-4xl md:tracking-tight">Pengerjaan Kuis</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-stone-300">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-stone-300">
             @foreach ($hasilKuisSiswa->unique('pertemuan_id') as $uniqueHasilKuisSiswa)
                 @php
                     $pertemuan_id = $uniqueHasilKuisSiswa->pertemuan_id;
                     $hasilKuisSiswaCount = \App\Models\HasilKuisSiswa::where('pertemuan_id', $pertemuan_id)->count();
                 @endphp
-                <a href="/dashboard/nilai/kuis#{{ $loop->iteration }}" class="text-xs h-30 bg-stone-800 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border">
+                <a href="/dashboard/nilai/kuis#{{ $loop->iteration }}" class="text-xs h-30 bg-stone-800 hover:bg-stone-700 text-stone-400 p-4 block rounded-xl border-stone-600 border">
                     Kuis Pertemuan {{ $loop->iteration }}
                     <p class="font-normal text-stone-300 text-sm py-2">{{ $hasilKuisSiswaCount }} dari {{ $userCount }} siswa telah mengerjakan</p>
                     <div class="w-full bg-stone-300 rounded-full">
