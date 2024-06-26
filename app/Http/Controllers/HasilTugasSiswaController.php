@@ -19,7 +19,7 @@ class HasilTugasSiswaController extends Controller
         $this->validate($request, [
             'tugas_id' => 'required',
             'user_id' => 'required',
-            'topologi' => 'required|mimes:pkt,json|max:10240',
+            'topologi' => 'required|mimetypes:application/octet-stream,application/json|max:10240',
             'powerpoint' => 'required|mimes:pptx,ppt,pdf,odp|max:10240',
             'penjelasan' => 'nullable',
         ]);
@@ -28,12 +28,25 @@ class HasilTugasSiswaController extends Controller
         $powerpointFileName = null;
 
         if ($request->hasFile('topologi')) {
-            $topologiFileName = "Topologi_Kel-{$kelompok_id}_Tugas-{$tugas_id}_U{$user_id}_" . time() . '.' . $request->topologi->extension();
+            $file = $request->file('topologi');
+            // Use date function to get the current time in hours.minutes.seconds format
+            $timestamp = date('mdHis');
+
+            $originalExtension = $file->getClientOriginalExtension();
+            // Change extension to .pkt if it's .bin
+            if ($originalExtension === 'bin') {
+                $originalExtension = 'pkt';
+            }
+
+            $topologiFileName = "Topologi_Kel-{$kelompok_id}_Tugas- {$tugas_id}_U{$user_id}_{$timestamp}.{$originalExtension}";
             $request->topologi->storeAs('public/topologi', $topologiFileName);
         }
 
+
         if ($request->hasFile('powerpoint')) {
-            $powerpointFileName = "Presentasi_Kel-{$kelompok_id}_Tugas-{$tugas_id}_U{$user_id}_" . time() . '.' . $request->powerpoint->extension();
+            $timestamp = date('mdHis');
+
+            $powerpointFileName = "PemecahanMasalah_Kel-{$kelompok_id}_Tugas-{$tugas_id}_U{$user_id}_{$timestamp}". $request->powerpoint->extension();
             $request->powerpoint->storeAs('public/powerpoint', $powerpointFileName);
         }
 

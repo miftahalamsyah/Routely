@@ -119,5 +119,41 @@
             </div>
         </div>
     </div>
+
+    <div class="bg-stone-800 rounded-xl mx-3 border border-stone-600 mt-12 text-stone-300 p-5">
+        <h2 class="font-semibold text-lg text-center">Siswa yang Belum Mengerjakan Pretest</h2>
+        <table class="mt-5 min-w-full divide-y divide-stone-500 overflow-x-auto">
+            <thead>
+                <tr>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                        No.
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                        Nama Siswa
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-500">
+                @forelse ($usersNotSubmitted as $user)
+                    <tr class="whitespace-nowrap">
+                        <td class="px-4 py-2 text-center">
+                            {{ $loop->iteration }}
+                        </td>
+                        <td class="px-4 py-2 text-center">
+                            {{ $user->name }}
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="2" class="px-6 py-4 whitespace-nowrap text-center">
+                            <div class="mx-auto bg-stone-800 text-stone-300 p-2 rounded-xl">
+                                Semua siswa telah mengerjakan pretest.
+                            </div>
+                        </td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
 </section>
 @endsection

@@ -3,7 +3,7 @@
 @section('content')
 
 <section class="w-full justify-center mx-auto px-4 lg:px-12">
-    <a href="{{ url()->previous() }}" class="mr-2 text-sm relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-50 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out shadow-md bg-violet-500 hover:bg-violet-600 border border-r-4 border-b-4 border-stone-700">
+    <a href="{{ route('student.pertemuan') }}" class="mr-2 text-sm relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-50 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out shadow-md bg-violet-500 hover:bg-violet-600 border border-r-4 border-b-4 border-stone-700">
         <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="20px" height="25px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve">
             <path d="M48.6,23H15.4c-0.9,0-1.3-1.1-0.7-1.7l9.6-9.6c0.6-0.6,0.6-1.5,0-2.1l-2.2-2.2c-0.6-0.6-1.5-0.6-2.1,0 L2.5,25c-0.6,0.6-0.6,1.5,0,2.1L20,44.6c0.6,0.6,1.5,0.6,2.1,0l2.1-2.1c0.6-0.6,0.6-1.5,0-2.1l-9.6-9.6C14,30.1,14.4,29,15.3,29 h33.2c0.8,0,1.5-0.6,1.5-1.4v-3C50,23.8,49.4,23,48.6,23z"/>
         </svg>
@@ -15,7 +15,11 @@
 
             <div class="mb-4">
                 <label for="pertemuan_id" class="block text-md font-semibold text-gray-800">Pertemuan</label>
-                <select id="pertemuan_id" name="pertemuan_id" class="w-full bg-stone-50 px-4 py-2 border border-b-4 border-r-4 border-stone-300 rounded-sm focus:ring-violet-400 focus:border-violet-400 @error('pertemuan_id') border-red-500 @enderror">
+                @if ($alreadySubmitted)
+                    <select id="pertemuan_id" name="pertemuan_id" class="text-stone-400 w-full bg-stone-50 px-4 py-2 border border-b-4 border-r-4 border-stone-300 rounded-sm focus:ring-violet-400 focus:border-violet-400 @error('pertemuan_id') border-red-500 @enderror" disabled>
+                @else
+                    <select id="pertemuan_id" name="pertemuan_id" class="w-full bg-stone-50 px-4 py-2 border border-b-4 border-r-4 border-stone-300 rounded-sm focus:ring-violet-400 focus:border-violet-400 @error('pertemuan_id') border-red-500 @enderror">
+                @endif
                     @foreach ($pertemuans as $pertemuan)
                         @if (!$user->pengajuanMasalahUser || !$user->pengajuanMasalahUser->contains('pertemuan_id', $pertemuan->id))
                             <option value="{{ $pertemuan->id }}">Pertemuan ke-{{ $pertemuan->pertemuan_ke }}</option>
@@ -29,11 +33,19 @@
 
             <div class="mb-4">
                 <label for="kelompok" class="block text-md font-semibold text-stone-800">Kelompok</label>
-                <input type="text" id="kelompok" name="kelompok" rows="5"
-                    class="w-full bg-stone-100 px-4 py-2 border border-b-4 border-r-4 border-stone-300 focus:ring-violet-400 focus:border-violet-400 @error('kelompok') border-red-500 @enderror"
-                    value="{{ old('kelompok', $noKelompok) }}"
-                    readonly>
-                </input>
+                @if ($alreadySubmitted)
+                    <input type="text" id="kelompok" name="kelompok" rows="5"
+                        class="text-stone-400 w-full bg-stone-100 px-4 py-2 border border-b-4 border-r-4 border-stone-300 focus:ring-violet-400 focus:border-violet-400 @error('kelompok') border-red-500 @enderror"
+                        value="{{ old('kelompok', $noKelompok) }}"
+                        readonly disabled>
+                    </input>
+                @else
+                    <input type="text" id="kelompok" name="kelompok" rows="5"
+                        class="w-full bg-stone-100 px-4 py-2 border border-b-4 border-r-4 border-stone-300 focus:ring-violet-400 focus:border-violet-400 @error('kelompok') border-red-500 @enderror"
+                        value="{{ old('kelompok', $noKelompok) }}"
+                        readonly>
+                    </input>
+                @endif
                 @error('kelompok')
                     <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                 @enderror
@@ -41,8 +53,14 @@
 
             <div class="mb-4">
                 <label for="soal" class="block text-md font-semibold text-stone-800">Pengajuan Masalah (Soal) <span class="text-xs font-normal">(.pkt, .json)</span></label>
-                <input type="file" id="soal" name="soal" accept=".pkt,.json" value="{{ old('soal') }}"
-                    class="w-full bg-stone-50 px-4 py-2 border border-b-4 border-r-4 border-stone-300 focus:ring-violet-400 focus:border-violet-400 @error('soal') border-red-500 @enderror">
+                @if($alreadySubmitted)
+                    <input type="file" id="soal" name="soal" accept=".pkt,.pka,.pkz,.json" value="{{ old('soal') }}"
+                        class="text-stone-400 w-full bg-stone-50 px-4 py-2 border border-b-4 border-r-4 border-stone-300 focus:ring-violet-400 focus:border-violet-400 @error('soal') border-red-500 @enderror" disabled>
+                @else
+                    <input type="file" id="soal" name="soal" accept=".pkt,.pka,.pkz,.json" value="{{ old('soal') }}"
+                        class="w-full bg-stone-50 px-4 py-2 border border-b-4 border-r-4 border-stone-300 focus:ring-violet-400 focus:border-violet-400 @error('soal') border-red-500 @enderror">
+                @endif
+
                 @error('soal')
                     <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                 @enderror
@@ -50,14 +68,24 @@
 
             <div class="mb-4">
                 <label for="keterangan" class="block text-md font-semibold text-gray-800">Keterangan* <span class="text-xs font-normal">(opsional)</span></label>
-                <input type="text" id="keterangan" name="keterangan" rows="5"
-                    class="w-full bg-stone-50 px-4 py-2 border border-b-4 border-r-4 border-stone-300 focus:ring-violet-400 focus:border-violet-400 @error('keterangan') border-red-500 @enderror">{{ old('keterangan') }}</input>
+                @if($alreadySubmitted)
+                    <input type="text" id="keterangan" name="keterangan" rows="5"
+                        class="text-stone-400 w-full bg-stone-50 px-4 py-2 border border-b-4 border-r-4 border-stone-300 focus:ring-violet-400 focus:border-violet-400 @error('keterangan') border-red-500 @enderror" disabled>{{ old('keterangan') }}</input>
+                @else
+                    <input type="text" id="keterangan" name="keterangan" rows="5"
+                        class="w-full bg-stone-50 px-4 py-2 border border-b-4 border-r-4 border-stone-300 focus:ring-violet-400 focus:border-violet-400 @error('keterangan') border-red-500 @enderror">{{ old('keterangan') }}</input>
+                @endif
+
                 @error('keterangan')
                     <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                 @enderror
             </div>
             <div class="my-3">
-                <button type="submit" class="px-4 py-2 text-sm font-medium text-stone-800 bg-orange-400 rounded-md border border-r-4 border-b-4 border-stone-700 hover:bg-orange-500 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out focus:outline-none focus:bg-orange-600">Kirim</button>
+                @if($alreadySubmitted)
+                    <button class="px-4 py-2 text-sm font-medium text-stone-400 bg-stone-200 rounded-md border border-r-4 border-b-4 border-stone-300 hover:bg-stone-200 focus:outline-none" disabled>Sudah Mengirim</button>
+                @else
+                    <button type="submit" class="px-4 py-2 text-sm font-medium text-stone-800 bg-orange-400 rounded-md border border-r-4 border-b-4 border-stone-700 hover:bg-orange-500 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out focus:outline-none focus:bg-orange-600">Kirim</button>
+                @endif
             </div>
         </form>
     </div>
@@ -90,7 +118,7 @@
                         $seenCombination = [];
                     @endphp
 
-                    @forelse ($pengajuanMasalah as $masalah)
+                    @forelse ($pengajuanMasalahPertemuan as $masalah)
                         @php
                             $combination = $masalah->kelompok . '-' . $masalah->pertemuan_id;
 
@@ -150,6 +178,7 @@
                 </tbody>
             </table>
         </div>
+        <p class="italic text-xs text-right mt-4">*hanya menampilkan perwakilan satu file per satu kelompok dan diambil yang terbaru</p>
     </div>
 </section>
 

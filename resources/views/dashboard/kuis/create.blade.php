@@ -148,4 +148,8 @@
         </div>
     </div>
 </section>
+
+<script>
+  CKEDITOR.replace('pertanyaan');
+</script>
 @endsection

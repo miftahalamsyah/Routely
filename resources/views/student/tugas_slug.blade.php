@@ -185,7 +185,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <p class="italic text-xs text-right mt-4">*hanya menampilkan perwakilan satu file tugas per satu kelompok</p>
+                        <p class="italic text-xs text-right mt-4">*hanya menampilkan perwakilan satu file tugas per satu kelompok diambil yang terbaru</p>
                     </div>
                 </div>
             </div>

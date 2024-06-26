@@ -11,19 +11,20 @@
     <div class="bg-gray-50 rounded-xl mx-3">
         <div class="row">
             <div class="col-md-12 p-5">
-                <h1 class="font-semibold text-4xl text-center my-8  ">Tambah Soal Posttest</h1>
+                <h1 class="font-semibold text-4xl text-center my-8  ">Edit Soal Posttest</h1>
                 <div class="border-0 shadow-sm">
 
-                    <form action="{{ route('posttest.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('posttest.update', $posttest->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
 
                         <div class="mb-4">
                             <label for="indikator" class="block text-md font-semibold text-gray-800">Indikator</label>
                             <select id="indikator" name="indikator" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">
-                                <option value="Dekomposisi" {{ old('indikator') == 'Dekomposisi' ? 'selected' : '' }}>Dekomposisi</option>
-                                <option value="Abstraksi" {{ old('indikator') == 'Abstraksi' ? 'selected' : '' }}>Abstraksi</option>
-                                <option value="Pengenalan Pola" {{ old('indikator') == 'Pengenalan Pola' ? 'selected' : '' }}>Pengenalan Pola</option>
-                                <option value="Algoritma" {{ old('indikator') == 'Algoritma' ? 'selected' : '' }}>Algoritma</option>
+                                <option value="Dekomposisi" {{ old('indikator', $posttest->indikator) == 'Dekomposisi' ? 'selected' : '' }}>Dekomposisi</option>
+                                <option value="Abstraksi" {{ old('indikator', $posttest->indikator) == 'Abstraksi' ? 'selected' : '' }}>Abstraksi</option>
+                                <option value="Pengenalan Pola" {{ old('indikator', $posttest->indikator) == 'Pengenalan Pola' ? 'selected' : '' }}>Pengenalan Pola</option>
+                                <option value="Algoritma" {{ old('indikator', $posttest->indikator) == 'Algoritma' ? 'selected' : '' }}>Algoritma</option>
                             </select>
                             @error('indikator')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
@@ -33,7 +34,7 @@
                         <div class="mb-4">
                             <label for="pertanyaan" class="block text-md font-semibold text-gray-800">Pertanyaan</label>
                             <textarea id="pertanyaan" name="pertanyaan" placeholder="Masukkan Pertanyaan"
-                                class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('pertanyaan') }}</textarea>
+                                class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('pertanyaan', $posttest->pertanyaan) }}</textarea>
                             @error('pertanyaan')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -51,7 +52,7 @@
 
                         <div class="mb-4">
                             <label for="jawaban_a" class="block text-md font-semibold text-gray-800">Opsi A</label>
-                            <textarea type="text" id="jawaban_a" name="jawaban_a" placeholder="Masukkan opsi_a nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_a') }}</textarea>
+                            <textarea type="text" id="jawaban_a" name="jawaban_a" placeholder="Masukkan opsi_a nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_a', $posttest->jawaban_a) }}</textarea>
                             @error('jawaban_a')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -59,7 +60,7 @@
 
                         <div class="mb-4">
                             <label for="jawaban_b" class="block text-md font-semibold text-gray-800">Opsi B</label>
-                            <textarea id="jawaban_b" name="jawaban_b" placeholder="Masukkan opsi_b nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_b') }}</textarea>
+                            <textarea id="jawaban_b" name="jawaban_b" rows="3" placeholder="Masukkan opsi_b nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_b', $posttest->jawaban_b) }}</textarea>
                             @error('jawaban_b')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -67,7 +68,7 @@
 
                         <div class="mb-4">
                             <label for="jawaban_c" class="block text-md font-semibold text-gray-800">Opsi C</label>
-                            <textarea type="text" id="jawaban_c" name="jawaban_c" placeholder="Masukkan opsi_c nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_c') }}</textarea>
+                            <textarea type="text" id="jawaban_c" name="jawaban_c" placeholder="Masukkan opsi_c nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_c', $posttest->jawaban_c) }}</textarea>
                             @error('jawaban_c')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -75,7 +76,7 @@
 
                         <div class="mb-4">
                             <label for="jawaban_d" class="block text-md font-semibold text-gray-800">Opsi D</label>
-                            <textarea type="text" id="jawaban_d" name="jawaban_d" placeholder="Masukkan opsi_d nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_d') }}</textarea>
+                            <textarea type="text" id="jawaban_d" name="jawaban_d" placeholder="Masukkan opsi_d nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_d', $posttest->jawaban_d) }}</textarea>
                             @error('jawaban_d')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -83,7 +84,7 @@
 
                         <div class="mb-4">
                             <label for="jawaban_e" class="block text-md font-semibold text-gray-800">Opsi E</label>
-                            <textarea type="text" id="jawaban_e" name="jawaban_e" placeholder="Masukkan opsi_e nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_e') }}</textarea>
+                            <textarea type="text" id="jawaban_e" name="jawaban_e" placeholder="Masukkan opsi_e nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_e', $posttest->jawaban_e) }}</textarea>
                             @error('jawaban_e')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -92,11 +93,11 @@
                         <div class="mb-4">
                             <label for="kunci_jawaban" class="block text-md font-semibold text-gray-800">Kunci Jawaban</label>
                             <select id="kunci_jawaban" name="kunci_jawaban" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">
-                                <option value="a" {{ old('a') == 'a' ? 'selected' : '' }}>A</option>
-                                <option value="b" {{ old('b') == 'b' ? 'selected' : '' }}>B</option>
-                                <option value="c" {{ old('c') == 'c' ? 'selected' : '' }}>C</option>
-                                <option value="d" {{ old('d') == 'd' ? 'selected' : '' }}>D</option>
-                                <option value="e" {{ old('e') == 'e' ? 'selected' : '' }}>E</option>
+                                <option value="a" {{ old('kunci_jawaban', $posttest->kunci_jawaban) == 'a' ? 'selected' : '' }}>A</option>
+                                <option value="b" {{ old('kunci_jawaban', $posttest->kunci_jawaban) == 'b' ? 'selected' : '' }}>B</option>
+                                <option value="c" {{ old('kunci_jawaban', $posttest->kunci_jawaban) == 'c' ? 'selected' : '' }}>C</option>
+                                <option value="d" {{ old('kunci_jawaban', $posttest->kunci_jawaban) == 'd' ? 'selected' : '' }}>D</option>
+                                <option value="e" {{ old('kunci_jawaban', $posttest->kunci_jawaban) == 'e' ? 'selected' : '' }}>E</option>
                             </select>
                             @error('kunci_jawaban')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
@@ -105,7 +106,7 @@
 
                         <div class="mb-4">
                             <label for="pembahasan" class="block text-md font-semibold text-gray-800">Pembahasan</label>
-                            <textarea type="text" id="pembahasan" name="pembahasan" placeholder="Masukkan pembahasannya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('pembahasan') }}</textarea>
+                            <textarea type="text" id="pembahasan" name="pembahasan" placeholder="Masukkan pembahasannya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('pembahasan', $posttest->pembahasan) }}</textarea>
                             @error('pembahasan')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -114,7 +115,7 @@
                         <div class="flex justify-end">
                             <button type="submit"
                                 class="bg-violet-500 text-white px-4 py-2 rounded-md hover:bg-violet-600 focus:outline-none focus:bg-violet-600">
-                                Create posttest
+                                Update Soal Posttest
                             </button>
                         </div>
                     </form>
@@ -124,7 +125,10 @@
     </div>
 </section>
 
+<!-- Include CKEditor script -->
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 <script>
-  CKEDITOR.replace('pertanyaan');
+    // Initialize CKEditor for the 'pertanyaan' textarea
+    CKEDITOR.replace('pertanyaan');
 </script>
 @endsection

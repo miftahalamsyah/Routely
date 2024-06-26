@@ -17,7 +17,7 @@
                         <p class="font-bold text-lg text-center">Lembar Apersepsi Pertemuan ke-{{ $defaultPertemuanId }}</p>
                         <div class="bg-stone-100 py-2 px-4 my-4 rounded-sm border border-stone-700 hover:shadow">
                             <p class="font-bold text-md">Pertanyaan Apersepsi</p>
-                            <p class="text-md">{{ $pertemuan->apersepsi }}</p>
+                            <p class="text-md">{!! $pertemuan->apersepsi !!}</p>
                         </div>
                     </div>
                     @if ($submission)

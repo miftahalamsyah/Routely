@@ -62,11 +62,11 @@
                                             @php
                                                 $hasilApersepsiPerSiswaCount = $apersepsis->where('user_id', $user->id)->count();
                                             @endphp
-                                            {{ $hasilApersepsiPerSiswaCount }} dari 4 telah dikerjakan
+                                            {{ $hasilApersepsiPerSiswaCount }} dari 3 telah dikerjakan
                                             <div class="w-full bg-stone-300 rounded-full">
                                                 <div class="bg-violet-600 text-xs font-medium text-stone-300 text-center p-0.5 leading-none rounded-full"
-                                                    style="width: {{ ($hasilApersepsiPerSiswaCount / 4) * 100 }}%">
-                                                    {{ round(($hasilApersepsiPerSiswaCount / 4) * 100) }}%
+                                                    style="width: {{ ($hasilApersepsiPerSiswaCount / 3) * 100 }}%">
+                                                    {{ round(($hasilApersepsiPerSiswaCount / 3) * 100) }}%
                                                 </div>
                                             </div>
                                         </td>

@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="mb-4">
-                            <label for="tujuan_pembelajaran" class="block text-md font-semibold text-gray-800">Tujuan Pembelajaran</label>
+                            <label for="tujuan_pembelajaran" class="block text-md font-semibold text-gray-800">Deskripsi Pembelajaran</label>
                             <textarea id="tujuan_pembelajaran" name="tujuan_pembelajaran" placeholder="Masukkan tujuan Pembelajarannya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('tujuan_pembelajaran', $pertemuan->tujuan_pembelajaran) }}</textarea>
                             @error('tujuan_pembelajaran')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
@@ -64,4 +64,8 @@
         </div>
     </div>
 </section>
+
+<script>
+  CKEDITOR.replace('apersepsi');
+</script>
 @endsection

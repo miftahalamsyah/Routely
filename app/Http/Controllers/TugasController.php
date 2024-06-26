@@ -18,7 +18,10 @@ class TugasController extends Controller
     {
         // Logika untuk menampilkan daftar tugas
         $tugass = Tugas::all();
-        $users = User::where('is_admin', 0)->paginate(10);
+        $users = User::where('is_admin', 0)
+            ->orderBy('name', 'asc')
+            ->get();
+        $hasilTugasSiswa = HasilTugasSiswa::all();
 
         $userCount = User::where('is_admin', 0)->count();
 
@@ -27,6 +30,7 @@ class TugasController extends Controller
             "tugass" => $tugass,
             "users" => $users,
             "userCount" => $userCount,
+            "hasilTugasSiswa" => $hasilTugasSiswa,
         ]);
     }
 
@@ -76,7 +80,8 @@ class TugasController extends Controller
 
     public function show($tugas_id)
     {
-        $hasilTugasSiswa = HasilTugasSiswa::where('tugas_id', $tugas_id)->get();
+        $hasilTugasSiswa = HasilTugasSiswa::where('tugas_id', $tugas_id)->join('kelompoks', 'hasil_tugas_siswas.user_id', '=', 'kelompoks.user_id')->orderBy('kelompoks.no_kelompok')->select('hasil_tugas_siswas.*')->get();
+
         $nilaiTugas = NilaiTugas::all();
         $userCount = User::where('is_admin', 0)->count();
         $hasilTugasSiswaCount = HasilTugasSiswa::where('tugas_id', $tugas_id)->count();

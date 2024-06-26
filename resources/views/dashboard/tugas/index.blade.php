@@ -3,25 +3,6 @@
 @section('content')
 <section class="row z-0 p-4 max-w-6xl align-center mx-auto min-h-screen">
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 m-3">
-        @foreach ($tugass as $tugas)
-            <a href="/dashboard/tugas/{{ $tugas->id }}" class="text-xs h-30 bg-stone-800 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border">
-                Tugas {{ $tugas->id }}
-                @php
-                    $tugas_id = $tugas->id;
-                    $hasilTugasSiswaCount = \App\Models\HasilTugasSiswa::where('tugas_id', $tugas_id)->count();
-                @endphp
-                <p class="font-normal text-stone-300 text-sm py-2">{{ $hasilTugasSiswaCount }} dari {{ $userCount }} siswa telah mengerjakan</p>
-                <div class="w-full bg-stone-300 rounded-full">
-                    <div class="bg-violet-600 text-xs font-medium text-stone-300 text-center p-0.5 leading-none rounded-full"
-                        style="width: {{ ($hasilTugasSiswaCount / $userCount) * 100 }}%">
-                        {{ round(($hasilTugasSiswaCount / $userCount) * 100) }}%
-                    </div>
-                </div>
-            </a>
-        @endforeach
-    </div>
-
     <div class="bg-stone-800 rounded-xl mx-3 border border-stone-600">
         <div class="row">
             <div class="col-md-12 p-5">
@@ -101,6 +82,87 @@
             </div>
         </div>
     </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 m-3 mt-12">
+        @foreach ($tugass as $tugas)
+            <a href="/dashboard/tugas/{{ $tugas->id }}" class="text-xs h-30 bg-stone-800 hover:bg-stone-600 text-stone-400 p-4 block rounded-xl border-stone-600 border">
+                Tugas {{ $tugas->id }}
+                @php
+                    $tugas_id = $tugas->id;
+                    $hasilTugasSiswaCount = \App\Models\HasilTugasSiswa::where('tugas_id', $tugas_id)->count();
+                @endphp
+                <p class="font-normal text-stone-300 text-sm py-2">{{ $hasilTugasSiswaCount }} dari {{ $userCount }} siswa telah mengerjakan</p>
+                <div class="w-full bg-stone-300 rounded-full">
+                    <div class="bg-violet-600 text-xs font-medium text-stone-300 text-center p-0.5 leading-none rounded-full"
+                        style="width: {{ ($hasilTugasSiswaCount / $userCount) * 100 }}%">
+                        {{ round(($hasilTugasSiswaCount / $userCount) * 100) }}%
+                    </div>
+                </div>
+            </a>
+        @endforeach
+    </div>
+
+    <div class="bg-stone-800 rounded-xl mx-3 border border-stone-600">
+        <div class="row">
+            <div class="col-md-12 p-5">
+                <div class="border-0 shadow-sm">
+                    <div class="">
+                        <h1 class="text-center text-2xl font-extrabold leading-none tracking-normal text-stone-300 my-2 md:tracking-tight">Daftar Pengerjaan Tugas</h1>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-stone-500">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3 bg-stone-800 text-center text-xs font-medium text-stone-300 uppercase tracking-wider">
+                                            No
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 bg-stone-800 text-center text-xs font-medium text-stone-300 uppercase tracking-wider">
+                                            Nama
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 bg-stone-800 text-center text-xs font-medium text-stone-300 uppercase tracking-wider">
+                                            Pengerjaan
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-stone-800 text-stone-300 divide-y divide-stone-500">
+                                    @forelse ($users as $index=>$user)
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                {{ $index + 1 }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                {{ $user->name }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-center">
+                                            @php
+                                                $hasilTugasPerSiswaCount = $hasilTugasSiswa->where('user_id', $user->id)->count();
+                                            @endphp
+                                            {{ $hasilTugasPerSiswaCount }} dari 3 tugas telah dikerjakan
+                                            <div class="w-full bg-stone-300 rounded-full">
+                                                <div class="bg-violet-600 text-xs text-stone-300 text-center p-0.5 leading-none rounded-full"
+                                                    style="width: {{ ($hasilTugasPerSiswaCount / 3) * 100 }}%">
+                                                    {{ round(($hasilTugasPerSiswaCount / 3) * 100) }}%
+                                                </div>
+                                            </div>
+                                        </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
+                                                <div class="mx-auto bg-stone-100 text-gray-600 p-2 rounded-xl">
+                                                    Data tugas tidak tersedia.
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </section>
 
 @endsection

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\HasilKuisSiswa;
+use App\Models\HasilTesSiswa;
 use App\Models\HasilTugasSiswa;
 use App\Models\Pertemuan;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class StudentPertemuanController extends Controller
 {
@@ -17,9 +19,18 @@ class StudentPertemuanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(): View
+    public function index()
     {
-        $pertemuans = Pertemuan::paginate(10);
+        $userHasPretest = HasilTesSiswa::where('user_id', auth()->id())
+            ->where('kategori_tes_id', 1)
+            ->exists();
+
+        if (!$userHasPretest) {
+            Alert::error('Maaf', 'Anda harus mengerjakan Pretest terlebih dahulu.');
+            return redirect()->back();
+        }
+
+        $pertemuans = Pertemuan::all();
 
         return view('student.pertemuan',
         [
@@ -37,6 +48,16 @@ class StudentPertemuanController extends Controller
     {
         $user = auth()->user();
         $pertemuan_id = $pertemuan->pertemuan_ke;
+        $pengajuanMasalah = $pertemuan_id;
+
+        $userHasPretest = HasilTesSiswa::where('user_id', auth()->id())
+            ->where('kategori_tes_id', 1)
+            ->exists();
+
+        if (!$userHasPretest) {
+            Alert::error('Maaf', 'Anda harus mengerjakan Pretest terlebih dahulu.');
+            return redirect()->back();
+        }
 
         // Check if the user has already submitted the exam
         $userHasSubmitted = HasilKuisSiswa::where('user_id', auth()->id())
@@ -79,6 +100,7 @@ class StudentPertemuanController extends Controller
             "tugas" => $tugass,
             "nilaiKuis" => $nilaiKuis,
             "userHasSubmitted" => $userHasSubmitted,
+            "pengajuanMasalah" => $pengajuanMasalah,
         ]);
     }
 

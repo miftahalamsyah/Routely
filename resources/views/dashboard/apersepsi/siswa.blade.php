@@ -40,7 +40,7 @@
                             {{ $loop->iteration }}
                         </td>
                         <td class="px-6 py-4 text-left" style="overflow-wrap: break-word;">
-                            {{ \App\Models\Pertemuan::where('id', $apersepsi->pertemuan_id)->value('apersepsi') }}
+                            {!! \App\Models\Pertemuan::where('id', $apersepsi->pertemuan_id)->value('apersepsi') !!}
                         </td>
                         <td class="px-6 py-4 text-left" style="overflow-wrap: break-word;">
                             {{ $apersepsi->jawaban }}

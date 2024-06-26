@@ -49,8 +49,7 @@ class StudentTugasController extends Controller
         ->where('tugas_id', $tugas->id)
         ->first();
 
-        $hasilTugasSiswas = HasilTugasSiswa::where('tugas_id', $tugas->id)
-            ->get();
+        $hasilTugasSiswas = HasilTugasSiswa::where('tugas_id', $tugas->id)->join('kelompoks', 'hasil_tugas_siswas.user_id', '=', 'kelompoks.user_id')->orderBy('kelompoks.no_kelompok')->select('hasil_tugas_siswas.*')->get();
 
         return view('student.tugas_slug',
         [

@@ -100,6 +100,14 @@
     background-size: 500px 500px;
 }
 
+.table-cell-3em {
+    width: 3em;
+    max-width: 3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 /* ::-webkit-scrollbar {
     width: 0.4rem;
     background-color: transparent;

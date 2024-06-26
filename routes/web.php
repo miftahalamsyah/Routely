@@ -123,8 +123,10 @@ Route::delete('/dashboard/kuis/{id}', [SoalKuisController::class, 'destroy'])->n
 Route::get('/dashboard/pretest', [\App\Http\Controllers\SoalTesController::class, 'pretestindex'])->name('pretest.index')->middleware('admin');
 Route::get('/dashboard/pretest/create', [\App\Http\Controllers\SoalTesController::class, 'pretestcreate'])->name('pretest.create')->middleware('admin');
 Route::match(['get', 'post'], '/dashboard/pretest/import', [SoalTesController::class, 'pretestimport'])->name('pretest.import')->middleware('admin');
+Route::get('/dashboard/pretest/export', [SoalTesController::class, 'pretestexport'])->name('pretest.export')->middleware('admin');
 Route::post('/dashboard/pretest', [\App\Http\Controllers\SoalTesController::class, 'preteststore'])->name('pretest.store')->middleware('admin');
-Route::get('/dashboard/pretest/edit', [\App\Http\Controllers\SoalTesController::class, 'pretestedit'])->name('pretest.edit')->middleware('admin');
+Route::get('/dashboard/pretest/edit/{soalTes}', [\App\Http\Controllers\SoalTesController::class, 'pretestedit'])->name('pretest.edit')->middleware('admin');
+Route::put('/dashboard/pretest/update/{soalTes}', [\App\Http\Controllers\SoalTesController::class, 'pretestupdate'])->name('pretest.update')->middleware('admin');
 Route::delete('/dashboard/pretest/{id}', [\App\Http\Controllers\SoalTesController::class, 'pretestdestroy'])->name('pretest.destroy')->middleware('admin');
 
 Route::get('/dashboard/posttest', [\App\Http\Controllers\SoalTesController::class, 'posttestindex'])->name('posttest.index')->middleware('admin');
@@ -135,6 +137,7 @@ Route::get('/dashboard/posttest/edit', [\App\Http\Controllers\SoalTesController:
 Route::delete('/dashboard/posttest/{id}', [\App\Http\Controllers\SoalTesController::class, 'posttestdestroy'])->name('posttest.destroy')->middleware('admin');
 
 Route::get('/dashboard/nilai/{id}', [NilaiController::class, 'show'])->name('nilai.show')->middleware('admin');
+Route::get('/dashboard/nilai/kuis/kuis_{id}', [HasilKuisSiswaController::class, 'id'])->name('hasilkuissiswa.id')->middleware('admin');
 Route::get('/dashboard/nilai/kuis/siswa_{id}', [HasilKuisSiswaController::class, 'show'])->name('hasilkuissiswa.show')->middleware('admin');
 
 Route::get('/fetch-data', [DataController::class, 'index']);
@@ -148,7 +151,7 @@ Route::get('/student/berpikir-komputasi', [StudentDashboardController::class, 'b
 Route::get('/student/pertemuan/pertemuan-ke-{pertemuan_id}/apersepsi', [HasilApersepsiSiswaController::class, 'create'])->name('student.apersepsi')->middleware('auth');
 Route::post('/student/hasil_apersepsi_siswa', [HasilApersepsiSiswaController::class, 'store'])->name('hasil_apersepsi_siswa.store')->middleware('auth');
 
-Route::get('/student/pengajuan-masalah', [StudentPengajuanMasalahController::class, 'index'])->name('student.pengajuan-masalah')->middleware('auth');
+Route::get('/student/pengajuan-masalah/pertemuan-ke-{pertemuan_id}', [StudentPengajuanMasalahController::class, 'index'])->name('student.pengajuan-masalah')->middleware('auth');
 Route::post('/student/pengajuan-masalah', [StudentPengajuanMasalahController::class, 'store'])->name('student.pengajuan-masalah.store')->middleware('auth');
 Route::delete('/student/pengajuan-masalah/{id}', [StudentPengajuanMasalahController::class, 'destroy'])->name('student.pengajuan-masalah.destroy')->middleware('auth');
 

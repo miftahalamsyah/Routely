@@ -40,4 +40,23 @@ class HasilKuisSiswaController extends Controller
             'nilaiKuis' => $nilaiKuis,
         ]);
     }
+
+    public function id($id)
+    {
+        $hasilKuisSiswa = HasilKuisSiswa::where('pertemuan_id', $id)
+            ->get()
+            ->sortBy(function ($result) {
+                // Assuming there's a 'user' relationship in HasilKuisSiswa
+                return optional($result->user)->name;
+            });
+
+        $users = User::where('is_admin', 0)->get();
+
+        return view('dashboard.nilai.kuis.id', [
+            "title" => "Nilai Kuis",
+            "hasilKuisSiswa" => $hasilKuisSiswa,
+            "users" => $users,
+            "id" => $id,
+        ]);
+    }
 }

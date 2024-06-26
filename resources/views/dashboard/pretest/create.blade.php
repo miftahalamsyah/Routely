@@ -32,9 +32,8 @@
 
                         <div class="mb-4">
                             <label for="pertanyaan" class="block text-md font-semibold text-gray-800">Pertanyaan</label>
-                            <input type="text" id="pertanyaan" name="pertanyaan" value="{{ old('pertanyaan') }}" placeholder="Masukkan Pertanyaan"
-                                class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">
-                            </input>
+                            <textarea id="pertanyaan" name="pertanyaan" placeholder="Masukkan Pertanyaan"
+                                class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('pertanyaan') }}</textarea>
                             @error('pertanyaan')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -52,8 +51,7 @@
 
                         <div class="mb-4">
                             <label for="jawaban_a" class="block text-md font-semibold text-gray-800">Opsi A</label>
-                            <textarea type="text" id="jawaban_a" name="jawaban_a" placeholder="Masukkan opsi_a nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_a') }}
-                            </textarea>
+                            <textarea type="text" id="jawaban_a" name="jawaban_a" placeholder="Masukkan opsi_a nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_a') }}</textarea>
                             @error('jawaban_a')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -61,8 +59,7 @@
 
                         <div class="mb-4">
                             <label for="jawaban_b" class="block text-md font-semibold text-gray-800">Opsi B</label>
-                            <textarea id="jawaban_b" name="jawaban_b" rows="3" placeholder="Masukkan opsi_b nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_b') }}
-                            </textarea>
+                            <textarea id="jawaban_b" name="jawaban_b" placeholder="Masukkan opsi_b nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_b') }}</textarea>
                             @error('jawaban_b')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -70,8 +67,7 @@
 
                         <div class="mb-4">
                             <label for="jawaban_c" class="block text-md font-semibold text-gray-800">Opsi C</label>
-                            <textarea type="text" id="jawaban_c" name="jawaban_c" placeholder="Masukkan opsi_c nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_c') }}
-                            </textarea>
+                            <textarea type="text" id="jawaban_c" name="jawaban_c" placeholder="Masukkan opsi_c nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_c') }}</textarea>
                             @error('jawaban_c')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -79,8 +75,7 @@
 
                         <div class="mb-4">
                             <label for="jawaban_d" class="block text-md font-semibold text-gray-800">Opsi D</label>
-                            <textarea type="text" id="jawaban_d" name="jawaban_d" placeholder="Masukkan opsi_d nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_d') }}
-                            </textarea>
+                            <textarea type="text" id="jawaban_d" name="jawaban_d" placeholder="Masukkan opsi_d nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_d') }}</textarea>
                             @error('jawaban_d')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -88,8 +83,7 @@
 
                         <div class="mb-4">
                             <label for="jawaban_e" class="block text-md font-semibold text-gray-800">Opsi E</label>
-                            <textarea type="text" id="jawaban_e" name="jawaban_e" placeholder="Masukkan opsi_e nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_e') }}
-                            </textarea>
+                            <textarea type="text" id="jawaban_e" name="jawaban_e" placeholder="Masukkan opsi_e nya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('jawaban_e') }}</textarea>
                             @error('jawaban_e')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -111,8 +105,7 @@
 
                         <div class="mb-4">
                             <label for="pembahasan" class="block text-md font-semibold text-gray-800">Pembahasan</label>
-                            <textarea type="text" id="pembahasan" name="pembahasan" placeholder="Masukkan pembahasannya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('pembahasan') }}
-                            </textarea>
+                            <textarea type="text" id="pembahasan" name="pembahasan" placeholder="Masukkan pembahasannya" class="w-full px-4 py-2 border rounded-lg focus:ring-violet-400 focus:border-violet-400">{{ old('pembahasan') }}</textarea>
                             @error('pembahasan')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -121,7 +114,7 @@
                         <div class="flex justify-end">
                             <button type="submit"
                                 class="bg-violet-500 text-white px-4 py-2 rounded-md hover:bg-violet-600 focus:outline-none focus:bg-violet-600">
-                                Create pretest
+                                Tambah Soal Pretest
                             </button>
                         </div>
                     </form>
@@ -130,4 +123,9 @@
         </div>
     </div>
 </section>
+
+
+<script>
+  CKEDITOR.replace('pertanyaan');
+</script>
 @endsection

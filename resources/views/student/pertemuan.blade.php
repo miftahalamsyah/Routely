@@ -28,7 +28,7 @@
                 </div>
                 <div class="relative flex flex-col min-w-0 break-words bg-stone-100 mx-4 bg-stone-100 border border-stone-700 my-4">
                     <div class="flex-auto p-4">
-                        <h2 class="text-md font-bold">Tujuan Pembelajaran</h2>
+                        <h2 class="text-md font-bold">Deskripsi Pembelajaran</h2>
                         <span class="text-sm">{{ $pertemuan->tujuan_pembelajaran }}</span>
                     </div>
                 </div>

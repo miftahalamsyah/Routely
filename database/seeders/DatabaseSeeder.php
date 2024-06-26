@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'Nama Siswa',
+            'name' => 'Siswa Satu',
             'email' => 'bhoysnesia@gmail.com',
             'slug' => (string) Str::uuid(),
             'password' => bcrypt('bhoysnesia@gmail.com'),
@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'Sosok Keluarbiasaan',
+            'name' => 'Siswa Dua',
             'email' => 'miftahrizkyalamsyah@protonmail.com',
             'slug' => (string) Str::uuid(),
             'password' => bcrypt('miftahrizkyalamsyah@protonmail.com'),
@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
         Pertemuan::create([
             'slug' => 'pertemuan-ke-1',
             'pertemuan_ke' => '1',
-            'tanggal' => '2024-05-11',
+            'tanggal' => '2024-08-05',
             'tujuan_pembelajaran' => 'Siswa dapat ',
             'apersepsi' => 'Siswa dapat',
         ]);
@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
         Pertemuan::create([
             'slug' => 'pertemuan-ke-2',
             'pertemuan_ke' => '2',
-            'tanggal' => '2024-05-18',
+            'tanggal' => '2024-08-06',
             'tujuan_pembelajaran' => 'Siswa dapat ',
             'apersepsi' => 'Siswa dapat',
         ]);
@@ -61,15 +61,7 @@ class DatabaseSeeder extends Seeder
         Pertemuan::create([
             'slug' => 'pertemuan-ke-3',
             'pertemuan_ke' => '3',
-            'tanggal' => '2024-05-23',
-            'tujuan_pembelajaran' => 'Siswa dapat ',
-            'apersepsi' => 'Siswa dapat',
-        ]);
-
-        Pertemuan::create([
-            'slug' => 'pertemuan-ke-4',
-            'pertemuan_ke' => '4',
-            'tanggal' => '2024-05-30',
+            'tanggal' => '2024-08-07',
             'tujuan_pembelajaran' => 'Siswa dapat ',
             'apersepsi' => 'Siswa dapat',
         ]);

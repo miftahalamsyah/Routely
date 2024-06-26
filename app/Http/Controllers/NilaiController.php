@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\HasilTestSiswaPretestExport;
 use App\Exports\HasilTestSiswaPosttestExport;
 use App\Models\Nilai;
+use App\Models\HasilKuisSiswa;
 use App\Models\HasilTesSiswa;
 use App\Models\HasilTugasSiswa;
 use App\Models\NilaiTugas;
@@ -37,6 +38,8 @@ class NilaiController extends Controller
 
         $CountNilaiTugas = NilaiTugas::count();
         $CountHasilTugasSiswa = HasilTugasSiswa::count();
+        $CountHasilKuisSiswa = HasilKuisSiswa::count();
+        $CountKuisSiswa = User::where('is_admin', 0)->count() * 3;
 
         $siswa = User::where('is_admin', 0)->get();
         $nilaiPretest = HasilTesSiswa::where('kategori_tes_id', 1)->get();
@@ -45,7 +48,7 @@ class NilaiController extends Controller
         return view('dashboard.nilai.index',
         [
             "title" => "Nilai",
-        ],compact('nilais','nilaiPretestPosttest', 'CountPretest', 'CountPosttest', 'CountStudent', 'averagePosttest', 'averagePretest', 'CountNilaiTugas', 'CountHasilTugasSiswa', 'siswa','nilaiPretest', 'nilaiPosttest'));
+        ],compact('nilais','nilaiPretestPosttest', 'CountPretest', 'CountPosttest', 'CountStudent', 'averagePosttest', 'averagePretest', 'CountNilaiTugas', 'CountHasilTugasSiswa', 'CountHasilKuisSiswa', 'CountKuisSiswa', 'siswa', 'nilaiPretest', 'nilaiPosttest'));
     }
 
     public function pretest(): View
@@ -62,10 +65,15 @@ class NilaiController extends Controller
         $averagePengenalanPola = HasilTesSiswa::where('kategori_tes_id', 1)->avg('pengenalan_pola');
         $averageAlgoritma = HasilTesSiswa::where('kategori_tes_id', 1)->avg('algoritma');
 
+        $usersNotSubmitted = User::where('is_admin', 0)
+            ->whereNotIn('id', $nilaiPretest->pluck('user_id'))
+            ->orderBy('name')
+            ->get();
+
         return view('dashboard.nilai.pretest',
         [
             "title" => "Nilai Pretest",
-        ],compact('nilaiPretest', 'averagePretest','averageDekomposisi', 'averageAbstraksi', 'averagePengenalanPola', 'averageAlgoritma'));
+        ],compact('nilaiPretest', 'averagePretest','averageDekomposisi', 'averageAbstraksi', 'averagePengenalanPola', 'averageAlgoritma', 'usersNotSubmitted'));
     }
 
     public function exportPretest()
@@ -92,10 +100,15 @@ class NilaiController extends Controller
         $averagePengenalanPola = HasilTesSiswa::where('kategori_tes_id', 2)->avg('pengenalan_pola');
         $averageAlgoritma = HasilTesSiswa::where('kategori_tes_id', 2)->avg('algoritma');
 
+        $usersNotSubmitted = User::where('is_admin', 0)
+            ->whereNotIn('id', $nilaiPosttest->pluck('user_id'))
+            ->orderBy('name')
+            ->get();
+
         return view('dashboard.nilai.posttest',
         [
             "title" => "Nilai Posttest",
-        ],compact('nilaiPosttest', 'averagePosttest','averageDekomposisi', 'averageAbstraksi', 'averagePengenalanPola', 'averageAlgoritma'));
+        ],compact('nilaiPosttest', 'averagePosttest','averageDekomposisi', 'averageAbstraksi', 'averagePengenalanPola', 'averageAlgoritma', 'usersNotSubmitted'));
     }
 
     public function create()

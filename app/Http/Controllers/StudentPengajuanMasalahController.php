@@ -10,30 +10,40 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class StudentPengajuanMasalahController extends Controller
 {
-    public function index()
+    public function index($pertemuan_id)
     {
         $user = auth()->user();
         $pertemuans = Pertemuan::all();
-        $pengajuanMasalah = PengajuanMasalah::all()->sortByDesc('created_at')->sortBy('kelompok')->sortByDesc('pertemuan_id');
+
+        $pengajuanMasalahPertemuan = PengajuanMasalah::where('pertemuan_id', $pertemuan_id)
+            ->orderBy('kelompok')
+            ->orderByDesc('created_at')
+            ->orderByDesc('pertemuan_id')
+            ->get();
 
         $pengajuanMasalahUser = $user->pengajuanMasalahUser;
-
         $noKelompok = Kelompok::where('user_id', $user->id)->value('no_kelompok');
+
+        // Check if the user has already submitted a pengajuan_masalah for the given pertemuan_id
+        $alreadySubmitted = $pengajuanMasalahUser->contains('pertemuan_id', $pertemuan_id);
 
         return view('student.pengajuan-masalah.index', [
             'title' => '4. Pengajuan Masalah',
             'user' => $user,
             'noKelompok' => $noKelompok,
             'pertemuans' => $pertemuans,
-            'pengajuanMasalah' => $pengajuanMasalah,
-        ], compact('pengajuanMasalahUser'));
+            'pengajuanMasalahPertemuan' => $pengajuanMasalahPertemuan,
+            'pengajuanMasalahUser' => $pengajuanMasalahUser,
+            'alreadySubmitted' => $alreadySubmitted,
+        ]);
     }
+
 
     public function store(Request $request)
     {
         $this->validate($request,[
             'pertemuan_id' => 'required',
-            'soal' => 'required|mimes:pkt,json|max:10240',
+            'soal' => 'required|mimetypes:application/octet-stream,application/json|max:10240',
             'kelompok' => 'required',
             'keterangan' => 'nullable'
         ]);
@@ -43,8 +53,16 @@ class StudentPengajuanMasalahController extends Controller
 
         $soalFileName = null;
         if ($request->hasFile('soal')) {
+            $file = $request->file('soal');
             $timestamp = substr(time(), -4); // Extract the last 4 digits of the current timestamp
-            $soalFileName = "Soal PM_Pertemuan {$pertemuan_id}_Kelompok {$noKelompok}_{$timestamp}." . $request->soal->extension();
+
+            $originalExtension = $file->getClientOriginalExtension();
+            // Change extension to .pkt if it's .bin
+            if ($originalExtension === 'bin') {
+                $originalExtension = 'pkt';
+            }
+
+            $soalFileName = "Soal PM_Pertemuan {$pertemuan_id}_Kelompok {$noKelompok}_{$timestamp}.{$originalExtension}";
             $request->soal->storeAs('public/pengajuan-masalah', $soalFileName);
         }
 
@@ -57,12 +75,14 @@ class StudentPengajuanMasalahController extends Controller
         ]);
 
         Alert::success('Success', 'Pengajuan masalah telah dikirim.');
-        return redirect()->route('student.pengajuan-masalah');
+        return redirect()->route('student.pengajuan-masalah', ['pertemuan_id' => $pertemuan_id]);
+
     }
 
     public function destroy($id)
     {
         $pengajuanMasalah = PengajuanMasalah::findOrFail($id);
+        $pertemuan_id = $pengajuanMasalah->pertemuan_id;
 
         // Check if the authenticated user owns this record
         if ($pengajuanMasalah->user_id == auth()->user()->id) {
@@ -72,7 +92,7 @@ class StudentPengajuanMasalahController extends Controller
             Alert::error('Error', 'Anda tidak memiliki izin untuk menghapus pengajuan masalah ini.');
         }
 
-        return redirect()->route('student.pengajuan-masalah');
+        return redirect()->route('student.pengajuan-masalah', ['pertemuan_id' => $pertemuan_id]);
     }
 
 }

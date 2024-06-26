@@ -15,7 +15,7 @@
         <a href="/dashboard/nilai/kuis" class="text-sm">
             <div class="w-full h-24 bg-stone-800 text-stone-300 p-4 block rounded-xl border-stone-600 border hover:bg-stone-600">
                 Nilai Kuis
-                {{--<p class="font-bold text-2xl py-2">{{ $CountNilaiTugas }}/{{ $CountHasilTugasSiswa }}</p>--}}
+                <p class="font-bold text-2xl py-2">{{ $CountHasilKuisSiswa }}/{{ $CountKuisSiswa }}</p>
             </div>
         </a>
     </div>
@@ -111,8 +111,8 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
-                                                <div class="mx-auto bg-stone-300 text-gray-600 p-2 rounded-xl">
+                                            <td colspan="5" class="px-6 py-4 whitespace-nowrap text-center">
+                                                <div class="mx-auto text-stone-300 p-2 rounded-xl">
                                                     Data nilai tidak tersedia.
                                                 </div>
                                             </td>
@@ -184,8 +184,8 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
-                                                <div class="mx-auto bg-gray-100 text-gray-600 p-2 rounded-xl">
+                                            <td colspan="4" class="px-6 py-4 whitespace-nowrap text-center">
+                                                <div class="mx-auto text-stone-300 p-2 rounded-xl">
                                                     Data nilai tidak tersedia.
                                                 </div>
                                             </td>

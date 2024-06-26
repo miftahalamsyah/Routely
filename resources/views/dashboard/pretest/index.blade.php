@@ -13,6 +13,7 @@
                         <div class="justify-between text-stone-800">
                             <button class="bg-violet-400 my-2 p-2 rounded-xl hover:bg-violet-300"><a href="{{ route('pretest.create') }}" class="text-md font-semibold p-2">Tambah Soal Pretest</a></button>
                             <button class="bg-student my-2 p-2 rounded-xl text-stone-300"><a href="{{ route('pretest.import') }}" class="text-md font-semibold p-2">Import Spreadsheets</a></button>
+                            <button class="bg-violet-800 my-2 p-2 rounded-xl text-stone-300"><a href="{{ route('pretest.export') }}" class="text-md font-semibold p-2">Export Spreadsheets</a></button>
                         </div>
                         <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-stone-600">
@@ -51,31 +52,31 @@
                                 <tbody class="divide-y divide-stone-600">
                                     @forelse ($soal_tes as $index => $soal)
                                         <tr>
-                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                            <td class="px-6 py-4 whitespace-nowrap text-center table-cell-3em">
                                                 {{ $index + 1 }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-6 py-4 whitespace-nowrap table-cell-3em">
                                                 {{ $soal->indikator }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-6 py-4 whitespace-nowrap table-cell-3em">
                                                 {{ $soal->pertanyaan }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-6 py-4 whitespace-nowrap table-cell-3em">
                                                 {{ $soal->jawaban_a }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-6 py-4 whitespace-nowrap table-cell-3em">
                                                 {{ $soal->jawaban_b }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-6 py-4 whitespace-nowrap table-cell-3em">
                                                 {{ $soal->jawaban_c }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-6 py-4 whitespace-nowrap table-cell-3em">
                                                 {{ $soal->jawaban_d }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-6 py-4 whitespace-nowrap table-cell-3em">
                                                 {{ $soal->jawaban_e }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-6 py-4 whitespace-nowrap table-cell-3em">
                                                 {{ $soal->kunci_jawaban }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -96,7 +97,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center">
+                                            <td colspan="10" class="px-6 py-4 whitespace-nowrap text-center">
                                                 <div class="bg-stone-800 text-stone-300 p-2 rounded-xl">
                                                     Data soal pretest tidak tersedia.
                                                 </div>

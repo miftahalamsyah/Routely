@@ -30,10 +30,10 @@
                                             <img src="{{ asset('storage/gambar/' . $soal->gambar) }}" alt="Gambar Soal" class="w-full h-full object-cover">
                                         </div>
                                         @endif
-                                        <p class="text-gray-800 text-md my-2">{{ $soal->pertanyaan }}</p>
+                                        <p class="text-gray-800 text-md my-2">{!! $soal->pertanyaan !!}</p>
 
                                         {{-- Opsi jawaban a, b, c, d, e --}}
-                                        <div class="grid grid-cols-1 gap-4">
+                                        <div class="grid grid-cols-1 gap-4 my-4">
                                             @foreach(['a', 'b', 'c', 'd', 'e'] as $option)
                                                 <div class="flex items-center text-sm">
                                                     <input type="radio" id="{{ $index }}_{{ $option }}" name="jawaban[{{ $index }}]" value="{{ $option }}">

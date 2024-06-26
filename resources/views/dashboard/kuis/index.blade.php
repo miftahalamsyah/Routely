@@ -11,7 +11,7 @@
         <button class="bg-student m-2 p-2 rounded-xl text-stone-50"><a href="{{ route('kuis.import') }}" class="text-md font-semibold p-2">Import Spreadsheets</a></button>
     </div>
 
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 m-3">
+    <div class="grid grid-cols-3 gap-4 m-3">
         @php
             $uniquePertemuanIds = $soal_kuis->unique('pertemuan_id')->pluck('pertemuan_id');
         @endphp

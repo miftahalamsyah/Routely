@@ -22,7 +22,7 @@
                                             Tanggal
                                         </th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
-                                            Tujuan Pembelajaran
+                                            Deskripsi Pembelajaran
                                         </th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                                             Apersepsi
