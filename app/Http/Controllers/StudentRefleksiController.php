@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HasilTesSiswa;
 use App\Models\Pertemuan;
 use App\Models\Refleksi;
 use Illuminate\Http\Request;
@@ -11,6 +12,15 @@ class StudentRefleksiController extends Controller
 {
     public function index()
     {
+        $userHasPretest = HasilTesSiswa::where('user_id', auth()->id())
+            ->where('kategori_tes_id', 1)
+            ->exists();
+
+        if (!$userHasPretest) {
+            Alert::error('Maaf', 'Anda harus mengerjakan Pretest terlebih dahulu.');
+            return redirect()->back();
+        }
+
         $user = auth()->user();
         $refleksis = $user->refleksis;
         $pertemuans = Pertemuan::all();

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HasilTesSiswa;
 use App\Models\HasilTugasSiswa;
 use App\Models\Kelompok;
 use App\Models\NilaiTugas;
 use App\Models\Tugas;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class StudentTugasController extends Controller
 {
@@ -40,6 +42,15 @@ class StudentTugasController extends Controller
     public function show(Tugas $tugas)
     {
         $user = auth()->user();
+
+        $userHasPretest = HasilTesSiswa::where('user_id', auth()->id())
+            ->where('kategori_tes_id', 1)
+            ->exists();
+
+        if (!$userHasPretest) {
+            Alert::error('Maaf', 'Anda harus mengerjakan Pretest terlebih dahulu.');
+            return redirect()->back();
+        }
 
         $submission = HasilTugasSiswa::where('user_id', $user->id)
             ->where('tugas_id', $tugas->id)

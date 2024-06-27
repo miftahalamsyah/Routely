@@ -66,7 +66,9 @@
             <div x-data="{ isOpenPretest: false }" class="flex-auto p-4 mb-4 sm:mb-0 bg-lime-200 text-stone-700 border border-r-4 border-b-4 border-stone-700 score-card">
                 <div class="max-w-full h-16 px-3">
                     <div class="flex items-center justify-between">
-                        <p class="mb-0 font-semibold leading-normal text-sm">Nilai Pre-Test</p>
+                        <a href="/student/tes">
+                            <p class="mb-0 hover:underline font-semibold leading-normal text-sm">Nilai Pre-Test</p>
+                        </a>
                         <!-- Button to toggle score visibility -->
                         <div class="relative group">
                             <button @click="isOpenPretest = !isOpenPretest" class="toggle-score-button" aria-label="Toggle Score Visibility">
@@ -115,7 +117,9 @@
             <div x-data="{ isOpenPosttest: false }" class="flex-auto p-4 bg-fuchsia-300 text-stone-700 border border-r-4 border-b-4 border-stone-700 score-card">
                 <div class="max-w-full h-16 gap-4">
                     <div class="flex items-center justify-between">
-                        <p class="mb-0 font-semibold leading-normal text-sm">Nilai Post-Test</p>
+                        <a href="/student/tes">
+                            <p class="mb-0 hover:underline font-semibold leading-normal text-sm">Nilai Post-Test</p>
+                        </a>
                         <!-- Button to toggle score visibility -->
                         <div class="relative group">
                             <button @click="isOpenPosttest = !isOpenPosttest" class="toggle-score-button" aria-label="Toggle Score Visibility">
