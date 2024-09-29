@@ -133,7 +133,8 @@ Route::get('/dashboard/posttest', [\App\Http\Controllers\SoalTesController::clas
 Route::get('/dashboard/posttest/create', [\App\Http\Controllers\SoalTesController::class, 'posttestcreate'])->name('posttest.create')->middleware('admin');
 Route::match(['get', 'post'], '/dashboard/posttest/import', [SoalTesController::class, 'posttestimport'])->name('posttest.import')->middleware('admin');
 Route::post('/dashboard/posttest', [\App\Http\Controllers\SoalTesController::class, 'postteststore'])->name('posttest.store')->middleware('admin');
-Route::get('/dashboard/posttest/edit', [\App\Http\Controllers\SoalTesController::class, 'posttestedit'])->name('posttest.edit')->middleware('admin');
+Route::get('/dashboard/posttest/edit/{soalTes}', [\App\Http\Controllers\SoalTesController::class, 'posttestedit'])->name('posttest.edit')->middleware('admin');
+Route::put('/dashboard/posttest/update/{soalTes}', [\App\Http\Controllers\SoalTesController::class, 'posttestupdate'])->name('posttest.update')->middleware('admin');
 Route::delete('/dashboard/posttest/{id}', [\App\Http\Controllers\SoalTesController::class, 'posttestdestroy'])->name('posttest.destroy')->middleware('admin');
 
 Route::get('/dashboard/nilai/{id}', [NilaiController::class, 'show'])->name('nilai.show')->middleware('admin');

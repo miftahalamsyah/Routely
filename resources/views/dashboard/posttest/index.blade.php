@@ -55,28 +55,28 @@
                                             <td class="px-6 py-4 whitespace-nowrap text-center">
                                                 {{ $index + 1 }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-6 py-4 whitespace-nowrap table-cell-3em">
                                                 {{ $soal->indikator }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-6 py-4 whitespace-nowrap table-cell-3em">
                                                 {{ $soal->pertanyaan }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-6 py-4 whitespace-nowrap table-cell-3em">
                                                 {{ $soal->jawaban_a }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-6 py-4 whitespace-nowrap table-cell-3em">
                                                 {{ $soal->jawaban_b }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-6 py-4 whitespace-nowrap table-cell-3em">
                                                 {{ $soal->jawaban_c }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-6 py-4 whitespace-nowrap table-cell-3em">
                                                 {{ $soal->jawaban_d }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-6 py-4 whitespace-nowrap table-cell-3em">
                                                 {{ $soal->jawaban_e }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-6 py-4 whitespace-nowrap table-cell-3em">
                                                 {{ $soal->kunci_jawaban }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

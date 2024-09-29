@@ -7,7 +7,8 @@
         @vite('resources/css/app.css')
         <link rel="stylesheet" href="app.css">
         <script src="{{ asset('js/loading-bar.js') }}" async></script>
-        <script src="https://cdn.ckeditor.com/4.18.0/standard/ckeditor.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+        <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
 
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
