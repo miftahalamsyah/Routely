@@ -48,7 +48,7 @@
                                 </div>
                             </a>
                             @endif
-                            <p class="text-gray-800 text-md my-2">{{ $soal->pertanyaan }}</p>
+                            <p class="text-gray-800 text-md my-2">{!! $soal->pertanyaan !!}</p>
 
                             {{-- Opsi jawaban a, b, c, d, e --}}
                             <div class="grid grid-cols-1 gap-4">

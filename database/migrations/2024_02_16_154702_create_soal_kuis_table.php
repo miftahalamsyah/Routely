@@ -14,15 +14,15 @@ return new class extends Migration
         Schema::create('soal_kuis', function (Blueprint $table) {
             $table->id();
             $table->string('indikator');
-            $table->string('pertanyaan');
+            $table->text('pertanyaan'); // Changed from string to text
             $table->string('gambar')->nullable();
-            $table->string('jawaban_a');
-            $table->string('jawaban_b');
-            $table->string('jawaban_c');
-            $table->string('jawaban_d');
-            $table->string('jawaban_e');
+            $table->text('jawaban_a'); // Changed from string to text
+            $table->text('jawaban_b'); // Changed from string to text
+            $table->text('jawaban_c'); // Changed from string to text
+            $table->text('jawaban_d'); // Changed from string to text
+            $table->text('jawaban_e'); // Changed from string to text
             $table->string('kunci_jawaban');
-            $table->string('pembahasan')->nullable();
+            $table->text('pembahasan')->nullable(); // Changed from string to text
             $table->foreignId('pertemuan_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

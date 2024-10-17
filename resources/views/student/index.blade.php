@@ -296,7 +296,7 @@
                             <a href="/student/materi/{{ $materi->slug }}">
                                 <h2 class="hover:underline leading-normal text-lg font-bold">{{ $materi->title }}</h2>
                             </a>
-                            <p class="mb-6 leading-normal text-sm overflow-hidden h-24 ...">{{ $materi->description }}</p>
+                            <p class="mb-6 leading-normal text-sm overflow-hidden h-16 ...">{{ $materi->description }}</p>
                             <div class="absolute bottom-0 left-0 my-4 px-2">
                                 <a href="/student/materi/{{ $materi->slug }}">
                                     <button class="mr-2 text-sm relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-bold text-stone-50 transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out shadow-md bg-violet-500 hover:bg-violet-600 border border-r-4 border-b-4 border-stone-700">

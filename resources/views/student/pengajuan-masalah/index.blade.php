@@ -69,11 +69,11 @@
             <div class="mb-4">
                 <label for="keterangan" class="block text-md font-semibold text-gray-800">Keterangan* <span class="text-xs font-normal">(opsional)</span></label>
                 @if($alreadySubmitted)
-                    <input type="text" id="keterangan" name="keterangan" rows="5"
-                        class="text-stone-400 w-full bg-stone-50 px-4 py-2 border border-b-4 border-r-4 border-stone-300 focus:ring-violet-400 focus:border-violet-400 @error('keterangan') border-red-500 @enderror" disabled>{{ old('keterangan') }}</input>
+                    <textarea type="text" id="keterangan" name="keterangan" rows="5"
+                        class="text-stone-400 w-full bg-stone-50 px-4 py-2 border border-b-4 border-r-4 border-stone-300 focus:ring-violet-400 focus:border-violet-400 @error('keterangan') border-red-500 @enderror" disabled>{{ old('keterangan') }}</textarea>
                 @else
-                    <input type="text" id="keterangan" name="keterangan" rows="5"
-                        class="w-full bg-stone-50 px-4 py-2 border border-b-4 border-r-4 border-stone-300 focus:ring-violet-400 focus:border-violet-400 @error('keterangan') border-red-500 @enderror">{{ old('keterangan') }}</input>
+                    <textarea type="text" id="keterangan" name="keterangan" rows="5"
+                        class="w-full bg-stone-50 px-4 py-2 border border-b-4 border-r-4 border-stone-300 focus:ring-violet-400 focus:border-violet-400 @error('keterangan') border-red-500 @enderror">{{ old('keterangan') }}</textarea>
                 @endif
 
                 @error('keterangan')

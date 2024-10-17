@@ -11,14 +11,83 @@
                 </svg>
                 <p class="ml-2 font-semibold text-md">Kembali</p>
             </a>
-            <div class="bg-stone-50 rounded-sm border border-r-4 border-b-4 border-stone-700 shadow-md p-5">
-                <p class="font-bold text-md">Deskripsi</p>
-                <p class="text-md">{{ $description }}</p>
+
+            <div x-data="{ persiapan: false}" class="w-full mx-auto bg-stone-50 p-5 rounded-sm border border-b-4 border-r-4 border-stone-700 my-4">
+                <button @click="persiapan = !persiapan" class="flex justify-between w-full">
+                    <p class="font-bold text-lg">a. Deskripsi</p>
+                    <svg x-bind:class="{ 'rotate-180': persiapan }" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 justify-end transition-transform transform" viewBox="0 0 20 20" fill="currentColor" >
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div x-show="persiapan" class="relative flex flex-col break-words">
+                    <p class="text-md mt-2">{{ $description }}</p>
+                </div>
             </div>
-            @if ($pdf_file)
-                <p class="font-thin italic text-sm mt-4">Materi dapat diunduh dalam bentuk .pdf di bawah ini</p>
-                <iframe src="{{ asset('storage/pdfs/' . $pdf_file) }}" class="rounded-sm border border-r-4 border-b-4 border-stone-700 my-4" frameborder="0" width="100%" height="600"></iframe>
-            @endif
+
+            <div x-data="{ materi_pdf: false}" class="w-full mx-auto bg-stone-50 p-5 rounded-sm border border-b-4 border-r-4 border-stone-700 my-4">
+                <button @click="materi_pdf = !materi_pdf" class="flex justify-between w-full">
+                    <p class="font-bold text-lg">b. Materi</p>
+                    <svg x-bind:class="{ 'rotate-180': materi_pdf }" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 justify-end transition-transform transform" viewBox="0 0 20 20" fill="currentColor" >
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div x-show="materi_pdf" class="relative flex flex-col break-words">
+                    @if ($pdf_file)
+                        <p class="font-thin italic text-sm mt-4">Materi dapat diunduh dalam bentuk .pdf di bawah ini</p>
+                        <iframe src="{{ asset('storage/pdfs/' . $pdf_file) }}" class="rounded-sm border border-r-4 border-b-4 border-stone-700 my-4" frameborder="0" width="100%" height="400"></iframe>
+                    @endif
+                </div>
+            </div>
+
+            <!--<div class="grid grid-cols-2 gap-4">
+            <div x-data="{ dekomposisi: false}" class="w-full mx-auto bg-stone-50 p-5 rounded-sm border border-b-4 border-r-4 border-stone-700 my-4">
+                <button @click="dekomposisi = !dekomposisi" class="flex justify-between w-full">
+                    <p class="font-bold text-lg">c. Berpikir Komputasi (Dekomposisi)</p>
+                    <svg x-bind:class="{ 'rotate-180': dekomposisi }" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 justify-end transition-transform transform" viewBox="0 0 20 20" fill="currentColor" >
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div x-show="dekomposisi" class="relative flex flex-col break-words">
+                    <p class="text-md">{{ $description }}</p>
+                </div>
+            </div>
+
+            <div x-data="{ pengenalanpola: false}" class="w-full mx-auto bg-stone-50 p-5 rounded-sm border border-b-4 border-r-4 border-stone-700 my-4">
+                <button @click="pengenalanpola = !pengenalanpola" class="flex justify-between w-full">
+                    <p class="font-bold text-lg">d. Berpikir Komputasi (Pengenalan Pola)</p>
+                    <svg x-bind:class="{ 'rotate-180': pengenalanpola }" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 justify-end transition-transform transform" viewBox="0 0 20 20" fill="currentColor" >
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div x-show="pengenalanpola" class="relative flex flex-col break-words">
+                    <p class="text-md">{{ $description }}</p>
+                </div>
+            </div>
+
+            <div x-data="{ abstraksi: false}" class="w-full mx-auto bg-stone-50 p-5 rounded-sm border border-b-4 border-r-4 border-stone-700 my-4">
+                <button @click="abstraksi = !abstraksi" class="flex justify-between w-full">
+                    <p class="font-bold text-lg">e. Berpikir Komputasi (Abstraksi)</p>
+                    <svg x-bind:class="{ 'rotate-180': abstraksi }" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 justify-end transition-transform transform" viewBox="0 0 20 20" fill="currentColor" >
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div x-show="abstraksi" class="relative flex flex-col break-words">
+                    <p class="text-md">{{ $description }}</p>
+                </div>
+            </div>
+
+            <div x-data="{ algoritma: false}" class="w-full mx-auto bg-stone-50 p-5 rounded-sm border border-b-4 border-r-4 border-stone-700 my-4">
+                <button @click="algoritma = !algoritma" class="flex justify-between w-full">
+                    <p class="font-bold text-lg">f. Berpikir Komputasi (Algoritma)</p>
+                    <svg x-bind:class="{ 'rotate-180': algoritma }" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 justify-end transition-transform transform" viewBox="0 0 20 20" fill="currentColor" >
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div x-show="algoritma" class="relative flex flex-col break-words">
+                    <p class="text-md">{{ $description }}</p>
+                </div>
+            </div>
+            </div>-->
 
             <div class="flex gap-4 my-8">
                 {{-- <form method="POST" action="{{ route('student.materi.show', $materi->slug) }}">

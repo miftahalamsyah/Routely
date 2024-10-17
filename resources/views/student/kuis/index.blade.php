@@ -27,15 +27,15 @@
                                         </div>
                                         @if ($soal->gambar)
                                         <a href="{{ asset('storage/gambar/' . $soal->gambar) }}" target="_blank" >
-                                            <div class="my-4 rounded-sm border border-r-4 border-b-4 border-stone-700 overflow-hidden" style="max-width: 400px; max-height: 300px;">
-                                                <img src="{{ asset('storage/gambar/' . $soal->gambar) }}" alt="Gambar Soal" class="w-full h-full object-cover">
+                                            <div class="my-4 rounded-sm border border-r-4 border-b-4 border-stone-700 overflow-hidden" style="max-width: 600px; max-height: 450px;">
+                                                <img src="{{ asset('storage/gambar/' . $soal->gambar) }}" alt="Gambar Soal" class="w-full h-full object-cover" title="Klik untuk memperbesar">
                                             </div>
                                         </a>
                                         @endif
-                                        <p class="text-gray-800 text-md my-2">{{ $soal->pertanyaan }}</p>
+                                        <p class="text-gray-800 text-md my-2">{!! $soal->pertanyaan !!}</p>
 
                                         {{-- Opsi jawaban a, b, c, d, e --}}
-                                        <div class="grid grid-cols-1 gap-4">
+                                        <div class="grid grid-cols-1 gap-4 mt-4">
                                             @foreach(['a', 'b', 'c', 'd', 'e'] as $option)
                                                 <div class="flex items-center text-sm">
                                                     <input type="radio" id="{{ $index }}_{{ $option }}" name="jawaban[{{ $index }}]" value="{{ $option }}">

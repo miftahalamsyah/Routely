@@ -55,7 +55,7 @@
                                                 {{ $refleksi->saran }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <div class="flex space-x-2 justify-end">
+                                                <!--<div class="flex space-x-2 justify-end">
                                                     <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('refleksi.destroy', $refleksi->id) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
@@ -63,7 +63,7 @@
                                                             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2h4a1 1 0 1 1 0 2h-1.069l-.867 12.142A2 2 0 0 1 17.069 22H6.93a2 2 0 0 1-1.995-1.858L4.07 8H3a1 1 0 0 1 0-2h4V4zm2 2h6V4H9v2zM6.074 8l.857 12H17.07l.857-12H6.074zM10 10a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1z" fill="#0D0D0D"/></svg>
                                                         </button>
                                                     </form>
-                                                </div>
+                                                </div>-->
                                             </td>
 
                                         </tr>
@@ -108,8 +108,8 @@
 
                         <div class="mb-4">
                             <label for="seberapa_paham" class="block text-md font-semibold text-gray-800">Apakah Anda merasa paham dengan materi yang telah diajarkan?</label>
-                            <input type="text" id="seberapa_paham" name="seberapa_paham" rows="5"
-                                class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300  @error('seberapa_paham') border-red-500 @enderror">{{ old('seberapa_paham') }}</input>
+                            <textarea type="text" id="seberapa_paham" name="seberapa_paham" rows="5"
+                                class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300  @error('seberapa_paham') border-red-500 @enderror">{{ old('seberapa_paham') }}</textarea>
                             @error('seberapa_paham')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -117,8 +117,8 @@
 
                         <div class="mb-4">
                             <label for="seberapa_baik" class="block text-md font-semibold text-gray-800">Bagaimana penilaian Anda terhadap kualitas pembelajaran ini?</label>
-                            <input type="text" id="seberapa_baik" name="seberapa_baik" rows="5"
-                                class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300  @error('seberapa_baik') border-red-500 @enderror">{{ old('seberapa_baik') }}</input>
+                            <textarea type="text" id="seberapa_baik" name="seberapa_baik" rows="5"
+                                class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300  @error('seberapa_baik') border-red-500 @enderror">{{ old('seberapa_baik') }}</textarea>
                             @error('seberapa_baik')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -126,8 +126,8 @@
 
                         <div class="mb-4">
                             <label for="seberapa_sulit" class="block text-md font-semibold text-gray-800">Adakah bagian tertentu yang menurut Anda sulit diatasi?</label>
-                            <input type="text" id="seberapa_sulit" name="seberapa_sulit" rows="5"
-                                class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300  @error('seberapa_sulit') border-red-500 @enderror">{{ old('seberapa_sulit') }}</input>
+                            <textarea type="text" id="seberapa_sulit" name="seberapa_sulit" rows="5"
+                                class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300  @error('seberapa_sulit') border-red-500 @enderror">{{ old('seberapa_sulit') }}</textarea>
                             @error('seberapa_sulit')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -135,8 +135,8 @@
 
                         <div class="mb-4">
                             <label for="hambatan" class="block text-md font-semibold text-gray-800">Apakah ada hambatan atau kesulitan yang Anda alami selama pembelajaran?</label>
-                            <input type="text" id="hambatan" name="hambatan" rows="5"
-                                class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300  @error('hambatan') border-red-500 @enderror">{{ old('hambatan') }}</input>
+                            <textarea type="text" id="hambatan" name="hambatan" rows="5"
+                                class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300  @error('hambatan') border-red-500 @enderror">{{ old('hambatan') }}</textarea>
                             @error('hambatan')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
@@ -144,8 +144,8 @@
 
                         <div class="mb-4">
                             <label for="saran" class="block text-md font-semibold text-gray-800">Apakah ada saran yang dapat Anda berikan untuk meningkatkan cara pembelajaran?</label>
-                            <input type="text" id="saran" name="saran" rows="5"
-                                class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300  @error('saran') border-red-500 @enderror">{{ old('saran') }}</input>
+                            <textarea type="text" id="saran" name="saran" rows="5"
+                                class="w-full px-3 py-2 text-sm leading-tight text-stone-700 border border-b-4 border-r-4 border-stone-300 rounded-sm shadow-xs appearance-none focus:outline-none focus:shadow-outline-violet focus:border-violet-300  @error('saran') border-red-500 @enderror">{{ old('saran') }}</textarea>
                             @error('saran')
                                 <div class="text-red-500 mt-2 text-sm">{{ $message }}</div>
                             @enderror
